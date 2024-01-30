@@ -68,6 +68,77 @@
     "image_1": "lukes-tshirt-examples/p5/wearing.png",
     "image_2": "lukes-tshirt-examples/p5/front.png",
     "image_3":" lukes-tshirt-examples/p5/back.png"
-  }
+  },
 
+
+    {
+      "product_id": 10,
+      "name":  "1985 Collection Slim Fit t-shirt",
+      "colour": "Pink" ,
+      "size": ["small", "medium", "large"],
+      "price": 29.00,
+      "gender": "female",
+      "category": "Casual",
+      "brand": "Tommy Hilfiger",
+      "current_stock": 22,
+      "image_1": "Womens_Tshirts/Product 1/Screenshot 2024-01-30 102221.png" ,
+      "image_2": "Womens_Tshirts/Product 1/Screenshot 2024-01-30 102712.png",
+      "image_3": "Womens_Tshirts/Product 1/Screenshot 2024-01-30 102737.png"
+    },
+    {
+      "product_id": 11,
+      "name":  "1985 Collection Slim Fit t-shirt",
+      "colour": "Blue" ,
+      "size": ["small", "medium", "large"],
+      "price": 29.00,
+      "gender": "female",
+      "category": "Casual",
+      "brand": "Tommy Hilfiger",
+      "current_stock": 25,
+      "image_1": "Womens_Tshirts/Product 2/Screenshot 2024-01-30 103027.png",
+      "image_2": "Womens_Tshirts/Product 2/Screenshot 2024-01-30 103039.png",
+      "image_3": "Womens_Tshirts/Product 2/Screenshot 2024-01-30 103226.png"
+    },
+    {
+      "product_id": 12,
+      "name":  "Ultimate cotton t-shirt with crew neck",
+      "colour": "Grey" ,
+      "size": ["small", "medium", "large"],
+      "price": 8.99,
+      "gender": "female",
+      "category": "Casual",
+      "brand": "Asos",
+      "current_stock": 30,
+      "image_1": "Womens_Tshirts/Product 3/Screenshot 2024-01-30 104214.png" ,
+      "image_2": "Womens_Tshirts/Product 3/Screenshot 2024-01-30 104339.png",
+      "image_3": "Womens_Tshirts/Product 3/Screenshot 2024-01-30 104521.png"
+    },
+    {
+      "product_id": 13,
+      "name":  "Adidias Originals Essentials t-shirt",
+      "colour": "Beige" ,
+      "size": ["small", "medium", "large"],
+      "price": 28.00,
+      "gender": "female",
+      "category": "Casual",
+      "brand": "Asos",
+      "current_stock": 35,
+      "image_1": "Womens_Tshirts/Product 4/2024-01-30 (1).png",
+      "image_2": "Womens_Tshirts/Product 4/2024-01-30 (5).png",
+      "image_3": "Womens_Tshirts/Product 4/2024-01-30 (6).png"
+    },
+    {
+      "product_id": 14,
+      "name":  "Adidas Originals three stripe zebra print t-shirt",
+      "colour": "Brown" ,
+      "size": ["small", "medium", "large"],
+      "price": 30.00,
+      "gender": "female",
+      "category": "Sports",
+      "brand": "Asos",
+      "current_stock": 20,
+      "image_1": "Womens_Tshirts/Product 5/2024-01-30 (7).png" ,
+      "image_2": "Womens_Tshirts/Product 5/2024-01-30 (8).png",
+      "image_3": "Womens_Tshirts/Product 5/2024-01-30 (9).png"
+    }
 ]
