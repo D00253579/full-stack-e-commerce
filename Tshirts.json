@@ -1,6 +1,6 @@
 [
   {
-    "product_id": "0",
+    "product_id": 0,
     "name": "I WILL - Sports T-shirt",
     "colour": "White",
     "size": ["small", "medium", "large"],
@@ -14,7 +14,7 @@
     "image_3":" lukes-tshirt-examples/p1/white/back.png"
   },
   {
-    "product_id": "1",
+    "product_id": 1,
     "name": "White Stuff Abersoch Short Sleeve T-Shirt",
     "colour": "Purple",
     "size": ["small", "large"],
@@ -28,7 +28,7 @@
     "image_3":" lukes-tshirt-examples/p2/purple/back.png"
   },
   {
-    "product_id": "2",
+    "product_id": 2,
     "name": "California Vibes Short Sleeve ",
     "colour": "Light-blue",
     "size": ["small", "medium"],
@@ -42,7 +42,7 @@
     "image_3":" lukes-tshirt-examples/p3/back.png"
   },
   {
-    "product_id": "3",
+    "product_id": 3,
     "name": "Halloween T-Shirt",
     "colour": "Black",
     "size": ["small", "medium"],
@@ -56,7 +56,7 @@
     "image_3":" lukes-tshirt-examples/p4/back.png"
   },
   {
-    "product_id": "4",
+    "product_id": 4,
     "name": "Artist License Back Print Graphic T-Shirt",
     "colour": "Grey",
     "size": ["medium", "large"],
@@ -69,7 +69,77 @@
     "image_2": "lukes-tshirt-examples/p5/front.png",
     "image_3":" lukes-tshirt-examples/p5/back.png"
   },
+  {
+    "product_id": 5,
+    "name": "Light pink family printed T-shirt",
+    "colour": "Pink" ,
+    "size": ["6-9M","9-12M","2-3Y"],
+    "price": 3.99,
+    "gender": "Female",
+    "category": "Casual",
+    "brand": "H & M",
+    "current_stock": 15 ,
+    "image_1": "Jamie's tshirt examples/Product 1/hmgoepprod.jpg",
+    "image_2": "Jamie's tshirt examples/Product 1/hmgoepprod (1).jpg",
+    "image_3":""
+  },
 
+  {
+    "product_id": 6,
+    "name": "Striped  Light Yellow T-shirt",
+    "colour": "Yellow" ,
+    "size": ["6-9M","9-12M","2-3Y"],
+    "price": 3.99,
+    "gender": "Female",
+    "category": "Casual",
+    "brand": "H & M",
+    "current_stock": 20 ,
+    "image_1": "Jamie's tshirt examples/Product 1/hmgoepprod.jpg",
+    "image_2": "Jamie's tshirt examples/Product 1/hmgoepprod (1).jpg",
+    "image_3": null
+  },
+  {
+    "product_id": 7,
+    "name": "Ribbed Jersey T-shirt",
+    "colour": "Pink" ,
+    "size": ["1-2Y","2-3Y","4-6Y"],
+    "price": 6.99,
+    "gender": "Female",
+    "category": "Smart",
+    "brand": "ASOS",
+    "current_stock": 27 ,
+    "image_1": "Jamie's tshirt examples/Product 3/Front.png",
+    "image_2": "Jamie's tshirt examples/Product 1/hmgoepprod (1).jpg",
+    "image_3": null
+  },
+  {
+    "product_id": 8,
+    "name": "Marvel Spiderman T-shirt",
+    "colour": "Red" ,
+    "size": ["1-2Y","2-3Y","4-6Y"],
+    "price": 6.65,
+    "gender": "Male",
+    "category": "Superhero",
+    "brand": "Marvel Studios",
+    "current_stock": 36,
+    "image_1": "Jamie's tshirt examples/Product 4/Screenshot 2024-01-30 105405.png",
+    "image_2": "Jamie's tshirt examples/Product 4/Screenshot 2024-01-30 105559.png",
+    "image_3": null
+  },
+  {
+    "product_id": 9,
+    "name": "Jurassic World T-shirt",
+    "colour": "Green" ,
+    "size": ["2-3Y","4-6Y","8-10Y"],
+    "price": 9.99,
+    "gender": "Male",
+    "category": "Casual",
+    "brand": "H & M",
+    "current_stock": 25 ,
+    "image_1": "Jamie's tshirt examples/Product 5/Screenshot 2024-01-30 105646.png",
+    "image_2": "Jamie's tshirt examples/Product 5/Screenshot 2024-01-30 105701.png",
+    "image_3": "Jamie's tshirt examples/Product 5/Screenshot 2024-01-30 105803.png"
+  },
 
     {
       "product_id": 10,
