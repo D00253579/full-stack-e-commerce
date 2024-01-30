@@ -1,18 +1,73 @@
 [
-{
-"product_id": ,
-"name": ,
-"colour": ,
-"size": ,
-"price": ,
-"gender": ,
-"category": ,
-  "brand":,
-  "current_stock": ,
-"image_1": ,
-"image_2": ,
-"image_3":
-},
-
+  {
+    "product_id": "0",
+    "name": "I WILL - Sports T-shirt",
+    "colour": "White",
+    "size": ["small", "medium", "large"],
+    "price": 14.99,
+    "gender": "Male",
+    "category": "Sports",
+    "brand": "Under Armour",
+    "current_stock": 17,
+    "image_1": "lukes-tshirt-examples/p1/white/wearing.png",
+    "image_2": "lukes-tshirt-examples/p1/white/front.png",
+    "image_3":" lukes-tshirt-examples/p1/white/back.png"
+  },
+  {
+    "product_id": "1",
+    "name": "White Stuff Abersoch Short Sleeve T-Shirt",
+    "colour": "Purple",
+    "size": ["small", "large"],
+    "price": 21.99,
+    "gender": "Male",
+    "category": "Casual",
+    "brand": "White Stuff Abersoch",
+    "current_stock": 7,
+    "image_1": "lukes-tshirt-examples/p2/purple/wearing.png",
+    "image_2": "lukes-tshirt-examples/p2/purple/front.png",
+    "image_3":" lukes-tshirt-examples/p2/purple/back.png"
+  },
+  {
+    "product_id": "2",
+    "name": "California Vibes Short Sleeve ",
+    "colour": "Light-blue",
+    "size": ["small", "medium"],
+    "price": 22.99,
+    "gender": "Male",
+    "category": "Summer",
+    "brand": "Salt Creek",
+    "current_stock": 4 ,
+    "image_1": "lukes-tshirt-examples/p3/wearing.png",
+    "image_2": "lukes-tshirt-examples/p3/front.png",
+    "image_3":" lukes-tshirt-examples/p3/back.png"
+  },
+  {
+    "product_id": "3",
+    "name": "Halloween T-Shirt",
+    "colour": "Black",
+    "size": ["small", "medium"],
+    "price": 7.99,
+    "gender": "Male",
+    "category": "Spooky",
+    "brand": "Pumpkin Co.",
+    "current_stock": 11,
+    "image_1": "lukes-tshirt-examples/p4/wearing.png",
+    "image_2": "lukes-tshirt-examples/p4/front.png",
+    "image_3":" lukes-tshirt-examples/p4/back.png"
+  },
+  {
+    "product_id": "4",
+    "name": "Artist License Back Print Graphic T-Shirt",
+    "colour": "Grey",
+    "size": ["medium", "large"],
+    "price": 11.99,
+    "gender": "Male",
+    "category": "Graphic",
+    "brand": "ThreadMystique",
+    "current_stock": 21,
+    "image_1": "lukes-tshirt-examples/p5/wearing.png",
+    "image_2": "lukes-tshirt-examples/p5/front.png",
+    "image_3":" lukes-tshirt-examples/p5/back.png"
+  }
 
 ]
