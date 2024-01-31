@@ -10,11 +10,16 @@ export default class CarTable extends Component
             <table>
                 <thead>
                     <tr>
-                        <th>Model</th>
+                        <th>Product_id</th>
+                        <th>Name</th>
                         <th>Colour</th>
-                        <th>Year</th>
+                        <th>Size</th>
                         <th>Price</th>
-                        <th> </th>
+                        <th>Gender</th>
+                        <th>Category</th>
+                        <th>Brand</th>
+                        <th>Current_stock</th>
+                        <th></th>
                     </tr>
                 </thead>
                   
