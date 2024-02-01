@@ -1,5 +1,24 @@
-.filter-container div
+.filter-container
 {
-    border-color: black;
-    width: 200px;
+    border: 2px solid black;
+    width: 280px;
+    padding: 20px;
 }
+
+.filter-container input[type=checkbox]
+{
+    width: 20px;
+    height: 20px;
+}
+
+.checkbox-filters
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.filter-container label
+{
+    font-weight: 700;
+}
+
