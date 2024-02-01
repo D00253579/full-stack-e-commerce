@@ -9,7 +9,7 @@ import LinkInClass from "../components/LinkInClass"
 import {SERVER_HOST} from "../config/global_constants"
 
 
-export default class AddCar extends Component
+export default class AddTShirt extends Component
 {
     constructor(props)
     {
@@ -85,7 +85,7 @@ export default class AddCar extends Component
     { 
         return (
             <div className="form-container"> 
-                {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayAllCars"/> : null}                                            
+                {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayProducts"/> : null}
                     
                 <Form>               
                     <Form.Group controlId="product_id">
@@ -129,7 +129,7 @@ export default class AddCar extends Component
 
                     <LinkInClass value="Add" className="green-button" onClick={this.handleSubmit}/>            
             
-                    <Link className="red-button" to={"/DisplayAllCars"}>Cancel</Link>
+                    <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
                 </Form>
             </div>
         )

@@ -6,10 +6,10 @@ import "./css/App.css"
 import "./css/FilterContainerCss.css"
 import "./css/NavBar.css"
 
-import AddCar from "./components/AddCar"
-import EditCar from "./components/EditCar"
-import DeleteCar from "./components/DeleteCar"
-import DisplayAllCars from "./components/DisplayAllCars"
+import AddTShirt from "./components/AddTShirt"
+import EditProduct from "./components/EditProduct"
+import DeleteProduct from "./components/DeleteProduct"
+import DisplayProducts from "./components/DisplayProducts"
 import NavBar from "./components/NavBar";
 import {Nav} from "react-bootstrap";
     
@@ -20,13 +20,13 @@ export default class App extends Component
         return (
             <BrowserRouter>
                 <Switch>                 
-                    <Route exact path="/" component={DisplayAllCars} />
-                    <Route exact path="/AddCar" component={AddCar} />
-                    <Route exact path="/EditCar/:id" component={EditCar} />
-                    <Route exact path="/DeleteCar/:id" component={DeleteCar} />
-                    <Route exact path="/DisplayAllCars" component={DisplayAllCars}/>
+                    <Route exact path="/" component={DisplayProducts} />
+                    <Route exact path="/AddTShirt" component={AddTShirt} />
+                    <Route exact path="/EditProduct/:id" component={EditProduct} />
+                    <Route exact path="/DeleteProduct/:id" component={DeleteProduct} />
+                    <Route exact path="/DisplayProducts" component={DisplayProducts}/>
                     <Route exact path="/NavBar" component={NavBar}/>
-                    <Route path="*" component={DisplayAllCars}/>                            
+                    <Route path="*" component={DisplayProducts}/>
                 </Switch>
             </BrowserRouter>
         )

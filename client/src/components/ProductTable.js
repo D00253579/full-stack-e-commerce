@@ -1,8 +1,8 @@
 import React, {Component} from "react"
-import CarTableRow from "./CarTableRow"
+import ProductsTableRow from "./ProductsTableRow"
 
 
-export default class CarTable extends Component 
+export default class ProductTable extends Component
 {
     render() 
     {
@@ -22,9 +22,9 @@ export default class CarTable extends Component
                         <th></th>
                     </tr>
                 </thead>
-                  
+
                 <tbody>
-                    {this.props.cars.map((car) => <CarTableRow key={car._id} car={car}/>)}
+                    {this.props.cars.map((car) => <ProductsTableRow key={car._id} car={car}/>)}
                 </tbody>
             </table>      
         )

@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import {Link} from "react-router-dom"
 
 
-export default class CarTableRow extends Component 
+export default class ProductsTableRow extends Component
 {    
     render() 
     {
@@ -18,8 +18,8 @@ export default class CarTableRow extends Component
                 <td>{this.props.car.brand}</td>
                 <td>{this.props.car.current_stock}</td>
                 <td>
-                    <Link className="green-button" to={"/EditCar/" + this.props.car._id}>Edit</Link>                    
-                    <Link className="red-button" to={"/DeleteCar/" + this.props.car._id}>Delete</Link>   
+                    <Link className="green-button" to={"/EditProduct/" + this.props.car._id}>Edit</Link>
+                    <Link className="red-button" to={"/DeleteProduct/" + this.props.car._id}>Delete</Link>
                 </td>
             </tr>
         )
