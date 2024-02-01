@@ -10,7 +10,6 @@ let tShirtSchema = new mongoose.Schema(
        gender:{type: String},
        category:{type: String},
        brand:{type: String},
-       current_stock:{type: Number}
    },
    {
        collection: `tshirts`
