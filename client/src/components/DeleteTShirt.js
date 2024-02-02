@@ -5,21 +5,21 @@ import axios from "axios"
 import {SERVER_HOST} from "../config/global_constants"
 
 
-export default class DeleteProduct extends Component
+export default class DeleteTShirt extends Component
 {
     constructor(props) 
     {
         super(props)
         
         this.state = {
-            redirectToDisplayAllCars:false
+            redirectToDisplayProducts:false
         }
     }
     
     
     componentDidMount() 
     {   
-        axios.delete(`${SERVER_HOST}/cars/${this.props.match.params.id}`)
+        axios.delete(`${SERVER_HOST}/products/${this.props.match.params.id}`)
         .then(res => 
         {
             if(res.data)
@@ -32,7 +32,7 @@ export default class DeleteProduct extends Component
                 { 
                     console.log("Record deleted")
                 }
-                this.setState({redirectToDisplayAllCars:true})
+                this.setState({redirectToDisplayProducts:true})
             }
             else 
             {
@@ -46,7 +46,7 @@ export default class DeleteProduct extends Component
     {
         return (
             <div>   
-                {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayProducts"/> : null}
+                {this.state.redirectToDisplayProducts ? <Redirect to="/DisplayProducts"/> : null}
             </div>
         )
     }

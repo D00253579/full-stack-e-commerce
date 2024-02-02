@@ -8,18 +8,18 @@ export default class ProductsTableRow extends Component
     {
         return (
             <tr>
-                <td>{this.props.car.product_id}</td>
-                <td>{this.props.car.name}</td>
-                <td>{this.props.car.colour}</td>
-                <td>{this.props.car.size}</td>
-                <td>{this.props.car.price}</td>
-                <td>{this.props.car.gender}</td>
-                <td>{this.props.car.category}</td>
-                <td>{this.props.car.brand}</td>
-                <td>{this.props.car.current_stock}</td>
+                <td>{this.props.products.product_id}</td>
+                <td>{this.props.products.name}</td>
+                <td>{this.props.products.colour}</td>
+                <td>{this.props.products.size}</td>
+                <td>{this.props.products.price}</td>
+                <td>{this.props.products.gender}</td>
+                <td>{this.props.products.category}</td>
+                <td>{this.props.products.brand}</td>
+                <td>{this.props.products.current_stock}</td>
                 <td>
-                    <Link className="green-button" to={"/EditProduct/" + this.props.car._id}>Edit</Link>
-                    <Link className="red-button" to={"/DeleteProduct/" + this.props.car._id}>Delete</Link>
+                    <Link className="green-button" to={"/EditTShirt/" + this.props.products.product_id}>Edit</Link>
+                    <Link className="red-button" to={"/DeleteTShirt/" + this.props.products.product_id}>Delete</Link>
                 </td>
             </tr>
         )

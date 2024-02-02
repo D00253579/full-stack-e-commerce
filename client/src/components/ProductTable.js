@@ -24,7 +24,7 @@ export default class ProductTable extends Component
                 </thead>
 
                 <tbody>
-                    {this.props.cars.map((car) => <ProductsTableRow key={car._id} car={car}/>)}
+                    {this.props.products.map((products) => <ProductsTableRow key={products._id} products={products}/>)}
                 </tbody>
             </table>      
         )

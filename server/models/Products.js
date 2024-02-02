@@ -1,5 +1,4 @@
 const mongoose = require(`mongoose`)
-
 let tShirtSchema = new mongoose.Schema(
    {
         product_id: {type: Number},
@@ -10,6 +9,10 @@ let tShirtSchema = new mongoose.Schema(
        gender:{type: String},
        category:{type: String},
        brand:{type: String},
+       current_stock: {type:Number},
+       // image_1:{type: Blob},
+       // image_2:{type: Blob},
+       // image_3:{type: Blob}
    },
    {
        collection: `tshirts`

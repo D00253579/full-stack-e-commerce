@@ -1,41 +1,69 @@
 import React, {Component} from "react"
-import {Redirect, Link} from "react-router-dom"
 import Form from "react-bootstrap/Form"
-
+import {Redirect, Link} from "react-router-dom"
 import axios from "axios"
 
 import LinkInClass from "../components/LinkInClass"
 
 import {SERVER_HOST} from "../config/global_constants"
 
-
-export default class AddTShirt extends Component
+export default class EditTShirt extends Component
 {
-    constructor(props)
+    constructor(props) 
     {
         super(props)
 
         this.state = {
-            product_id:"",
-            name:"",
-            colour:"",
-            size:"",
-            price:"",
-            gender:"",
-            category:"",
-            brand:"",
-            current_stock:"",
+            product_id: 0,
+            name: ``,
+            colour: ``,
+            size: [],
+            price: 0,
+            gender: ``,
+            category: ``,
+            brand: ``,
+            current_stock: 0,
             redirectToDisplayProducts:false
         }
     }
 
-
     componentDidMount() 
-    {     
-        this.inputToFocus.focus()        
+    {      
+        this.inputToFocus.focus()
+  
+        axios.get(`${SERVER_HOST}/products/${this.props.match.params.id}`)
+        .then(res => 
+        {     
+            if(res.data)
+            {
+                if (res.data.errorMessage)
+                {
+                    console.log(res.data.errorMessage)    
+                }
+                else
+                { 
+                    this.setState({
+                        product_id: res.data.product_id,
+                        name: res.data.name,
+                        colour: res.data.colour,
+                        size: res.data.size,
+                        price: res.data.price,
+                        gender: res.data.gender,
+                        category: res.data.category,
+                        brand: res.data.brand,
+                        current_stock: res.data.current_stock,
+                        redirectToDisplayProducts:false
+                    })
+                }
+            }
+            else
+            {
+                console.log(`Record not found`)
+            }
+        })
     }
- 
- 
+
+
     handleChange = (e) => 
     {
         this.setState({[e.target.name]: e.target.value})
@@ -58,9 +86,9 @@ export default class AddTShirt extends Component
             current_stock:this.state.current_stock
         }
 
-        axios.post(`${SERVER_HOST}/products`, tShirtObject)
+        axios.put(`${SERVER_HOST}/products/${this.props.match.params.id}`, tShirtObject)
         .then(res => 
-        {   
+        {             
             if(res.data)
             {
                 if (res.data.errorMessage)
@@ -68,26 +96,26 @@ export default class AddTShirt extends Component
                     console.log(res.data.errorMessage)    
                 }
                 else
-                {   
-                    console.log("Record added")
+                {      
+                    console.log(`Record updated`)
                     this.setState({redirectToDisplayProducts:true})
-                } 
+                }
             }
             else
             {
-                console.log("Record not added")
+                console.log(`Record not updated`)
             }
         })
     }
 
-
-    render()
-    { 
+    
+    render() 
+    {  
         return (
-            <div className="form-container"> 
+            <div className="form-container">
                 {this.state.redirectToDisplayProducts ? <Redirect to="/DisplayProducts"/> : null}
-                    
-                <Form>               
+
+                <Form>
                     <Form.Group controlId="product_id">
                         <Form.Label>Product_id</Form.Label>
                         <Form.Control ref = {(input) => { this.inputToFocus = input }} type="text" name="product_id" value={this.state.product_id} onChange={this.handleChange} />
@@ -127,8 +155,8 @@ export default class AddTShirt extends Component
                         <Form.Control type="text" name="Brand" value={this.state.brand} onChange={this.handleChange} />
                     </Form.Group>
 
-                    <LinkInClass value="Add" className="green-button" onClick={this.handleSubmit}/>            
-            
+                    <LinkInClass value="Add" className="green-button" onClick={this.handleSubmit}/>
+
                     <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
                 </Form>
             </div>
