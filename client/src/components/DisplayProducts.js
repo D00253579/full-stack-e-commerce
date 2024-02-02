@@ -15,7 +15,7 @@ export default class DisplayProducts extends Component
         super(props)
         
         this.state = {
-            cars:[]
+            products:[]
         }
     }
     
@@ -34,7 +34,7 @@ export default class DisplayProducts extends Component
                 else
                 {           
                     console.log("Records read")   
-                    this.setState({cars: res.data}) 
+                    this.setState({products: res.data})
                 }   
             }
             else
@@ -50,10 +50,10 @@ export default class DisplayProducts extends Component
         return (           
             <div className="form-container">
                 <div className="table-container">
-                    <ProductTable cars={this.state.cars} />
+                    <ProductTable products={this.state.products} />
 
-                    <div className="add-new-car">
-                        <Link className="blue-button" to={"/AddTShirt"}>Add New Car</Link>
+                    <div className="add-new-TShirt">
+                        <Link className="blue-button" to={"/AddTShirt"}>Add New Product</Link>
                     </div>
                 </div>
             </div> 
