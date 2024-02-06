@@ -21,7 +21,7 @@
       <option name="workingDir" value="$FileDir$" />
       <envs />
     </TaskOptions>
-    <TaskOptions isEnabled="true">
+    <TaskOptions isEnabled="false">
       <option name="arguments" value="$FileName$:$ProjectFileDir$/css/$FileNameWithoutExtension$.css" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
@@ -41,5 +41,8 @@
       <option name="workingDir" value="$FileDir$" />
       <envs />
     </TaskOptions>
+    <enabled-global>
+      <option value="SCSS_ JamieLaw" />
+    </enabled-global>
   </component>
 </project>
