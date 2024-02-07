@@ -1,7 +1,7 @@
 const router = require(`express`).Router()
 
 const usersModel = require(`../models/Users`)
-
+const bcrypt=require('bcryptjs')
 router.post(`/users/Login/Register/:name/:email/:password`, (req, res) =>
 {
     // If a user with this email does not already exist, then create new user
@@ -11,8 +11,11 @@ router.post(`/users/Login/Register/:name/:email/:password`, (req, res) =>
         {
             res.json({errorMessage: `User already exists`})
         } else
-        {
-            usersModel.create({name: req.params.name, email: req.params.email, password: req.params.password}, (error, data) =>
+        {               //Password              saltRounds
+            bcrypt.hash(req.params.password, parseInt(process.env.PASSWORD_HASH_SALT_ROUNDS), (err, hash) =>{
+
+
+            usersModel.create({name: req.params.name, email: req.params.email, password: hash}, (error, data) =>
             {
                 if (data)
                 {
@@ -21,6 +24,7 @@ router.post(`/users/Login/Register/:name/:email/:password`, (req, res) =>
                 {
                     res.json({errorMessage: `User was not registered`})
                 }
+            })
             })
         }
     })
