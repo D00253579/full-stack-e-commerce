@@ -12,6 +12,7 @@ export default class AdminDashboard extends Component
         super(props)
         this.state = {
             products: [],
+            originalProducts: [], // If no filters are applied
             filters: {
                 gender: [],
                 size: [],
@@ -30,18 +31,20 @@ export default class AdminDashboard extends Component
                         console.log(res.data.errorMessage);
                     } else {
                         console.log("Records read to Admin dashboard");
-                        this.setState({ products: res.data });
+                        this.setState({ products: res.data,
+                                               originalProducts: res.data
+                        });
                     }
                 } else {
                     console.log("Record not found");
                 }
             });
     }
-    getFilters = (filters) => {
-        console.log("Callback - getFilters()")
-        this.setState({ filters });
-    };
 
+    updateProducts = (filteredProducts) => {
+        this.setState({products:filteredProducts})
+        console.log("State of products updated ")
+    }
     render() {
         return (
             <div>
@@ -50,8 +53,15 @@ export default class AdminDashboard extends Component
                 </div>
 
                 <div className="body-container">
-                    <div><FilterContainer getFilters={this.getFilters} products={this.state.products}/></div>
-                         <DisplayProducts products={this.state.products} filters={this.state.filters}/>
+                    <div><FilterContainer
+                        updateProducts={this.updateProducts}
+                        products={this.state.originalProducts}
+                        filters={this.state.filters}
+                    />
+                    </div>
+                         <DisplayProducts
+                             products={this.state.products}
+                         />
                 </div>
             </div>
 

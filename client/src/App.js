@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 
-import "bootstrap/dist/css/bootstrap.css"
+//import "bootstrap/dist/css/bootstrap.css"
 import "./css/App.css"
 import "./css/FilterContainerCss.css"
 import "./css/NavBar.css"
@@ -29,6 +29,7 @@ export default class App extends Component
                     <Route exact path="/DisplayProducts" component={DisplayProducts}/>
                     <Route exact path="/NavBar" component={NavBar}/>
                     <Route exact path="/Login/Register" component={Register} />
+                    <Route exact path="/AdminDashboard" component={AdminDashboard} />
 
                     <Route path="*" component={DisplayProducts}/>
                 </Switch>

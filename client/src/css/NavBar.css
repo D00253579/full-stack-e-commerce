@@ -1,5 +1,7 @@
 .nav-container{
     color: #7B1920;
+    border: black solid 2px;
+    height: 200px;
 }
 
 #logo-container{

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown with Checkboxes</title>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle::after {
+            content: '\25BE'; /* Unicode character for a downward arrow */
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            padding: 12px;
+            z-index: 1;
+        }
+
+        .dropdown-content label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dropdown">
+    <button onclick="toggleDropdown()" class="dropdown-toggle"></button>
+    <div class="dropdown-content">
+        <label><input type="checkbox" value="option1"> Option 1</label>
+        <label><input type="checkbox" value="option2"> Option 2</label>
+        <label><input type="checkbox" value="option3"> Option 3</label>
+    </div>
+</div>
+
+<script>
+    function toggleDropdown() {
+        var dropdown = document.querySelector('.dropdown');
+        dropdown.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
