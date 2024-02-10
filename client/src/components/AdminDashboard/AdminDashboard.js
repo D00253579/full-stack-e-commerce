@@ -4,6 +4,8 @@ import axios from "axios";
 import AdminProductView from "./AdminProductView";
 import Filters from "./Filters";
 import {Navbar} from "react-bootstrap";
+import {Link} from "react-router-dom";
+import AdminControls from "./AdminControls";
 
 export default class AdminDashboard extends Component
 {
@@ -46,7 +48,11 @@ export default class AdminDashboard extends Component
                     <Navbar/>
                 </div>
 
+                <AdminControls/>
+
                 <div className="admin-body-container">
+
+
 
                     <div className="filter-container">
                         <Filters
@@ -62,7 +68,11 @@ export default class AdminDashboard extends Component
                     </div>
 
                 </div>
+
+                <div className="testing-return"><Link className="red-button" to={"/TestingDirectory`"}>RETURN</Link></div>
             </div>
+
+
 
         )
 

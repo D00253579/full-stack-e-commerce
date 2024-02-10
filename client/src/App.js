@@ -13,6 +13,7 @@ import DisplayProducts from "./components/DisplayProducts"
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import Register from "./components/Login/Register";
+import TestingDirectory from "./components/TestingDirectory";
 
 export default class App extends Component 
 {
@@ -21,7 +22,7 @@ export default class App extends Component
         return (
             <BrowserRouter>
                 <Switch>                 
-                    <Route exact path="/" component={DisplayProducts} />
+                    <Route exact path="/" component={TestingDirectory} />
                     <Route exact path="/AddTShirt" component={AddTShirt} />
                     <Route exact path="/Login/login" component={Login} />
                     <Route exact path="/EditTShirt/:id" component={EditTShirt} />
@@ -29,9 +30,9 @@ export default class App extends Component
                     <Route exact path="/DisplayProducts" component={DisplayProducts}/>
                     <Route exact path="/NavBar" component={NavBar}/>
                     <Route exact path="/Login/Register" component={Register} />
-                    <Route exact path="/AdminDashboard" component={AdminDashboard} />
+                    <Route exact path="/AdminDashboard/AdminDashboard" component={AdminDashboard} />
 
-                    <Route path="*" component={DisplayProducts}/>
+                    <Route path="*" component={TestingDirectory}/>
                 </Switch>
             </BrowserRouter>
         )

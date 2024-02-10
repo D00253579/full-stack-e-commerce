@@ -13,6 +13,7 @@ export default class Filters extends Component
                 category: false,
                 colour: false,
             },
+            price: 0.00,
         }
     }
     componentDidMount() {
@@ -48,6 +49,7 @@ export default class Filters extends Component
                     (filters.size.length === 0 || filters.size.some(size => product.size.includes(size))) &&
                     (filters.category.length === 0 || filters.category.includes(product.category)) &&
                     (filters.colour.length === 0 || filters.colour.includes(product.colour)) &&
+
                     !filteredProducts.find(p => p.product_id === product.product_id))
                 {
                     filteredProducts.push(product)
@@ -83,6 +85,27 @@ export default class Filters extends Component
             },
         }));
     };
+    handlePriceChange = (e) => {
+        this.setState({ price: e.target.value });
+        let filteredProducts = []
+        this.props.defaultProducts.forEach(product => {
+            if(this.state.price <= product.price) {
+                filteredProducts.push(product)
+            }
+        })
+        this.props.updateProducts(filteredProducts)
+    }
+
+    handleReset = () => {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+        checkboxes.forEach((checkbox => { // uncheck all checkboxes
+            checkbox.checked = false
+        }))
+        this.setState({price: 0.00}) // set price back to 0
+        this.props.updateProducts(this.props.defaultProducts) // display default products
+
+
+    }
 
     render() {
         return (
@@ -265,18 +288,25 @@ export default class Filters extends Component
                         </div>
                     </div>
 
-                    <h4>Price</h4>
-                    <div className="checkbox-filters">
+
+
+                        <div className="price-filter">
+                            <h4>Price: €{this.state.price}</h4>
                             <input
                                 type="range"
                                 id="price-filter"
-                                min="0.00" max="99.99"
+                                className="price-slider"
+                                min="0.00" max="50"
                                 defaultValue={0}
+                                value={this.state.price}
+                                onChange={this.handlePriceChange}
                             />
-                    </div>
+                        </div>
+
 
                     <div className="checkbox-button">
                        <button type="button" onClick={this.handleApplyFilters}>Apply</button>
+                        <button type="button" onClick={this.handleReset}>Reset</button>
                     </div>
                 </fieldset>
 

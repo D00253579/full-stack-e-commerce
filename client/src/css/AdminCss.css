@@ -1,4 +1,38 @@
 
+/* AdminControls */
+.controls-container{
+    height: 100px;
+    border: black solid 1px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Button style */
+.controls-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.controls-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+
 /* AdminTable */
 .admin-body-container {
     display:flex;
@@ -61,9 +95,9 @@
 /* Filters */
 .filter-container
 {
-    width: 280px;
+    width:300px;
     padding: 20px;
-    margin: 20px;
+
 }
 
 .filter-container input[type=checkbox]
@@ -168,9 +202,6 @@
 }
 
 
-.price-filter {
-    margin-top: 20px;
-}
 
 .apply-button {
     margin-top: 20px;
@@ -189,6 +220,43 @@
 .apply-button button:hover {
     background-color: #0056b3;
 }
+
+.price-filter {
+    margin-bottom: 20px;
+}
+
+.price-filter h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.price-slider {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.price-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007bff; /* Primary color */
+    cursor: pointer;
+}
+
+.price-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007bff; /* Primary color */
+    cursor: pointer;
+}
+
 
 
 
