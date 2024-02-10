@@ -11,17 +11,10 @@ export default class AdminProductView extends Component
     render() {
         console.log("Displaying Admin view of Products")
         return (
-            <div className="admin-product-view">
-                <div className="table-container">
+                <div className="admin-table-container">
                     <AdminTable products={this.props.products}/>
-
-                    <div className="add-new-product">
-                        <Link className="blue-button" to={"/AddTShirt"}>
-                            Add New Product
-                        </Link>
-                    </div>
                 </div>
-            </div>
+
         )
     }
 

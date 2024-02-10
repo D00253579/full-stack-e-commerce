@@ -13,13 +13,6 @@ export default class AdminDashboard extends Component
         this.state = {
             products: [],
             defaultProducts: [], // If no filters are applied
-            filters: {
-                gender: [],
-                size: [],
-                category: [],
-                colour: [],
-                price: 0.00
-            }
         }
     }
     componentDidMount() {
@@ -46,6 +39,7 @@ export default class AdminDashboard extends Component
         console.log("State of products updated ")
     }
     render() {
+
         return (
             <div>
                 <div className="nav-container">
@@ -59,10 +53,9 @@ export default class AdminDashboard extends Component
                             updateProducts={this.updateProducts}
                             products={this.state.products}
                             defaultProducts={this.state.defaultProducts}
-                            filters={this.state.filters}
                         />
                     </div>
-                    <div className="table-container">
+                    <div className="admin-table-container">
                         <AdminProductView
                             products={this.state.products}
                         />
@@ -72,5 +65,7 @@ export default class AdminDashboard extends Component
             </div>
 
         )
+
     }
+
 }

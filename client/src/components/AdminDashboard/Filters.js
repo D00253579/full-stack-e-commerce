@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
 
 export default class Filters extends Component
 {
@@ -6,8 +7,16 @@ export default class Filters extends Component
     {
         super(props)
         this.state = {
-            filteredProducts: []
+            showDropdowns: {
+                gender: false,
+                size: false,
+                category: false,
+                colour: false,
+            },
         }
+    }
+    componentDidMount() {
+        console.log("filters as props ")
     }
 
     handleApplyFilters = () => {
@@ -19,39 +28,37 @@ export default class Filters extends Component
             category: this.getCheckedValues("category"),
             colour: this.getCheckedValues("colour"),
         }
+        let filteredProducts = []
 
-        if(filters.gender.length === 0 &&
+        if(filters.gender.length === 0 && // if there are no filters selected
            filters.size.length === 0 &&
            filters.category.length === 0 &&
            filters.colour.length === 0)
         {
             console.log("There are no filters selected")
-            while(this.state.filteredProducts.length > 0) { // empty array containing matching products from previous filters
-                this.state.filteredProducts.pop()
-            }
-            this.props.updateProducts(this.props.defaultProducts)
-
+            this.props.updateProducts(this.props.defaultProducts) // show all products
         } else {
             console.log("Filters ->  ", filters)
 
             // check the values from filters[] against the values from products[]
             // if true push to filteredProducts, if a matching product_id is found in both is wont be pushed
 
-            this.props.products.forEach(product => {
+            this.props.defaultProducts.forEach(product => {
                 if((filters.gender.length === 0 || filters.gender.includes(product.gender)) &&
                     (filters.size.length === 0 || filters.size.some(size => product.size.includes(size))) &&
                     (filters.category.length === 0 || filters.category.includes(product.category)) &&
                     (filters.colour.length === 0 || filters.colour.includes(product.colour)) &&
-                    !this.state.filteredProducts.find(p => p.product_id === product.product_id))
+                    !filteredProducts.find(p => p.product_id === product.product_id))
                 {
-                    this.state.filteredProducts.push(product)
+                    filteredProducts.push(product)
                 }
             })
-            console.log("Products Matching -> ", this.state.filteredProducts)
+            console.log("Products Matching -> ", filteredProducts)
+            this.setState({filteredProducts})
 
             // using a call back function passed from AdminDashboard to update the state
             // and show the results from the selected filters
-            this.props.updateProducts(this.state.filteredProducts)
+            this.props.updateProducts(filteredProducts)
         }
     }
 
@@ -68,167 +75,194 @@ export default class Filters extends Component
         return checkedValues
     }
 
+    toggleDropdown = (filterName) => {
+        this.setState((prevState) => ({
+            showDropdowns: {
+                ...prevState.showDropdowns,
+                [filterName]: !prevState.showDropdowns[filterName],
+            },
+        }));
+    };
 
     render() {
         return (
                 <fieldset>
 
-                    <h4>Gender</h4>
-                    <div className="checkbox-filters">
-                        <label> M
-                            <input
-                                type="checkbox"
-                                name="gender"
-                                value="Male"/>
-                        </label>
-
-                        <label> F
-                            <input
-                                type="checkbox"
-                                name="gender"
-                                value="Female"/>
-                        </label>
-
-                        <labelx> O
-                            <input
-                                type="checkbox"
-                                name="gender"
-                                value="Other"/>
-                        </labelx>
-                    </div>
-
-                    <h4>Size</h4>
-                    <div>
-                        <label> S
-                            <input
-                                type="checkbox"
-                                name="size"
-                                value="small"/>
-                        </label>
-
-                        <label> M
-                            <input
-                                type="checkbox"
-                                name="size"
-                                value="medium"/>
-                        </label>
-
-                        <label> L
-                            <input
-                                type="checkbox"
-                                name="size"
-                                value="large"/>
-                        </label>
+                    <div className={`filter-dropdown ${this.state.showDropdowns.gender ? "open" : ""}`}>
+                        <button
+                            className="filter-dropdown-toggle"
+                            onClick={() => this.toggleDropdown("gender")}
+                        >
+                            Gender
+                        </button>
+                        <div className="filter-dropdown-menu">
+                            <label>
+                                M
+                                <input type="checkbox" name="gender" value="Male" />
+                            </label>
+                            <label>
+                                F
+                                <input type="checkbox" name="gender" value="Female" />
+                            </label>
+                            <label>
+                                O
+                                <input type="checkbox" name="gender" value="Other" />
+                            </label>
+                        </div>
                     </div>
 
 
-                    <h4>Category</h4>
-                    <div >
-                        <label> Sports
-                            <input
-                                type="checkbox"
-                                name="category"
-                                value="Sports"/>
-                        </label>
+                    <div className={`filter-dropdown ${this.state.showDropdowns.size ? "open" : ""}`}>
+                        <button
+                            className="filter-dropdown-toggle"
+                            onClick={() => this.toggleDropdown("size")}
+                            >
+                            Size
+                        </button>
+                        <div className="filter-dropdown-menu">
+                            <label> S
+                                <input
+                                    type="checkbox"
+                                    name="size"
+                                    value="small"/>
+                            </label>
 
-                        <label> Casual
-                            <input
-                                type="checkbox"
-                                name="category"
-                                value="Casual"/>
-                        </label>
+                            <label> M
+                                <input
+                                    type="checkbox"
+                                    name="size"
+                                    value="medium"/>
+                            </label>
 
-                        <label> Summer
-                            <input
-                                type="checkbox"
-                                name="category"
-                                value="Summer"/>
-                        </label>
+                            <label> L
+                                <input
+                                    type="checkbox"
+                                    name="size"
+                                    value="large"/>
+                            </label>
+                        </div>
                     </div>
-                    <div className="category">
-                        <label> Spooky
-                            <input
-                                type="checkbox"
-                                name="category"
-                                value="Spooky"/>
-                        </label>
 
-                        <label> Graphic
-                            <input
-                                type="checkbox"
-                                name="category"
-                                value="Graphic"/>
-                        </label>
 
-                        <label> Smart
-                            <input
-                                type="checkbox"
-                                name="category"
-                                value="Smart"/>
-                        </label>
 
-                        <label> Marvel
-                            <input
-                                type="checkbox"
-                                name="category"
-                                value="Superhero"/>
-                        </label>
+                    <div className={`filter-dropdown ${this.state.showDropdowns.category ? "open" : ""}`}>
+                        <button
+                            className="filter-dropdown-toggle"
+                            onClick={() => this.toggleDropdown("category")}
+                        >
+                            Category
+                        </button>
+                        <div className="filter-dropdown-menu">
+                            <label> Sports
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Sports"/>
+                            </label>
+
+                            <label> Casual
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Casual"/>
+                            </label>
+
+                            <label> Summer
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Summer"/>
+                            </label>
+
+                            <label> Spooky
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Spooky"/>
+                            </label>
+
+                            <label> Graphic
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Graphic"/>
+                            </label>
+
+                            <label> Smart
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Smart"/>
+                            </label>
+
+                            <label> Marvel
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Superhero"/>
+                            </label>
+                        </div>
                    </div>
 
 
+                    <div className={`filter-dropdown ${this.state.showDropdowns.colour ? "open" : ""}`}>
+                        <button
+                            className="filter-dropdown-toggle"
+                            onClick={() => this.toggleDropdown("colour")}
+                        >
+                            Colour
+                        </button>
 
-                    <h4>Colour</h4>
-                    <div className="checkbox-filters">
-                        <label>Red
-                            <input
-                                type="checkbox"
-                                name="colour"
-                                value="Red"/>
-                        </label>
-                        <label> Green
-                            <input
-                                type="checkbox"
-                                name="colour"
-                                value="Green"/>
-                        </label>
-                        <label> Blue
-                            <input
-                                type="checkbox"
-                                name="colour"
-                                value="Blue"/>
-                        </label>
-                        <label> Grey
-                            <input
-                                type="checkbox"
-                                name="colour"
-                                value="Grey"/>
-                        </label>
-                    </div>
-                    <div className="checkbox-filters">
-                        <label> Purple
-                            <input
-                                type="checkbox"
-                                name="colour"
-                                value="Purple"/>
-                        </label>
-                        <label> White
-                            <input
-                                type="checkbox"
-                                name="colour"
-                                value="White"/>
-                        </label>
-                        <label> Pink
-                            <input
-                                type="checkbox"
-                                name="colour"
-                                value="Pink"/>
-                        </label>
-                        <label> Yellow
-                            <input
-                                type="checkbox"
-                                name="colour"
-                                value="Yellow"/>
-                        </label>
+                        <div className="filter-dropdown-menu">
+                            <label>Red
+                                <input
+                                    type="checkbox"
+                                    name="colour"
+                                    value="Red"/>
+                            </label>
+                            <label> Green
+                                <input
+                                    type="checkbox"
+                                    name="colour"
+                                    value="Green"/>
+                            </label>
+                            <label> Blue
+                                <input
+                                    type="checkbox"
+                                    name="colour"
+                                    value="Blue"/>
+                            </label>
+                            <label> Grey
+                                <input
+                                    type="checkbox"
+                                    name="colour"
+                                    value="Grey"/>
+                            </label>
+                            <label> Purple
+                                <input
+                                    type="checkbox"
+                                    name="colour"
+                                    value="Purple"/>
+                            </label>
+                            <label> White
+                                <input
+                                    type="checkbox"
+                                    name="colour"
+                                    value="White"/>
+                            </label>
+                            <label> Pink
+                                <input
+                                    type="checkbox"
+                                    name="colour"
+                                    value="Pink"/>
+                            </label>
+                            <label> Yellow
+                                <input
+                                    type="checkbox"
+                                    name="colour"
+                                    value="Yellow"/>
+                            </label>
+                        </div>
                     </div>
 
                     <h4>Price</h4>
@@ -245,6 +279,7 @@ export default class Filters extends Component
                        <button type="button" onClick={this.handleApplyFilters}>Apply</button>
                     </div>
                 </fieldset>
+
         )
     }
 }

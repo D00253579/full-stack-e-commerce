@@ -16,8 +16,8 @@ export default class AdminTable extends Component
                     <th>Price</th>
                     <th>Category</th>
                     <th>Brand</th>
-                    <th>Product Code</th>
-                    <th>Current Stock</th>
+                    <th>P. Code</th>
+                    <th>Stock</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
