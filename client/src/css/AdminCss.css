@@ -1,0 +1,106 @@
+
+/* AdminTable */
+.admin-table-container table
+{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.admin-table-container thead
+{
+    background-color: #aaa;
+    color:#fff;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.admin-table-container tbody tr
+{
+    height:3em;
+}
+
+.admin-table-container thead th,
+.admin-table-container tbody td
+{
+    padding:5px;
+}
+.admin-table-container tbody tr:nth-child(odd)
+{
+    background-color: #eee;
+}
+
+.admin-table-container tbody tr:nth-child(even)
+{
+    background-color: #ffa;
+}
+
+
+
+
+/* Filters */
+.filter-container
+{
+    width: 280px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.filter-container input[type=checkbox]
+{
+    width: 20px;
+    height: 20px;
+}
+.filter-container label
+{
+    font-weight: 700;
+}
+
+.checkbox-filters
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.checkbox-button
+{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/* ActionDropdown */
+.admin-body-container {
+    display:flex;
+}
+.actions-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.actions-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.actions-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.actions-dropdown:hover .actions-dropdown-content {
+    display: block;
+}
+
+
+
+
+

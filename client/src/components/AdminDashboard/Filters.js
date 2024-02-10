@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-export default class FilterContainer extends Component
+export default class Filters extends Component
 {
     constructor(props)
     {
@@ -20,27 +20,39 @@ export default class FilterContainer extends Component
             colour: this.getCheckedValues("colour"),
         }
 
-
-        console.log("Filters ->  ", filters)
-
-        // check the values from filters[] against the values from products[]
-        // if true push to filteredProducts, if a matching product_id is found in both is wont be pushed
-
-        this.props.products.forEach(product => {
-            if( (filters.gender.length === 0 || filters.gender.includes(product.gender)) &&
-                (filters.size.length === 0 || filters.size.some(size => product.size.includes(size))) &&
-                (filters.category.length === 0 || filters.category.includes(product.category)) &&
-                (filters.colour.length === 0 || filters.colour.includes(product.colour)) &&
-                !this.state.filteredProducts.find(p => p.product_id === product.product_id))
-            {
-                this.state.filteredProducts.push(product)
+        if(filters.gender.length === 0 &&
+           filters.size.length === 0 &&
+           filters.category.length === 0 &&
+           filters.colour.length === 0)
+        {
+            console.log("There are no filters selected")
+            while(this.state.filteredProducts.length > 0) { // empty array containing matching products from previous filters
+                this.state.filteredProducts.pop()
             }
-        })
-        console.log("Products Matching -> ", this.state.filteredProducts)
+            this.props.updateProducts(this.props.defaultProducts)
 
-        // using a call back function passed from AdminDashboard to update the state
-        // and show the results from the selected filters
-        this.props.updateProducts(this.state.filteredProducts)
+        } else {
+            console.log("Filters ->  ", filters)
+
+            // check the values from filters[] against the values from products[]
+            // if true push to filteredProducts, if a matching product_id is found in both is wont be pushed
+
+            this.props.products.forEach(product => {
+                if((filters.gender.length === 0 || filters.gender.includes(product.gender)) &&
+                    (filters.size.length === 0 || filters.size.some(size => product.size.includes(size))) &&
+                    (filters.category.length === 0 || filters.category.includes(product.category)) &&
+                    (filters.colour.length === 0 || filters.colour.includes(product.colour)) &&
+                    !this.state.filteredProducts.find(p => p.product_id === product.product_id))
+                {
+                    this.state.filteredProducts.push(product)
+                }
+            })
+            console.log("Products Matching -> ", this.state.filteredProducts)
+
+            // using a call back function passed from AdminDashboard to update the state
+            // and show the results from the selected filters
+            this.props.updateProducts(this.state.filteredProducts)
+        }
     }
 
     // Helper function to get the values from a checkbox group and add them
@@ -59,7 +71,6 @@ export default class FilterContainer extends Component
 
     render() {
         return (
-            <div className = "filter-container" >
                 <fieldset>
 
                     <h4>Gender</h4>
@@ -234,7 +245,6 @@ export default class FilterContainer extends Component
                        <button type="button" onClick={this.handleApplyFilters}>Apply</button>
                     </div>
                 </fieldset>
-            </div>
         )
     }
 }

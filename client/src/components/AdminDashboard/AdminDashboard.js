@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import {Navbar} from "react-bootstrap";
-import DisplayProducts from "./DisplayProducts";
-import FilterContainer from "./FilterContainer";
-import {SERVER_HOST} from "../config/global_constants";
+import {SERVER_HOST} from "../../config/global_constants";
 import axios from "axios";
+import AdminProductView from "./AdminProductView";
+import Filters from "./Filters";
+import {Navbar} from "react-bootstrap";
 
 export default class AdminDashboard extends Component
 {
@@ -12,7 +12,7 @@ export default class AdminDashboard extends Component
         super(props)
         this.state = {
             products: [],
-            originalProducts: [], // If no filters are applied
+            defaultProducts: [], // If no filters are applied
             filters: {
                 gender: [],
                 size: [],
@@ -32,7 +32,7 @@ export default class AdminDashboard extends Component
                     } else {
                         console.log("Records read to Admin dashboard");
                         this.setState({ products: res.data,
-                                               originalProducts: res.data
+                                               defaultProducts: res.data
                         });
                     }
                 } else {
@@ -41,8 +41,8 @@ export default class AdminDashboard extends Component
             });
     }
 
-    updateProducts = (filteredProducts) => {
-        this.setState({products:filteredProducts})
+    updateProducts = (newProductState) => {
+        this.setState({products: newProductState})
         console.log("State of products updated ")
     }
     render() {
@@ -52,16 +52,22 @@ export default class AdminDashboard extends Component
                     <Navbar/>
                 </div>
 
-                <div className="body-container">
-                    <div><FilterContainer
-                        updateProducts={this.updateProducts}
-                        products={this.state.originalProducts}
-                        filters={this.state.filters}
-                    />
+                <div className="admin-body-container">
+
+                    <div className="filter-container">
+                        <Filters
+                            updateProducts={this.updateProducts}
+                            products={this.state.products}
+                            defaultProducts={this.state.defaultProducts}
+                            filters={this.state.filters}
+                        />
                     </div>
-                         <DisplayProducts
-                             products={this.state.products}
-                         />
+                    <div className="table-container">
+                        <AdminProductView
+                            products={this.state.products}
+                        />
+                    </div>
+
                 </div>
             </div>
 

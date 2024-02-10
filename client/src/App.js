@@ -3,15 +3,15 @@ import {BrowserRouter, Switch, Route} from "react-router-dom"
 
 //import "bootstrap/dist/css/bootstrap.css"
 import "./css/App.css"
-import "./css/FilterContainerCss.css"
 import "./css/NavBar.css"
+import "./css/AdminCss.css"
 import Login from "./components/Login/login";
 import AddTShirt from "./components/AddTShirt"
 import EditTShirt from "./components/EditTShirt"
 import DeleteTShirt from "./components/DeleteTShirt"
 import DisplayProducts from "./components/DisplayProducts"
 import NavBar from "./components/NavBar";
-import AdminDashboard from "./components/AdminDashboard";
+import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import Register from "./components/Login/Register";
 
 export default class App extends Component 
