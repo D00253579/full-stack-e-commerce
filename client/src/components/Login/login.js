@@ -55,6 +55,7 @@ export default class login extends Component
     render()
     {
         return (
+            <div>
             <form className="form-container" noValidate = {true} id = "loginOrRegistrationForm">
                 <h2>Login</h2>
 
@@ -82,6 +83,10 @@ export default class login extends Component
                 <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/>
                 <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
             </form>
+
+                <div className="testing-return"><Link className="testing-red-button" to={"/TestingDirectory`"}>RETURN</Link></div>
+            </div>
+
         )
     }
 }

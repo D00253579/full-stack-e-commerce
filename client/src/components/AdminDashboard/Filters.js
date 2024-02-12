@@ -111,6 +111,7 @@ export default class Filters extends Component
         return (
                 <fieldset>
 
+
                     <div className={`filter-dropdown ${this.state.showDropdowns.gender ? "open" : ""}`}>
                         <button
                             className="filter-dropdown-toggle"
@@ -119,6 +120,7 @@ export default class Filters extends Component
                             Gender
                         </button>
                         <div className="filter-dropdown-menu">
+
                             <label>
                                 M
                                 <input type="checkbox" name="gender" value="Male" />
@@ -131,6 +133,7 @@ export default class Filters extends Component
                                 O
                                 <input type="checkbox" name="gender" value="Other" />
                             </label>
+
                         </div>
                     </div>
 
@@ -297,17 +300,17 @@ export default class Filters extends Component
                                 id="price-filter"
                                 className="price-slider"
                                 min="0.00" max="50"
-                                defaultValue={0}
                                 value={this.state.price}
                                 onChange={this.handlePriceChange}
                             />
                         </div>
 
 
-                    <div className="checkbox-button">
+                    <div className="filter-buttons">
                        <button type="button" onClick={this.handleApplyFilters}>Apply</button>
                         <button type="button" onClick={this.handleReset}>Reset</button>
                     </div>
+
                 </fieldset>
 
         )

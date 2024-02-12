@@ -207,7 +207,7 @@ export default class FilterContainer extends Component
                             <input type="range" name="price-filter"/>
                         </div>
 
-                        <div className="checkbox-button">
+                        <div className="filter-buttons">
                            <button type="button" onClick={this.getFilters}>Apply</button>
                         </div>
                     </fieldset>

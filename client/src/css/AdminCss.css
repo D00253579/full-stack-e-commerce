@@ -34,8 +34,12 @@
 
 
 /* AdminTable */
+.admin-head-container {
+    padding-bottom: 250px;
+}
 .admin-body-container {
     display:flex;
+
 }
 .form-container,
 .admin-table-container
@@ -91,123 +95,69 @@
 
 
 
-
 /* Filters */
 .filter-container
 {
     width:300px;
     padding: 20px;
-
+    border-radius: 5px;
 }
 
-.filter-container input[type=checkbox]
-{
-    width: 20px;
-    height: 20px;
-}
-.filter-container label
-{
-    font-weight: 700;
-}
-
-.checkbox-filters
-{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.checkbox-button
+.filter-buttons
 {
     margin: 10px;
     display: flex;
     justify-content: center;
 }
 
-
-
-
-/* ActionDropdown */
-.actions-dropdown {
-    position: relative;
-    display: inline-block;
+/* Styling for filter dropdown menus */
+.filter-dropdown.open .filter-dropdown-menu
+{
+    display: block;
 }
-
-.actions-icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.actions-dropdown-content {
+.filter-dropdown-menu
+{
     display: none;
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    top: 0;
+    left: 100%;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
     padding: 10px;
     z-index: 1;
 }
-
-.actions-dropdown:hover .actions-dropdown-content {
-    display: block;
-}
-
-
-.filters-container {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Styling for filter dropdown menus */
-.filter-dropdown {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 10px;
+.filter-dropdown-menu label
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 .filter-dropdown-toggle {
-    background-color: #f8f8f8;
+    width: 100%;
+    color: white;
+    background-color: #b4b4b4; /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
     border: 1px solid #ccc;
     border-radius: 3px;
     padding: 8px 12px;
     cursor: pointer;
-    z-index: 1;
+    transition: background-color 0.8ms ease;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-
-.filter-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 3px 3px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: none;
-    z-index: 2;
-}
-
-.filter-dropdown-menu label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.filter-dropdown-menu label input[type="checkbox"] {
-    margin-right: 5px;
-}
-
-.filter-dropdown.open .filter-dropdown-menu {
-    display: block;
+.filter-dropdown-toggle:hover {
+    background-color: rgba(210, 210, 210, 0.95);
 }
 
 
-
-.apply-button {
+.apply-button
+{
     margin-top: 20px;
 }
 
-.apply-button button {
+.apply-button button
+{
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -217,9 +167,49 @@
     transition: background-color 0.3s ease;
 }
 
-.apply-button button:hover {
+.apply-button button:hover
+{
     background-color: #0056b3;
 }
+
+
+
+/* ActionDropdown */
+.actions-dropdown
+{
+
+    position: relative;
+
+}
+
+.actions-icon
+{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.actions-dropdown-content
+{
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px;
+    z-index: 2;
+}
+
+.actions-dropdown:hover .actions-dropdown-content
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
 
 .price-filter {
     margin-bottom: 20px;
@@ -255,6 +245,23 @@
     border-radius: 50%;
     background-color: #007bff; /* Primary color */
     cursor: pointer;
+}
+
+.testing-link-container {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    padding: 20px;
+    border: black solid 2px;
+}
+.testing-header {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.red-text {
+    color:red;
+    font-weight: bold;
 }
 
 

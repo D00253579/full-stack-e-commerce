@@ -142,3 +142,46 @@ color:pink;
 .body-container{
     background-color: #f8f5eb;
 }
+
+
+/* TESTING STYLES */
+
+.testing-red-button
+{
+    padding: 7px 10px;
+    font-size: 0.875rem;
+    line-height: normal;
+    border-radius: 0.2rem;
+    color: #fff;
+    background-color: rgb(255, 64, 84);
+    margin-right: 10px;
+    position: relative;
+    top: 1px;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+
+.testing-red-button:hover {
+    background-color: rgb(222, 6, 33);
+}
+
+.testing-green-button
+{
+    padding: 7px 10px;
+    font-size: 0.875rem;
+    line-height: normal;
+    border-radius: 0.2rem;
+    color: #fff;
+    background-color: rgb(131, 190, 11);
+    margin-right: 10px;
+    position: relative;
+    top: 1px;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+
+.testing-green-button:hover {
+    background-color: rgb(151, 220, 15);
+}

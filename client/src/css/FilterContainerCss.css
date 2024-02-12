@@ -24,7 +24,7 @@
     flex-direction: row;
     justify-content: space-around;
 }
-.checkbox-button
+.filter-buttons
 {
     margin: 10px;
     display: flex;

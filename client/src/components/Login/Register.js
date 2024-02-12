@@ -37,50 +37,54 @@ handleSubmit=(e)=>{
 }
 render(){
         return(
-            <form className="form-container" noValidate = {true} id = "loginOrRegistrationForm">
-                {this.state.isRegistered ? <Redirect to="/DisplayProducts"/> : null}
-                <h2>New User Registration</h2>
+            <div>
+                <form className="form-container" noValidate = {true} id = "loginOrRegistrationForm">
+                    {this.state.isRegistered ? <Redirect to="/DisplayProducts"/> : null}
+                    <h2>New User Registration</h2>
 
-                <input
-                    name = "name"
-                    type = "text"
-                    placeholder = "Name"
-                    autoComplete="name"
-                    value = {this.state.name}
-                    onChange = {this.handleChange}
-                    ref = {(input) => { this.inputToFocus = input }}
-                /><br/>
+                    <input
+                        name = "name"
+                        type = "text"
+                        placeholder = "Name"
+                        autoComplete="name"
+                        value = {this.state.name}
+                        onChange = {this.handleChange}
+                        ref = {(input) => { this.inputToFocus = input }}
+                    /><br/>
 
-                <input
-                    name = "email"
-                    type = "email"
-                    placeholder = "Email"
-                    autoComplete="email"
-                    value = {this.state.email}
-                    onChange = {this.handleChange}
-                /><br/>
+                    <input
+                        name = "email"
+                        type = "email"
+                        placeholder = "Email"
+                        autoComplete="email"
+                        value = {this.state.email}
+                        onChange = {this.handleChange}
+                    /><br/>
 
-                <input
-                    name = "password"
-                    type = "password"
-                    placeholder = "Password"
-                    autoComplete="password"
-                    title = "Password must be at least ten-digits long and contains at least one lowercase letter, one uppercase letter, one digit and one of the following characters (£!#€$%^&*)"
-                    value = {this.state.password}
-                    onChange = {this.handleChange}
-                /><br/>
+                    <input
+                        name = "password"
+                        type = "password"
+                        placeholder = "Password"
+                        autoComplete="password"
+                        title = "Password must be at least ten-digits long and contains at least one lowercase letter, one uppercase letter, one digit and one of the following characters (£!#€$%^&*)"
+                        value = {this.state.password}
+                        onChange = {this.handleChange}
+                    /><br/>
 
-                <input
-                    name = "confirmPassword"
-                    type = "password"
-                    placeholder = "Confirm password"
-                    autoComplete="confirmPassword"
-                    value = {this.state.confirmPassword}
-                    onChange = {this.handleChange}
-                /><br/><br/>
+                    <input
+                        name = "confirmPassword"
+                        type = "password"
+                        placeholder = "Confirm password"
+                        autoComplete="confirmPassword"
+                        value = {this.state.confirmPassword}
+                        onChange = {this.handleChange}
+                    /><br/><br/>
 
-                <LinkInClass value="Register New User" className="green-button" onClick={this.handleSubmit} />
-                <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
-            </form>
+                    <LinkInClass value="Register New User" className="green-button" onClick={this.handleSubmit} />
+                    <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
+                </form>
+
+                <div className="testing-return"><Link className="testing-red-button" to={"/TestingDirectory`"}>RETURN</Link></div>
+            </div>
         )}
 }
