@@ -46,17 +46,17 @@
 
 .green-button
 {
-    background-color: #28a745;
+    background-color: #8EAF9D;
 }
 
 .red-button
 {
-    background-color: #dc3545;
+    background-color: #6B7D7D;
 }
 
 .blue-button
 {
-    background-color: #3545dc;
+    background-color: #B9CDDA;
 }
 
 .green-button:hover,
@@ -74,7 +74,7 @@
 
 .red-button:hover
 {
-  background-color: #a01020; 
+  background-color: #db303c;
 }
 
 .blue-button:hover
@@ -123,12 +123,12 @@ color:pink;
 }
 .table-container tbody tr:nth-child(odd) 
 {
-    background-color: #eee;
+    background-color: white;
 }
 
 .table-container tbody tr:nth-child(even) 
 {
-    background-color: #ffa;
+    background-color: white;
 }
 
 .add-new-car
@@ -138,3 +138,7 @@ color:pink;
 
 
 /*end of table of cars */
+
+.body-container{
+    background-color: #f8f5eb;
+}

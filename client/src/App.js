@@ -11,7 +11,8 @@ import EditTShirt from "./components/EditTShirt"
 import DeleteTShirt from "./components/DeleteTShirt"
 import DisplayProducts from "./components/DisplayProducts"
 import NavBar from "./components/NavBar";
-import {Nav} from "react-bootstrap";
+import AdminDashboard from "./components/AdminDashboard";
+// import {Nav} from "react-bootstrap";
     
 export default class App extends Component 
 {
@@ -20,13 +21,13 @@ export default class App extends Component
         return (
             <BrowserRouter>
                 <Switch>                 
-                    <Route exact path="/" component={DisplayProducts} />
+                    <Route exact path="/" component={AdminDashboard} />
                     <Route exact path="/AddTShirt" component={AddTShirt} />
                     <Route exact path="/EditTShirt/:id" component={EditTShirt} />
                     <Route exact path="/DeleteTShirt/:id" component={DeleteTShirt} />
                     <Route exact path="/DisplayProducts" component={DisplayProducts}/>
                     <Route exact path="/NavBar" component={NavBar}/>
-                    <Route path="*" component={DisplayProducts}/>
+                    <Route path="*" component={AdminDashboard}/>
                 </Switch>
             </BrowserRouter>
         )
