@@ -26,7 +26,6 @@ export default class App extends Component
         return (
             <BrowserRouter>
                 <Switch>
-
                     <Route exact path="/" component={TestingDirectory} />
                     <Route exact path="/AddTShirt" component={AddTShirt} />
                     <Route exact path="/Login/login" component={Login} />
