@@ -25,10 +25,15 @@ router.get(`/products/:id`, (req, res) =>
 // Add new record
 router.post(`/products`, (req, res) =>
 {
-    tShirtModel.create(req.body, (error, data) =>
-    {
+    // if(!/^[0-9]+$/.test(req.params.product_id)){
+    //
+    // }
+    // else
+    //  {
+    tShirtModel.create(req.body, (error, data) => {
         res.json(data)
     })
+    // }
 })
 
 

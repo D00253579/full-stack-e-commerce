@@ -1,0 +1,265 @@
+
+/* AdminControls */
+.controls-container{
+    height: 100px;
+    border: black solid 1px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Button style */
+.controls-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.controls-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+
+/* AdminTable */
+.admin-body-container {
+    display:flex;
+}
+.form-container,
+.admin-table-container
+{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+.admin-table-container table
+{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.admin-table-container thead
+{
+    background-color: #333;
+    color:#fff;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: bold;
+}
+
+.admin-table-container tbody tr
+{
+    height:3em;
+    border-bottom: 1px solid #ccc;
+}
+
+.admin-table-container thead th,
+.admin-table-container tbody td
+{
+    padding:10px;
+    font-size:14px;
+    text-align: center;
+}
+.admin-table-container tbody tr:nth-child(odd)
+{
+    background-color: #f2f2f2;
+}
+
+.admin-table-container tbody tr:nth-child(even)
+{
+    background-color: #e6e6e6;
+}
+.add-new-product
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+
+
+/* Filters */
+.filter-container
+{
+    width:300px;
+    padding: 20px;
+
+}
+
+.filter-container input[type=checkbox]
+{
+    width: 20px;
+    height: 20px;
+}
+.filter-container label
+{
+    font-weight: 700;
+}
+
+.checkbox-filters
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.checkbox-button
+{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/* ActionDropdown */
+.actions-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.actions-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.actions-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px;
+    z-index: 1;
+}
+
+.actions-dropdown:hover .actions-dropdown-content {
+    display: block;
+}
+
+
+.filters-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styling for filter dropdown menus */
+.filter-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.filter-dropdown-toggle {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.filter-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 2;
+}
+
+.filter-dropdown-menu label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filter-dropdown-menu label input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.filter-dropdown.open .filter-dropdown-menu {
+    display: block;
+}
+
+
+
+.apply-button {
+    margin-top: 20px;
+}
+
+.apply-button button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.apply-button button:hover {
+    background-color: #0056b3;
+}
+
+.price-filter {
+    margin-bottom: 20px;
+}
+
+.price-filter h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.price-slider {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.price-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007bff; /* Primary color */
+    cursor: pointer;
+}
+
+.price-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007bff; /* Primary color */
+    cursor: pointer;
+}
+
+
+
+
+
+
+

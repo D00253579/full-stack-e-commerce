@@ -16,7 +16,6 @@ export default class login extends Component
             email:"",
             password:"",
             isLoggedIn:false
-            adsklfjdskfhjdkdh
         }
     }
 
@@ -78,7 +77,8 @@ export default class login extends Component
                     value={this.state.password}
                     onChange={this.handleChange}
                 /><br/><br/>
-
+                {/*<Link className="green-button" to={"/Login/login"}>Login</Link>*/}
+                {/*<Link className="blue-button" to={"/Login/Register"}>Register</Link>*/}
                 <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/>
                 <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
             </form>

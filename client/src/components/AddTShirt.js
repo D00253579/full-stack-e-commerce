@@ -124,7 +124,7 @@ export default class AddTShirt extends Component
 
                     <Form.Group controlId="brand">
                         <Form.Label>Brand</Form.Label>
-                        <Form.Control type="text" name="Brand" value={this.state.brand} onChange={this.handleChange} />
+                        <Form.Control type="text" name="brand" value={this.state.brand} onChange={this.handleChange} />
                     </Form.Group>
 
                     <LinkInClass value="Add" className="green-button" onClick={this.handleSubmit}/>            
