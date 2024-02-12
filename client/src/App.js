@@ -1,7 +1,11 @@
 import React, {Component} from "react"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 
-//import "bootstrap/dist/css/bootstrap.css"
+
+
+
+
+
 import "./css/App.css"
 import "./css/NavBar.css"
 import "./css/AdminCss.css"
@@ -21,7 +25,8 @@ export default class App extends Component
     {
         return (
             <BrowserRouter>
-                <Switch>                 
+                <Switch>
+
                     <Route exact path="/" component={TestingDirectory} />
                     <Route exact path="/AddTShirt" component={AddTShirt} />
                     <Route exact path="/Login/login" component={Login} />
@@ -31,6 +36,7 @@ export default class App extends Component
                     <Route exact path="/NavBar" component={NavBar}/>
                     <Route exact path="/Login/Register" component={Register} />
                     <Route exact path="/AdminDashboard/AdminDashboard" component={AdminDashboard} />
+
 
                     <Route path="*" component={TestingDirectory}/>
                 </Switch>
