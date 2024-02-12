@@ -17,27 +17,29 @@ export default class NavBar extends Component {
                         <img src={logo} alt="logo"/>
                     </div>
                     <div className={"container"}>
-                    <div className={"icons-container"}>
-                        <div className="search-bar">
-                            <input placeholder="Search" type="text" id="search"/>
-                            {/*<button type="submit" id="Search" >*/}
+                        <div className={"search-container"}>
+                            <div className={"icons-container"}>
+                                <div className="search-bar">
+                                    <input placeholder="Search" type="text" id="search"/>
+                                    {/*<button type="submit" id="Search" >*/}
+                                </div>
+                            </div>
+                            <div className={"icons-container"}>
+                                <i className={"searchIcon"}><img src={SearchIcon}/></i>
+                                {/*</button>*/}
+                            </div>
                         </div>
-                    </div>
-                    <div className={"icons-container"}>
-                        <i className={"searchIcon"}><img src={SearchIcon}/></i>
-                        {/*</button>*/}
-                    </div>
-                    <div className={"icons-container"}>
-                        {/*<button type="submit" id="account">*/}
-                        <i className={"account"}><img src={AccountIcon}/>
-                        </i>
-                        {/*</button>*!/*/}
                         <div className={"icons-container"}>
-                            {/*<button type="submit" id="bag">*/}
-                            <i className={"shopping-bag"}><img src={BagIcon}/> </i>
-                            {/*</button>*/}
+                            {/*<button type="submit" id="account">*/}
+                            <i className={"account"}><img src={AccountIcon}/>
+                            </i>
+                            {/*</button>*!/*/}
+                            <div className={"icons-container"}>
+                                {/*<button type="submit" id="bag">*/}
+                                <i className={"shopping-bag"}><img src={BagIcon}/> </i>
+                                {/*</button>*/}
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </nav>
             </div>
