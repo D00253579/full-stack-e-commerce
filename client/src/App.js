@@ -12,6 +12,9 @@ import DeleteTShirt from "./components/DeleteTShirt"
 import DisplayProducts from "./components/DisplayProducts"
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard";
+
+    
+
 import Register from "./components/Login/Register";
 
 export default class App extends Component 
@@ -21,7 +24,7 @@ export default class App extends Component
         return (
             <BrowserRouter>
                 <Switch>                 
-                    <Route exact path="/" component={DisplayProducts} />
+                    <Route exact path="/" component={AdminDashboard} />
                     <Route exact path="/AddTShirt" component={AddTShirt} />
                     <Route exact path="/Login/login" component={Login} />
                     <Route exact path="/EditTShirt/:id" component={EditTShirt} />

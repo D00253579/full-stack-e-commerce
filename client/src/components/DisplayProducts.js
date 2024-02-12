@@ -3,48 +3,38 @@ import {Link} from "react-router-dom"
 
 import axios from "axios"
 
+import NavBar from "./NavBar";
 import ProductTable from "./ProductTable"
 
 import {SERVER_HOST} from "../config/global_constants"
 
 
-export default class DisplayProducts extends Component
-{
-    constructor(props) 
-    {
+export default class DisplayProducts extends Component {
+    constructor(props) {
         super(props)
-        
+
         this.state = {
-            products:[]
+            products: []
         }
     }
-    
-    
-    componentDidMount() 
-    {
+
+
+    componentDidMount() {
         axios.get(`${SERVER_HOST}/products`)
-        .then(res => 
-        {
-            if(res.data)
-            {
-                if (res.data.errorMessage)
-                {
-                    console.log(res.data.errorMessage)    
+            .then(res => {
+                if (res.data) {
+                    if (res.data.errorMessage) {
+                        console.log(res.data.errorMessage)
+                    } else {
+                        console.log("Records read")
+                        this.setState({products: res.data})
+                    }
+                } else {
+                    console.log("Record not found")
                 }
-                else
-                {           
-                    console.log("Records read")   
-                    this.setState({products: res.data})
-                }   
-            }
-            else
-            {
-                console.log("Record not found")
-            }
-        })
+            })
     }
 
-  
     render() 
     {   
         return (           
@@ -60,7 +50,8 @@ export default class DisplayProducts extends Component
                         <Link className="blue-button" to={"/AddTShirt"}>Add New Product</Link>
                     </div>
                 </div>
-            </div> 
-        )
+            </div>
+        </div>
+    )
     }
 }
