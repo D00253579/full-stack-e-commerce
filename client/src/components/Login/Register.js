@@ -205,11 +205,16 @@ render(){
                             value = {this.state.password}
                             onChange = {this.handleChange}
                         />
-                        {this.state.errors.password.length > 0 && this.state.errors.password.map((error, index) => (
-                            <div key={index} className="error-message">
-                                &#x2022; {error}
+                        {this.state.errors.password.length > 0 ? (
+                            <div className="password-error-container">
+                                {this.state.errors.password.map((error, index) => (
+                                    <div key={index}>
+                                        &#x2022; {error}
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        ) : null}
+
                         <br/>
 
                         <input
@@ -220,6 +225,7 @@ render(){
                             value = {this.state.confirmPassword}
                             onChange = {this.handleChange}
                         />
+
                         {this.state.errors.confirmPassword.length > 0 && this.state.errors.confirmPassword.map((error, index) => (
                             <div key={index} className="error-message">
                                 &#x2022; {error}
