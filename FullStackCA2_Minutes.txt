@@ -1,0 +1,16 @@
+Minutes – CA2 Full Stack Project
+08/02/2024 at 10am 
+Meeting attendees:
+Caitlin, Luke and Jamie 
+
+Topics of Discussion:
+Discussed what each of us have done up until today, Luke has gotten the filters to work on the tshirts, except for the price filter. 
+Jamie has finished the encryption, login and register , and is planning on ensuring the encryption works for admin, and router validation – 4 days. 
+Luke is going to make the filters collapse and fix the price – 2 days 
+Luke is also going to get more tshirt data – 4 days
+Caitlin is going to continue with styling, style the filters and fix the icons in the navigation bar – 4 days 
+
+13/02/2024 at 10am 
+Meeting attendees: 
+Caitlin, Luke and Jamie(via video call)
+Topics of Discussion: 
