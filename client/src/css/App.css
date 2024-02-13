@@ -1,26 +1,61 @@
 .container {
   padding-top: 10px;
 }
-
-.form-container,
 .table-container 
 {
   max-width: 700px;
   margin: 0 auto;
 }
 
-.form-container
+
+
+
+.login-container,
+.register-container
 {
-      border:thin solid #aaaaaa;
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 5px;
-    background: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-
-.logout
+.register-form,
+.login-form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    border-left:thin solid #8c8787;
+    padding: 20px;
+    border-radius: 5px;
+    background: #8c8787;
+}
+.error-message
+{
+    width:60%;
+    text-align: left;
+    font-size:15px;
+    color: red;
+}
+.register-container input[type="text"],
+.register-container input[type="email"],
+.register-container input[type="password"] {
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.register-buttons
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    .logout
 {
     margin-bottom:30px;
 }

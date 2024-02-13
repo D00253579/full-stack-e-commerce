@@ -16,9 +16,6 @@ export default class Filters extends Component
             price: 0.00,
         }
     }
-    componentDidMount() {
-        console.log("filters as props ")
-    }
 
     handleApplyFilters = () => {
         // Get filters using helper method getCheckedValues for each entry to populate
