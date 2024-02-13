@@ -35,18 +35,12 @@ export default class NavBar extends Component {
                         <i className={"account"}><img src={AccountIcon}/>
                         </i>
                         {/*</button>*!/*/}
-                        <div className={"icons-container"}>
-                            {/*<button type="submit" id="account">*/}
-                          <i className={"account"} onClick={login}><img src={AccountIcon}/>
-                            </i>
-                            {/*</button>*!/*/}
                             <div className={"icons-container"}>
                                 {/*<button type="submit" id="bag">*/}
                                 <i className={"shopping-bag"}><img src={BagIcon}/> </i>
                                 {/*</button>*/}
                             </div>
                         </div>
-                    </div>
                     </div>
                 </nav>
             </div>
