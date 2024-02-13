@@ -13,4 +13,26 @@ Caitlin is going to continue with styling, style the filters and fix the icons i
 13/02/2024 at 10am 
 Meeting attendees: 
 Caitlin, Luke and Jamie(via video call)
+
 Topics of Discussion: 
+Tasks completed since the last meeting: 
+Jamie - router validation , encyrption 
+Luke - filters are completed, admin controls, links to users and products dashboard 
+Caitlin - Styled the icons in the nav bar 
+
+As a group we started to discuss the admin side of the website and how we will assign tasks. We are planning to have another meeting on friday to check in on how we are getting on with our assigned tasks.
+
+Tasks we plan on doing:
+Jamie - web tokens (1 day)
+- Payments in the shopping cart 
+- View users, admin view of the users(3 days)
+
+Caitlin - make the shopping cart component, appear on click of the bag icon in the nav bar (3 days)
+- remove bootstraps that were in dereks notes (1 day)
+- style the users page (3 days)
+- style the filters (2 days)
+- add a footer - back to top link, with social media links and copyright
+- link the login component to the account icon (2 days)
+
+Luke - Invalid login message - box would change to red (2 days)
+- Client side validation (2 days)
