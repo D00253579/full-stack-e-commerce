@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 
 import {Link} from "react-router-dom";
-
+import {ACCESS_LEVEL_ADMIN, ACCESS_LEVEL_GUEST} from "../config/global_constants";
+import Logout from "./Login/Logout";
 export default class TestingDirectory extends Component
 {
     render() {
@@ -15,11 +16,22 @@ export default class TestingDirectory extends Component
                 </div>
 
                 <div className="testing-link-container">
-
-                    <Link className="testing-green-button" to={"AdminDashboard/AdminDashboard/"}>Admin Dashboard</Link>
-                    <Link className="testing-green-button" to={"Login/login/"}>Login</Link>
-                    <Link className="testing-green-button" to={"Login/register/"}>Register</Link>
-                    <Link className="testing-green-button" to={"AddTShirt/"}>Add T-Shirt</Link>
+                    {sessionStorage.accessLevel > ACCESS_LEVEL_GUEST ?
+                        <div className="logout">
+                            <Logout/>
+                        </div>
+                        :
+                        <div>
+                            <Link className="testing-green-button" to={"Login/login/"}>Login</Link>
+                            <Link className="testing-green-button" to={"Login/register/"}>Register</Link>
+                        </div>
+                    }
+                    {sessionStorage.accessLevel >= ACCESS_LEVEL_ADMIN ?
+                        <div>
+                            <Link className="testing-green-button" to={"AdminDashboard/AdminDashboard/"}>Admin Dashboard</Link>
+                            <Link className="testing-green-button" to={"AddTShirt/"}>Add T-Shirt</Link>
+                        </div>:null
+                    }
                     <Link className="testing-green-button" to={"NavBar/"}>Nav Bar</Link>
 
                 </div>
