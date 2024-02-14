@@ -3,7 +3,7 @@ const router = require(`express`).Router()
 const usersModel = require(`../models/Users`)
 const bcrypt = require('bcryptjs')
 router.post(`/users/Login/Register/:name/:email/:password`, (req, res) => {
-    if (!/^[a-zA-Z]+$/.test(req.params.name)) {
+    if (!/^[a-zA-Z a-zA-Z]+$/.test(req.params.name)) {
         res.json({errorMessage: `Invalid name`});
         //^ is start of line, +@ means it has to include @, same with +.
     } else if (!(/^[a-zA-Z0-9_.-]+@[a-zA-Z]+.[a-zA-Z]+$/.test(req.params.email))) {

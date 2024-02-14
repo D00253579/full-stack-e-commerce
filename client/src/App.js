@@ -42,6 +42,7 @@ export default class App extends Component
                     <Route exact path="/Login/Register" component={Register} />
                     {/*<LoggedRoute exact path="/AdminDashboard/AdminDashboard" component={AdminDashboard} />*/}
 
+
                     <Route exact path="/AdminDashboard/AdminDashboard" component={AdminDashboard} />
                     <Route path="*" component={TestingDirectory}/>
                 </Switch>

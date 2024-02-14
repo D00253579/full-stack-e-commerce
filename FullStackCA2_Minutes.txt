@@ -1,0 +1,38 @@
+Minutes – CA2 Full Stack Project
+08/02/2024 at 10am 
+Meeting attendees:
+Caitlin, Luke and Jamie 
+
+Topics of Discussion:
+Discussed what each of us have done up until today, Luke has gotten the filters to work on the tshirts, except for the price filter. 
+Jamie has finished the encryption, login and register , and is planning on ensuring the encryption works for admin, and router validation – 4 days. 
+Luke is going to make the filters collapse and fix the price – 2 days 
+Luke is also going to get more tshirt data – 4 days
+Caitlin is going to continue with styling, style the filters and fix the icons in the navigation bar – 4 days 
+
+13/02/2024 at 10am 
+Meeting attendees: 
+Caitlin, Luke and Jamie(via video call)
+
+Topics of Discussion: 
+Tasks completed since the last meeting: 
+Jamie - router validation , encyrption 
+Luke - filters are completed, admin controls, links to users and products dashboard 
+Caitlin - Styled the icons in the nav bar 
+
+As a group we started to discuss the admin side of the website and how we will assign tasks. We are planning to have another meeting on friday to check in on how we are getting on with our assigned tasks.
+
+Tasks we plan on doing:
+Jamie - web tokens (1 day)
+- Payments in the shopping cart 
+- View users, admin view of the users(3 days)
+
+Caitlin - make the shopping cart component, appear on click of the bag icon in the nav bar (3 days)
+- remove bootstraps that were in dereks notes (1 day)
+- style the users page (3 days)
+- style the filters (2 days)
+- add a footer - back to top link, with social media links and copyright
+- link the login component to the account icon (2 days)
+
+Luke - Invalid login message - box would change to red (2 days)
+- Client side validation (2 days)
