@@ -55,34 +55,33 @@ export default class login extends Component
     render()
     {
         return (
-            <div>
-            <form className="form-container" noValidate = {true} id = "loginOrRegistrationForm">
+            <div className="register-container">
                 <h2>Login</h2>
+                <form className="login-form" noValidate = {true} id = "loginOrRegistrationForm">
 
-                {this.state.isLoggedIn ? <Redirect to="/DisplayProducts"/> : null}
+                    {this.state.isLoggedIn ? <Redirect to="/DisplayProducts"/> : null}
 
-                <input
-                    type = "email"
-                    name = "email"
-                    placeholder = "Email"
-                    autoComplete="email"
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                /><br/>
+                    <input
+                        type = "email"
+                        name = "email"
+                        placeholder = "Email"
+                        autoComplete="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                    /><br/>
 
-                <input
-                    type = "password"
-                    name = "password"
-                    placeholder = "Password"
-                    autoComplete="password"
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                /><br/><br/>
-                {/*<Link className="green-button" to={"/Login/login"}>Login</Link>*/}
-                {/*<Link className="blue-button" to={"/Login/Register"}>Register</Link>*/}
-                <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/>
-                <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
-            </form>
+                    <input
+                        type = "password"
+                        name = "password"
+                        placeholder = "Password"
+                        autoComplete="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                    /><br/><br/>
+
+                    <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/> <br/>
+                    <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
+                </form>
 
                 <div className="testing-return"><Link className="testing-red-button" to={"/TestingDirectory`"}>RETURN</Link></div>
             </div>
