@@ -1,0 +1,312 @@
+@import "Nav.scss";
+
+$dark_green: #517962;
+$mint_green: #A6D8D4;
+$title_font_size: 16px;
+$white: #ffffff;
+$grey-border: #363131;
+
+/* AdminControls */
+.controls-container {
+  height: 100px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  /* Button style */
+  .controls-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: $title_font_size;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $white;
+    background-color: $dark_green;
+    border: 2px solid $white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-right: 10px;
+    font-family: $title_font;
+  }
+
+  .controls-button:hover {
+    background-color: #8eaf9d;
+    border-color: $grey-border;
+  }
+}
+
+/* AdminTable */
+
+.admin-head-container {
+  padding-bottom: 75px;
+}
+
+.admin-body-container {
+  display: flex;
+}
+
+.admin-table-container {
+  width: 90%;
+  display: flex;
+  /*justify-content: center;*/
+  border-color: $grey-border;
+  border-radius: 5px;
+
+  .admin-table-container table {
+    width: 100%;
+    /*border-collapse: collapse;*/
+    font-family: Arial, sans-serif;
+    border-color: #363131;
+  }
+}
+
+.admin-table-container thead {
+  background-color: $dark_green;
+  color: $white;
+  border-color: $white;
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: bold;
+  font-family: $title_font;
+}
+
+.admin-table-container thead :hover {
+  border-color: $grey-border;
+}
+
+.admin-table tbody tr {
+  height: 3em;
+  border-bottom: 1px solid $white;
+}
+
+.admin-table thead th,
+.admin-table-container tbody td {
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.admin-table-container tbody tr:nth-child(odd) {
+  background-color: rgba(239, 241, 232, 0.69);
+}
+
+.admin-table-container tbody tr:nth-child(even) {
+  background-color: rgba(239, 241, 232, 0.69);
+}
+
+.admin-table-container tbody tr:nth-child(even) :hover {
+  background-color: $white;
+}
+
+.admin-table-container tbody tr:nth-child(odd) :hover {
+  background-color: $white;
+}
+
+.admin-table-container table {
+  border-color: $grey-border;
+  border-radius: 5px;
+}
+
+.add-new-product {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Filters */
+.filter-container {
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+
+  .filter-buttons {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Styling for filter dropdown menus */
+  .filter-dropdown.open .filter-dropdown-menu {
+    display: block;
+  }
+
+
+  .filter-dropdown-menu {
+    display: none;
+    top: 0;
+    left: 100%;
+    background-color: #B9CDDA;
+    border: 1px solid $white;
+    padding: 10px;
+    z-index: 1;
+
+  }
+
+  .filter-dropdown-menu label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .filter-dropdown-toggle {
+    width: 100%;
+    color: $white;
+    background-color: $mint_green; /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
+    border: 1px solid $white;
+    border-radius: 3px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.8ms ease;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: $title_font;
+    font-size: $title_font_size;
+    font-weight: bold;
+  }
+
+  .filter-dropdown-toggle:hover {
+    background-color: $light_green;
+    border-color: $grey-border;
+  }
+}
+
+.filter-buttons > button {
+  background-color: #B9CDDA;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: $title_font_size;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $white;
+  border: 2px solid $white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-family: $title_font;
+
+}
+
+.filter-buttons > button:hover {
+  background-color: $mint_green;
+  border-color: $grey-border;
+}
+
+.apply-button {
+  margin-top: 20px;
+}
+
+.apply-button button {
+  background-color: #007bff;
+  color: $white;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button button:hover {
+  background-color: #0056b3;
+}
+
+
+/* ActionDropdown */
+.actions-dropdown {
+
+  position: relative;
+
+}
+
+.actions-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.actions-dropdown-content {
+  display: none;
+  background-color: $white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 2;
+}
+
+.actions-dropdown:hover .actions-dropdown-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+/*.actions-dropdown > h1 {*/
+/*    position: fixed;*/
+/*}*/
+
+
+.price-filter {
+  margin-bottom: 20px;
+}
+
+.price-filter h4 {
+  margin-bottom: 10px;
+  font-size: $title_font_size;
+  font-family: $title_font;
+  color: #333;
+}
+
+.price-slider {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background-color: $white;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.price-slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #007bff; /* Primary color */
+  cursor: pointer;
+}
+
+.price-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #007bff; /* Primary color */
+  cursor: pointer;
+}
+
+.testing-link-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  padding: 20px;
+  border: black solid 2px;
+}
+
+.testing-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.red-text {
+  color: red;
+  font-weight: bold;
+}
+
+
+
+
+
+
+

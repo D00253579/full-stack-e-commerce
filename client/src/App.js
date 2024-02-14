@@ -1,9 +1,10 @@
 import React, {Component} from "react"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import "./css/App.css"
-import "./css/AdminCss.css"
-import "./css/NavBar.css"
-import Login from "./components/Login/login";
+import "./css/Admin.css"
+import "./css/Nav.css"
+import "./css/Filters.css"
+import Login from "./components/Login/Login";
 import AddTShirt from "./components/AddTShirt"
 import EditTShirt from "./components/EditTShirt"
 import DeleteTShirt from "./components/DeleteTShirt"
