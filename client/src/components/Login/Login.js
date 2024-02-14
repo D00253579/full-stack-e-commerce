@@ -64,7 +64,7 @@ export default class login extends Component
                 <h2>Login</h2>
                 <form className="login-form" noValidate = {true} id = "loginOrRegistrationForm">
 
-                    {this.state.isLoggedIn ? <Redirect to="/DisplayProducts"/> : null}
+                    {this.state.isLoggedIn ? <Redirect to="/TestingDirectory"/> : null}
 
                     <input
                         type = "email"
