@@ -4,10 +4,10 @@ let tShirtPhotosSchema=new mongoose.Schema({
 })
 let tShirtSchema = new mongoose.Schema(
    {
-        product_id: {type: Number},
-        name: {type: String},
-        colour: {type: String},
-        size: {type: Array},
+       product_id: {type: Number},
+       name: {type: String},
+       colour: {type: String},
+       size: {type: Array},
        price:{type: Number},
        gender:{type: String},
        category:{type: String},

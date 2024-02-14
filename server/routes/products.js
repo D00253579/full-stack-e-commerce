@@ -13,10 +13,13 @@ router.get(`/products`, (req, res) =>
 
 
 // Read one record
-router.get(`/products/:id`, (req, res) =>
+router.get(`/products/:product_id`, (req, res) =>
 {
-    tShirtModel.findById(req.params.id, (error, data) =>
-    {              
+    console.log("Passed ID:", req.params.product_id)
+    tShirtModel.findById(req.params.product_id, (error, data) =>
+    {
+
+        console.log("Returning data: ",data)
         res.json(data)
     })
 })
@@ -42,6 +45,7 @@ router.put(`/products/:id`, (req, res) =>
 {
     tShirtModel.findByIdAndUpdate(req.params.id, {$set: req.body}, (error, data) =>
     {
+
         res.json(data)
     })        
 })

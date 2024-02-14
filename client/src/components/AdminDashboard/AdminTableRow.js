@@ -9,6 +9,10 @@ export default class AdminTableRow extends Component
     }
 
 
+    handleRowClick = () => {
+        this.props.handleRowClick(this.props.products._id)
+    }
+
     render() {
         const {
             product_id,
@@ -18,8 +22,9 @@ export default class AdminTableRow extends Component
             brand,
             current_stock,
         } = this.props.products;
+
         return (
-            <tr>
+            <tr onClick={this.handleRowClick}>
                 <td>{this.props.rowNum}</td>
                 <td>{name}</td>
                 <td>{price}</td>
@@ -27,9 +32,6 @@ export default class AdminTableRow extends Component
                 <td>{brand}</td>
                 <td>{product_id}</td>
                 <td>{current_stock}</td>
-                <td>
-                    <ActionDropdown id={this.props.products.product_id} />
-                </td>
             </tr>
         )
     }
