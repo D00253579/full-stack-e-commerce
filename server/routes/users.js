@@ -20,11 +20,7 @@ router.post(`/users/Login/Register/:name/:email/:password`, (req, res) => {
                 res.json({errorMessage: `User already exists`})
             } else {               //Password              saltRounds
                 bcrypt.hash(req.params.password, parseInt(process.env.PASSWORD_HASH_SALT_ROUNDS), (err, hash) => {
-                    usersModel.create({
-                        name: req.params.name,
-                        email: req.params.email,
-                        password: hash
-                    }, (error, data) => {
+                    usersModel.create({name: req.params.name,email: req.params.email,password: hash}, (error, data) => {
                         if (data) {
                             res.json({name: data.name, accessLevel: data.accessLevel})
                         } else {
@@ -38,8 +34,19 @@ router.post(`/users/Login/Register/:name/:email/:password`, (req, res) => {
 })
 router.post(`/users/Login/login/:email/:password`, (req, res) => {
     usersModel.findOne({email: req.params.email}, (error, data) => {
-        if (data) {
-            res.json({name: data.name})
+        if(data)
+        {
+            bcrypt.compare(req.params.password, data.password, (err, result) =>
+            {
+                if(result)
+                {
+                    res.json({name: data.name, accessLevel:data.accessLevel})
+                }
+                else
+                {
+                    res.json({errorMessage:`User is not logged in`})
+                }
+            })
         } else {
             console.log("not found in db")
             res.json({errorMessage: `User is not logged in`})
@@ -48,8 +55,8 @@ router.post(`/users/Login/login/:email/:password`, (req, res) => {
 })
 
 
-router.post(`/users/logout`, (req,res) =>
+router.post(`/users/Login/Logout`, (req,res) =>
 {
     res.json({})
 })
-module.exports=router
+module.exports = router

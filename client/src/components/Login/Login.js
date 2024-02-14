@@ -3,7 +3,7 @@ import {Redirect, Link} from "react-router-dom"
 import axios from "axios"
 
 import LinkInClass from "../../components/LinkInClass"
-import {SERVER_HOST} from "../../config/global_constants"
+import {ACCESS_LEVEL_ADMIN, ACCESS_LEVEL_GUEST, SERVER_HOST} from "../../config/global_constants"
 
 
 export default class login extends Component
@@ -39,7 +39,12 @@ export default class login extends Component
                     }
                     else // user successfully logged in
                     {
+                        if (res.data.email==="admin@admin.com"){
+                            res.data.accessLevel=ACCESS_LEVEL_ADMIN
+                        }
                         console.log("User logged in")
+                        sessionStorage.name=res.data.name
+                        sessionStorage.accessLevel=res.data.accessLevel
 
                         this.setState({isLoggedIn:true})
                     }
@@ -78,9 +83,10 @@ export default class login extends Component
                         value={this.state.password}
                         onChange={this.handleChange}
                     /><br/><br/>
-
-                    <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/> <br/>
-                    <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
+                    {/*<Link className="green-button" to={"/Login/login"}>Login</Link>*/}
+                    {/*<Link className="blue-button" to={"/Login/Register"}>Register</Link>*/}
+                    <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/>
+                    <Link className="red-button" to={"/TestingDirectory"}>Cancel</Link>
                 </form>
 
                 <div className="testing-return"><Link className="testing-red-button" to={"/TestingDirectory`"}>RETURN</Link></div>

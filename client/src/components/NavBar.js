@@ -4,7 +4,7 @@ import logo from "../nav-Images/logo.png"
 import AccountIcon from "../nav-Images/AccountIcon.jpg"
 import BagIcon from "../nav-Images/BagIcon.png"
 import SearchIcon from "../nav-Images/SearchIcon.png"
-import login from "./Login/login";
+import login from "./Login/Login";
 import {SERVER_HOST} from "../config/global_constants";
 
 export default class NavBar extends Component {

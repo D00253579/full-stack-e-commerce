@@ -1,7 +1,7 @@
 import React,{Component} from "react"
 import {Redirect, Link} from "react-router-dom"
 import axios from "axios"
-import {SERVER_HOST} from "../../config/global_constants"
+import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../../config/global_constants"
 import LinkInClass from "../LinkInClass";
 export default class Register extends Component{
     constructor(props) {
@@ -134,13 +134,24 @@ export default class Register extends Component{
         {
             e.preventDefault()
             axios.post(`${SERVER_HOST}/users/Login/Register/${this.state.name}/${this.state.email}/${this.state.password}`)
-                .then(res =>{
-                    if (res.data){
-                        if (res.data.errorMessage){
+                .then(res =>
+                {
+                    if(res.data)
+                    {
+                        if (res.data.errorMessage)
+                        {
                             console.log(res.data.errorMessage)
-                        }else{
-                            console.log("User registered")
-                            this.setState({isRegistered: true})
+                        }
+                        else // user successfully registered
+                        {
+                            console.log("User registered and logged in")
+                            if (this.state.name==="Admin"){
+                                res.data.accessLevel=ACCESS_LEVEL_ADMIN
+                            }
+                            sessionStorage.name = res.data.name
+                            sessionStorage.accessLevel = res.data.accessLevel
+
+                            this.setState({isRegistered:true})
                         }
 
                     }else{
@@ -174,6 +185,7 @@ render(){
                             autoComplete="name"
                             value = {this.state.name}
                             onChange = {this.handleChange}
+                            ref = {(input) => { this.inputToFocus = input }}
                         />
                         {this.state.errors.name.length > 0 && this.state.errors.name.map((error, index) => (
                             <div key={index} className="error-message">
