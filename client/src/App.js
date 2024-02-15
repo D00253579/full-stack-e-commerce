@@ -14,12 +14,11 @@ import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import TestingDirectory from "./components/TestingDirectory";
 import MainPage from "./components/MainPage"
 import LoggedRoute from "./components/LoggedRoute";
-
 import Register from "./components/Login/Register";
 import {ACCESS_LEVEL_GUEST} from "./config/global_constants";
-if (typeof sessionStorage.accessLevel==="undefined"){
-    sessionStorage.name="GUEST"
-    sessionStorage.accessLevel=ACCESS_LEVEL_GUEST
+if (typeof localStorage.accessLevel==="undefined"){
+    localStorage.name="GUEST"
+    localStorage.accessLevel=ACCESS_LEVEL_GUEST
 }
 
 export default class App extends Component

@@ -3,7 +3,7 @@ import {Redirect, Link} from "react-router-dom"
 import axios from "axios"
 
 import LinkInClass from "../../components/LinkInClass"
-import {ACCESS_LEVEL_ADMIN, ACCESS_LEVEL_GUEST, SERVER_HOST} from "../../config/global_constants"
+import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../../config/global_constants"
 
 
 export default class login extends Component
@@ -19,6 +19,28 @@ export default class login extends Component
         }
     }
 
+    componentDidMount() {
+
+        axios.get(`${SERVER_HOST}/users`)
+            .then(res =>
+            {
+                if(res.data)
+                {
+                    if(res.data.errorMessage) {
+                        console.log(res.data.errorMessage)
+                    } else {
+                        console.log("Users read to Login page")
+                        this.setState({users: res.data})
+                        //console.log("users: ",this.state.users)
+                    }
+                } else {
+                    console.log("Users not found")
+                }
+            })
+
+    }
+
+
 
     handleChange = (e) =>
     {
@@ -31,7 +53,36 @@ export default class login extends Component
         axios.post(`${SERVER_HOST}/users/Login/login/${this.state.email}/${this.state.password}`)
             .then(res =>
             {
-                if(res.data)
+                canLogin = true
+                this.setState(prevState => ({ // else set the state of errors.email to an empty array
+                    errors: {
+                        ...prevState.errors,
+                        email: []
+                    }
+                }))
+                this.setState(prevState => ({ // else set the state of errors.email to an empty array
+                    errors: {
+                        ...prevState.errors,
+                        password: []
+                    }
+                }))
+            }
+
+        }
+        console.log("canLogin = ", canLogin)
+        return canLogin;
+    }
+
+
+    handleSubmit = (e) => {
+        let loginErrors = []
+        e.preventDefault()
+
+        if(this.validateUserLogin()) { //if this returns true, user details passed validation, login user
+
+            axios.post(`${SERVER_HOST}/users/Login/Login/${this.state.email}/${this.state.password}`)
+                .then(res =>
+
                 {
                     if (res.data.errorMessage)
                     {
@@ -42,9 +93,18 @@ export default class login extends Component
                         if (res.data.email==="admin@admin.com"){
                             res.data.accessLevel=ACCESS_LEVEL_ADMIN
                         }
-                        console.log("User logged in")
-                        sessionStorage.name=res.data.name
-                        sessionStorage.accessLevel=res.data.accessLevel
+
+                        else // user successfully logged in
+                        {
+                            this.state.isPasswordWrong = false
+                            if (this.state.email==="admin@admin.com"){
+                                res.data.accessLevel=ACCESS_LEVEL_ADMIN
+                            }
+                            console.log("User logged in")
+                            localStorage.name=res.data.name
+                            localStorage.accessLevel=res.data.accessLevel
+                            localStorage.token=res.data.token
+
 
                         this.setState({isLoggedIn:true})
                     }

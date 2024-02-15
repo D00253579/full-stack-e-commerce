@@ -25,7 +25,7 @@ export default class AddTShirt extends Component
             category:"",
             brand:"",
             current_stock:"",
-            redirectToDisplayProducts:sessionStorage.accessLevel < ACCESS_LEVEL_ADMIN
+            redirectToDisplayProducts:localStorage.accessLevel < ACCESS_LEVEL_ADMIN
         }
     }
 
@@ -58,7 +58,7 @@ export default class AddTShirt extends Component
             current_stock:this.state.current_stock
         }
 
-        axios.post(`${SERVER_HOST}/products`, tShirtObject)
+        axios.post(`${SERVER_HOST}/products`, tShirtObject, {headers:{"authorization":localStorage.token}})
         .then(res => 
         {   
             if(res.data)
@@ -78,6 +78,8 @@ export default class AddTShirt extends Component
                 console.log("Record not added")
             }
         })
+        //TODO Edit Validation when add is working (MongoDB with Validation in dereks notes)
+
     }
 
 
