@@ -10,7 +10,7 @@ const LoggedRoute = ({component: Component, exact, path, ...rest }) =>
             exact={exact}
             path={path}
             //Display products is temporary here
-            render = {props => sessionStorage.accessLevel > ACCESS_LEVEL_GUEST ? <Component {...props} {...rest} /> : <Redirect to="/DisplayProducts"/> }
+            render = {props => localStorage.accessLevel > ACCESS_LEVEL_GUEST ? <Component {...props} {...rest} /> : <Redirect to="/TestingDirectory"/> }
         />
     )
 

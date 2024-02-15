@@ -16,7 +16,7 @@ export default class TestingDirectory extends Component
                 </div>
 
                 <div className="testing-link-container">
-                    {sessionStorage.accessLevel > ACCESS_LEVEL_GUEST ?
+                    {localStorage.accessLevel > ACCESS_LEVEL_GUEST ?
                         <div className="logout">
                             <Logout/>
                         </div>
@@ -26,7 +26,7 @@ export default class TestingDirectory extends Component
                             <Link className="testing-green-button" to={"Login/register/"}>Register</Link>
                         </div>
                     }
-                    {sessionStorage.accessLevel >= ACCESS_LEVEL_ADMIN ?
+                    {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ?
                         <div>
                             <Link className="testing-green-button" to={"AdminDashboard/AdminDashboard/"}>Admin Dashboard</Link>
                             <Link className="testing-green-button" to={"AddTShirt/"}>Add T-Shirt</Link>

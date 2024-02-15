@@ -23,15 +23,14 @@ export default class EditTShirt extends Component
             category: ``,
             brand: ``,
             current_stock: 0,
-            redirectToDisplayProducts:sessionStorage.accessLevel < ACCESS_LEVEL_ADMIN
+            redirectToDisplayProducts:localStorage.accessLevel < ACCESS_LEVEL_ADMIN
         }
     }
 
     componentDidMount() 
     {      
         this.inputToFocus.focus()
-  
-        axios.get(`${SERVER_HOST}/products/${this.props.match.params.id}`)
+        axios.get(`${SERVER_HOST}/products/${this.props.match.params.id}`, {headers:{"authorization":localStorage.token}})
         .then(res => 
         {     
             if(res.data)
@@ -85,8 +84,7 @@ export default class EditTShirt extends Component
             brand:this.state.brand,
             current_stock:this.state.current_stock
         }
-
-        axios.put(`${SERVER_HOST}/products/${this.props.match.params.id}`, tShirtObject)
+        axios.put(`${SERVER_HOST}/products/${this.props.match.params.id}`, tShirtObject, {headers:{"authorization":localStorage.token}})
         .then(res => 
         {             
             if(res.data)
@@ -106,6 +104,7 @@ export default class EditTShirt extends Component
                 console.log(`Record not updated`)
             }
         })
+       //TODO Edit Validation when edit is working (MongoDB with Validation in dereks notes)
     }
 
     

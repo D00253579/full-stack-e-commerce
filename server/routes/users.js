@@ -2,6 +2,9 @@ const router = require(`express`).Router()
 
 const usersModel = require(`../models/Users`)
 const bcrypt = require('bcryptjs')
+const jwt = require("jsonwebtoken");
+const fs= require('fs')
+const JWT_PRIVATE_KEY=fs.readFileSync(process.env.JWT_PRIVATE_KEY_FILENAME,'utf8')
 router.post(`/users/Login/Register/:name/:email/:password`, (req, res) => {
     if (!/^[a-zA-Z a-zA-Z]+$/.test(req.params.name)) {
         res.json({errorMessage: `Invalid name`});
@@ -22,7 +25,8 @@ router.post(`/users/Login/Register/:name/:email/:password`, (req, res) => {
                 bcrypt.hash(req.params.password, parseInt(process.env.PASSWORD_HASH_SALT_ROUNDS), (err, hash) => {
                     usersModel.create({name: req.params.name,email: req.params.email,password: hash}, (error, data) => {
                         if (data) {
-                            res.json({name: data.name, accessLevel: data.accessLevel})
+const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, JWT_PRIVATE_KEY, {algorithm:'HS256',expiresIn:process.env.JWT_EXPIRY})
+                            res.json({name: data.name, accessLevel: data.accessLevel, token:token})
                         } else {
                             res.json({errorMessage: `User was not registered`})
                         }
@@ -45,6 +49,7 @@ router.post(`/users/Login/Login/:email/:password`, (req, res) => {
                 console.log("result: ", result)
                 if(result)
                 {
+                    const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, JWT_PRIVATE_KEY , {algorithm:'HS256',expiresIn:process.env.JWT_EXPIRY})
                     res.json({name: data.name, accessLevel:data.accessLevel})
                 }
                 else
@@ -54,8 +59,8 @@ router.post(`/users/Login/Login/:email/:password`, (req, res) => {
             })
         } else {
             console.log("not found in db")
-            res.json({errorMessage: `User is not logged in`})
-        }
+                res.json({errorMessage: `User is not logged in`})
+            }
     })
 })
 
