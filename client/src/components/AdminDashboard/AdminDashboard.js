@@ -23,6 +23,7 @@ export default class AdminDashboard extends Component
     }
     componentDidMount() {
         // Fetch products in the parent component
+
         axios.get(`${SERVER_HOST}/products`)
             .then((res) => {
                 if (res.data) {

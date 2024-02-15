@@ -79,7 +79,7 @@ export default class Register extends Component{
     }
     validatePassword()
     {
-        const specialCharPattern = /[!£_$*^&()+=#.-]/
+        const specialCharPattern = /[!£_"$*^&()+=#.-]/
         const password = this.state.password
         const errors = []
 
@@ -133,6 +133,7 @@ export default class Register extends Component{
         if(!isNameValid && !isEmailValid && !isPasswordValid && !isConfirmPasswordValid) // if inputs have passed validation
         {
             e.preventDefault()
+
             axios.post(`${SERVER_HOST}/users/Login/Register/${this.state.name}/${this.state.email}/${this.state.password}`)
                 .then(res =>
                 {
@@ -148,9 +149,9 @@ export default class Register extends Component{
                             if (this.state.name==="Admin"){
                                 res.data.accessLevel=ACCESS_LEVEL_ADMIN
                             }
-                            sessionStorage.name = res.data.name
-                            sessionStorage.accessLevel = res.data.accessLevel
-
+                            localStorage.name = res.data.name
+                            localStorage.accessLevel = res.data.accessLevel
+                            localStorage.token=res.data.token
                             this.setState({isRegistered:true})
                         }
 
@@ -175,7 +176,7 @@ render(){
                 <h2>Registration</h2>
 
                     <form className="register-form" noValidate = {true} id = "loginOrRegistrationForm">
-                        {this.state.isRegistered ? <Redirect to="/DisplayProducts"/> : null}
+                        {this.state.isRegistered ? <Redirect to="/TestingDirectory"/> : null}
 
                         {/*  &#x2022; == unicode for bullet point  */}
                         <input
