@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+ import React, {Component} from "react"
 import {Redirect, Link} from "react-router-dom"
 import axios from "axios"
 
@@ -15,8 +15,32 @@ export default class login extends Component
         this.state = {
             email:"",
             password:"",
-            isLoggedIn:false
+            isLoggedIn:false,
+            users: [],
+            errors: { // used to keep track of current validation errors
+                email: [],
+                password: []
+            }
         }
+    }
+    componentDidMount() {
+        axios.get(`${SERVER_HOST}/users`)
+            .then(res =>
+            {
+                if(res.data)
+                {
+                    if(res.data.errorMessage) {
+                        console.log(res.data.errorMessage)
+                    } else {
+                        console.log("Users read to Login page")
+                        this.setState({users: res.data})
+                        //console.log("users: ",this.state.users)
+                    }
+                } else {
+                    console.log("Users not found")
+                }
+            })
+
     }
 
     componentDidMount() {
@@ -45,13 +69,39 @@ export default class login extends Component
     handleChange = (e) =>
     {
         this.setState({[e.target.name]: e.target.value})
+
     }
 
 
-    handleSubmit = (e) =>
-    {
-        axios.post(`${SERVER_HOST}/users/Login/login/${this.state.email}/${this.state.password}`)
-            .then(res =>
+    validateUserLogin() {
+        let canLogin = false;
+        let emailErrors = []
+        let pwErrors = []
+        let email = this.state.email
+        let pw = this.state.password
+        if(!email.trim())
+        {
+            emailErrors.push("Email cannot be empty")
+        }
+        this.setState(prevState => ({
+            errors: {
+                ...prevState.errors,
+                email: emailErrors
+            }
+        }))
+        if(!pw.trim())
+        {
+            pwErrors.push("Password cannot be empty")
+        }
+        this.setState(prevState => ({
+            errors: {
+                ...prevState.errors,
+                password: pwErrors
+            }
+        }))
+
+        if (emailErrors.length === 0 && pwErrors.length === 0)
+        { // if there are no errors
             {
                 canLogin = true
                 this.setState(prevState => ({ // else set the state of errors.email to an empty array
@@ -84,12 +134,28 @@ export default class login extends Component
                 .then(res =>
 
                 {
-                    if (res.data.errorMessage)
+                    if(res.data)
                     {
-                        console.log(res.data.errorMessage)
+                        if (res.data.errorMessage)
+                        {
+                            this.state.isPasswordWrong = true
+                        }
+                        else // user successfully logged in
+                        {
+                            this.state.isPasswordWrong = false
+                            if (res.data.email==="admin@admin.com"){
+                                res.data.accessLevel=ACCESS_LEVEL_ADMIN
+                            }
+                            console.log("User logged in")
+                            sessionStorage.name=res.data.name
+                            sessionStorage.accessLevel=res.data.accessLevel
+
+                            this.setState({isLoggedIn:true})
+                        }
                     }
-                    else // user successfully logged in
+                    else
                     {
+
                         if (res.data.email==="admin@admin.com"){
                             res.data.accessLevel=ACCESS_LEVEL_ADMIN
                         }
@@ -107,24 +173,41 @@ export default class login extends Component
 
 
                         this.setState({isLoggedIn:true})
+
                     }
-                }
-                else
-                {
-                    console.log("Login failed")
-                }
-            })
+                })
+        } else {
+            console.log("login denied invalid credentials")
+            // loginErrors.push("Entered email and/or password is incorrect")
+            //
+            // this.setState(prevState => ({
+            //     errors: {
+            //         ...prevState.errors,
+            //         password: loginErrors
+            //     }
+            // }))
+            // this.setState(prevState => ({ // empty email errors so only the above error is displayed
+            //     errors: {
+            //         ...prevState.errors,
+            //         email: []
+            //     }
+            // }))
+        }
     }
+
+
+
 
 
     render()
     {
         return (
+
             <div className="register-container">
                 <h2>Login</h2>
                 <form className="login-form" noValidate = {true} id = "loginOrRegistrationForm">
 
-                    {this.state.isLoggedIn ? <Redirect to="/DisplayProducts"/> : null}
+                    {this.state.isLoggedIn ? <Redirect to="/TestingDirectory"/> : null}
 
                     <input
                         type = "email"
@@ -133,7 +216,13 @@ export default class login extends Component
                         autoComplete="email"
                         value={this.state.email}
                         onChange={this.handleChange}
-                    /><br/>
+                    />
+                    {this.state.errors.email.length > 0 && this.state.errors.email.map((error, index) => (
+                        <div key={index} className="error-message">
+                            &#x2022; {error}
+                        </div>
+                    ))}
+                    <br/>
 
                     <input
                         type = "password"
@@ -142,10 +231,15 @@ export default class login extends Component
                         autoComplete="password"
                         value={this.state.password}
                         onChange={this.handleChange}
-                    /><br/><br/>
-                    {/*<Link className="green-button" to={"/Login/login"}>Login</Link>*/}
-                    {/*<Link className="blue-button" to={"/Login/Register"}>Register</Link>*/}
-                    <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/>
+                    />
+                    {this.state.errors.password.length > 0 && this.state.errors.password.map((error, index) => (
+                        <div key={index} className="error-message">
+                            &#x2022; {error}
+                        </div>
+                    ))}
+                    <br/>
+
+                    <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/><br/>
                     <Link className="red-button" to={"/TestingDirectory"}>Cancel</Link>
                 </form>
 

@@ -130,7 +130,7 @@ export default class Register extends Component{
         let isEmailValid = this.validateEmail()
         let isPasswordValid = this.validatePassword()
         let isConfirmPasswordValid = this.validateConfirmPassword()
-        if(!isNameValid && !isEmailValid && !isPasswordValid && isConfirmPasswordValid) // if inputs have passed validation
+        if(!isNameValid && !isEmailValid && !isPasswordValid && !isConfirmPasswordValid) // if inputs have passed validation
         {
             e.preventDefault()
 
@@ -163,11 +163,11 @@ export default class Register extends Component{
 
             console.log("Current values have not been posted")
         }
-        console.log(this.validateName())
-        console.log(this.state.errors.name)
-        console.log(this.state.errors.email)
-        console.log(this.state.errors.password)
-        console.log(this.state.errors.confirmPassword)
+        // console.log(this.validateName())
+        // console.log(this.state.errors.name)
+        // console.log(this.state.errors.email)
+        // console.log(this.state.errors.password)
+        // console.log(this.state.errors.confirmPassword)
 
     }
 render(){

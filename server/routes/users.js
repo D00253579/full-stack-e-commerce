@@ -36,12 +36,17 @@ const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, JWT_PRI
         })
     }
 })
-router.post(`/users/Login/login/:email/:password`, (req, res) => {
+router.post(`/users/Login/Login/:email/:password`, (req, res) => {
     usersModel.findOne({email: req.params.email}, (error, data) => {
+
         if(data)
         {
+            console.log("req pw: ",req.params.password)
+            console.log("data pw: ",data.password)
             bcrypt.compare(req.params.password, data.password, (err, result) =>
             {
+
+                console.log("result: ", result)
                 if(result)
                 {
                     const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, JWT_PRIVATE_KEY , {algorithm:'HS256',expiresIn:process.env.JWT_EXPIRY})
@@ -49,13 +54,20 @@ router.post(`/users/Login/login/:email/:password`, (req, res) => {
                 }
                 else
                 {
-                    res.json({errorMessage:`User is not logged in`})
+                    res.json({errorMessage:`Entered email and/or password is incorrect`})
                 }
             })
         } else {
             console.log("not found in db")
                 res.json({errorMessage: `User is not logged in`})
             }
+    })
+})
+
+// get users from mongoDB
+router.get(`/users`, (req, res) => {
+    usersModel.find((error, data) =>  {
+        res.json(data)
     })
 })
 
