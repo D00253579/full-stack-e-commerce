@@ -23,25 +23,6 @@ export default class login extends Component
             }
         }
     }
-    componentDidMount() {
-        axios.get(`${SERVER_HOST}/users`)
-            .then(res =>
-            {
-                if(res.data)
-                {
-                    if(res.data.errorMessage) {
-                        console.log(res.data.errorMessage)
-                    } else {
-                        console.log("Users read to Login page")
-                        this.setState({users: res.data})
-                        //console.log("users: ",this.state.users)
-                    }
-                } else {
-                    console.log("Users not found")
-                }
-            })
-
-    }
 
     componentDidMount() {
 
@@ -153,27 +134,25 @@ export default class login extends Component
                             this.setState({isLoggedIn:true})
                         }
                     }
-                    else
-                    {
+                    else {
 
-                        if (res.data.email==="admin@admin.com"){
-                            res.data.accessLevel=ACCESS_LEVEL_ADMIN
-                        }
-
-                        else // user successfully logged in
+                        if (res.data.email === "admin@admin.com") {
+                            res.data.accessLevel = ACCESS_LEVEL_ADMIN
+                        } else // user successfully logged in
                         {
                             this.state.isPasswordWrong = false
-                            if (this.state.email==="admin@admin.com"){
-                                res.data.accessLevel=ACCESS_LEVEL_ADMIN
+                            if (this.state.email === "admin@admin.com") {
+                                res.data.accessLevel = ACCESS_LEVEL_ADMIN
                             }
                             console.log("User logged in")
-                            localStorage.name=res.data.name
-                            localStorage.accessLevel=res.data.accessLevel
-                            localStorage.token=res.data.token
+                            localStorage.name = res.data.name
+                            localStorage.accessLevel = res.data.accessLevel
+                            localStorage.token = res.data.token
 
 
-                        this.setState({isLoggedIn:true})
+                            this.setState({isLoggedIn: true})
 
+                        }
                     }
                 })
         } else {
