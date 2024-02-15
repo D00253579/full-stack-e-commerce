@@ -34,10 +34,37 @@ export default class AdminEditProduct extends Component {
 
                     }
                 } else {
-                    console.log("product not found")
+                    console.log("Product not found when readying product from collection")
                 }
             })
     }
+    handleUpdateProduct = (e) => {
+
+        e.preventDefault()
+        let updatedProduct = {
+            name: this.state.product.name,
+            colour: this.state.product.colour,
+            price: this.state.product.price,
+            gender: this.state.product.gender,
+            category: this.state.product.category,
+            brand: this.state.product.brand
+        }
+
+        console.log("Updated product: ",updatedProduct)
+        axios.put(`${SERVER_HOST}/products/${this.state.p_id}`, {product: updatedProduct})
+            .then((res) => {
+                if (!res.data) {
+                    console.log("Product not found when updating product")
+                } else {
+
+                }
+            })
+
+    }
+    handleDeleteProduct() {
+
+    }
+
 
     handleChange = (e) => {
         const name = e.target.name
@@ -56,6 +83,7 @@ export default class AdminEditProduct extends Component {
 
     render() {
         console.log("Selected Product: ",this.state.product)
+        //console.log("ObjectID of Product: ", this.state.p_id)
         return (
 
             <div>
@@ -70,6 +98,7 @@ export default class AdminEditProduct extends Component {
                                 type="text"
                                 name="name"
                                 defaultValue={this.state.product.name}
+                                onChange={this.handleChange}
                             />
                         </div>
 
@@ -118,7 +147,7 @@ export default class AdminEditProduct extends Component {
                             />
                         </div>
 
-                        <button>Update</button>
+                        <button onClick={this.handleUpdateProduct}>Update</button>
                         <button>Delete</button>
                         <button onClick={this.handleReturn}>Return</button>
                     </form>

@@ -15,11 +15,10 @@ router.get(`/products`, (req, res) =>
 // Read one record
 router.get(`/products/:product_id`, (req, res) =>
 {
-    console.log("Passed ID:", req.params.product_id)
+    //console.log("Passed ID:", req.params.product_id)
     tShirtModel.findById(req.params.product_id, (error, data) =>
     {
-
-        console.log("Returning data: ",data)
+       // console.log("Returning data: ",data)
         res.json(data)
     })
 })
@@ -43,11 +42,11 @@ router.post(`/products`, (req, res) =>
 // Update one record
 router.put(`/products/:id`, (req, res) =>
 {
-    tShirtModel.findByIdAndUpdate(req.params.id, {$set: req.body}, (error, data) =>
-    {
 
-        res.json(data)
-    })        
+    console.log("Updating ID: ", req.params.id)
+    console.log("Passed product: ", req.body.product)
+
+
 })
 
 
