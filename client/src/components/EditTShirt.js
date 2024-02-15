@@ -30,7 +30,9 @@ export default class EditTShirt extends Component
     componentDidMount() 
     {      
         this.inputToFocus.focus()
-        axios.get(`${SERVER_HOST}/products/${this.props.match.params.id}`, {headers:{"authorization":localStorage.token}})
+  
+        axios.get(`${SERVER_HOST}/products/${this.props.match.params.product_id}`)
+
         .then(res => 
         {     
             if(res.data)
@@ -78,7 +80,7 @@ export default class EditTShirt extends Component
             name:this.state.name,
             colour:this.state.colour,
             size:this.state.size,
-            price:this.state.name,
+            price:this.state.price,
             gender:this.state.gender,
             category:this.state.category,
             brand:this.state.brand,

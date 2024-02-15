@@ -14,6 +14,7 @@ router.get(`/products`, (req, res) => {
 
 
 // Read one record
+
 router.get(`/products/:id`, (req, res) => {
     jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
         if (err) {
@@ -23,6 +24,7 @@ router.get(`/products/:id`, (req, res) => {
                 res.json(data)
             })
         }
+
     })
 })
 
@@ -72,13 +74,15 @@ router.post(`/products`, (req, res) => {
 
 
 // Update one record
+
 router.put(`/products/:id`, (req, res) => {
     jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
         if (err) {
             res.json(`User is not logged in`)
-
         } else {
             if (decodedToken.accessLevel >= process.env.ACCESS_LEVEL_ADMIN) {
+              console.log("Updating ID: ", req.params.id)
+    console.log("Passed product: ", req.body.product)
                 tShirtModel.checkIfExists({product_id:req.body.product_id},(error,IdData)=>{
                     if (IdData){
                         res.json(`Product ID already exists`)
@@ -113,6 +117,7 @@ router.put(`/products/:id`, (req, res) => {
             }
         }
     })
+
 })
 
 

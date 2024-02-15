@@ -1,10 +1,30 @@
 import React, {Component} from "react";
 
 import {Link} from "react-router-dom";
-import {ACCESS_LEVEL_ADMIN, ACCESS_LEVEL_GUEST} from "../config/global_constants";
+import {ACCESS_LEVEL_ADMIN, ACCESS_LEVEL_GUEST, SERVER_HOST} from "../config/global_constants";
 import Logout from "./Login/Logout";
+import axios from "axios";
 export default class TestingDirectory extends Component
 {
+    loginAsAdminTEST() {
+        axios.post(`${SERVER_HOST}/users/Login/Login/admin@admin.com/adminadmin1!`)
+            .then(res =>
+            {
+                if(res.data)
+                {
+                    if (res.data.errorMessage) {
+                    }
+                    else // user successfully logged in
+                    {
+                        console.log("User logged in")
+                        sessionStorage.name=res.data.name
+                        sessionStorage.accessLevel=res.data.accessLevel
+                    }
+                }
+            })
+
+    }
+
     render() {
         return (
 
@@ -24,15 +44,17 @@ export default class TestingDirectory extends Component
                         <div>
                             <Link className="testing-green-button" to={"Login/login/"}>Login</Link>
                             <Link className="testing-green-button" to={"Login/register/"}>Register</Link>
+                            <Link className="testing-green-button" onClick={this.loginAsAdminTEST}>Login as ADMIN</Link>
                         </div>
                     }
                     {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ?
                         <div>
                             <Link className="testing-green-button" to={"AdminDashboard/AdminDashboard/"}>Admin Dashboard</Link>
                             <Link className="testing-green-button" to={"AddTShirt/"}>Add T-Shirt</Link>
+                            <Link className="testing-green-button" to={"NavBar/"}>Nav Bar</Link>
                         </div>:null
                     }
-                    <Link className="testing-green-button" to={"NavBar/"}>Nav Bar</Link>
+
 
                 </div>
             </div>

@@ -18,16 +18,16 @@ export default class AdminTable extends Component
                     <th>Brand</th>
                     <th>P. Code</th>
                     <th>Stock</th>
-                    <th>Actions</th>
                 </tr>
                 </thead>
 
                 <tbody>
                     {this.props.products.map((product, index) => (
                         <AdminTableRow
-                            key={product.product_id}
+                            key={product._id}
                             products={product}
                             rowNum={index + 1}
+                            handleRowClick={this.props.handleRowClick}
                         />
                     ))}
                 </tbody>

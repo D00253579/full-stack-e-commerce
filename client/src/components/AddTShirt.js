@@ -86,8 +86,8 @@ export default class AddTShirt extends Component
     render()
     { 
         return (
-            <div className="form-container"> 
-                {this.state.redirectToDisplayProducts ? <Redirect to="/DisplayProducts"/> : null}
+            <div className="form-container">
+                {/*this.state.redirectToDisplayProducts ? <Redirect to="/DisplayProducts"/> : null)*/}
                     
                 <Form>               
                     <Form.Group controlId="product_id">
@@ -131,7 +131,7 @@ export default class AddTShirt extends Component
 
                     <LinkInClass value="Add" className="green-button" onClick={this.handleSubmit}/>            
             
-                    <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
+                    <button value="Cancel" className="red-button" onClick={this.props.handleRowUnClick}>Cancel</button>
                 </Form>
             </div>
         )
