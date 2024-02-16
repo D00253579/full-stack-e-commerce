@@ -5,7 +5,7 @@ import axios from "axios"
 
 import LinkInClass from "../components/LinkInClass"
 
-import {SERVER_HOST} from "../config/global_constants"
+import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
 
 export default class EditTShirt extends Component
 {
@@ -23,7 +23,7 @@ export default class EditTShirt extends Component
             category: ``,
             brand: ``,
             current_stock: 0,
-            redirectToDisplayProducts:false
+            redirectToDisplayProducts:localStorage.accessLevel < ACCESS_LEVEL_ADMIN
         }
     }
 
@@ -31,7 +31,8 @@ export default class EditTShirt extends Component
     {      
         this.inputToFocus.focus()
   
-        axios.get(`${SERVER_HOST}/products/${this.props.match.params.id}`)
+        axios.get(`${SERVER_HOST}/products/${this.props.match.params.product_id}`)
+
         .then(res => 
         {     
             if(res.data)
@@ -79,14 +80,13 @@ export default class EditTShirt extends Component
             name:this.state.name,
             colour:this.state.colour,
             size:this.state.size,
-            price:this.state.name,
+            price:this.state.price,
             gender:this.state.gender,
             category:this.state.category,
             brand:this.state.brand,
             current_stock:this.state.current_stock
         }
-
-        axios.put(`${SERVER_HOST}/products/${this.props.match.params.id}`, tShirtObject)
+        axios.put(`${SERVER_HOST}/products/${this.props.match.params.id}`, tShirtObject, {headers:{"authorization":localStorage.token}})
         .then(res => 
         {             
             if(res.data)
@@ -106,6 +106,7 @@ export default class EditTShirt extends Component
                 console.log(`Record not updated`)
             }
         })
+       //TODO Edit Validation when edit is working (MongoDB with Validation in dereks notes)
     }
 
     

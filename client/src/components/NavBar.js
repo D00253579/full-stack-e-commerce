@@ -4,8 +4,7 @@ import logo from "../nav-Images/logo.png"
 import AccountIcon from "../nav-Images/AccountIcon.jpg"
 import BagIcon from "../nav-Images/BagIcon.png"
 import SearchIcon from "../nav-Images/SearchIcon.png"
-import login from "./Login/login";
-
+import login from "./Login/Login";
 import {SERVER_HOST} from "../config/global_constants";
 import ShoppingCart from "./ShoppingCart";
 
@@ -17,11 +16,11 @@ export default class NavBar extends Component {
             <div className="nav-container">
                 <nav>
                     <div className={"container"}>
-                    <div className="logo-container">
-                        <img src={logo} alt="logo"/>
-                    </div>
-                        <div className={"search-container"}>
-                    <div className={"icons-container"}>
+                        <div className="logo-container">
+                            <img src={logo} alt="logo"/>
+                        </div>
+                    <div className={"search-container"}>
+                        <div className={"icons-container"}>
                         <div className="search-bar">
                             <input placeholder="Search" type="text" id="search"/>
                         </div>
@@ -30,13 +29,23 @@ export default class NavBar extends Component {
                         <i className={"searchIcon"}><img src={SearchIcon}/></i>
                     </div>
                         </div>
-                        <div className={"icons-container"}>
-                          <i className={"account"} onClick={login}><img src={AccountIcon}/>
+
+                    <div className={"icons-container"}>
+                        <Link to={"/TestingDirectory"}>
+                            <i className={"account"}>
+                                <img src={AccountIcon} alt="Account Tab"/>
                             </i>
-                            <div className={"icons-container"}>
-                                <i className={"shopping-bag"} title={"bag"} onClick={this.props.changeComponent}><img src={BagIcon}/> </i>
-                            </div>
+                        </Link>
+
+                    <div className={"icons-container"}>
+                        <Link to={"/this_will_be_to_the_shopping_cart"}>
+                            <i className={"shopping-bag"}>
+                                <img src={BagIcon} alt="Shopping Cart"/>
+                            </i>
+                        </Link>
                     </div>
+
+                        </div>
                     </div>
                 </nav>
             </div>

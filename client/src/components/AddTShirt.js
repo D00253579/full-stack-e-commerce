@@ -6,7 +6,7 @@ import axios from "axios"
 
 import LinkInClass from "../components/LinkInClass"
 
-import {SERVER_HOST} from "../config/global_constants"
+import {ACCESS_LEVEL_ADMIN,SERVER_HOST} from "../config/global_constants"
 
 
 export default class AddTShirt extends Component
@@ -25,7 +25,7 @@ export default class AddTShirt extends Component
             category:"",
             brand:"",
             current_stock:"",
-            redirectToDisplayProducts:false
+            redirectToDisplayProducts:localStorage.accessLevel < ACCESS_LEVEL_ADMIN
         }
     }
 
@@ -58,7 +58,7 @@ export default class AddTShirt extends Component
             current_stock:this.state.current_stock
         }
 
-        axios.post(`${SERVER_HOST}/products`, tShirtObject)
+        axios.post(`${SERVER_HOST}/products`, tShirtObject, {headers:{"authorization":localStorage.token}})
         .then(res => 
         {   
             if(res.data)
@@ -78,14 +78,16 @@ export default class AddTShirt extends Component
                 console.log("Record not added")
             }
         })
+        //TODO Edit Validation when add is working (MongoDB with Validation in dereks notes)
+
     }
 
 
     render()
     { 
         return (
-            <div className="form-container"> 
-                {this.state.redirectToDisplayProducts ? <Redirect to="/DisplayProducts"/> : null}
+            <div className="form-container">
+                {/*this.state.redirectToDisplayProducts ? <Redirect to="/DisplayProducts"/> : null)*/}
                     
                 <Form>               
                     <Form.Group controlId="product_id">
@@ -129,7 +131,7 @@ export default class AddTShirt extends Component
 
                     <LinkInClass value="Add" className="green-button" onClick={this.handleSubmit}/>            
             
-                    <Link className="red-button" to={"/DisplayProducts"}>Cancel</Link>
+                    <button value="Cancel" className="red-button" onClick={this.props.handleRowUnClick}>Cancel</button>
                 </Form>
             </div>
         )

@@ -14,10 +14,8 @@ export default class Filters extends Component
                 colour: false,
             },
             price: 0.00,
+            current_stock: 0
         }
-    }
-    componentDidMount() {
-        console.log("filters as props ")
     }
 
     handleApplyFilters = () => {
@@ -96,12 +94,24 @@ export default class Filters extends Component
         this.props.updateProducts(filteredProducts)
     }
 
+    handleStockChange = (e) => {
+        this.setState({ current_stock: e.target.value });
+        let filteredProducts = []
+        this.props.defaultProducts.forEach(product => {
+            if(this.state.current_stock <= product.current_stock) {
+                filteredProducts.push(product)
+            }
+        })
+        this.props.updateProducts(filteredProducts)
+    }
+
     handleReset = () => {
         const checkboxes = document.querySelectorAll('input[type="checkbox"]')
         checkboxes.forEach((checkbox => { // uncheck all checkboxes
             checkbox.checked = false
         }))
         this.setState({price: 0.00}) // set price back to 0
+        this.setState({current_stock: 0})
         this.props.updateProducts(this.props.defaultProducts) // display default products
 
 
@@ -302,6 +312,18 @@ export default class Filters extends Component
                                 min="0.00" max="50"
                                 value={this.state.price}
                                 onChange={this.handlePriceChange}
+                            />
+                        </div>
+
+                        <div className="stock-filter">
+                            <h4>Stock >  {this.state.current_stock}</h4>
+                            <input
+                                type="range"
+                                id="stock-filter"
+                                className="stock-slider"
+                                min="0" max="40"
+                                value={this.state.current_stock}
+                                onChange={this.handleStockChange}
                             />
                         </div>
 

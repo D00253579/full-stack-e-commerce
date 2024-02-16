@@ -20,6 +20,7 @@ export default class DisplayProducts extends Component {
 
 
     componentDidMount() {
+
         axios.get(`${SERVER_HOST}/products`)
             .then(res => {
                 if (res.data) {

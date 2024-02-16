@@ -42,6 +42,7 @@
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
+
       <option name="arguments" value="$FileName$:$ProjectFileDir$\$FileDirRelativeToProjectRoot$\css\$FileNameWithoutExtension$.css" />
     <TaskOptions isEnabled="false">
       <option name="arguments" value="$FileName$:$ProjectFileDir$/$FileDirRelativeToProjectRoot$/css/$FileNameWithoutExtension$.css" />

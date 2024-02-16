@@ -12,7 +12,9 @@ export default class AdminProductView extends Component
         console.log("Displaying Admin view of Products")
         return (
                 <div className="admin-table-container">
-                    <AdminTable products={this.props.products}/>
+                    <AdminTable products={this.props.products}
+                                handleRowClick={this.props.handleRowClick}
+                    />
                 </div>
 
         )
