@@ -12,7 +12,7 @@ export default class AdminControls extends Component
     render() {
         return(
             <div className="controls-container">
-                <Link className="controls-button" to={"/"}>Users</Link>
+                <Link className="controls-button" to={"/AdminDashboard/ViewUsers"}>Users</Link>
                 <Link className="controls-button" to={"/"}>Sales</Link>
                 <Link className="controls-button" to={"/AdminDashboard/AdminDashboard"}>Products</Link>
                 <Link className="controls-button" to={"/"}>Create Product</Link>
