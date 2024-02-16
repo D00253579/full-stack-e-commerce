@@ -5,7 +5,9 @@ import AccountIcon from "../nav-Images/AccountIcon.jpg"
 import BagIcon from "../nav-Images/BagIcon.png"
 import SearchIcon from "../nav-Images/SearchIcon.png"
 import login from "./Login/login";
+
 import {SERVER_HOST} from "../config/global_constants";
+import ShoppingCart from "./ShoppingCart";
 
 export default class NavBar extends Component {
 
@@ -22,30 +24,18 @@ export default class NavBar extends Component {
                     <div className={"icons-container"}>
                         <div className="search-bar">
                             <input placeholder="Search" type="text" id="search"/>
-                            {/*<button type="submit" id="Search" >*/}
                         </div>
                     </div>
                     <div className={"icons-container"}>
                         <i className={"searchIcon"}><img src={SearchIcon}/></i>
-                        {/*</button>*/}
                     </div>
                         </div>
-                    <div className={"icons-container"}>
-                        {/*<button type="submit" id="account">*/}
-                        <i className={"account"}><img src={AccountIcon}/>
-                        </i>
-                        {/*</button>*!/*/}
                         <div className={"icons-container"}>
-                            {/*<button type="submit" id="account">*/}
                           <i className={"account"} onClick={login}><img src={AccountIcon}/>
                             </i>
-                            {/*</button>*!/*/}
                             <div className={"icons-container"}>
-                                {/*<button type="submit" id="bag">*/}
-                                <i className={"shopping-bag"}><img src={BagIcon}/> </i>
-                                {/*</button>*/}
+                                <i className={"shopping-bag"} title={"bag"} onClick={this.props.changeComponent}><img src={BagIcon}/> </i>
                             </div>
-                        </div>
                     </div>
                     </div>
                 </nav>

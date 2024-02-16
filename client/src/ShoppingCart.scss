@@ -1,0 +1,33 @@
+@import "Nav.scss";
+@import "Admin.scss";
+
+.bag-container {
+
+  .shopping-bag-header {
+
+    .bag {
+
+      .bag > h1 {
+        font-size: $title_font_size;
+        font-family: $title_font;
+      }
+
+      .bag > h2 {
+
+      }
+
+      .bag-checkout button {
+        background-color: $light_blue;
+        font-family: $title-font;
+        font-size: $title_font_size;
+
+        .bag-checkout button:hover {
+          background-color: $mint_green;
+          border-color: $grey-border;
+        }
+      }
+
+
+    }
+  }
+}
