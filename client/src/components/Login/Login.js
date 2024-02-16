@@ -124,23 +124,6 @@ export default class login extends Component
                         else // user successfully logged in
                         {
                             this.state.isPasswordWrong = false
-                            if (res.data.email==="admin@admin.com"){
-                                res.data.accessLevel=ACCESS_LEVEL_ADMIN
-                            }
-                            console.log("User logged in")
-                            sessionStorage.name=res.data.name
-                            sessionStorage.accessLevel=res.data.accessLevel
-
-                            this.setState({isLoggedIn:true})
-                        }
-                    }
-                    else {
-
-                        if (res.data.email === "admin@admin.com") {
-                            res.data.accessLevel = ACCESS_LEVEL_ADMIN
-                        } else // user successfully logged in
-                        {
-                            this.state.isPasswordWrong = false
                             if (this.state.email === "admin@admin.com") {
                                 res.data.accessLevel = ACCESS_LEVEL_ADMIN
                             }
@@ -149,9 +132,7 @@ export default class login extends Component
                             localStorage.accessLevel = res.data.accessLevel
                             localStorage.token = res.data.token
 
-
                             this.setState({isLoggedIn: true})
-
                         }
                     }
                 })
