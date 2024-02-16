@@ -6,6 +6,7 @@ import BagIcon from "../nav-Images/BagIcon.png"
 import SearchIcon from "../nav-Images/SearchIcon.png"
 import login from "./Login/Login";
 import {SERVER_HOST} from "../config/global_constants";
+import ShoppingCart from "./ShoppingCart";
 
 export default class NavBar extends Component {
 
@@ -22,12 +23,10 @@ export default class NavBar extends Component {
                         <div className={"icons-container"}>
                         <div className="search-bar">
                             <input placeholder="Search" type="text" id="search"/>
-                            {/*<button type="submit" id="Search" >*/}
                         </div>
                     </div>
                     <div className={"icons-container"}>
                         <i className={"searchIcon"}><img src={SearchIcon}/></i>
-                        {/*</button>*/}
                     </div>
                         </div>
 

@@ -44,6 +44,7 @@
     <TaskOptions isEnabled="true">
 
       <option name="arguments" value="$FileName$:$ProjectFileDir$\$FileDirRelativeToProjectRoot$\css\$FileNameWithoutExtension$.css" />
+    <TaskOptions isEnabled="false">
       <option name="arguments" value="$FileName$:$ProjectFileDir$/$FileDirRelativeToProjectRoot$/css/$FileNameWithoutExtension$.css" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
@@ -65,6 +66,7 @@
       <option name="trackOnlyRoot" value="true" />
       <option name="workingDir" value="$FileDir$" />
       <envs />
+    </TaskOptions>
     </TaskOptions>
     <enabled-global>
       <option value="SCSS_ JamieLaw" />

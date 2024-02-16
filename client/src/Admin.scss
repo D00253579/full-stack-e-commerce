@@ -2,9 +2,10 @@
 
 $dark_green: #517962;
 $mint_green: #A6D8D4;
-$title_font_size: 16px;
+$light_blue: #B9CDDA;
 $white: #ffffff;
 $grey-border: #363131;
+$title_font_size: 16px;
 
 /* AdminControls */
 .controls-container {
@@ -144,7 +145,7 @@ $grey-border: #363131;
     display: none;
     top: 0;
     left: 100%;
-    background-color: #B9CDDA;
+    background-color: $light_blue;
     border: 1px solid $white;
     padding: 10px;
     z-index: 1;
@@ -182,7 +183,7 @@ $grey-border: #363131;
 }
 
 .filter-buttons > button {
-  background-color: #B9CDDA;
+  background-color: $light_blue;
   border-radius: 5px;
   display: inline-block;
   padding: 10px 20px;
