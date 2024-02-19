@@ -1,0 +1,37 @@
+.shopping-bag-head-container {
+        padding-top: 0;
+    }
+
+    .bag-container {
+        width: 80%;
+        padding-top: 100px;
+    }
+
+.bag-title{
+    float: left;
+}
+        .bag-container > h1 {
+            font-size: 16px;
+            font-family: Times New Roman, Serif, serif;
+        }
+
+        .bag-container > h2 {
+            font-size: 16px;
+            font-family: Times New Roman, Serif, serif;
+        }
+.total-container{
+    float: right;
+}
+
+        .checkout-buttons > button{
+            background-color:#B9CDDA ;
+            font-family: Times New Roman, Serif, serif;
+            font-size: 16px;
+        }
+
+        .checkout-buttons > button:hover{
+            background-color: #A6D8D4;
+            border-color: #363131;
+        }
+
+

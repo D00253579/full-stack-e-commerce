@@ -3,31 +3,33 @@
 
 .bag-container {
 
-  .shopping-bag-header {
+  .shopping-bag-head-container {
+    padding-top: 0;
+  }
 
-    .bag {
+  .bag-container {
+    width: 80%;
 
-      .bag > h1 {
-        font-size: $title_font_size;
-        font-family: $title_font;
-      }
+    .bag > h1 {
+      font-size: $title_font_size;
+      font-family: $title_font;
+    }
 
-      .bag > h2 {
+    .bag > h2 {
+      font-size: $title_font_size;
+      font-family: $title_font;
+    }
 
-      }
+    .checkout-buttons{
+      background-color: $light_blue;
+      font-family: $title-font;
+      font-size: $title_font_size;
+    }
 
-      .bag-checkout button {
-        background-color: $light_blue;
-        font-family: $title-font;
-        font-size: $title_font_size;
-
-        .bag-checkout button:hover {
-          background-color: $mint_green;
-          border-color: $grey-border;
-        }
-      }
-
-
+    .checkout-buttons > button:hover{
+      background-color: $mint_green;
+      border-color: $grey-border;
     }
   }
+
 }
