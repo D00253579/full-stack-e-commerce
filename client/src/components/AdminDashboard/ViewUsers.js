@@ -12,15 +12,15 @@ export default class ViewUsers extends Component {
             users: []
         }
     }
-componentDidMount() {
-        //Fetching users for the table
-axios.get(`${SERVER_HOST}/users`)
-    .then((res)=> {
-if (res.data){
-    res.json({errorMessage:``})
-}
-    })
-}
+    componentDidMount() {
+            //Fetching users for the table
+    axios.get(`${SERVER_HOST}/users`)
+        .then((res)=> {
+    if (res.data){
+        res.json({errorMessage:``})
+    }
+        })
+    }
 
     render() {
         return (

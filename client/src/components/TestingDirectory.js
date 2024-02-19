@@ -16,9 +16,10 @@ export default class TestingDirectory extends Component
                     }
                     else // user successfully logged in
                     {
-                        console.log("User logged in")
+                        console.log("Logged in as ADMIN for testing")
                         sessionStorage.name=res.data.name
-                        sessionStorage.accessLevel=res.data.accessLevel
+                        localStorage.accessLevel = ACCESS_LEVEL_ADMIN
+
                     }
                 }
             })
@@ -44,7 +45,7 @@ export default class TestingDirectory extends Component
                         <div>
                             <Link className="testing-green-button" to={"Login/login/"}>Login</Link>
                             <Link className="testing-green-button" to={"Login/register/"}>Register</Link>
-                            <Link className="testing-green-button" onClick={this.loginAsAdminTEST}>Login as ADMIN</Link>
+                            <button className="testing-green-button" onClick={this.loginAsAdminTEST}>Login as ADMIN</button>
                         </div>
                     }
                     {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ?
