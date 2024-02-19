@@ -1,19 +1,23 @@
 .nav-container {
-  background-color: #8EAF9D;
-  position: fixed;
-  width: 100%; }
+    background-color: #8EAF9D;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
 
 .logo-container > img {
-  padding-top: 10px;
-  width: 200px;
-  padding-right: 30px; }
+    padding-top: 10px;
+    width: 200px;
+    padding-right: 30px;
+}
 
 /*.logo-container{*/
 /*    float: left;*/
 /*}*/
 .search-bar {
-  /*padding-right: 500px;*/
-  /*margin-bottom: 100px;*/ }
+    /*padding-right: 500px;*/
+    /*margin-bottom: 100px;*/
+}
 
 /*.search-bar > button#Search {*/
 /*    display: block;*/
@@ -22,15 +26,17 @@
 /*    width: 200px;*/
 /*}*/
 .search-bar > #search {
-  border-radius: 20px;
-  width: 400px;
-  height: 35px; }
+    border-radius: 25px;
+    width: 400px;
+    height: 35px;
+}
 
 input[type="text" i] {
-  font-family: Times New Roman, Serif, serif;
-  font-size: 16px;
-  font-weight: bold;
-  padding-left: 5px; }
+    font-family: Times New Roman, Serif, serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 5px;
+}
 
 /*.search-bar > img{*/
 /*    padding: 5px;*/
@@ -47,30 +53,36 @@ input[type="text" i] {
 /*    margin-right: auto;*/
 /*}*/
 .searchIcon > img {
-  width: 50px; }
+    width: 50px;
+}
 
 .account > img {
-  width: 50px;
-  padding-top: 7.5px; }
+    width: 50px;
+    padding-top: 7.5px;
+}
 
 .shopping-bag > img {
-  width: 50px; }
+    width: 50px;
+}
 
 .container {
-  display: flex;
-  float: right;
-  /*width: 30%;*/
-  /*padding:5px;*/ }
+    display: flex;
+    float: right;
+    /*width: 30%;*/
+    /*padding:5px;*/
+}
 
 .icons-container {
-  float: left;
-  padding-right: 30px;
-  padding-top: 10px;
-  /*width: 25%;*/ }
+    float: left;
+    padding-right: 30px;
+    padding-top: 10px;
+    /*width: 25%;*/
+}
 
 .search-container {
-  padding-top: 10px;
-  padding-right: 350px;
-  padding-left: 250px; }
+    padding-top: 10px;
+    padding-right: 350px;
+    padding-left: 250px;
+}
 
 /*# sourceMappingURL=Nav.css.map */

@@ -4,10 +4,8 @@ import logo from "../nav-Images/logo.png"
 import AccountIcon from "../nav-Images/AccountIcon.jpg"
 import BagIcon from "../nav-Images/BagIcon.png"
 import SearchIcon from "../nav-Images/SearchIcon.png"
-import login from "./Login/login";
 
-import {SERVER_HOST} from "../config/global_constants";
-import ShoppingCart from "./ShoppingCart";
+import {SERVER_HOST} from "../config/global_constants"
 
 export default class NavBar extends Component {
 
@@ -31,15 +29,23 @@ export default class NavBar extends Component {
                     </div>
                         </div>
                         <div className={"icons-container"}>
-                          <i className={"account"} onClick={login}><img src={AccountIcon}/>
+                            <Link to={"/ShoppingCart"}>
+                                <i className={"shopping-bag"}>
+                                    <img src={BagIcon} alt="Shopping Cart"/>
+                                </i>
+                            </Link>
+                        </div>
+                    <div className={"icons-container"}>
+                        <Link to={"/AccountPage"}>
+                            <i className={"account"}>
+                                <img src={AccountIcon} alt="Account Tab"/>
                             </i>
-                            <div className={"icons-container"}>
-                                <i className={"shopping-bag"} title={"bag"} onClick={this.props.changeComponent}><img src={BagIcon}/> </i>
-                            </div>
+                        </Link>
                     </div>
                     </div>
                 </nav>
             </div>
-        )
+    )
+
     }
     }

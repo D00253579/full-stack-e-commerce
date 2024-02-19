@@ -1,0 +1,50 @@
+.shopping-bag-head-container {
+
+}
+
+.bag-container {
+    padding-top: 100px;
+    width: 300px;
+    height: 100px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-color: #363131;
+    background-color: #aaaaaa;
+
+    .bag-title {
+        float: left;
+    }
+
+    .bag-container h1 {
+        font-size: 16px;
+        font-family: Times New Roman, Serif, serif;
+    }
+
+    .tshirt-container {
+
+    }
+
+    .bag-container h2 {
+        font-size: 16px;
+        font-family: Times New Roman, Serif, serif;
+    }
+
+    .total-container {
+        float: right;
+    }
+
+    .checkout-buttons > button {
+        background-color: #B9CDDA;
+        font-family: Times New Roman, Serif, serif;
+        font-size: 16px;
+        border: 2px solid white;
+        border-radius: 15px;
+    }
+
+    .checkout-buttons > button:hover {
+        background-color: #A6D8D4;
+        border-color: #363131;
+    }
+}
+
+

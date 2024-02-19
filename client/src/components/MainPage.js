@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import ProductTable from "./ProductTable"
 
 import {SERVER_HOST} from "../config/global_constants"
+import Footer from "./Footer";
 export default class MainPage extends Component {
 
 render()
@@ -14,6 +15,10 @@ render()
     return (
                    <div>
                        <NavBar/>
+                       <div className="testing-return"><Link className="testing-red-button" to={"/TestingDirectory`"}>RETURN</Link></div>
+                       <div className={"footer-container"}>
+                           <Footer/>
+                       </div>
                    </div>
 
 
