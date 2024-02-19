@@ -6,6 +6,9 @@ import AdminProductView from "./AdminProductView";
 import Filters from "./Filters";
 import {Link} from "react-router-dom";
 import AdminControls from "./AdminControls";
+import AdminEditProduct from "./AdminEditProduct"
+import Footer from "../Footer";
+
 
 export default class AdminDashboard extends Component
 {
@@ -72,6 +75,31 @@ export default class AdminDashboard extends Component
                             products={this.state.products}
                         />
                     </div>
+
+                    <AdminControls/>
+                    <div className="admin-body-container">
+
+
+
+                        <div className="filter-container">
+                            <Filters
+                                updateProducts={this.updateProducts}
+                                products={this.state.products}
+                                defaultProducts={this.state.defaultProducts}
+                            />
+                        </div>
+                        <div className="admin-table-container">
+                            <AdminProductView
+                                products={this.state.products}
+                                handleRowClick={this.handleRowClick}
+                            />
+                        </div>
+
+                    </div>
+                    <div className="footer-container">
+                        <Footer/>
+                    </div>
+                    <div className="testing-return"><Link className="testing-red-button" to={"/TestingDirectory"}>RETURN</Link></div>
 
                 </div>
 

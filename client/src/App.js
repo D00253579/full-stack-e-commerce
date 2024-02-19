@@ -4,6 +4,7 @@ import "./css/App.css"
 import "./css/Admin.css"
 import "./css/Nav.css"
 import "./css/Filters.css"
+import "./css/ShoppingCart.css"
 import Login from "./components/Login/Login";
 import AddTShirt from "./components/AddTShirt"
 import EditTShirt from "./components/EditTShirt"
@@ -12,6 +13,9 @@ import DisplayProducts from "./components/DisplayProducts"
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import TestingDirectory from "./components/TestingDirectory";
+import ShoppingCart from "./components/ShoppingCart";
+import AccountPage from "./components/AccountPage";
+import Footer from "./components/Footer";
 import MainPage from "./components/MainPage"
 import LoggedRoute from "./components/LoggedRoute";
 import Register from "./components/Login/Register";
