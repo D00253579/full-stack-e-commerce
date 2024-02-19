@@ -5,10 +5,12 @@ $title_font: Times New Roman, Serif, serif;
   background-color: $light_green;
   position: fixed;
   width: 100%;
+  z-index: 1000;
+}
 
-  .container {
-    display: flex;
-    float: right;
+  //.container {
+  //  display: flex;
+  //  float: right;
 
     .logo-container > img {
       padding-top: 10px;
@@ -53,8 +55,8 @@ $title_font: Times New Roman, Serif, serif;
         width: 50px;
       }
     }
-  }
-}
+
+
 
 
 
