@@ -1,16 +1,19 @@
 import React, {Component} from "react"
 import ActionDropdown from "./ActionDropdown";
+import {Redirect} from "react-router-dom";
 
 
 export default class AdminTableRow extends Component
 {
     constructor(props) {
         super(props)
+        this.state = {
+            rowIsClicked: false
+        }
     }
 
-
     handleRowClick = () => {
-        this.props.handleRowClick(this.props.products._id)
+        this.setState({rowIsClicked: true})
     }
 
     render() {
@@ -21,18 +24,21 @@ export default class AdminTableRow extends Component
             category,
             brand,
             current_stock,
-        } = this.props.products;
+        } = this.props.product;
 
         return (
-            <tr onClick={this.handleRowClick}>
-                <td>{this.props.rowNum}</td>
-                <td>{name}</td>
-                <td>{price}</td>
-                <td>{category}</td>
-                <td>{brand}</td>
-                <td>{product_id}</td>
-                <td>{current_stock}</td>
-            </tr>
+            this.state.rowIsClicked ? (<Redirect to={`/AdminDashboard/AdminEditProduct/${this.props.product._id}`} />
+            ) : (
+                <tr onClick={this.handleRowClick}>
+                    <td>{this.props.rowNum}</td>
+                    <td>{name}</td>
+                    <td>{price}</td>
+                    <td>{category}</td>
+                    <td>{brand}</td>
+                    <td>{product_id}</td>
+                    <td>{current_stock}</td>
+                </tr>
+            )
         )
     }
 }

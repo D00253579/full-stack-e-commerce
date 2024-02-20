@@ -76,44 +76,54 @@ router.post(`/products`, (req, res) => {
 // Update one record
 
 router.put(`/products/:id`, (req, res) => {
+    console.log("SERVER: router.put has been called")
     jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
         if (err) {
             res.json(`User is not logged in`)
         } else {
             if (decodedToken.accessLevel >= process.env.ACCESS_LEVEL_ADMIN) {
-              console.log("Updating ID: ", req.params.id)
-    console.log("Passed product: ", req.body.product)
-                tShirtModel.checkIfExists({product_id:req.body.product_id},(error,IdData)=>{
-                    if (IdData){
-                        res.json(`Product ID already exists`)
-                    }else {
-                        if (!/^[0-9]+$/.test(req.body.product_id)) {
-                            res.json({errorMessage: "Product_id must be a valid number"})
-                        }else if (!/^[a-zA-Z]+$/.test(req.body.name)){
-                            res.json({errorMessage: "Name must be a valid string"})
-                        }else if (!/^[a-zA-Z]+$/.test(req.body.colour)){
-                            res.json({errorMessage: "Colour must be a valid string"})
-                        }else if (!/^[a-zA-Z]+$/.test(req.body.size)){
-                            res.json({errorMessage: "Size must be a valid string"})
-                        }else if (!/^[0-9]+$/.test(req.body.price) || req.body.price<0.00){
-                            res.json({errorMessage: "Invalid Price"})
-                        }else if (!/^[a-zA-Z]+$/.test(req.body.gender)){
-                            res.json({errorMessage: "Gender must be a valid string"})
-                        }else if (!/^[a-zA-Z]+$/.test(req.body.category)){
-                            res.json({errorMessage: "Category must be a valid string"})
-                        }else if (!/^[a-zA-Z]+$/.test(req.body.brand)){
-                            res.json({errorMessage: "Brand must be a valid string"})
-                        }else if (!/^[0-9]+$/.test(req.body.current_stock) || req.body.current_stock<0){
-                            res.json({errorMessage: "Current stock must be a valid number"})
-                        }
+                console.log("Updating ID: ", req.params.id)
+                console.log("Passed product: ", req.body.updatedProduct)
 
-                        else {
-                            tShirtModel.findByIdAndUpdate(req.params.id, {$set: req.body}, (error, data) => {
-                                res.json(data)
+                // tShirtModel.checkIfExists({product_id:req.body.product_id},(error,IdData)=>{
+                //     if (IdData){
+                //         res.json(`Product ID already exists`)
+                //     }else {
+                //         if (!/^[0-9]+$/.test(req.body.product_id)) {
+                //             res.json({errorMessage: "Product_id must be a valid number"})
+                //         }else if (!/^[a-zA-Z]+$/.test(req.body.name)){
+                //             res.json({errorMessage: "Name must be a valid string"})
+                //         }else if (!/^[a-zA-Z]+$/.test(req.body.colour)){
+                //             res.json({errorMessage: "Colour must be a valid string"})
+                //         }else if (!/^[a-zA-Z]+$/.test(req.body.size)){
+                //             res.json({errorMessage: "Size must be a valid string"})
+                //         }else if (!/^[0-9]+$/.test(req.body.price) || req.body.price<0.00){
+                //             res.json({errorMessage: "Invalid Price"})
+                //         }else if (!/^[a-zA-Z]+$/.test(req.body.gender)){
+                //             res.json({errorMessage: "Gender must be a valid string"})
+                //         }else if (!/^[a-zA-Z]+$/.test(req.body.category)){
+                //             res.json({errorMessage: "Category must be a valid string"})
+                //         }else if (!/^[a-zA-Z]+$/.test(req.body.brand)){
+                //             res.json({errorMessage: "Brand must be a valid string"})
+                //         }else if (!/^[0-9]+$/.test(req.body.current_stock) || req.body.current_stock<0){
+                //             res.json({errorMessage: "Current stock must be a valid number"})
+                //         }
+                //
+                //         else {
+                            tShirtModel.findByIdAndUpdate(req.params.id, {$set: req.body.updatedProduct}, {new : true}, (error, data) => {
+                                if(data) {
+                                    console.log("Product updated")
+                                    console.log("req.body: ", req.body)
+                                    res.json(req.body)
+                                } else {
+                                    console.log("Product not updated")
+
+                                }
+
                             })
-                        }
-                    }
-                })
+                //         }
+                //     }
+                // })
             }
         }
     })
@@ -123,12 +133,16 @@ router.put(`/products/:id`, (req, res) => {
 
 // Delete one record
 router.delete(`/products/:id`, (req, res) => {
+    console.log("here")
+    console.log(req.params.id)
     jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
         if (err) {
             res.json(`User is not logged in`)
         } else {
             if (decodedToken.accessLevel >= process.env.ACCESS_LEVEL_ADMIN) {
+                console.log("here")
                 tShirtModel.findByIdAndRemove(req.params.id, (error, data) => {
+                    console.log("SERVER: Product deleted from collection")
                     res.json(data)
                 })
             }
