@@ -333,22 +333,9 @@
   color: red;
   font-weight: bold; }
 
-.bag-container .shopping-bag-head-container {
-  padding-top: 0; }
-.bag-container .bag-container {
-  width: 80%; }
-  .bag-container .bag-container .bag > h1 {
-    font-size: 16px;
-    font-family: Times New Roman, Serif, serif; }
-  .bag-container .bag-container .bag > h2 {
-    font-size: 16px;
-    font-family: Times New Roman, Serif, serif; }
-  .bag-container .bag-container .checkout-buttons {
-    background-color: #B9CDDA;
-    font-family: Times New Roman, Serif, serif;
-    font-size: 16px; }
-  .bag-container .bag-container .checkout-buttons > button:hover {
-    background-color: #A6D8D4;
-    border-color: #363131; }
+.footer-container {
+  background-color: #8EAF9D;
+  position: fixed;
+  width: 100%; }
 
-/*# sourceMappingURL=ShoppingCart.css.map */
+/*# sourceMappingURL=Footer.css.map */

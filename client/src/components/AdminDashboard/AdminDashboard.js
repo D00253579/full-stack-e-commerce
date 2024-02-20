@@ -33,7 +33,7 @@ export default class AdminDashboard extends Component
 
 
 
-                        console.log(res.data.errorMexssage);
+                        console.log(res.data.errorMessage);
                     } else {
                         console.log("Records read to Admin dashboard");
                         this.setState({ products: res.data,       // This state of products when passed will have the filters applied
