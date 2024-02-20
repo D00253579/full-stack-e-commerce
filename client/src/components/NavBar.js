@@ -31,14 +31,14 @@ export default class NavBar extends Component {
                         </div>
 
                     <div className={"icons-container"}>
-                        <Link to={"/TestingDirectory"}>
+                        <Link to={"/AccountPage"}>
                             <i className={"account"}>
                                 <img src={AccountIcon} alt="Account Tab"/>
                             </i>
                         </Link>
 
                     <div className={"icons-container"}>
-                        <Link to={"/this_will_be_to_the_shopping_cart"}>
+                        <Link to={"/ShoppingCart"}>
                             <i className={"shopping-bag"}>
                                 <img src={BagIcon} alt="Shopping Cart"/>
                             </i>

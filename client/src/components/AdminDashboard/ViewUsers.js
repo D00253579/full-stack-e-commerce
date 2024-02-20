@@ -2,7 +2,8 @@ import React, {Component} from "react"
 import axios from "axios";
 import {SERVER_HOST} from "../../config/global_constants";
 import Navbar from "../NavBar"
-import AdminControls from "./AdminControls";
+import AdminUserView from "./AdminUserView";
+import UserControls from "./UserControls";
 
 export default class ViewUsers extends Component {
 
@@ -12,14 +13,25 @@ export default class ViewUsers extends Component {
             users: []
         }
     }
+
+    
     componentDidMount() {
-            //Fetching users for the table
-    axios.get(`${SERVER_HOST}/users`)
-        .then((res)=> {
-    if (res.data){
-        res.json({errorMessage:``})
-    }
-        })
+        //Fetching users for the table
+        axios.get(`${SERVER_HOST}/users`)
+            .then((res) => {
+                if (res.data) {
+                    if (res.data.errorMessage) {
+                        res.json({errorMessage: `Users not found`})
+                    } else {
+                        console.log("Records read to Admin dashboard");
+                        this.setState({users: res.data, defaultUsers: res.data})
+                    }
+
+                } else {
+                    console.log(`Record not found`)
+                }
+
+            })
     }
 
     render() {
@@ -28,7 +40,16 @@ export default class ViewUsers extends Component {
                 <div className="admin-head-container">
                     <Navbar/>
                 </div>
-            </div>
+                <UserControls/>
+                <div className="admin-body-container">
+                    <div className="admin-table-container">
+                        <AdminUserView
+                            users={this.state.users}
+                            handleRowClick={this.handleRowClick}
+                        />
+                    </div>
+                </div>
+                </div>
         )
     }
 }

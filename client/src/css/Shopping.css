@@ -1,0 +1,69 @@
+.shopping-bag-head-container {
+    position: fixed;
+    padding-top: 0;
+    z-index: 1000;
+}
+
+.bag-container {
+    /*height: 100%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+.bag-box {
+    padding-top: 20px;
+    width: 300px;
+    height: 450px;
+    padding-left: 450px;
+    background-color: #adc9b8;
+    border-radius: 5px;
+    /* Box shadow from w3 schools*/
+    box-shadow: 20px 20px 50px grey;
+}
+
+.bag-container > h1 {
+    font-size: 16px;
+    font-family: Times New Roman, Serif, serif;
+}
+
+.bag-title{
+    /*padding-right: 200px;*/
+}
+
+.bag-title > h1{
+    /*float: left;*/
+    /*padding-right: 200px;*/
+}
+
+.bag-container > h2 {
+    font-size: 16px;
+    font-family: Times New Roman, Serif, serif;
+}
+
+.tshirt-container{
+    width: 50px;
+    height: 50px;
+    border: solid #363131;
+    /*border-color: #363131;*/
+}
+
+.total-container {
+    float: right;
+}
+
+.checkout-buttons > button {
+    background-color: #B9CDDA;
+    font-family: Times New Roman, Serif, serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.checkout-buttons > button:hover {
+    background-color: #A6D8D4;
+    border-color: #363131;
+}
+

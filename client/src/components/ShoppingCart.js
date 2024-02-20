@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 import {Link} from "react-router-dom"
 
 
@@ -8,10 +9,6 @@ export default class ShoppingCart extends Component {
         super(props);
 
     }
-
-   changeComponent = e => {
-
-   }
 
     //check if tshirts have been added to the bag if so - display the tshirt, price , size and quantity
 
@@ -27,18 +24,34 @@ export default class ShoppingCart extends Component {
 
     render() {
         return (
-            <div className="bag-container">
-                <div className={"shopping-bag-header"}>
+            <div>
+                <div className="shopping-bag-head-container">
                     <NavBar/>
                 </div>
-                <div className={"bag"}>
-                    <h1>Your Bag</h1>
-                    <h2>Product</h2>
-                    <h2>Total</h2>
-                    <div className={"tshirt-container"}>
-
+                <div className="bag-container">
+                    <div className="bag-box">
+                        <div className="bag-title">
+                            <h1>Your Bag</h1>
+                        </div>
+                        <div className="product-title">
+                            <h2>Product</h2>
+                        </div>
+                        <div className={"tshirt-container"}>
+                            {/*selected tshirt displayed in here*/}
+                        </div>
+                        <div className="edit-bag">
+                            <h2>Edit</h2>
+                        </div>
+                        <div className="total-container">
+                            <h2>Total</h2>
+                        </div>
+                        <div className="checkout-buttons">
+                            <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
+                        </div>
                     </div>
-                    <button id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
+                </div>
+                <div className="footer-container">
+                    <Footer/>
                 </div>
             </div>
         )

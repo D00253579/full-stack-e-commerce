@@ -1,74 +1,76 @@
 .nav-container {
   background-color: #8EAF9D;
   position: fixed;
-  width: 100%; }
-  .nav-container .container {
-    display: flex;
-    float: right; }
-    .nav-container .container .logo-container > img {
-      padding-top: 10px;
-      width: 200px;
-      padding-right: 30px; }
-    .nav-container .container .search-container {
-      padding-top: 10px;
-      padding-right: 350px;
-      padding-left: 250px; }
-      .nav-container .container .search-container input[type="text" i] {
-        font-family: Times New Roman, Serif, serif;
-        font-size: 16px;
-        font-weight: bold;
-        padding-left: 5px; }
-      .nav-container .container .search-container .search-bar > #search {
-        border-radius: 20px;
-        width: 400px;
-        height: 35px; }
-    .nav-container .container .icons-container {
-      float: left;
-      padding-right: 30px;
-      padding-top: 10px; }
-      .nav-container .container .icons-container .searchIcon > img {
-        width: 50px; }
-      .nav-container .container .icons-container .account > img {
-        width: 50px;
-        padding-top: 7.5px; }
-      .nav-container .container .icons-container .shopping-bag > img {
-        width: 50px; }
+  width: 100%;
+  z-index: 1000; }
+
+.logo-container > img {
+  padding-top: 10px;
+  width: 200px;
+  padding-right: 30px; }
+
+.search-container {
+  padding-top: 10px;
+  padding-right: 350px;
+  padding-left: 250px; }
+  .search-container input[type="text" i] {
+    font-family: Times New Roman, Serif, serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 5px; }
+  .search-container .search-bar > #search {
+    border-radius: 20px;
+    width: 400px;
+    height: 35px; }
+
+.icons-container {
+  float: left;
+  padding-right: 30px;
+  padding-top: 10px; }
+  .icons-container .searchIcon > img {
+    width: 50px; }
+  .icons-container .account > img {
+    width: 50px;
+    padding-top: 7.5px; }
+  .icons-container .shopping-bag > img {
+    width: 50px; }
 
 .nav-container {
   background-color: #8EAF9D;
   position: fixed;
-  width: 100%; }
-  .nav-container .container {
-    display: flex;
-    float: right; }
-    .nav-container .container .logo-container > img {
-      padding-top: 10px;
-      width: 200px;
-      padding-right: 30px; }
-    .nav-container .container .search-container {
-      padding-top: 10px;
-      padding-right: 350px;
-      padding-left: 250px; }
-      .nav-container .container .search-container input[type="text" i] {
-        font-family: Times New Roman, Serif, serif;
-        font-size: 16px;
-        font-weight: bold;
-        padding-left: 5px; }
-      .nav-container .container .search-container .search-bar > #search {
-        border-radius: 20px;
-        width: 400px;
-        height: 35px; }
-    .nav-container .container .icons-container {
-      float: left;
-      padding-right: 30px;
-      padding-top: 10px; }
-      .nav-container .container .icons-container .searchIcon > img {
-        width: 50px; }
-      .nav-container .container .icons-container .account > img {
-        width: 50px;
-        padding-top: 7.5px; }
-      .nav-container .container .icons-container .shopping-bag > img {
-        width: 50px; }
+  width: 100%;
+  z-index: 1000; }
+
+.logo-container > img {
+  padding-top: 10px;
+  width: 200px;
+  padding-right: 30px; }
+
+.search-container {
+  padding-top: 10px;
+  padding-right: 350px;
+  padding-left: 250px; }
+  .search-container input[type="text" i] {
+    font-family: Times New Roman, Serif, serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 5px; }
+  .search-container .search-bar > #search {
+    border-radius: 20px;
+    width: 400px;
+    height: 35px; }
+
+.icons-container {
+  float: left;
+  padding-right: 30px;
+  padding-top: 10px; }
+  .icons-container .searchIcon > img {
+    width: 50px; }
+  .icons-container .account > img {
+    width: 50px;
+    padding-top: 7.5px; }
+  .icons-container .shopping-bag > img {
+    width: 50px; }
 
 /* AdminControls */
 .controls-container {
@@ -331,14 +333,21 @@
   color: red;
   font-weight: bold; }
 
-.bag-container .shopping-bag-header .bag .bag > h1 {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif; }
-.bag-container .shopping-bag-header .bag .bag-checkout button {
-  background-color: #B9CDDA;
-  font-family: Times New Roman, Serif, serif;
-  font-size: 16px; }
-  .bag-container .shopping-bag-header .bag .bag-checkout button .bag-checkout button:hover {
+.bag-container .shopping-bag-head-container {
+  padding-top: 0; }
+.bag-container .bag-container {
+  width: 80%; }
+  .bag-container .bag-container .bag > h1 {
+    font-size: 16px;
+    font-family: Times New Roman, Serif, serif; }
+  .bag-container .bag-container .bag > h2 {
+    font-size: 16px;
+    font-family: Times New Roman, Serif, serif; }
+  .bag-container .bag-container .checkout-buttons {
+    background-color: #B9CDDA;
+    font-family: Times New Roman, Serif, serif;
+    font-size: 16px; }
+  .bag-container .bag-container .checkout-buttons > button:hover {
     background-color: #A6D8D4;
     border-color: #363131; }
 

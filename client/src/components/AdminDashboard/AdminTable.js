@@ -1,8 +1,5 @@
 import React, {Component} from "react"
 import AdminTableRow from "./AdminTableRow";
-
-
-
 export default class AdminTable extends Component
 {
     render()

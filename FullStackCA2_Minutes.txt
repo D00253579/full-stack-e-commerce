@@ -23,16 +23,64 @@ Caitlin - Styled the icons in the nav bar
 As a group we started to discuss the admin side of the website and how we will assign tasks. We are planning to have another meeting on friday to check in on how we are getting on with our assigned tasks.
 
 Tasks we plan on doing:
-Jamie - web tokens (1 day)
+Jamie 
+- web tokens (1 day)
 - Payments in the shopping cart 
 - View users, admin view of the users(3 days)
 
-Caitlin - make the shopping cart component, appear on click of the bag icon in the nav bar (3 days)
+Caitlin 
+- make the shopping cart component, appear on click of the bag icon in the nav bar (3 days)
 - remove bootstraps that were in dereks notes (1 day)
 - style the users page (3 days)
 - style the filters (2 days)
 - add a footer - back to top link, with social media links and copyright
 - link the login component to the account icon (2 days)
 
-Luke - Invalid login message - box would change to red (2 days)
+Luke 
+- Invalid login message - box would change to red (2 days)
 - Client side validation (2 days)
+
+20/02/2024 at 10am 
+Meeting attendees:
+Caitlin, Luke and Jamie 
+
+Topics of Discussion: 
+Tasks completed since the last meeting: 
+Luke 
+- Invalid login message is complete 
+- Edit product is complete (but have to refresh manually)
+- Delete product code attempt (not working)
+- Troubleshooting issues with pem files 
+
+Jamie 
+- Admin view users displaying in a table
+- Web tokens
+
+Caitlin 
+- Started the shopping cart 
+- Added a footer and an account page
+- Account and shopping cart components open when icons are clicked 
+- Troubleshooting issues with scss settings and github 
+- Users page not started as the user data is not complete yet 
+
+Deleted files we have discussed as useless 
+
+Tasks we plan on doing: 
+Luke 
+- User filters 
+- Fix issues with delete product 
+- Delete users 
+- Add product 
+(4 days to complete all tasks)
+
+Jamie 
+- Edit users (3 days)
+- Search users (3 days)
+
+Caitlin
+- Finish the shopping cart (3 days)
+- Style the admin filters (1 day)
+- Style the footer (2 days)
+- Style the users once the data is complete 
+
+As a group we discussed that we would like to have all admin and user features complete, and be able to move on to the main page next week.
