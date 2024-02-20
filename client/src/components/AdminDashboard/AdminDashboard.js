@@ -6,7 +6,6 @@ import AdminProductView from "./AdminProductView";
 import Filters from "./Filters";
 import {Link, Redirect} from "react-router-dom";
 import AdminControls from "./AdminControls";
-import AdminEditProduct from "./AdminEditProduct"
 
 
 export default class AdminDashboard extends Component

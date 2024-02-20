@@ -7,10 +7,6 @@ import "./css/Filters.css"
 // import "./css/ShoppingCart.css"
 import "./css/Shopping.css"
 import Login from "./components/Login/Login";
-import AddTShirt from "./components/AddTShirt"
-import EditTShirt from "./components/EditTShirt"
-import DeleteTShirt from "./components/DeleteTShirt"
-import DisplayProducts from "./components/DisplayProducts"
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import AccountPage from "./components/AccountPage";
@@ -36,11 +32,7 @@ export default class App extends Component
             <BrowserRouter>
                 <Switch>                 
                     <Route exact path="/" component={TestingDirectory} />
-                    <LoggedRoute exact path="/AddTShirt" component={AddTShirt} />
                     <Route exact path="/Login/login" component={Login} />
-                    <LoggedRoute exact path="/EditTShirt/:id" component={EditTShirt} />
-                    <LoggedRoute exact path="/DeleteTShirt/:id" component={DeleteTShirt} />
-                    <Route exact path="/DisplayProducts" component={DisplayProducts}/>
                     <Route exact path="/NavBar" component={NavBar}/>
                     <Route exact path="/AccountPage" component={AccountPage}/>
                     <Route exact path="/Footer" component={Footer}/>
