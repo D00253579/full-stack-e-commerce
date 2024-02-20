@@ -112,8 +112,8 @@ export default class login extends Component
         if(this.validateUserLogin()) { //if this returns true, user details passed validation, login user
 
             axios.post(`${SERVER_HOST}/users/Login/Login/${this.state.email}/${this.state.password}`)
-                .then(res =>
 
+                .then(res =>
                 {
                     if(res.data)
                     {
@@ -127,13 +127,17 @@ export default class login extends Component
                             if (this.state.email === "admin@admin.com") {
                                 res.data.accessLevel = ACCESS_LEVEL_ADMIN
                             }
+
                             console.log("User logged in")
                             localStorage.name = res.data.name
                             localStorage.accessLevel = res.data.accessLevel
                             localStorage.token = res.data.token
+                            console.log("token: ", localStorage.token)
 
                             this.setState({isLoggedIn: true})
                         }
+                    } else {
+                        console.log("Error logging in")
                     }
                 })
         } else {

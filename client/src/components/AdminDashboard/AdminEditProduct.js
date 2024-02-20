@@ -1,68 +1,37 @@
 import React, {Component} from "react"
 import axios from "axios";
-import {SERVER_HOST} from "../../config/global_constants";
+import {ACCESS_LEVEL_NORMAL_USER, SERVER_HOST} from "../../config/global_constants";
+import {Redirect, useParams} from "react-router-dom";
+import Navbar from "../NavBar";
+import AdminControls from "./AdminControls";
 
 export default class AdminEditProduct extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            p_id: this.props.p_id,
-            product: {
-                name: "",
-                colour: "",
-                size: "",
-                price: "",
-                gender: "",
-                category: "",
-                brand: ""
-            }
-
-
-
+            product: [],
+            redirectToDashboard: false
         }
     }
     componentDidMount() {
-        axios.get(`${SERVER_HOST}/products/${this.state.p_id}`)
-            .then((res) => {
+        const productID = this.props.match.params.id // get productID passed from redirect parameters
+        //console.log(productID)
+
+        // get the product with the matching id from database collection
+        axios.get(`${SERVER_HOST}/products/${productID}`,{headers:{"authorization":localStorage.token}})
+            .then(res => {
                 if(res.data) {
                     if(res.data.errorMessage) {
 
                     } else {
-                        console.log("Product found from collection")
-                        this.setState({product: res.data})
-
+                        console.log("Product found and displaying in AdminEditProduct")
+                        this.setState({product: res.data}) // set state of product to response data
                     }
                 } else {
-                    console.log("Product not found when readying product from collection")
+                    console.log("Product not found")
                 }
             })
-    }
-    handleUpdateProduct = (e) => {
-
-        e.preventDefault()
-        let updatedProduct = {
-            name: this.state.product.name,
-            colour: this.state.product.colour,
-            price: this.state.product.price,
-            gender: this.state.product.gender,
-            category: this.state.product.category,
-            brand: this.state.product.brand
-        }
-
-        console.log("Updated product: ",updatedProduct)
-        axios.put(`${SERVER_HOST}/products/${this.state.p_id}`, {product: updatedProduct})
-            .then((res) => {
-                if (!res.data) {
-                    console.log("Product not found when updating product")
-                } else {
-
-                }
-            })
-
-    }
-    handleDeleteProduct() {
-
     }
 
 
@@ -77,82 +46,152 @@ export default class AdminEditProduct extends Component {
         }))
     }
     handleReturn = () => {
-        this.setState({product: []})
-        this.props.handleRowUnClick()
+        this.setState({redirectToDashboard: true})
+    }
+    validateUpdate = (p) => {
+        let inputIsValid = true;
+
+        // if one or more of the inputs are empty they are invalid
+        if((!p.name.trim() || !p.colour.trim() || !p.gender.trim() || !p.brand.trim() )) {
+            inputIsValid = false;
+            console.log("String inputs are empty")
+        }
+
+        if(p.price.toString().length === 0) {
+            inputIsValid = false
+            console.log("Number inputs are empty")
+        }
+        console.log("inputIsValid: ", inputIsValid)
+        return inputIsValid; // Return true if all inputs are non-empty
     }
 
+
+    handleUpdateProduct = (e) => {
+        e.preventDefault()
+        let updatedProduct = {
+            name: this.state.product.name,
+            colour: this.state.product.colour,
+            price: this.state.product.price,
+            gender: this.state.product.gender,
+            category: this.state.product.category,
+            brand: this.state.product.brand
+        }
+
+        // if function returns false then one or more inputs are empty, if true send updated product to server
+        if(!this.validateUpdate(updatedProduct)) {
+            console.log("TODO   Some inputs are invalid ")
+        } else {
+            axios.put(`${SERVER_HOST}/products/${this.state.product._id}`, {updatedProduct}, {headers:{"authorization":localStorage.token}})
+                .then((res) => {
+                    if (res.data) {
+                        if(res.data.errorMessage) {
+
+                        } else {
+                            console.log("Updated product: ",updatedProduct)
+                            this.setState({redirectToDashboard: true}) // after the update is complete redirect back to AdminDashboard
+                        }
+                    } else {
+                        console.log("Product not updated")
+                    }
+                })
+        }
+
+    }
+
+    handleDeleteProduct = () => {
+        const productID = this.props.match.params.id
+        //console.log(productID)
+        axios.delete(`${SERVER_HOST}/products/${productID}`, {headers:{"authorization":localStorage.token}})
+            .then (res =>
+            {
+                if(res.data) {
+                    if(res.data.errorMessage) {
+
+                    } else {
+                        console.log("Product has been deleted")
+                    }
+                } else {
+                    console.log("Product not deleted")
+                }
+            })
+        this.setState({redirectToDashboard: true})
+    }
+
+
+
     render() {
-        console.log("Selected Product: ",this.state.product)
-        //console.log("ObjectID of Product: ", this.state.p_id)
         return (
-
             <div>
+                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
 
+                <div className="admin-head-container">
+                    <Navbar/>
+                </div>
                 <div className="admin-edit-product">
                     <h1>Update Product</h1>
-                    <form className="edit-form">
+                    <form className="edit-form" >
 
                         <div className="edit-input">
                             <label>Name</label>
                             <input
                                 type="text"
                                 name="name"
-                                defaultValue={this.state.product.name}
+                                value={this.state.product.name}
                                 onChange={this.handleChange}
                             />
                         </div>
-
                         <div className="edit-input">
                             <label>Colour</label>
                             <input
                                 type="text"
                                 name="colour"
-                                defaultValue={this.state.product.colour}
+                                value={this.state.product.colour}
+                                onChange={this.handleChange}
                             />
                         </div>
-
                         <div className="edit-input">
                             <label>Price</label>
                             <input
                                 type="text"
                                 name="price"
-                                defaultValue={this.state.product.price}
+                                value={this.state.product.price}
+                                onChange={this.handleChange}
                             />
                         </div>
-
                         <div className="edit-input">
                             <label>Gender</label>
                             <input
                                 type="text"
                                 name="gender"
-                                defaultValue={this.state.product.gender}
+                                value={this.state.product.gender}
+                                onChange={this.handleChange}
                             />
                         </div>
-
                         <div className="edit-input">
                             <label>Category</label>
                             <input
                                 type="text"
                                 name="category"
-                                defaultValue={this.state.product.category}
+                                value={this.state.product.category}
+                                onChange={this.handleChange}
                             />
                         </div>
-
                         <div className="edit-input">
                             <label>Brand</label>
                             <input
                                 type="text"
                                 name="brand"
-                                defaultValue={this.state.product.brand}
+                                value={this.state.product.brand}
+                                onChange={this.handleChange}
                             />
                         </div>
 
                         <button onClick={this.handleUpdateProduct}>Update</button>
-                        <button>Delete</button>
+                        <button onClick={this.handleDeleteProduct}>Delete</button>
                         <button onClick={this.handleReturn}>Return</button>
+
                     </form>
                 </div>
-                <button value="Cancel" className="red-button" onClick={this.handleReturn}>Cancel</button>
             </div>
         )
     }

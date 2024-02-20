@@ -22,9 +22,8 @@ export default class AdminTable extends Component
                     {this.props.products.map((product, index) => (
                         <AdminTableRow
                             key={product._id}
-                            products={product}
+                            product={product}
                             rowNum={index + 1}
-                            handleRowClick={this.props.handleRowClick}
                         />
                     ))}
                 </tbody>

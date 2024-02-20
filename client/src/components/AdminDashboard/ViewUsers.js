@@ -13,6 +13,7 @@ export default class ViewUsers extends Component {
             users: []
         }
     }
+
     
     componentDidMount() {
         //Fetching users for the table

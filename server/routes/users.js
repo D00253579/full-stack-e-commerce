@@ -25,7 +25,7 @@ router.post(`/users/Login/Register/:name/:email/:password`, (req, res) => {
                 bcrypt.hash(req.params.password, parseInt(process.env.PASSWORD_HASH_SALT_ROUNDS), (err, hash) => {
                     usersModel.create({name: req.params.name,email: req.params.email,password: hash}, (error, data) => {
                         if (data) {
-const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, JWT_PRIVATE_KEY, {algorithm:'HS256',expiresIn:process.env.JWT_EXPIRY})
+                            const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, secret.toString('utf-8'), {algorithm:'HS256',expiresIn:process.env.JWT_EXPIRY})
                             res.json({name: data.name, accessLevel: data.accessLevel, token:token})
                         } else {
                             res.json({errorMessage: `User was not registered`})
@@ -49,8 +49,11 @@ router.post(`/users/Login/Login/:email/:password`, (req, res) => {
                 console.log("result: ", result)
                 if(result)
                 {
-                    const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, JWT_PRIVATE_KEY , {algorithm:'HS256',expiresIn:process.env.JWT_EXPIRY})
-                    res.json({name: data.name, accessLevel:data.accessLevel,token:token})
+                    const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, JWT_PRIVATE_KEY, {algorithm:'HS256',expiresIn:process.env.JWT_EXPIRY})
+                    res.json({name: data.name, accessLevel:data.accessLevel, token: token})
+                    // console.log("name: ", data.name)
+                    // console.log("access level: ", data.accessLevel)
+
                 }
                 else
                 {
