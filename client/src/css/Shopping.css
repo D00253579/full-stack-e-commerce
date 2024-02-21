@@ -1,11 +1,10 @@
 .shopping-bag-head-container {
     position: fixed;
     padding-top: 0;
-    z-index: 1000;
+    /*z-index: 1000;*/
 }
 
 .bag-container {
-    /*height: 100%;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,39 +14,55 @@
 
 .bag-box {
     padding-top: 20px;
-    width: 300px;
+    width: 700px;
     height: 450px;
-    padding-left: 450px;
     background-color: #adc9b8;
     border-radius: 5px;
     /* Box shadow from w3 schools*/
     box-shadow: 20px 20px 50px grey;
+    position: relative;
 }
 
-.bag-container > h1 {
+.bag-box h1{
+    margin: 0;
+    font-family: Times New Roman, Serif, serif;
+    font-weight: bold;
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+.bag-box h2 {
     font-size: 16px;
     font-family: Times New Roman, Serif, serif;
+    padding-left: 20px;
 }
 
-.bag-title{
-    /*padding-right: 200px;*/
+.edit-bag{
+    padding-left: 300px;
 }
 
-.bag-title > h1{
-    /*float: left;*/
-    /*padding-right: 200px;*/
-}
+/*.titles{*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding-left: 20px;*/
+/*}*/
 
-.bag-container > h2 {
-    font-size: 16px;
-    font-family: Times New Roman, Serif, serif;
-}
+/*.titles h2{*/
+/*    margin: 0;*/
+/*}*/
 
 .tshirt-container{
-    width: 50px;
-    height: 50px;
-    border: solid #363131;
-    /*border-color: #363131;*/
+    width: 150px;
+    height: 200px;
+    border: solid #ffffff;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.tshirt-container > img {
+    width: 150px;
+    height: 200px;
 }
 
 .total-container {
@@ -60,6 +75,8 @@
     font-size: 16px;
     padding: 10px 20px;
     border-radius: 5px;
+    float: right;
+    border-color: white;
 }
 
 .checkout-buttons > button:hover {

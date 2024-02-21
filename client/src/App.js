@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import TestingDirectory from "./components/TestingDirectory";
 import MainPage from "./components/MainPage"
 import ShoppingCart from "./components/ShoppingCart";
+import Payments from "./components/Payments";
 import LoggedRoute from "./components/LoggedRoute";
 import ViewUsers from "./components/AdminDashboard/ViewUsers"
 import Register from "./components/Login/Register";
@@ -45,6 +46,7 @@ export default class App extends Component
                     <Route exact path="/Footer" component={Footer}/>
                     <Route exact path="/MainPage" component={MainPage}/>
                     <Route exact path="/ShoppingCart" component={ShoppingCart}/>
+                    <Route exact path="/Payments" component={Payments}/>
                     <Route exact path="/Login/Register" component={Register} />
                     <LoggedRoute exact path="/AdminDashboard/AdminDashboard" component={AdminDashboard} />
                     <LoggedRoute exact path="/AdminDashboard/ViewUsers" component={ViewUsers}/>

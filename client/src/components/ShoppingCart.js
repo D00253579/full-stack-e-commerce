@@ -1,14 +1,11 @@
 import React, {Component} from "react"
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import pinkTshirt from "../tshirts-images/p10/front.png";
 import {Link} from "react-router-dom"
 
 
 export default class ShoppingCart extends Component {
-    constructor(props) {
-        super(props);
-
-    }
 
     //check if tshirts have been added to the bag if so - display the tshirt, price , size and quantity
 
@@ -33,21 +30,27 @@ export default class ShoppingCart extends Component {
                         <div className="bag-title">
                             <h1>Your Bag</h1>
                         </div>
-                        <div className="product-title">
+                        {/*<div className="product">*/}
+                        <div className="titles">
                             <h2>Product</h2>
                         </div>
+                        {/*</div>*/}
                         <div className={"tshirt-container"}>
+                          <img src={pinkTshirt} alt="test-image"/>
                             {/*selected tshirt displayed in here*/}
                         </div>
-                        <div className="edit-bag">
-                            <h2>Edit</h2>
+                        {/*<div className="edit-bag">*/}
+                        <div className="titles">
+                        <h2>Edit</h2>
                         </div>
                         <div className="total-container">
                             <h2>Total</h2>
                         </div>
-                        <div className="checkout-buttons">
-                            <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
-                        </div>
+                            <Link to={"/Payments"}>
+                                <div className="checkout-buttons">
+                                <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
+                                </div>
+                            </Link>
                     </div>
                 </div>
                 <div className="footer-container">
