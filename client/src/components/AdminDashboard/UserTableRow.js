@@ -1,15 +1,20 @@
 import React, {Component} from "react"
+import {Redirect} from "react-router-dom";
 
 export default class UserTableRow extends Component
 {
     constructor(props) {
         super(props)
+        this.state = {
+            rowIsClicked: false
+        }
     }
 
 
-    handleRowClick = () => {
-        this.props.handleRowClick(this.props.users.id)
-    }
+
+handleRowClick = () => {
+    this.setState({rowIsClicked: true})
+}
 
     render() {
         const {
@@ -19,13 +24,17 @@ export default class UserTableRow extends Component
         } = this.props.users;
 
         return (
-            <tr onClick={this.handleRowClick}>
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{accessLevel}</td>
-                <td>            </td>
-                <td>{this.props.rowNum}</td>
-            </tr>
+            this.state.rowIsClicked ? (<Redirect to={`/AdminDashboard/DeleteUsers/${this.props.users._id}`} />
+            ) : (
+                <tr onClick={this.handleRowClick}>
+                    <td>{name}</td>
+                    <td>{email}</td>
+                    <td>{accessLevel}</td>
+                    <td>             </td>
+                    <td>{this.props.rowNum}</td>
+
+                </tr>
+            )
         )
     }
 }

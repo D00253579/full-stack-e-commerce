@@ -1,9 +1,8 @@
 import React, {Component} from "react"
 import axios from "axios";
-import {ACCESS_LEVEL_NORMAL_USER, SERVER_HOST} from "../../config/global_constants";
-import {Redirect, useParams} from "react-router-dom";
+import {SERVER_HOST} from "../../config/global_constants";
+import {Redirect} from "react-router-dom";
 import Navbar from "../NavBar";
-import AdminControls from "./AdminControls";
 
 export default class AdminEditProduct extends Component {
     constructor(props) {
@@ -16,7 +15,7 @@ export default class AdminEditProduct extends Component {
     }
     componentDidMount() {
         const productID = this.props.match.params.id // get productID passed from redirect parameters
-        //console.log(productID)
+        // console.log(productID)
 
         // get the product with the matching id from database collection
         axios.get(`${SERVER_HOST}/products/${productID}`,{headers:{"authorization":localStorage.token}})

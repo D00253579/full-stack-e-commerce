@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require("jsonwebtoken");
 const fs= require('fs')
 const JWT_PRIVATE_KEY=fs.readFileSync(process.env.JWT_PRIVATE_KEY_FILENAME,'utf8')
+
 router.post(`/users/Login/Register/:name/:email/:password`, (req, res) => {
     if (!/^[a-zA-Z a-zA-Z]+$/.test(req.params.name)) {
         res.json({errorMessage: `Invalid name`});
@@ -25,7 +26,7 @@ router.post(`/users/Login/Register/:name/:email/:password`, (req, res) => {
                 bcrypt.hash(req.params.password, parseInt(process.env.PASSWORD_HASH_SALT_ROUNDS), (err, hash) => {
                     usersModel.create({name: req.params.name,email: req.params.email,password: hash}, (error, data) => {
                         if (data) {
-                            const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, secret.toString('utf-8'), {algorithm:'HS256',expiresIn:process.env.JWT_EXPIRY})
+                            const token=jwt.sign({email: data.email, accessLevel: data.accessLevel}, JWT_PRIVATE_KEY,{algorithm:'HS256',expiresIn:process.env.JWT_EXPIRY})
                             res.json({name: data.name, accessLevel: data.accessLevel, token:token})
                         } else {
                             res.json({errorMessage: `User was not registered`})
@@ -73,7 +74,22 @@ router.get(`/users`, (req, res) => {
         res.json(data)
     })
 })
-
+// Delete one record
+router.delete(`/users/:id`, (req, res) => {
+    console.log(req.params.id)
+    jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
+        if (err) {
+            res.json(`User is not deleted`)
+        } else {
+            if (decodedToken.accessLevel >= process.env.ACCESS_LEVEL_ADMIN) {
+                usersModel.findByIdAndRemove(req.params.id, (error, data) => {
+                    console.log("SERVER: Product deleted from collection")
+                    res.json(data)
+                })
+            }
+        }
+    })
+})
 
 router.post(`/users/Login/Logout`, (req,res) =>
 {

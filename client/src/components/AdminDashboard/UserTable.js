@@ -19,10 +19,9 @@ export default class UserTable extends Component
                 <tbody>
                 {this.props.users.map((users, index) => (
                     <UserTableRow
-                        key={users.name}
+                        key={users._id}
                         users={users}
                         rowNum={index + 1}
-                        handleRowClick={this.props.handleRowClick}
                     />
                 ))}
                 </tbody>

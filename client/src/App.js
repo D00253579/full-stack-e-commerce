@@ -20,6 +20,7 @@ import ViewUsers from "./components/AdminDashboard/ViewUsers"
 import Register from "./components/Login/Register";
 import {ACCESS_LEVEL_GUEST} from "./config/global_constants";
 import AdminEditProduct from "./components/AdminDashboard/AdminEditProduct";
+import DeleteUsers from"./components/AdminDashboard/DeleteUsers";
 if (typeof localStorage.accessLevel==="undefined"){
     localStorage.name="GUEST"
     localStorage.accessLevel=ACCESS_LEVEL_GUEST
@@ -44,6 +45,7 @@ export default class App extends Component
                     <LoggedRoute exact path="/AdminDashboard/AdminDashboard" component={AdminDashboard} />
                     <LoggedRoute exact path="/AdminDashboard/ViewUsers" component={ViewUsers}/>
                     <Route exact path={"/AdminDashboard/AdminEditProduct/:id"} component={AdminEditProduct}/>
+                    <Route exact path={"/AdminDashboard/DeleteUsers/:id"} component={DeleteUsers}/>
                     <Route path="*" component={TestingDirectory}/>
                 </Switch>
             </BrowserRouter>
