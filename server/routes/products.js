@@ -133,7 +133,6 @@ router.put(`/products/:id`, (req, res) => {
 
 // Delete one record
 router.delete(`/products/:id`, (req, res) => {
-    console.log("here")
     console.log(req.params.id)
     jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
         if (err) {
