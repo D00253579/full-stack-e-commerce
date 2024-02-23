@@ -2,10 +2,9 @@ import React, {Component} from "react"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import "./css/App.css"
 import "./css/Admin.css"
-import "./css/Nav.css"
-import "./css/Filters.css"
-// import "./css/ShoppingCart.css"
-import "./css/Shopping.css"
+import "./css/NavBar.css"
+import "./css/ShoppingCart.css"
+import "./css/Footer.css"
 import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";

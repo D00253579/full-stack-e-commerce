@@ -16,20 +16,19 @@ export default class NavBar extends Component {
             <div className="nav-container">
                 <nav>
                     <div className={"container"}>
+                        <div className={"search-container"}>
+                            <div className={"icons-container"}>
+                                <div className="search-bar">
+                                    <input placeholder="Search" type="text" id="search"/>
+                                </div>
+                            </div>
+                            <div className={"icons-container"}>
+                                <i className={"searchIcon"}><img src={SearchIcon}/></i>
+                            </div>
+                        </div>
                         <div className="logo-container">
                             <img src={logo} alt="logo"/>
                         </div>
-                    <div className={"search-container"}>
-                        <div className={"icons-container"}>
-                        <div className="search-bar">
-                            <input placeholder="Search" type="text" id="search"/>
-                        </div>
-                    </div>
-                    <div className={"icons-container"}>
-                        <i className={"searchIcon"}><img src={SearchIcon}/></i>
-                    </div>
-                        </div>
-
                     <div className={"icons-container"}>
                         <Link to={"/AccountPage"}>
                             <i className={"account"}>
