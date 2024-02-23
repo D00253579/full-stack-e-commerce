@@ -14,13 +14,13 @@ import Footer from "./components/Footer";
 import TestingDirectory from "./components/TestingDirectory";
 import MainPage from "./components/MainPage"
 import ShoppingCart from "./components/ShoppingCart";
-import Payments from "./components/Payments";
 import LoggedRoute from "./components/LoggedRoute";
 import ViewUsers from "./components/AdminDashboard/ViewUsers"
 import Register from "./components/Login/Register";
 import {ACCESS_LEVEL_GUEST} from "./config/global_constants";
 import AdminEditProduct from "./components/AdminDashboard/AdminEditProduct";
 import DeleteUsers from"./components/AdminDashboard/DeleteUsers";
+import Payments from "./components/Payments"
 if (typeof localStorage.accessLevel==="undefined"){
     localStorage.name="GUEST"
     localStorage.accessLevel=ACCESS_LEVEL_GUEST

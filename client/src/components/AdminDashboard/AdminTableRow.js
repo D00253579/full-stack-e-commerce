@@ -29,6 +29,19 @@ export default class AdminTableRow extends Component
         return (
             this.state.rowIsClicked ? (<Redirect to={`/AdminDashboard/AdminEditProduct/${this.props.product._id}`} />
             ) : (
+                /* let soldOrForSale = null
+        if(localStorage.accessLevel <= ACCESS_LEVEL_GUEST)
+        {
+            if(this.props.car.sold !== true)
+            {
+                soldOrForSale = <BuyCar carID={this.props.car._id} price={this.props.car.price} />
+            }
+            else
+            {
+                soldOrForSale = "SOLD"
+            }
+        }
+               */
                 <tr onClick={this.handleRowClick}>
                     <td>{this.props.rowNum}</td>
                     <td>{name}</td>
