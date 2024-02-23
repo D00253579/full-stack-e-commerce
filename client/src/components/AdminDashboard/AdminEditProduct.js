@@ -97,7 +97,8 @@ export default class AdminEditProduct extends Component {
 
     }
 
-    handleDeleteProduct = () => {
+    handleDeleteProduct = (e) => {
+        e.preventDefault()
         const productID = this.props.match.params.id
         //console.log(productID)
         axios.delete(`${SERVER_HOST}/products/${productID}`, {headers:{"authorization":localStorage.token}})
