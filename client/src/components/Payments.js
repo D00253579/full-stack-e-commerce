@@ -5,7 +5,9 @@ import {Link} from "react-router-dom";
 import Footer from "./Footer";
 
 export default class Payments extends Component {
-
+constructor(props) {
+    super(props);
+}
     /*
         Include inputs for:
         Email
@@ -40,7 +42,7 @@ export default class Payments extends Component {
                                     <h1>Payment Details</h1>
                                 </div>
                                 <div className="checkout-buttons">
-                                    <button type="button" id={"payments-btn"}>SUBMIT</button>
+                                    {/*<BuyProduct productID={this.state.products._id} price={this.state.products.price}/>*/}
                                 </div>
                             </div>
                         </div>
