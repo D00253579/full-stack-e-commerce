@@ -29,9 +29,7 @@
   color: red;
   background-color: white;
   padding: 10px;
-  border-radius: 20px;
-  z-index: 4;
-}
+  border-radius: 20px; }
 
 .password-error-container {
   background-color: white;
@@ -65,7 +63,6 @@
 
 .logout {
   margin-bottom: 30px; }
-
 
 /* link buttons */
 .green-button,

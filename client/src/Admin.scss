@@ -1,11 +1,11 @@
-@import "Nav.scss";
-
 $dark_green: #517962;
 $mint_green: #A6D8D4;
 $light_blue: #B9CDDA;
 $white: #ffffff;
 $grey-border: #363131;
 $title_font_size: 16px;
+$light_green: #8EAF9D;
+$title_font: Times New Roman, Serif, serif;
 
 /* AdminControls */
 .controls-container {
@@ -289,7 +289,7 @@ $title_font_size: 16px;
   background-color: #007bff; /* Primary color */
   cursor: pointer;
 }
-.stock-slider::-moz-range-thumb
+.stock-slider::-moz-range-thumb,
 .price-slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
