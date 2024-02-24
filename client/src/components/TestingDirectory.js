@@ -17,7 +17,7 @@ export default class TestingDirectory extends Component
                     else // user successfully logged in
                     {
                         console.log("Logged in as ADMIN for testing")
-                        sessionStorage.name=res.data.name
+                        localStorage.name=res.data.name
                         localStorage.accessLevel = ACCESS_LEVEL_ADMIN
 
                     }
