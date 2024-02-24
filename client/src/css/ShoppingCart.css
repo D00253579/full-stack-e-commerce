@@ -13,11 +13,11 @@
   padding-top: 20px;
   width: 700px;
   height: 450px;
-  background-color: #adc9b8;
   border-radius: 5px;
   /* Box shadow from w3 schools*/
   box-shadow: 20px 20px 50px grey;
   position: relative;
+  border-color: #A26D5D;
   border-style: outset; }
 
 .bag-box h1 {
@@ -50,16 +50,16 @@
   float: right; }
 
 .checkout-buttons > button {
-  background-color: #B9CDDA;
+  background-color: #ccb1a7;
+  border: 2px solid #ffffff;
   font-family: Times New Roman, Serif, serif;
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 5px;
-  float: right;
-  border-color: white; }
+  float: right; }
 
 .checkout-buttons > button:hover {
-  background-color: #A6D8D4;
+  background-color: #A26D5D;
   border-color: #363131; }
 
 /*# sourceMappingURL=ShoppingCart.css.map */
