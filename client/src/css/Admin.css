@@ -1,3 +1,6 @@
+body {
+  background-color: #efe6e6; }
+
 /* AdminControls */
 .controls-container {
   height: 100px;
@@ -12,8 +15,8 @@
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #ffffff;
-    background-color: #517962;
+    color: black;
+    background-color: #ccb1a7;
     border: 2px solid #ffffff;
     border-radius: 5px;
     cursor: pointer;
@@ -22,7 +25,7 @@
     margin-right: 10px;
     font-family: Times New Roman, Serif, serif; }
   .controls-container .controls-button:hover {
-    background-color: #8eaf9d;
+    background-color: #A26D5D;
     border-color: #363131; }
 
 /* AdminTable */
@@ -45,7 +48,7 @@
     border-color: #363131; }
 
 .admin-table-container thead {
-  background-color: #517962;
+  background-color: #A26D5D;
   color: #ffffff;
   border-color: #ffffff;
   text-transform: capitalize;
@@ -59,7 +62,7 @@
 .admin-table thead th,
 .admin-table-container tbody td {
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center; }
 
 .admin-table-container tbody tr {

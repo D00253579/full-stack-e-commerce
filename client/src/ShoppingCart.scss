@@ -24,11 +24,12 @@ $title_font: Times New Roman, Serif, serif;
       padding-top: 20px;
       width: 700px;
       height: 450px;
-      background-color: #adc9b8;
+      //background-color: #adc9b8;
       border-radius: 5px;
       /* Box shadow from w3 schools*/
       box-shadow: 20px 20px 50px grey;
       position: relative;
+      border-color: #A26D5D;
       border-style: outset;
     }
 
@@ -78,17 +79,17 @@ $title_font: Times New Roman, Serif, serif;
   }
 
   .checkout-buttons > button {
-    background-color: $light_blue;
+    background-color: #ccb1a7;
+    border: 2px solid $white;
     font-family: $title-font;
     font-size: $title_font_size;
     padding: 10px 20px;
     border-radius: 5px;
     float: right;
-    border-color: white;
   }
 
   .checkout-buttons > button:hover {
-    background-color: #A6D8D4;
+    background-color: #A26D5D;
     border-color: $grey-border;
   }
 

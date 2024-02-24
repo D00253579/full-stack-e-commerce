@@ -7,6 +7,10 @@ $title_font_size: 16px;
 $light_green: #8EAF9D;
 $title_font: Times New Roman, Serif, serif;
 
+body{
+  background-color: #efe6e6;
+}
+
 /* AdminControls */
 .controls-container {
   height: 100px;
@@ -22,8 +26,8 @@ $title_font: Times New Roman, Serif, serif;
     font-size: $title_font_size;
     font-weight: bold;
     text-transform: uppercase;
-    color: $white;
-    background-color: $dark_green;
+    color: black;
+    background-color: #ccb1a7;
     border: 2px solid $white;
     border-radius: 5px;
     cursor: pointer;
@@ -34,7 +38,7 @@ $title_font: Times New Roman, Serif, serif;
   }
 
   .controls-button:hover {
-    background-color: #8eaf9d;
+    background-color:  #A26D5D;
     border-color: $grey-border;
   }
 }
@@ -65,7 +69,7 @@ $title_font: Times New Roman, Serif, serif;
 }
 
 .admin-table-container thead {
-  background-color: $dark_green;
+  background-color: #A26D5D;
   color: $white;
   border-color: $white;
   text-transform: capitalize;
@@ -81,7 +85,7 @@ $title_font: Times New Roman, Serif, serif;
 .admin-table thead th,
 .admin-table-container tbody td {
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
 }
 

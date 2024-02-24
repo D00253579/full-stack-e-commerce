@@ -1,4 +1,3 @@
-
 $light_green: #8EAF9D;
 $title_font: Times New Roman, Serif, serif;
 $dark_green: #517962;
@@ -9,85 +8,83 @@ $grey-border: #363131;
 $title_font_size: 16px;
 
 .nav-container {
-  background-color: $light_green;
+  background-color: #A26D5D;
   position: fixed;
   width: 100%;
   height: 55px;
   z-index: 1000;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo-container{
-  padding-top: 10px;
-  padding-left: 30px;
-  margin: auto;
-}
-
-
-.container{
+.container {
   display: flex;
-  float: right;
-}
-
-.logo-container > img {
-  //padding-top: 10px;
-  //width: 200px;
-  //padding-right: 30px;
-  width: 175px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  align-items: center;
 }
 
 .search-container {
-  float: left;
-  padding-top: 10px;
-  padding-right: 30px;
-  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-bottom: 75px;
+}
 
-  input[type="text" i] {
-    font-family: $title_font;
-    font-size: 16px;
-    font-weight: bold;
-    //padding-left: 5px;
-  }
+.search-bar {
+  border-color: white;
+  border-radius: 0;
+  border-style: outset;
+  display: inline-block;
+  vertical-align: middle;
+}
 
-  .search-bar {
-    display: inline-block;
-    vertical-align: middle;
-  }
+.search-bar > #search {
+  font-family: $title_font;
+  font-size: 16px;
+  font-weight: bold;
+  width: 310px;
+  height: 30px;
+  border: none;
+  outline: none;
+}
 
-  .search-bar > #search {
-    border-color: white;
-    border-radius: 0;
-    border-style: outset;
-    width: 325px;
-    height: 35px;
-  }
+.searchIcon > img {
+  width: 30px;
+  height: 30px;
 }
 
 .icons-container {
-  float: left;
-  padding-right: 30px;
-  padding-top: 10px;
-
-  .searchIcon > img {
-    width: 40px;
-    height: 35px;
-  }
-
-  .account > img {
-    width: 35px;
-    height: 35px;
-    /*padding-top: 7.5px;*/
-    padding-bottom: 20px;
-  }
-
-  .shopping-bag > img {
-    width: 40px;
-    height: 35px;
-    padding-bottom: 20px;  }
+  display: flex;
 }
 
+.icons-container > .logo-image {
+  display: flex;
+  margin: auto;
+}
 
+.logo-image > img{
+  width: 300px;
+  padding-bottom: 65px;
+  padding-left: 225px;
+  padding-right: 200px;
+}
+
+.icons-container > .searchIcon {
+  margin-left: 10px;
+}
+
+.account > img {
+  width: 35px;
+  height: 30px;
+  padding-bottom: 60px;
+padding-left: 300px;}
+
+.shopping-bag > img {
+  width: 40px;
+  height: 30px;
+  padding-bottom: 60px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
 
 
 
