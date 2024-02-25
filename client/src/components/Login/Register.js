@@ -146,9 +146,7 @@ export default class Register extends Component{
                         else // user successfully registered
                         {
                             console.log("User registered and logged in")
-                            if (this.state.name==="Admin"){
-                                res.data.accessLevel=ACCESS_LEVEL_ADMIN
-                            }
+
                             localStorage.name = res.data.name
                             localStorage.accessLevel = res.data.accessLevel
                             localStorage.token=res.data.token
