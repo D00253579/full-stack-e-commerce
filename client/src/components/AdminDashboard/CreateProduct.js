@@ -44,7 +44,6 @@ export default class CreateProduct extends Component {
                 [name]: value,
             }
         }))
-
     }
     handleCheckboxChange = (e) => {
         const {checked, value} = e.target
@@ -216,7 +215,7 @@ export default class CreateProduct extends Component {
                             : null
                         }
                         <div className="create-input">
-                            <label className="form-label">
+                            <label className="form-label" htmlFor="stockInput">
                                 Inbound Stock {this.state.stockIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
@@ -229,7 +228,7 @@ export default class CreateProduct extends Component {
                         </div>
 
                         <div className="create-input">
-                            <label className="form-label">
+                            <label className="form-label" htmlFor="nameInput">
                                 Name {this.state.nameIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
@@ -241,7 +240,7 @@ export default class CreateProduct extends Component {
                             </label>
                         </div>
                         <div className="create-input">
-                            <label className="form-label">
+                            <label className="form-label" htmlFor="colourInput">
                                 Colour {this.state.colourIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
@@ -298,7 +297,7 @@ export default class CreateProduct extends Component {
                         </div>
 
                         <div className="create-input">
-                            <label className="form-label">
+                            <label className="form-label" htmlFor="priceInput">
                                 Price {this.state.priceIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
@@ -310,7 +309,8 @@ export default class CreateProduct extends Component {
                             </label>
                         </div>
                         <div className="create-input">
-                            <label className="form-label">Gender {this.state.genderIsInvalid ? <span className="err">*</span> : null}
+                            <label className="form-label" htmlFor="genderInput">
+                                Gender {this.state.genderIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
                                     name="gender"
@@ -321,7 +321,8 @@ export default class CreateProduct extends Component {
                             </label>
                         </div>
                         <div className="create-input">
-                            <label className="form-label">Category {this.state.categoryIsInvalid ? <span className="err">*</span> : null}
+                            <label className="form-label" htmlFor="categoryInput">
+                                Category {this.state.categoryIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
                                     name="category"
@@ -332,7 +333,8 @@ export default class CreateProduct extends Component {
                             </label>
                         </div>
                         <div className="create-input">
-                            <label className="form-label">Brand {this.state.brandIsInInvalid ? <span className="err">*</span> : null}
+                            <label className="form-label" htmlFor="brandInput">
+                                Brand {this.state.brandIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
                                     name="brand"

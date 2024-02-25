@@ -9,8 +9,29 @@ export default class AdminEditProduct extends Component {
         super(props)
 
         this.state = {
-            product: [],
-            redirectToDashboard: false
+            defaultProduct : [],
+            redirectToDashboard: false,
+            inputsAreInvalid: false,
+            nameIsInvalid: false,
+            colourIsInvalid: false,
+            sizeIsInvalid: false,
+            priceIsInvalid: false,
+            categoryIsInvalid: false,
+            brandIsInInvalid: false,
+            stockIsInInvalid: false,
+            product : {
+                name: "",
+                colour: "",
+                size: [],
+                price: "",
+                gender: "",
+                category: "",
+                brand: "",
+                current_stock: "",
+                image_1: "",
+                image_2: "",
+                image_3: ""
+            }
         }
     }
     componentDidMount() {
@@ -25,7 +46,8 @@ export default class AdminEditProduct extends Component {
 
                     } else {
                         console.log("Product found and displaying in AdminEditProduct")
-                        this.setState({product: res.data}) // set state of product to response data
+                        this.setState({product: res.data,
+                                              defaultProduct: res.data}) // set state of product to response data
                     }
                 } else {
                     console.log("Product not found")
@@ -44,40 +66,136 @@ export default class AdminEditProduct extends Component {
             }
         }))
     }
+    handleCheckboxChange = (e) => {
+        const {checked, value} = e.target
+        if(checked) { // if checkbox is checked add it to sizes array in product state
+            this.setState(prevState => ({
+                product: {
+                    ...prevState.product,
+                    size: [...prevState.product.size, value]
+                }
+
+            }))
+
+        } else { // if unchecked remove the value from the array
+            this.setState(prevState => ({
+                product: {
+                    ...prevState.product,
+                    size: prevState.product.size.filter(size => size !== size)
+                }
+            }))
+        }
+
+    }
+    validateInputs = (product) => {
+        let isValid = true // true = valid
+        console.log(product.price)
+        //console.log("Product: ", product)
+        if(!product.name.trim()) {              // name
+            isValid = false
+            document.getElementById("nameInput").classList.add("invalid-input")
+            this.setState({nameIsInvalid: true})
+        } else {
+            document.getElementById("nameInput").classList.remove("invalid-input")
+            this.setState({nameIsInvalid: false})
+        }
+
+        if(!product.colour.trim()) {            // colour
+            isValid = false
+            document.getElementById("colourInput").classList.add("invalid-input")
+            this.setState({colourIsInvalid: true})
+        } else {
+            document.getElementById("colourInput").classList.remove("invalid-input")
+            this.setState({colourIsInvalid: false})
+
+        }
+
+        if(product.size.length === 0) {         // size
+            isValid = false
+            document.getElementById("sizeSelector").classList.add("invalid-input")
+            this.setState({sizeIsInvalid: true})
+
+        } else {
+            document.getElementById("sizeSelector").classList.remove("invalid-input")
+            this.setState({sizeIsInvalid: false})
+
+        }
+
+        if(!String(product.price).trim()) {             // price
+            isValid = false
+            document.getElementById("priceInput").classList.add("invalid-input")
+            this.setState({priceIsInvalid: true})
+
+        } else {
+            document.getElementById("priceInput").classList.remove("invalid-input")
+            this.setState({priceIsInvalid: false})
+
+        }
+
+        if(!product.gender.trim()) {            // gender
+            isValid = false
+            document.getElementById("genderInput").classList.add("invalid-input")
+            this.setState({genderIsInvalid: true})
+
+        } else {
+            document.getElementById("genderInput").classList.remove("invalid-input")
+            this.setState({genderIsInvalid: false})
+
+        }
+
+        if(!product.category.trim()) {          // category
+            isValid = false
+            document.getElementById("categoryInput").classList.add("invalid-input")
+            this.setState({categoryIsInvalid: true})
+
+        } else {
+            document.getElementById("categoryInput").classList.remove("invalid-input")
+            this.setState({categoryIsInvalid: false})
+
+        }
+
+        if(!product.brand.trim()) {             // brand
+            isValid = false
+            document.getElementById("brandInput").classList.add("invalid-input")
+            this.setState({brandIsInvalid: true})
+
+        } else {
+            document.getElementById("brandInput").classList.remove("invalid-input")
+            this.setState({brandIsInvalid: false})
+
+        }
+
+        if(!isValid) { // if inputs are invalid trigger visual response to let user know
+            this.setState({inputsAreInvalid: true})
+        } else {
+            this.setState({inputsAreInvalid: false})
+        }
+
+        return isValid
+    }
+    handleReset = () => {
+        this.setState({product: this.state.defaultProduct})
+    }
     handleReturn = () => {
         this.setState({redirectToDashboard: true})
     }
-    validateUpdate = (p) => {
-        let inputIsValid = true;
-
-        // if one or more of the inputs are empty they are invalid
-        if((!p.name.trim() || !p.colour.trim() || !p.gender.trim() || !p.brand.trim() )) {
-            inputIsValid = false;
-            console.log("String inputs are empty")
-        }
-
-        if(p.price.toString().length === 0) {
-            inputIsValid = false
-            console.log("Number inputs are empty")
-        }
-        console.log("inputIsValid: ", inputIsValid)
-        return inputIsValid; // Return true if all inputs are non-empty
-    }
-
-
     handleUpdateProduct = (e) => {
         e.preventDefault()
+        // scroll back to the top of the form , take from https://www.w3schools.com/howto/howto_js_scroll_into_view.asp
+        const topOfForm = document.getElementById('top-of-form')
+        topOfForm.scrollIntoView()
         let updatedProduct = {
             name: this.state.product.name,
             colour: this.state.product.colour,
+            size: this.state.product.size,
             price: this.state.product.price,
             gender: this.state.product.gender,
             category: this.state.product.category,
-            brand: this.state.product.brand
+            brand: this.state.product.brand,
         }
 
         // if function returns false then one or more inputs are empty, if true send updated product to server
-        if(!this.validateUpdate(updatedProduct)) {
+        if(!this.validateInputs(updatedProduct)) {
             console.log("TODO   Some inputs are invalid ")
         } else {
             axios.put(`${SERVER_HOST}/products/${this.state.product._id}`, {updatedProduct}, {headers:{"authorization":localStorage.token}})
@@ -120,75 +238,150 @@ export default class AdminEditProduct extends Component {
 
 
     render() {
+        console.log(this.state.product)
         return (
+
             <div>
                 {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
 
-                <div className="admin-head-container">
+                <div className="admin-head-container" id="top-of-form">
                     <Navbar/>
                 </div>
                 <div className="admin-edit-product">
                     <h1>Update Product</h1>
                     <form className="edit-form" >
 
+                        {this.state.inputsAreInvalid ?
+                            <div className="err-container">
+                                <div>
+                                    <span className="err">
+                                        <p>One or more of the entries are empty. Please fill out all fields before updating the product.</p>
+                                    </span>
+                                </div>
+                            </div>
+                            : null
+                        }
                         <div className="edit-input">
-                            <label>Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                value={this.state.product.name}
-                                onChange={this.handleChange}
-                            />
+                            <label className="form-label" htmlFor="nameInput">
+                                Name {this.state.nameIsInvalid ? <span className="err">*</span> : null}
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="nameInput"
+                                    value={this.state.product.name}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
+                        </div>
+
+                        <div className="edit-input">
+                            <label className="form-label" htmlFor="colourInput">
+                                Colour {this.state.colourIsInvalid ? <span className="err">*</span> : null}
+                                <input
+                                    type="text"
+                                    name="colour"
+                                    id="colourInput"
+                                    value={this.state.product.colour}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
                         </div>
                         <div className="edit-input">
-                            <label>Colour</label>
-                            <input
-                                type="text"
-                                name="colour"
-                                value={this.state.product.colour}
-                                onChange={this.handleChange}
-                            />
+                            <fieldset className="size-selector" id="sizeSelector">
+                                <legend  className="form-label">
+                                    Available Sizes {this.state.sizeIsInvalid ? <span className="err">*</span> : null}
+                                </legend>
+                                <div className="size-option">
+                                    <label htmlFor="small">
+                                        Small
+                                        <input
+                                            type="checkbox"
+                                            id="small"
+                                            name="size"
+                                            value="small"
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                    </label>
+                                </div>
+                                <div className="size-option">
+                                    <label htmlFor="medium">
+                                        Medium
+                                        <input
+                                            type="checkbox"
+                                            id="medium"
+                                            name="size"
+                                            value="medium"
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                    </label>
+                                </div>
+                                <div className="size-option">
+                                    <label htmlFor="large">
+                                        Large
+                                        <input
+                                            type="checkbox"
+                                            id="large"
+                                            name="size"
+                                            value="large"
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                    </label>
+                                </div>
+                            </fieldset>
                         </div>
                         <div className="edit-input">
-                            <label>Price</label>
-                            <input
-                                type="text"
-                                name="price"
-                                value={this.state.product.price}
-                                onChange={this.handleChange}
-                            />
+                            <label className="form-label" htmlFor="priceInput">
+                                Price {this.state.priceIsInvalid ? <span className="err">*</span> : null}
+                                <input
+                                    type="text"
+                                    name="price"
+                                    id="priceInput"
+                                    value={this.state.product.price}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
                         </div>
                         <div className="edit-input">
-                            <label>Gender</label>
-                            <input
-                                type="text"
-                                name="gender"
-                                value={this.state.product.gender}
-                                onChange={this.handleChange}
-                            />
+                            <label className="form-label" htmlFor="genderInput">
+                                Gender {this.state.genderIsInvalid ? <span className="err">*</span> : null}
+                                <input
+                                    type="text"
+                                    name="gender"
+                                    id="genderInput"
+                                    value={this.state.product.gender}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
                         </div>
                         <div className="edit-input">
-                            <label>Category</label>
-                            <input
-                                type="text"
-                                name="category"
-                                value={this.state.product.category}
-                                onChange={this.handleChange}
-                            />
+                            <label className="form-label" htmlFor="categoryInput">
+                                Category {this.state.categoryIsInvalid ? <span className="err">*</span> : null}
+                                <input
+                                    type="text"
+                                    name="category"
+                                    id="categoryInput"
+                                    value={this.state.product.category}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
                         </div>
                         <div className="edit-input">
-                            <label>Brand</label>
-                            <input
-                                type="text"
-                                name="brand"
-                                value={this.state.product.brand}
-                                onChange={this.handleChange}
-                            />
+                            <label className="form-label" htmlFor="brandInput">
+                                Brand {this.state.brandIsInvalid ? <span className="err">*</span> : null}
+                                <input
+                                    type="text"
+                                    name="brand"
+                                    id="brandInput"
+                                    value={this.state.product.brand}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
                         </div>
 
                         <div className="form-controls">
                             <button onClick={this.handleDeleteProduct}>Delete</button>
                             <button onClick={this.handleUpdateProduct}>Update</button>
+                            <button onClick={this.handleReset}>Reset</button>
                             <button onClick={this.handleReturn}>Return</button>
                         </div>
                     </form>
