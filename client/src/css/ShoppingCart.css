@@ -18,7 +18,9 @@
   box-shadow: 20px 20px 50px grey;
   position: relative;
   border-color: #A26D5D;
-  border-style: outset; }
+  border-style: outset;
+  display: flex;
+  flex-direction: column; }
 
 .bag-box h1 {
   margin: 0;
@@ -32,34 +34,59 @@
   font-family: Times New Roman, Serif, serif;
   padding-left: 20px; }
 
-.edit-bag {
+.edit-bag > h2 {
   padding-left: 300px; }
+
+.bag > h1 {
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif; }
+
+.bag > h2 {
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif; }
 
 .tshirt-container {
   width: 150px;
   height: 200px;
-  border: solid #ffffff;
   border-radius: 5px;
   margin-left: 20px; }
 
 .tshirt-container > img {
+  padding-top: 40px;
   width: 150px;
   height: 200px; }
 
 .total-container {
-  float: right; }
+  float: right;
+  padding-left: 500px; }
+
+.checkout-buttons {
+  padding-right: 20px;
+  padding-top: 65px; }
 
 .checkout-buttons > button {
   background-color: #ccb1a7;
   border: 2px solid #ffffff;
   font-family: Times New Roman, Serif, serif;
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 5px 10px;
   border-radius: 5px;
   float: right; }
 
 .checkout-buttons > button:hover {
   background-color: #A26D5D;
-  border-color: #363131; }
+  border-color: #363131;
+  cursor: pointer; }
+
+.titles {
+  display: flex; }
+
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.titles {
+  margin-right: 10px; }
 
 /*# sourceMappingURL=ShoppingCart.css.map */

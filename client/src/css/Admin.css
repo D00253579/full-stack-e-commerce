@@ -38,14 +38,14 @@ body {
 .admin-table-container {
   width: 90%;
   display: flex;
-  /*justify-content: center;*/
-  border-color: #363131;
+  justify-content: center;
   border-radius: 5px; }
   .admin-table-container .admin-table-container table {
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
-    border-color: #363131; }
+    border: 2px solid #363131;
+    border-radius: 5px; }
 
 .admin-table-container thead {
   background-color: #A26D5D;
@@ -67,7 +67,7 @@ body {
 
 .admin-table-container tbody tr {
   border-bottom: 1px solid #363131;
-  background-color: rgba(239, 241, 232, 0.69);
+  background-color: #ffffff;
   position: relative; }
 
 .admin-table-container tbody tr:hover {
@@ -100,7 +100,6 @@ body {
 .filter-container {
   width: 300px;
   padding: 20px;
-  border-radius: 5px;
   /* Styling for filter dropdown menus */ }
   .filter-container .filter-buttons {
     margin: 10px;
@@ -112,18 +111,17 @@ body {
     display: none;
     top: 0;
     left: 100%;
-    background-color: #B9CDDA;
-    border: 1px solid #ffffff;
     padding: 10px;
     z-index: 1; }
   .filter-container .filter-dropdown-menu label {
     display: flex;
     align-items: center;
-    margin-bottom: 5px; }
+    margin-bottom: 20px;
+    font-family: Times New Roman, Serif, serif;
+    font-size: 16px; }
   .filter-container .filter-dropdown-toggle {
     width: 100%;
-    color: #ffffff;
-    background-color: #A6D8D4;
+    background-color: #ccb1a7;
     /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
     border: 1px solid #ffffff;
     border-radius: 3px;
@@ -135,21 +133,23 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: Times New Roman, Serif, serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold; }
   .filter-container .filter-dropdown-toggle:hover {
-    background-color: #8EAF9D;
+    background-color: #ffffff;
     border-color: #363131; }
 
+.filter-dropdown-toggle > input[type="checkbox" i] {
+  border-style: outset; }
+
 .filter-buttons > button {
-  background-color: #B9CDDA;
+  background-color: #ccb1a7;
   border-radius: 5px;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 5px 10px;
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #ffffff;
   border: 2px solid #ffffff;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -157,7 +157,7 @@ body {
   font-family: Times New Roman, Serif, serif; }
 
 .filter-buttons > button:hover {
-  background-color: #A6D8D4;
+  background-color: #A26D5D;
   border-color: #363131; }
 
 .apply-button {
@@ -181,6 +181,12 @@ body {
   flex-direction: column;
   align-items: center; }
 
+.admin-create-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.create-form,
 .edit-form {
   width: 50%;
   padding: 20px;
@@ -192,9 +198,18 @@ body {
   font-size: 30px;
   font-weight: bold; }
 
-.edit-input {
-  margin-bottom: 15px; }
+.form-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
 
+.create-input,
+.edit-input {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold; }
+
+.create-input input,
 .edit-input input {
   width: 100%;
   padding: 10px;
@@ -206,6 +221,37 @@ body {
   /* Adjusted to account for padding and border */
   font-size: 20px;
   font-weight: lighter; }
+
+.edit-input input [type="text"]:hover {
+  cursor: pointer; }
+
+.size-selector {
+  display: flex;
+  flex-direction: column; }
+
+.size-option input {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px; }
+
+.err-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.err-container div {
+  width: 80%; }
+
+.err {
+  color: red;
+  font-size: 14px; }
+
+.create-input input.invalid-input,
+.edit-input input.invalid-input {
+  border: 2px solid red; }
+
+.size-selector.invalid-input {
+  border: 2px solid red; }
 
 .stock-filter,
 .price-filter {
@@ -261,5 +307,43 @@ body {
 .red-text {
   color: red;
   font-weight: bold; }
+
+.filter-button {
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 20px; }
+
+.filter-button > h1 {
+  font-size: 20px;
+  font-family: Times New Roman, Serif, serif; }
+
+.filter-icon:hover {
+  cursor: pointer; }
+
+.filter-icon > img {
+  width: 55px;
+  height: 55px; }
+
+.filter-container {
+  width: 150px;
+  border: none; }
+
+.filter-container > fieldset {
+  position: relative;
+  border: none; }
+
+.filter-box {
+  display: flex;
+  flex-direction: column; }
+
+input[type="checkbox"] {
+  background-color: black; }
+
+/*
+    Styling for checkboxes from w3schools
+    https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
+ */
 
 /*# sourceMappingURL=Admin.css.map */
