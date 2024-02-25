@@ -1,10 +1,8 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 
-export default class Filters extends Component
-{
-    constructor(props)
-    {
+export default class Filters extends Component {
+    constructor(props) {
         super(props)
         this.state = {
             showDropdowns: {
@@ -29,11 +27,10 @@ export default class Filters extends Component
         }
         let filteredProducts = []
 
-        if(filters.gender.length === 0 && // if there are no filters selected
-           filters.size.length === 0 &&
-           filters.category.length === 0 &&
-           filters.colour.length === 0)
-        {
+        if (filters.gender.length === 0 && // if there are no filters selected
+            filters.size.length === 0 &&
+            filters.category.length === 0 &&
+            filters.colour.length === 0) {
             console.log("There are no filters selected")
             this.props.updateProducts(this.props.defaultProducts) // show all products
         } else {
@@ -43,13 +40,12 @@ export default class Filters extends Component
             // if true push to filteredProducts, if a matching product_id is found in both is wont be pushed
 
             this.props.defaultProducts.forEach(product => {
-                if((filters.gender.length === 0 || filters.gender.includes(product.gender)) &&
+                if ((filters.gender.length === 0 || filters.gender.includes(product.gender)) &&
                     (filters.size.length === 0 || filters.size.some(size => product.size.includes(size))) &&
                     (filters.category.length === 0 || filters.category.includes(product.category)) &&
                     (filters.colour.length === 0 || filters.colour.includes(product.colour)) &&
 
-                    !filteredProducts.find(p => p.product_id === product.product_id))
-                {
+                    !filteredProducts.find(p => p.product_id === product.product_id)) {
                     filteredProducts.push(product)
                 }
             })
@@ -69,7 +65,7 @@ export default class Filters extends Component
         let checkedValues = []
 
         checkboxes.forEach((checkbox) => {
-            if(checkbox.checked)
+            if (checkbox.checked)
                 checkedValues.push(checkbox.value)
         })
         return checkedValues
@@ -84,10 +80,10 @@ export default class Filters extends Component
         }));
     };
     handlePriceChange = (e) => {
-        this.setState({ price: e.target.value });
+        this.setState({price: e.target.value});
         let filteredProducts = []
         this.props.defaultProducts.forEach(product => {
-            if(this.state.price <= product.price) {
+            if (this.state.price <= product.price) {
                 filteredProducts.push(product)
             }
         })
@@ -95,10 +91,10 @@ export default class Filters extends Component
     }
 
     handleStockChange = (e) => {
-        this.setState({ current_stock: e.target.value });
+        this.setState({current_stock: e.target.value});
         let filteredProducts = []
         this.props.defaultProducts.forEach(product => {
-            if(this.state.current_stock <= product.current_stock) {
+            if (this.state.current_stock <= product.current_stock) {
                 filteredProducts.push(product)
             }
         })
@@ -119,6 +115,7 @@ export default class Filters extends Component
 
     render() {
         return (
+
                 <fieldset>
 
 
@@ -127,21 +124,21 @@ export default class Filters extends Component
                             className="filter-dropdown-toggle"
                             onClick={() => this.toggleDropdown("gender")}
                         >
-                            Gender
+                            GENDER
                         </button>
                         <div className="filter-dropdown-menu">
 
                             <label>
                                 M
-                                <input type="checkbox" name="gender" value="Male" />
+                                <input type="checkbox" name="gender" value="Male"/>
                             </label>
                             <label>
                                 F
-                                <input type="checkbox" name="gender" value="Female" />
+                                <input type="checkbox" name="gender" value="Female"/>
                             </label>
                             <label>
                                 O
-                                <input type="checkbox" name="gender" value="Other" />
+                                <input type="checkbox" name="gender" value="Other"/>
                             </label>
 
                         </div>
@@ -152,8 +149,8 @@ export default class Filters extends Component
                         <button
                             className="filter-dropdown-toggle"
                             onClick={() => this.toggleDropdown("size")}
-                            >
-                            Size
+                        >
+                            SIZE
                         </button>
                         <div className="filter-dropdown-menu">
                             <label> S
@@ -180,13 +177,12 @@ export default class Filters extends Component
                     </div>
 
 
-
                     <div className={`filter-dropdown ${this.state.showDropdowns.category ? "open" : ""}`}>
                         <button
                             className="filter-dropdown-toggle"
                             onClick={() => this.toggleDropdown("category")}
                         >
-                            Category
+                            CATEGORY
                         </button>
                         <div className="filter-dropdown-menu">
                             <label> Sports
@@ -238,7 +234,7 @@ export default class Filters extends Component
                                     value="Superhero"/>
                             </label>
                         </div>
-                   </div>
+                    </div>
 
 
                     <div className={`filter-dropdown ${this.state.showDropdowns.colour ? "open" : ""}`}>
@@ -246,7 +242,7 @@ export default class Filters extends Component
                             className="filter-dropdown-toggle"
                             onClick={() => this.toggleDropdown("colour")}
                         >
-                            Colour
+                            COLOUR
                         </button>
 
                         <div className="filter-dropdown-menu">
@@ -302,39 +298,37 @@ export default class Filters extends Component
                     </div>
 
 
+                    <div className="price-filter">
+                        <h4>Price: €{this.state.price}</h4>
+                        <input
+                            type="range"
+                            id="price-filter"
+                            className="price-slider"
+                            min="0.00" max="50"
+                            value={this.state.price}
+                            onChange={this.handlePriceChange}
+                        />
+                    </div>
 
-                        <div className="price-filter">
-                            <h4>Price: €{this.state.price}</h4>
-                            <input
-                                type="range"
-                                id="price-filter"
-                                className="price-slider"
-                                min="0.00" max="50"
-                                value={this.state.price}
-                                onChange={this.handlePriceChange}
-                            />
-                        </div>
-
-                        <div className="stock-filter">
-                            <h4>Stock >  {this.state.current_stock}</h4>
-                            <input
-                                type="range"
-                                id="stock-filter"
-                                className="stock-slider"
-                                min="0" max="40"
-                                value={this.state.current_stock}
-                                onChange={this.handleStockChange}
-                            />
-                        </div>
+                    <div className="stock-filter">
+                        <h4>Stock > {this.state.current_stock}</h4>
+                        <input
+                            type="range"
+                            id="stock-filter"
+                            className="stock-slider"
+                            min="0" max="40"
+                            value={this.state.current_stock}
+                            onChange={this.handleStockChange}
+                        />
+                    </div>
 
 
                     <div className="filter-buttons">
-                       <button type="button" onClick={this.handleApplyFilters}>Apply</button>
-                        <button type="button" onClick={this.handleReset}>Reset</button>
+                        <button type="button" onClick={this.handleApplyFilters} id={"applyBtn"}>Apply</button>
+                        <button type="button" onClick={this.handleReset} id={"resetBtn"}>Reset</button>
                     </div>
 
                 </fieldset>
-
         )
     }
 }

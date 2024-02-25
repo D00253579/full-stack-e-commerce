@@ -1,9 +1,9 @@
 import React, {Component} from "react"
 import {Link} from "react-router-dom"
-import logo2 from "../nav-Images/logo2.png"
-import AccountIcon from "../nav-Images/AccountIcon.png"
-import BagIcon from "../nav-Images/BagIcon.png"
-import SearchIcon from "../nav-Images/SearchIcon.png"
+import Logo from "../Images/logo.png"
+import AccountIcon from "../Images/AccountIcon.png"
+import BagIcon from "../Images/BagIcon.png"
+import SearchIcon from "../Images/SearchIcon.png"
 import login from "./Login/Login";
 import {SERVER_HOST} from "../config/global_constants";
 import ShoppingCart from "./ShoppingCart";
@@ -25,7 +25,7 @@ export default class NavBar extends Component {
                             </div>
                         </div>
                         <div className={"icons-container"}>
-                            <i className={"logo-image"}><img src={logo2} alt="logo"/></i>
+                            <i className={"logo-image"}><img src={Logo} alt="logo"/></i>
                         </div>
                         <div className={"icons-container"}>
                             <Link to={"/AccountPage"}>

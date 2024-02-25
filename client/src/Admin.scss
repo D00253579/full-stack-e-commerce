@@ -1,5 +1,5 @@
 $dark_green: #517962;
-$mint_green: #A6D8D4;
+$mint_green: #04c665;
 $light_blue: #B9CDDA;
 $white: #ffffff;
 $grey-border: #363131;
@@ -7,7 +7,7 @@ $title_font_size: 16px;
 $light_green: #8EAF9D;
 $title_font: Times New Roman, Serif, serif;
 
-body{
+body {
   background-color: #efe6e6;
 }
 
@@ -38,7 +38,7 @@ body{
   }
 
   .controls-button:hover {
-    background-color:  #A26D5D;
+    background-color: #A26D5D;
     border-color: $grey-border;
   }
 }
@@ -56,15 +56,15 @@ body{
 .admin-table-container {
   width: 90%;
   display: flex;
-  /*justify-content: center;*/
-  border-color: $grey-border;
+  justify-content: center;
   border-radius: 5px;
 
   .admin-table-container table {
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
-    border-color: #363131;
+    border: 2px solid $grey-border;
+    border-radius: 5px;
   }
 }
 
@@ -91,9 +91,10 @@ body{
 
 .admin-table-container tbody tr {
   border-bottom: 1px solid $grey-border;
-  background-color: rgba(239, 241, 232, 0.69);
+  background-color: $white;
   position: relative;
 }
+
 .admin-table-container tbody tr:hover {
   background-color: #e5e3e3;
   transition: background-color 0.6s ease;
@@ -115,7 +116,6 @@ body{
 }
 
 
-
 .admin-table-container table {
   border-color: $grey-border;
   border-radius: 5px;
@@ -131,7 +131,7 @@ body{
 .filter-container {
   width: 300px;
   padding: 20px;
-  border-radius: 5px;
+
 
   .filter-buttons {
     margin: 10px;
@@ -149,8 +149,6 @@ body{
     display: none;
     top: 0;
     left: 100%;
-    background-color: $light_blue;
-    border: 1px solid $white;
     padding: 10px;
     z-index: 1;
 
@@ -159,13 +157,15 @@ body{
   .filter-dropdown-menu label {
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+    font-family: $title_font;
+    font-size: 16px;
   }
 
   .filter-dropdown-toggle {
     width: 100%;
-    color: $white;
-    background-color: $mint_green; /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
+    //color: $white;
+    background-color: #ccb1a7; /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
     border: 1px solid $white;
     border-radius: 3px;
     padding: 8px 12px;
@@ -176,35 +176,38 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: $title_font;
-    font-size: $title_font_size;
+    font-size: 14px;
     font-weight: bold;
   }
 
   .filter-dropdown-toggle:hover {
-    background-color: $light_green;
+    background-color: $white;
     border-color: $grey-border;
   }
 }
 
+.filter-dropdown-toggle > input[type="checkbox" i] {
+  border-style: outset;
+}
+
 .filter-buttons > button {
-  background-color: $light_blue;
+  background-color: #ccb1a7;
   border-radius: 5px;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 5px 10px;
   font-size: $title_font_size;
   font-weight: bold;
   text-transform: uppercase;
-  color: $white;
+  //color: $white;
   border: 2px solid $white;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   font-family: $title_font;
-
 }
 
 .filter-buttons > button:hover {
-  background-color: $mint_green;
+  background-color: #A26D5D;
   border-color: $grey-border;
 }
 
@@ -228,15 +231,14 @@ body{
 
 
 /* Admin product edit */
-
 .admin-edit-product  {
   display:flex;
   flex-direction: column;
   align-items: center;
-
 }
-.admin-create-product  {
-  display:flex;
+
+.admin-create-product {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -250,15 +252,26 @@ body{
   background-color: #f9f9f9;
   margin-bottom: 350px;
 }
+
+.edit-form label {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
 .form-controls {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
+
 .create-input,
 .edit-input {
   margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
 }
+
 .form-label {
   font-size: 20px;
   font-weight: bold;
@@ -268,6 +281,9 @@ body{
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.edit-input input[type="text"] {
   width: calc(100% - 22px); /* Adjusted to account for padding and border */
   font-size: 20px;
   font-weight: lighter;
@@ -323,6 +339,47 @@ body{
 
 
 
+.edit-input input [ type = "text" ]:hover {
+  cursor: pointer;
+}
+
+
+.size-selector {
+  display: flex;
+  flex-direction: column;
+}
+
+.size-option input {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
+}
+
+.err-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.err-container div {
+  width: 80%;
+
+}
+
+.err {
+  color: red;
+  font-size: 14px;
+}
+
+.create-input input.invalid-input,
+.edit-input input.invalid-input {
+  border: 2px solid red;
+}
+
+.size-selector.invalid-input {
+  border: 2px solid red;
+}
 
 .stock-filter,
 .price-filter {
@@ -347,6 +404,7 @@ body{
   opacity: 0.7;
   transition: opacity 0.15s ease-in-out;
 }
+
 .stock-slider::-webkit-slider-thumb,
 .price-slider::-webkit-slider-thumb {
   width: 20px;
@@ -355,6 +413,7 @@ body{
   background-color: #007bff; /* Primary color */
   cursor: pointer;
 }
+
 .stock-slider::-moz-range-thumb,
 .price-slider::-moz-range-thumb {
   width: 20px;
@@ -383,9 +442,95 @@ body{
   font-weight: bold;
 }
 
+.filter-button {
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+.filter-button > h1 {
+  font-size: 20px;
+  font-family: Times New Roman, Serif, serif;
+}
+
+.filter-icon:hover {
+  cursor: pointer;
+}
 
 
+.filter-icon > img {
+  width: 55px;
+  height: 55px;
+}
+
+.filter-container {
+  width: 150px;
+  border: none;
+}
+
+.filter-container > fieldset {
+  position: relative;
+  border: none;
+}
+
+.filter-box {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="checkbox"] {
+  background-color: black;
+}
 
 
-
-
+/*
+    Styling for checkboxes from w3schools
+    https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
+ */
+//
+//.checkbox-label {
+//  position: relative;
+//  display: flex;
+//  align-items: center;
+//}
+//
+//.checkbox-label  input {
+//  position: absolute;
+//  opacity: 0;
+//  cursor: pointer;
+//  height: 0;
+//  width: 0;
+//}
+//
+//.check {
+//  position: relative;
+//  display: inline-block;
+//  height: 25px;
+//  width: 25px;
+//  background-color: #eee;
+//}
+//
+//.filter-dropdown-menu input:checked + .check {
+//  background-color: #A26D5D;
+//}
+//
+//.check:after {
+//  content: "";
+//  position: absolute;
+//  display: none;
+//}
+//
+//.filter-dropdown-menu input:checked + .check:after {
+//  content: "";
+//  position: absolute;
+//  left: 9px;
+//  top: 5px;
+//  width: 5px;
+//  height: 10px;
+//  border: solid white;
+//  border-width: 0 3px 3px 0;
+//  transform: rotate(45deg);
+//  display: block;
+//}
