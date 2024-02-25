@@ -186,10 +186,11 @@ export default class AdminEditProduct extends Component {
                             />
                         </div>
 
-                        <button onClick={this.handleUpdateProduct}>Update</button>
-                        <button onClick={this.handleDeleteProduct}>Delete</button>
-                        <button onClick={this.handleReturn}>Return</button>
-
+                        <div className="form-controls">
+                            <button onClick={this.handleDeleteProduct}>Delete</button>
+                            <button onClick={this.handleUpdateProduct}>Update</button>
+                            <button onClick={this.handleReturn}>Return</button>
+                        </div>
                     </form>
                 </div>
             </div>
