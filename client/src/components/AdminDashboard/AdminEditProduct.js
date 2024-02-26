@@ -151,14 +151,12 @@ export default class AdminEditProduct extends Component {
         } else {
             document.getElementById("categoryInput").classList.remove("invalid-input")
             this.setState({categoryIsInvalid: false})
-
         }
 
         if(!product.brand.trim()) {             // brand
             isValid = false
             document.getElementById("brandInput").classList.add("invalid-input")
             this.setState({brandIsInvalid: true})
-
         } else {
             document.getElementById("brandInput").classList.remove("invalid-input")
             this.setState({brandIsInvalid: false})

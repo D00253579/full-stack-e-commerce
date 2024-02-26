@@ -1,6 +1,8 @@
 import React, {Component} from "react"
 import NavBar from "../NavBar";
 import {Redirect} from "react-router-dom";
+import {SERVER_HOST} from "../../config/global_constants";
+import axios from "axios";
 
 export default class CreateProduct extends Component {
 
@@ -15,9 +17,10 @@ export default class CreateProduct extends Component {
             sizeIsInvalid: false,
             priceIsInvalid: false,
             categoryIsInvalid: false,
-            brandIsInInvalid: false,
+            brandIsInvalid: false,
             stockIsInInvalid: false,
             product : {
+                product_id: "",
                 name: "",
                 colour: "",
                 size: [],
@@ -26,9 +29,6 @@ export default class CreateProduct extends Component {
                 category: "",
                 brand: "",
                 current_stock: "",
-                image_1: "",
-                image_2: "",
-                image_3: "",
             },
 
         }
@@ -97,7 +97,6 @@ export default class CreateProduct extends Component {
         } else {
             document.getElementById("colourInput").classList.remove("invalid-input")
             this.setState({colourIsInvalid: false})
-
         }
 
         if(product.size.length === 0) {         // size
@@ -108,7 +107,6 @@ export default class CreateProduct extends Component {
         } else {
             document.getElementById("sizeSelector").classList.remove("invalid-input")
             this.setState({sizeIsInvalid: false})
-
         }
 
         if(!product.price.trim()) {             // price
@@ -119,7 +117,6 @@ export default class CreateProduct extends Component {
         } else {
             document.getElementById("priceInput").classList.remove("invalid-input")
             this.setState({priceIsInvalid: false})
-
         }
 
         if(!product.gender.trim()) {            // gender
@@ -130,7 +127,6 @@ export default class CreateProduct extends Component {
         } else {
             document.getElementById("genderInput").classList.remove("invalid-input")
             this.setState({genderIsInvalid: false})
-
         }
 
         if(!product.category.trim()) {          // category
@@ -141,31 +137,26 @@ export default class CreateProduct extends Component {
         } else {
             document.getElementById("categoryInput").classList.remove("invalid-input")
             this.setState({categoryIsInvalid: false})
-
         }
 
         if(!product.brand.trim()) {             // brand
             isValid = false
             document.getElementById("brandInput").classList.add("invalid-input")
             this.setState({brandIsInvalid: true})
-
         } else {
             document.getElementById("brandInput").classList.remove("invalid-input")
             this.setState({brandIsInvalid: false})
-
         }
 
         if(!product.current_stock.trim()) {     // current_stock
             isValid = false
             document.getElementById("stockInput").classList.add("invalid-input")
             this.setState({stockIsInvalid: true})
-
         } else {
             document.getElementById("stockInput").classList.remove("invalid-input")
             this.setState({stockIsInvalid: false})
 
         }
-
         if(!isValid) { // if inputs are invalid trigger visual response to let user know
             this.setState({inputsAreInvalid: true})
         } else {
@@ -184,7 +175,25 @@ export default class CreateProduct extends Component {
         console.log("Product: ", this.state.product)
         console.log("Inputs are valid: ",this.validateInputs())
         if(this.validateInputs()){
-            console.log("Product created")
+            const createdProduct = this.state.product;
+            axios.post(`${SERVER_HOST}/products`, {createdProduct}, {headers:{"authorization":localStorage.token}})
+                .then(res =>
+                {
+                    if(res.data)
+                    {
+                        if(res.data.errorMessage) {
+                            console.log("Product NOT created")
+                        } else {
+                            console.log("Product created: ", createdProduct)
+                            this.handleReturn()
+                        }
+
+
+                    } else {
+                        console.log("No response")
+                    }
+                })
+
         } else {
             console.log("Inputs are invalid")
         }
