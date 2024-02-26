@@ -1,24 +1,26 @@
 import React, {Component} from "react";
 import {SERVER_HOST} from "../../config/global_constants";
 import axios from "axios";
-import Navbar from"../NavBar"
+import Navbar from "../NavBar"
 import AdminProductView from "./AdminProductView";
 import Filters from "./Filters";
 import {Link, Redirect} from "react-router-dom";
 import AdminControls from "./AdminControls";
+import FilterImage from "../../Images/FilterImage.png";
 
 
-export default class AdminDashboard extends Component
-{
+export default class AdminDashboard extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             products: [],
             defaultProducts: [], // If no filters are applied
-            rowClickedID: 0
+            rowClickedID: 0,
+            displayFilters: false //false until icon is clicked
         }
     }
+
     componentDidMount() {
         // Fetch products in the parent component
         axios.get(`${SERVER_HOST}/products`)
@@ -29,12 +31,12 @@ export default class AdminDashboard extends Component
                             Display a message to the screen showing the products were not found */
 
 
-
                         console.log(res.data.errorMessage);
                     } else {
                         console.log("Records read to Admin dashboard");
-                        this.setState({ products: res.data,       // This state of products when passed will have the filters applied
-                                               defaultProducts: res.data // keep a default view for filtering
+                        this.setState({
+                            products: res.data,       // This state of products when passed will have the filters applied
+                            defaultProducts: res.data // keep a default view for filtering
                         });
                     }
                 } else {
@@ -48,10 +50,18 @@ export default class AdminDashboard extends Component
         console.log("State of products updated ")
     }
 
+    /*
+        Used chatgpt to help with the logic, I tried passing in the displayFilters and then setting the state to true.
+        However, doing it that way would result in the filters staying on the page until you refresh.
+        showFilters is used to toggle between showing the filters (state is false then hide filters),
+        onClick twice will hide the filters again
+     */
 
+    showFilters = e => {
+        this.setState({displayFilters: !this.state.displayFilters})
+    }
 
-    render()
-    {
+    render() {
 
         return (
             <div>
@@ -63,14 +73,22 @@ export default class AdminDashboard extends Component
                 <AdminControls/>
                 <div className="admin-body-container">
 
-
-
-                    <div className="filter-container">
-                        <Filters
-                            updateProducts={this.updateProducts}
-                            products={this.state.products}
-                            defaultProducts={this.state.defaultProducts}
-                        />
+                    <div className={"filter-box"} >
+                        <div className={"filter-button"} >
+                            <h1>FILTERS</h1>
+                            <i className={"filter-icon"}>
+                                <img src={FilterImage} alt="filter" onClick={this.showFilters}/>
+                            </i>
+                            {this.state.displayFilters && (
+                                <div className="filter-container">
+                                    <Filters
+                                        updateProducts={this.updateProducts}
+                                        products={this.state.products}
+                                        defaultProducts={this.state.defaultProducts}
+                                    />
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div className="admin-table-container">
                         <AdminProductView
@@ -80,8 +98,11 @@ export default class AdminDashboard extends Component
 
                 </div>
 
-                <div className="testing-return"><Link className="testing-red-button" to={"/TestingDirectory"}>RETURN</Link></div>
+                <div className="testing-return"><Link className="testing-red-button"
+                                                      to={"/TestingDirectory"}>RETURN</Link></div>
             </div>
+
+
         )
     }
 
