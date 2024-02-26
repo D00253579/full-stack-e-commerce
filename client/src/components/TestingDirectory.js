@@ -50,7 +50,7 @@ export default class TestingDirectory extends Component
                     }
                     {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ?
                         <div>
-                            <Link className="testing-green-button" to={"AdminDashboard/AdminDashboard/"}>Admin Dashboard</Link>
+                            <Link className="testing-green-button" to={"AdminDashboard/Dashboard/"}>Admin Dashboard</Link>
                             <Link className="testing-green-button" to={"AddTShirt/"}>Add T-Shirt</Link>
                             <Link className="testing-green-button" to={"NavBar/"}>Nav Bar</Link>
                         </div>:null

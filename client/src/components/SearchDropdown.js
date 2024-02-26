@@ -10,7 +10,7 @@ export default class SearchDropdown extends Component {
             selectedProductId: ""
         }
     }
-    
+
     handleClick = (id) => {
         this.setState({redirectToProductPage: true})
         this.setState({selectedProductId: id})
@@ -18,7 +18,7 @@ export default class SearchDropdown extends Component {
     render() {
 
         if(this.state.redirectToProductPage) {
-            return <Redirect to={`/AdminDashboard/AdminEditProduct/${this.state.selectedProductId}`} />;
+            return <Redirect to={`/AdminDashboard/EditProduct/${this.state.selectedProductId}`} />;
 
         }
         return (

@@ -203,7 +203,7 @@ export default class CreateProduct extends Component {
 
         return (
             <div>
-                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
+                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/Dashboard"}/> : null }
 
                 <div className="admin-head-container" id="top-of-form">
                     <NavBar/>

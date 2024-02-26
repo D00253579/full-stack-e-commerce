@@ -52,7 +52,7 @@ export default class Filters extends Component {
             console.log("Products Matching -> ", filteredProducts)
             this.setState({filteredProducts})
 
-            // using a call back function passed from AdminDashboard to update the state
+            // using a call back function passed from Dashboard to update the state
             // and show the results from the selected filters
             this.props.updateProducts(filteredProducts)
         }
