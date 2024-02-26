@@ -7,6 +7,7 @@ import Filters from "./Filters";
 import {Link, Redirect} from "react-router-dom";
 import AdminControls from "./AdminControls";
 import FilterImage from "../../Images/FilterImage.png";
+import SortImage from "../../Images/SortIcon.png";
 
 
 export default class AdminDashboard extends Component {
@@ -84,9 +85,17 @@ export default class AdminDashboard extends Component {
 
                 <AdminControls/>
                 <div className="admin-body-container">
+                    <div className={"sort-box"}>
+                        <div className={"sort-button"}>
+                            <h1>SORT</h1>
+                            <i className={"sort-icon"}>
+                                <img src={SortImage} alt="sort"/>
+                            </i>
+                        </div>
+                    </div>
 
-                    <div className={"filter-box"} >
-                        <div className={"filter-button"} >
+                    <div className={"filter-box"}>
+                        <div className={"filter-button"}>
                             <h1>FILTERS</h1>
                             <i className={"filter-icon"}>
                                 <img src={FilterImage} alt="filter" onClick={this.showFilters}/>
