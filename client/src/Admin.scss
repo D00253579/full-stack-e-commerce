@@ -121,6 +121,12 @@ body {
   border-radius: 5px;
 }
 
+.sortLabel:hover {
+  cursor: pointer;
+}
+
+
+
 .add-new-product {
   display: flex;
   justify-content: center;
