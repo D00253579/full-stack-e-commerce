@@ -1,8 +1,6 @@
 import React, {Component} from "react"
 import {Redirect} from "react-router-dom";
 
-
-
 export default class AdminTableRow extends Component
 {
     constructor(props) {
@@ -44,12 +42,12 @@ export default class AdminTableRow extends Component
                */
                 <tr onClick={this.handleRowClick}>
                     <td>{this.props.rowNum}</td>
-                    <td>{name}</td>
-                    <td>{price}</td>
+                    <td>{name} </td>
                     <td>{category}</td>
                     <td>{brand}</td>
-                    <td>{product_id}</td>
+                    <td>{price}</td>
                     <td>{current_stock}</td>
+                    <td>{product_id}</td>
                 </tr>
             )
         )

@@ -37,7 +37,9 @@ export default class AdminDashboard extends Component {
                         this.setState({
                             products: res.data,       // This state of products when passed will have the filters applied
                             defaultProducts: res.data // keep a default view for filtering
+
                         });
+                        this.sortName()
                     }
                 } else {
                     console.log("Record not found");
@@ -45,9 +47,19 @@ export default class AdminDashboard extends Component {
             });
     }
 
+
     updateProducts = (newProductState) => {
         this.setState({products: newProductState})
         console.log("State of products updated ")
+    }
+
+    // Set natural ordering of products
+    sortName = () => { // default descending
+        let productNaturalOrderByName = [...this.state.products] // soft copy of products to manipulate
+
+            let descendingProducts = productNaturalOrderByName.sort((a, b) => a.name < b.name?-1:1)
+            this.updateProducts(descendingProducts)
+            console.log("Natural order set: product.name DESC")
     }
 
     /*
@@ -93,6 +105,7 @@ export default class AdminDashboard extends Component {
                     <div className="admin-table-container">
                         <AdminProductView
                             products={this.state.products}
+                            updateProducts={this.updateProducts}
                         />
                     </div>
 
