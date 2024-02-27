@@ -42,7 +42,7 @@ export default class ShoppingCart extends Component {
                                 {/*testing the scroll*/}
                                 {/*<img src={anotherTshirt}/>*/}
                             </div>
-                            </div>
+                            {/*</div>*/}
                             <div className="edit-bag">
                                 <div className="titles">
                                     <h2>EDIT</h2>
@@ -58,6 +58,7 @@ export default class ShoppingCart extends Component {
                                     </div>
                                 </div>
                             </div>
+                            {/*</div>*/}
                             <div className="total-container">
                                 <div className="titles">
                                     <h2>TOTAL</h2>
@@ -65,14 +66,7 @@ export default class ShoppingCart extends Component {
                                 <h3>€25.00</h3>
                             </div>
                         </div>
-                        <div className={"tshirt-container"}>
-                          <img src={PinkTShirt} alt="test-image"/>
-                            {/*selected tshirt displayed in here*/}
-                        </div>
-                        <div className="total-container">
-                            <h2>Total</h2>
-                            <h1>€25.00</h1>
-                        </div>
+  
                         <Link to={"/Payments"}>
                             <div className="checkout-buttons">
                                 <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
@@ -80,11 +74,11 @@ export default class ShoppingCart extends Component {
                         </Link>
                     </div>
                 </div>
-                <footer>
-                    <Footer/>
-                </footer>
-            </div>
-        )
-    }
+                    <footer>
+                        <Footer/>
+                    </footer>
+                </div>
+                )
+                }
 
-}
+                }

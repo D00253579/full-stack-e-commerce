@@ -20,10 +20,6 @@
   border-color: #A26D5D;
   border-style: outset; }
 
-.shopping-bag-head-container {
-  position: fixed;
-  padding-top: 0; }
-
 .bag-box h1 {
   margin: 0;
   font-family: Times New Roman, Serif, serif;
@@ -94,6 +90,7 @@
 .total-container > h3 {
   padding-right: 20px; }
 
+<<<<<<< Updated upstream
 /* Box shadow from w3 schools*/
 .bag-box {
   padding-top: 20px;
@@ -222,6 +219,8 @@
 .total-container > h3 {
   padding-right: 20px; }
 
+=======
+>>>>>>> Stashed changes
 .tshirt-container, .edit-bag, .total-container {
   display: flex;
   align-items: center; }

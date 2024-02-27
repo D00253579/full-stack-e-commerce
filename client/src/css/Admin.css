@@ -41,6 +41,7 @@ body {
   justify-content: center;
   border-radius: 5px;
   margin-left: 20px;
+  margin-left: 20px;
   margin-bottom: 400px; }
 
 .admin-table-container .admin-table-container table {
@@ -487,6 +488,13 @@ body {
   width: 35px;
   height: 35px; }
 
+<<<<<<< Updated upstream
+=======
+.sort-button > h1 {
+  font-size: 20px;
+  font-family: Times New Roman, Serif, serif; }
+
+>>>>>>> Stashed changes
 /*
     Styling for checkboxes from w3schools
     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
