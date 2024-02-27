@@ -33,6 +33,10 @@ export default class ViewUsers extends Component {
 
             })
     }
+    updateUsers = (newUserState) => {
+        this.setState({users: newUserState})
+        console.log("State of Users updated ")
+    }
 
     render() {
         return (
@@ -45,7 +49,7 @@ export default class ViewUsers extends Component {
                     <div className="admin-table-container">
                         <AdminUserView
                             users={this.state.users}
-                            handleRowClick={this.handleRowClick}
+                            updateUsers={this.updateUsers}
                         />
                     </div>
                 </div>

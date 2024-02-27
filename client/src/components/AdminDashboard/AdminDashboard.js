@@ -9,7 +9,7 @@ import AdminControls from "./AdminControls";
 import FilterImage from "../../Images/FilterImage.png";
 
 
-export default class Dashboard extends Component {
+export default class AdminDashboard extends Component {
 
     constructor(props) {
         super(props)

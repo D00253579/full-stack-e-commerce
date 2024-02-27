@@ -8,7 +8,7 @@ import "./css/Footer.css"
 import "./css/AccountPage.css"
 import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar";
-import Dashboard from "./components/AdminDashboard/Dashboard";
+import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import AccountPage from "./components/AccountPage";
 import Footer from "./components/Footer";
 import TestingDirectory from "./components/TestingDirectory";
@@ -49,7 +49,7 @@ export default class App extends Component
                     <Route exact path="/PaymentMessage" component={PaymentMessage}/>
 
                     <Route exact path="/Login/Register" component={Register} />
-                    <LoggedRoute exact path="/AdminDashboard/Dashboard" component={Dashboard} />
+                    <LoggedRoute exact path="/AdminDashboard/AdminDashboard" component={AdminDashboard} />
                     <LoggedRoute exact path="/AdminDashboard/ViewUsers" component={ViewUsers}/>
                     <Route exact path={"/AdminDashboard/EditProduct/:id"} component={EditProduct}/>
                     <Route exact path={"/AdminDashboard/CreateProduct/"} component={CreateProduct}/>

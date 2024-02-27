@@ -251,7 +251,7 @@ export default class CreateProduct extends Component {
         console.log("idIsInvalid: ", this.state.idIsInvalid)
         return (
             <div>
-                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/Dashboard"}/> : null }
+                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
 
                 <div className="admin-head-container" id="top-of-form">
                     <NavBar/>

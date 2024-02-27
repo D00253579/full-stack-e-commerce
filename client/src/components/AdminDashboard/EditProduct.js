@@ -203,7 +203,7 @@ export default class EditProduct extends Component {
 
                         } else {
                             console.log("Updated product: ",updatedProduct)
-                            this.setState({redirectToDashboard: true}) // after the update is complete redirect back to Dashboard
+                            this.setState({redirectToDashboard: true}) // after the update is complete redirect back to AdminDashboard
                         }
                     } else {
                         console.log("Product not updated")
@@ -240,7 +240,7 @@ export default class EditProduct extends Component {
         return (
 
             <div>
-                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/Dashboard"}/> : null }
+                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
 
                 <div className="admin-head-container" id="top-of-form">
                     <Navbar/>
