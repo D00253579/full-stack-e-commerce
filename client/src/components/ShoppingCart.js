@@ -33,7 +33,6 @@ export default class ShoppingCart extends Component {
                         <div className="bag-title">
                             <h1>Your Bag</h1>
                         </div>
-                        <div className="product">
                         <div className="sub-container">
                             <div className={"tshirt-container"}>
                                 <div className="titles">
@@ -74,11 +73,11 @@ export default class ShoppingCart extends Component {
                             <h2>Total</h2>
                             <h1>€25.00</h1>
                         </div>
-                            <Link to={"/Payments"}>
-                                <div className="checkout-buttons">
+                        <Link to={"/Payments"}>
+                            <div className="checkout-buttons">
                                 <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
-                                </div>
-                            </Link>
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <footer>

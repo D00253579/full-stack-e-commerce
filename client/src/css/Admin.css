@@ -42,7 +42,8 @@ body {
   border-radius: 5px;
   margin-left: 20px;
   margin-bottom: 400px; }
-  .admin-table-container .admin-table-container table {
+
+.admin-table-container .admin-table-container table {
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
@@ -92,6 +93,9 @@ body {
 .admin-table-container table {
   border-color: #363131;
   border-radius: 5px; }
+
+.sortLabel:hover {
+  cursor: pointer; }
 
 .add-new-product {
   display: flex;
@@ -162,6 +166,62 @@ body {
   background-color: #A26D5D;
   border-color: #363131; }
 
+/*
+  Checkbox styling
+
+ */
+.filter-checkboxes {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.filter-checkboxes input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0; }
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white; }
+
+.filter-checkboxes:hover input ~ .checkmark {
+  background-color: #ccc; }
+
+.filter-checkboxes:checked ~ .checkmark {
+  background-color: #363131; }
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none; }
+
+.filter-checkboxes input:checked ~ .checkmark:after {
+  display: block; }
+
+.filter-checkboxes .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #363131;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+/* */
 .apply-button {
   margin-top: 20px; }
 
@@ -190,11 +250,12 @@ body {
 
 .create-form,
 .edit-form {
-  width: 50%;
-  padding: 20px;
+  width: 40%;
+  padding: 30px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9; }
+  border-radius: 15px;
+  background-color: #f9f9f9;
+  margin-bottom: 350px; }
 
 .edit-form label {
   font-size: 30px;
@@ -211,9 +272,12 @@ body {
   font-size: 20px;
   font-weight: bold; }
 
+.form-label {
+  font-size: 20px;
+  font-weight: bold; }
+
 .create-input input,
 .edit-input input {
-  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px; }
@@ -223,6 +287,38 @@ body {
   /* Adjusted to account for padding and border */
   font-size: 20px;
   font-weight: lighter; }
+
+.create-input input[type="text"]:hover,
+.edit-input input[type="text"]:hover {
+  cursor: pointer; }
+
+.size-selector {
+  display: flex;
+  flex-direction: column; }
+
+.size-option input {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px; }
+
+.err-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.err-container div {
+  width: 80%; }
+
+.err {
+  color: red;
+  font-size: 14px; }
+
+.create-input input.invalid-input,
+.edit-input input.invalid-input {
+  border: 2px solid red; }
+
+.size-selector.invalid-input {
+  border: 2px solid red; }
 
 .edit-input input [type="text"]:hover {
   cursor: pointer; }
@@ -255,9 +351,42 @@ body {
 .size-selector.invalid-input {
   border: 2px solid red; }
 
-.stock-filter,
+/*
+  Price and stock slider
+  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider_round
+ */
 .price-filter {
-  margin-bottom: 20px; }
+  width: 100%; }
+
+.price-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s; }
+
+.price-slider:hover {
+  opacity: 1; }
+
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #363131;
+  cursor: pointer; }
+
+.price-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #363131;
+  cursor: pointer; }
 
 .stock-filter h4,
 .price-filter h4 {
@@ -266,34 +395,47 @@ body {
   font-family: Times New Roman, Serif, serif;
   color: #333; }
 
-.stock-slider,
-.price-slider {
+.stock-filter {
+  width: 100%; }
+
+.stock-slider {
+  -webkit-appearance: none;
   width: 100%;
-  height: 10px;
+  height: 15px;
   border-radius: 5px;
-  background-color: #ffffff;
+  background: #d3d3d3;
   outline: none;
   opacity: 0.7;
-  transition: opacity 0.15s ease-in-out; }
+  -webkit-transition: .2s;
+  transition: opacity .2s; }
 
-.stock-slider::-webkit-slider-thumb,
-.price-slider::-webkit-slider-thumb {
-  width: 20px;
-  height: 20px;
+.stock-slider:hover {
+  opacity: 1; }
+
+.stock-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  background-color: #007bff;
-  /* Primary color */
+  background: #363131;
   cursor: pointer; }
 
-.stock-slider::-moz-range-thumb,
-.price-slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+.stock-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
-  background-color: #007bff;
-  /* Primary color */
+  background-color: #363131;
   cursor: pointer; }
 
+.stock-filter h4,
+.price-filter h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif;
+  color: #333; }
+
+/*End of slider styling*/
 .testing-link-container {
   display: flex;
   justify-content: center;
@@ -329,23 +471,30 @@ body {
 
 .filter-container {
   width: 150px;
-  border: none; }
+  border: none;
+  position: absolute; }
 
 .filter-container > fieldset {
   position: relative;
-  border: none; }
+  border: none;
+  padding-top: 100px; }
 
 .filter-box {
   display: flex;
   flex-direction: column; }
 
-input[type="checkbox"] {
-  background-color: black; }
+.sort-icon > img {
+  width: 35px;
+  height: 35px; }
 
 /*
     Styling for checkboxes from w3schools
     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
  */
+.sort-button > h1 {
+  font-size: 20px;
+  font-family: Times New Roman, Serif, serif; }
+
 .sort-button {
   display: flex;
   flex-direction: column; }

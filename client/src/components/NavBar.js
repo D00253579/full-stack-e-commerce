@@ -18,7 +18,7 @@ export default class NavBar extends Component {
                     <div className={"container"}>
                         <div className={"search-container"}>
                             <div className="search-bar">
-                                <input placeholder="Search" type="text" id="search"/>
+                                <input placeholder="Search for names and brands" type="text" id="search"/>
                             </div>
                             <div className={"icons-container"}>
                                 <i className={"searchIcon"}><img src={SearchIcon}/></i>

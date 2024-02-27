@@ -8,6 +8,7 @@ import Filters from "./Filters";
 import {Link, Redirect} from "react-router-dom";
 import AdminControls from "./AdminControls";
 import FilterImage from "../../Images/FilterImage.png";
+import SortImage from "../../Images/SortIcon.png";
 
 
 export default class AdminDashboard extends Component {
@@ -38,7 +39,9 @@ export default class AdminDashboard extends Component {
                         this.setState({
                             products: res.data,       // This state of products when passed will have the filters applied
                             defaultProducts: res.data // keep a default view for filtering
+
                         });
+                        this.sortName()
                     }
                 } else {
                     console.log("Record not found");
@@ -46,9 +49,19 @@ export default class AdminDashboard extends Component {
             });
     }
 
+
     updateProducts = (newProductState) => {
         this.setState({products: newProductState})
         console.log("State of products updated ")
+    }
+
+    // Set natural ordering of products
+    sortName = () => { // default descending
+        let productNaturalOrderByName = [...this.state.products] // soft copy of products to manipulate
+
+            let descendingProducts = productNaturalOrderByName.sort((a, b) => a.name < b.name?-1:1)
+            this.updateProducts(descendingProducts)
+            console.log("Natural order set: product.name DESC")
     }
 
     /*
@@ -73,9 +86,17 @@ export default class AdminDashboard extends Component {
 
                 <AdminControls/>
                 <div className="admin-body-container">
+                    <div className={"sort-box"}>
+                        <div className={"sort-button"}>
+                            <h1>SORT</h1>
+                            <i className={"sort-icon"}>
+                                <img src={SortImage} alt="sort"/>
+                            </i>
+                        </div>
+                    </div>
 
-                    <div className={"filter-box"} >
-                        <div className={"filter-button"} >
+                    <div className={"filter-box"}>
+                        <div className={"filter-button"}>
                             <h1>FILTERS</h1>
                             <i className={"filter-icon"}>
                                 <img src={FilterImage} alt="filter" onClick={this.showFilters}/>
@@ -94,6 +115,7 @@ export default class AdminDashboard extends Component {
                     <div className="admin-table-container">
                         <AdminProductView
                             products={this.state.products}
+                            updateProducts={this.updateProducts}
                         />
                     </div>
 
