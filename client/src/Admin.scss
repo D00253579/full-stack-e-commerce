@@ -59,6 +59,9 @@ body {
   justify-content: center;
   border-radius: 5px;
 
+  margin-left: 20px;
+  margin-bottom: 400px;
+
   .admin-table-container table {
     width: 100%;
     border-collapse: collapse;
@@ -392,7 +395,12 @@ body {
   padding-left: 20px;
   align-items: center;
   flex-direction: column;
-  padding-right: 20px;
+  //.filter-button {
+  //  display: flex;
+  //  padding-left: 20px;
+  //  align-items: center;
+  //  flex-direction: column;
+  //}
 }
 
 .filter-button > h1 {
@@ -479,3 +487,8 @@ input[type="checkbox"] {
 //  transform: rotate(45deg);
 //  display: block;
 //}
+.sort-button{
+  display: flex;
+  flex-direction: column;
+}
+

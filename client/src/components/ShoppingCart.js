@@ -2,6 +2,9 @@ import React, {Component} from "react"
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import PinkTShirt from "../Images/front.png";
+import anotherTshirt from "../../src/tshirts-images/p13/back.png";
+import AddIcon from "../Images/AddIcon.png";
+import MinusIcon from "../Images/MinusIcon.png";
 import {Link} from "react-router-dom"
 
 
@@ -31,19 +34,42 @@ export default class ShoppingCart extends Component {
                             <h1>Your Bag</h1>
                         </div>
                         <div className="product">
-                        {/*<div className="titles">*/}
-                        {/*    <h2>Product</h2>*/}
-                        {/*</div>*/}
+                        <div className="sub-container">
+                            <div className={"tshirt-container"}>
+                                <div className="titles">
+                                    <h2>PRODUCT</h2>
+                                </div>
+                                <img src={PinkTShirt} alt="test-image"/>
+                                {/*testing the scroll*/}
+                                {/*<img src={anotherTshirt}/>*/}
+                            </div>
+                            </div>
+                            <div className="edit-bag">
+                                <div className="titles">
+                                    <h2>EDIT</h2>
+                                    <div className="edit-quantity">
+                                        {/*    edit quantity in here */}
+                                        <button className="minus-btn" type="button">
+                                            <img src={MinusIcon} alt="subtract quantity"/>
+                                        </button>
+                                        <input type="text" value="1"/>
+                                        <button className="add-btn" type="button">
+                                            <img src={AddIcon} alt="add quantity"/>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="total-container">
+                                <div className="titles">
+                                    <h2>TOTAL</h2>
+                                </div>
+                                <h3>€25.00</h3>
+                            </div>
                         </div>
                         <div className={"tshirt-container"}>
                           <img src={PinkTShirt} alt="test-image"/>
                             {/*selected tshirt displayed in here*/}
                         </div>
-                        {/*<div className="edit-bag">*/}
-                        {/*    <div className="titles">*/}
-                        {/*        <h2>Edit</h2>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
                         <div className="total-container">
                             <h2>Total</h2>
                             <h1>€25.00</h1>
@@ -55,9 +81,9 @@ export default class ShoppingCart extends Component {
                             </Link>
                     </div>
                 </div>
-                <div className="footer-container">
+                <footer>
                     <Footer/>
-                </div>
+                </footer>
             </div>
         )
     }
