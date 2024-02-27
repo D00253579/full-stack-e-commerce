@@ -24,7 +24,7 @@ export default class ViewUsers extends Component {
                         res.json({errorMessage: `Users not found`})
                     } else {
                         console.log("Records read to Admin view of Users");
-                        this.setState({users: res.data, defaultUsers: res.data})
+                        this.setState({users: res.data})
                     }
 
                 } else {
