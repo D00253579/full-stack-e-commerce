@@ -68,10 +68,10 @@ export default class NavBar extends Component {
                     <div className={"container"}>
                         <div className={"search-container"}>
                             <div className="search-bar">
-                                <input
-                                    placeholder="Search"
+                                <input        
                                     type="text"
                                     id="search"
+                                    placeholder="Search for names and brands"
                                     onChange={this.handleSearchChange}
                                 />
                                 {this.state.searchInput.length > 0 ?
