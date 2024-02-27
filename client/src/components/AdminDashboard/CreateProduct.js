@@ -232,7 +232,7 @@ export default class CreateProduct extends Component {
                             console.log("Product NOT created")
                         } else {
                             console.log("Product created: ", createdProduct)
-                            //this.handleReturn()
+                            this.handleReturn()
                         }
 
 
