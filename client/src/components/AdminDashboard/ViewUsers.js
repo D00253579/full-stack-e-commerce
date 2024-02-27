@@ -25,6 +25,7 @@ export default class ViewUsers extends Component {
                     } else {
                         console.log("Records read to Admin view of Users");
                         this.setState({users: res.data})
+                        this.sortName()
                     }
 
                 } else {
@@ -32,6 +33,13 @@ export default class ViewUsers extends Component {
                 }
 
             })
+    }
+    sortName = () => { // default descending
+        let productNaturalOrderByName = [...this.state.users] // soft copy of products to manipulate
+
+        let descendingProducts = productNaturalOrderByName.sort((a, b) => a.name < b.name?-1:1)
+        this.updateUsers(descendingProducts)
+        console.log("Natural order set: product.name DESC")
     }
     updateUsers = (newUserState) => {
         this.setState({users: newUserState})

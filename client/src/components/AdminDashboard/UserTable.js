@@ -41,7 +41,7 @@ export default class UserTable extends Component
         let users = [...this.props.users]
 
         // sort ascending
-        if(this.state.stockIsAscending) {
+        if(!this.state.accessIsAscending) {
             let ascendingProducts = users.sort((a, b) => a.accessLevel < b.accessLevel?1:-1)
             this.props.updateUsers(ascendingProducts)
             //console.log("Stock ACE: ", ascendingProducts)
@@ -73,7 +73,7 @@ export default class UserTable extends Component
                 <tr>
                     <th>Name <label className="sortLabel" onClick={this.sortName}><span id="nameSort">{!this.state.nameIsAscending ? '\u25B4' : '\u25BE'} </span></label></th>
                     <th>Email</th>
-                    <th>AccessLevel<label className="sortLabel" onClick={this.sortAccess}><span id="accessSort">{!this.state.accessIsAscending ? '\u25B4' : '\u25BE'} </span></label></th>
+                    <th>AccessLevel <label className="sortLabel" onClick={this.sortAccess}><span id="accessSort">{!this.state.accessIsAscending ? '\u25B4' : '\u25BE'} </span></label></th>
                     <th>Address</th>
                     <th>U. Code</th>
                 </tr>
