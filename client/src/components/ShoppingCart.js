@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import PinkTShirt from "../Images/front.png";
+import anotherTshirt from "../../src/tshirts-images/p13/back.png";
 import AddIcon from "../Images/AddIcon.png";
 import MinusIcon from "../Images/MinusIcon.png";
 import {Link} from "react-router-dom"
@@ -38,6 +39,9 @@ export default class ShoppingCart extends Component {
                                     <h2>PRODUCT</h2>
                                 </div>
                                 <img src={PinkTShirt} alt="test-image"/>
+                                {/*testing the scroll*/}
+                                {/*<img src={anotherTshirt}/>*/}
+                            </div>
                             </div>
                             <div className="edit-bag">
                                 <div className="titles">
@@ -61,6 +65,14 @@ export default class ShoppingCart extends Component {
                                 <h3>€25.00</h3>
                             </div>
                         </div>
+                        <div className={"tshirt-container"}>
+                          <img src={PinkTShirt} alt="test-image"/>
+                            {/*selected tshirt displayed in here*/}
+                        </div>
+                        <div className="total-container">
+                            <h2>Total</h2>
+                            <h1>€25.00</h1>
+                        </div>
                         <Link to={"/Payments"}>
                             <div className="checkout-buttons">
                                 <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
@@ -68,9 +80,9 @@ export default class ShoppingCart extends Component {
                         </Link>
                     </div>
                 </div>
-                <div className="footer-container">
+                <footer>
                     <Footer/>
-                </div>
+                </footer>
             </div>
         )
     }

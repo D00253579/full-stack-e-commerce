@@ -17,26 +17,29 @@ export default class AccountPage extends Component {
                     <div className="account-box">
                         <div className="login-box">
                             <h1>WELCOME BACK!</h1>
-                            Email Address:
-                            <input type="text" id="address"/><br></br>
-                            Password:
+                            <h2> Email Address: </h2>
+                            <input type="text" id="address"/>
+                            <h2>Password:</h2>
                             <input type="text" id="postcode"/>
+                            <div className="register-box">
+                                <Link to={"/Login/login"}>
+                                    <button className={"signIn-btn"}>SIGN IN</button>
+                                </Link>
+                            </div>
                         </div>
+                            <div className="vl"></div>
                         <div className="register-box">
-                            <Link to={"/Login/login"}>
-                                <button className={"signIn-btn"}>SIGN IN</button>
-                            </Link>
-                            <h1>DON'T HAVE AN ACCOUNT?</h1>
+                        <h1>DON'T HAVE AN ACCOUNT?</h1>
                             <Link to={"/Login/Register"}>
                                 <button className={"register-btn"}>REGISTER</button>
                             </Link>
                             <button className={"guest-btn"}>CONTINUE AS GUEST</button>
                         </div>
                     </div>
-                    <div className="footer-container">
-                        <Footer/>
-                    </div>
                 </div>
+                <footer>
+                    <Footer/>
+                </footer>
             </div>
         )
     }

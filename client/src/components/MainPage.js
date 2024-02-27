@@ -10,11 +10,13 @@ render()
                    <div>
                        <NavBar/>
                        <div className="testing-return"><Link className="testing-red-button" to={"/TestingDirectory`"}>RETURN</Link></div>
-                       <div className={"footer-container"}>
-                           <Footer/>
-                       </div>
-                   </div>
+                       <div className="main-container">
 
+                       </div>
+                       <footer>
+                           <Footer/>
+                       </footer>
+                   </div>
 
     )
 

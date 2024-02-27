@@ -40,8 +40,10 @@ body {
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  margin-left: 20px; }
-  .admin-table-container .admin-table-container table {
+  margin-left: 20px;
+  margin-bottom: 400px; }
+
+.admin-table-container .admin-table-container table {
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
@@ -454,8 +456,7 @@ body {
   display: flex;
   padding-left: 20px;
   align-items: center;
-  flex-direction: column;
-  padding-right: 20px; }
+  flex-direction: column; }
 
 .filter-button > h1 {
   font-size: 20px;
@@ -486,6 +487,10 @@ body {
   width: 35px;
   height: 35px; }
 
+/*
+    Styling for checkboxes from w3schools
+    https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
+ */
 .sort-button > h1 {
   font-size: 20px;
   font-family: Times New Roman, Serif, serif; }
