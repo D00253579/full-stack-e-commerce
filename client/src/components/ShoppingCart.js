@@ -33,7 +33,11 @@ export default class ShoppingCart extends Component {
                         <div className="bag-title">
                             <h1>Your Bag</h1>
                         </div>
+<<<<<<< Updated upstream
                         <div className="product">
+=======
+                        {/*<div className="product">*/}
+>>>>>>> Stashed changes
                         <div className="sub-container">
                             <div className={"tshirt-container"}>
                                 <div className="titles">
@@ -43,7 +47,7 @@ export default class ShoppingCart extends Component {
                                 {/*testing the scroll*/}
                                 {/*<img src={anotherTshirt}/>*/}
                             </div>
-                            </div>
+                            {/*</div>*/}
                             <div className="edit-bag">
                                 <div className="titles">
                                     <h2>EDIT</h2>
@@ -59,6 +63,7 @@ export default class ShoppingCart extends Component {
                                     </div>
                                 </div>
                             </div>
+                            {/*</div>*/}
                             <div className="total-container">
                                 <div className="titles">
                                     <h2>TOTAL</h2>
@@ -66,6 +71,7 @@ export default class ShoppingCart extends Component {
                                 <h3>€25.00</h3>
                             </div>
                         </div>
+<<<<<<< Updated upstream
                         <div className={"tshirt-container"}>
                           <img src={PinkTShirt} alt="test-image"/>
                             {/*selected tshirt displayed in here*/}
@@ -76,16 +82,20 @@ export default class ShoppingCart extends Component {
                         </div>
                             <Link to={"/Payments"}>
                                 <div className="checkout-buttons">
+=======
+                        <Link to={"/Payments"}>
+                            <div className="checkout-buttons">
+>>>>>>> Stashed changes
                                 <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
                                 </div>
                             </Link>
                     </div>
                 </div>
-                <footer>
-                    <Footer/>
-                </footer>
-            </div>
-        )
-    }
+                    <footer>
+                        <Footer/>
+                    </footer>
+                </div>
+                )
+                }
 
-}
+                }
