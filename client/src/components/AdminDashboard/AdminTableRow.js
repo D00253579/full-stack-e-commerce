@@ -25,7 +25,7 @@ export default class AdminTableRow extends Component
         } = this.props.product;
 
         return (
-            this.state.rowIsClicked ? (<Redirect to={`/AdminDashboard/AdminEditProduct/${this.props.product._id}`} />
+            this.state.rowIsClicked ? (<Redirect to={`/AdminDashboard/EditProduct/${this.props.product._id}`} />
             ) : (
                 /* let soldOrForSale = null
         if(localStorage.accessLevel <= ACCESS_LEVEL_GUEST)

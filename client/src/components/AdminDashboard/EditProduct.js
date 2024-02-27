@@ -4,7 +4,7 @@ import {SERVER_HOST} from "../../config/global_constants";
 import {Redirect} from "react-router-dom";
 import Navbar from "../NavBar";
 
-export default class AdminEditProduct extends Component {
+export default class EditProduct extends Component {
     constructor(props) {
         super(props)
 
@@ -45,7 +45,7 @@ export default class AdminEditProduct extends Component {
                     if(res.data.errorMessage) {
 
                     } else {
-                        console.log("Product found and displaying in AdminEditProduct")
+                        console.log("Product found and displaying in EditProduct")
                         this.setState({product: res.data,
                                               defaultProduct: res.data}) // set state of product to response data
                     }
