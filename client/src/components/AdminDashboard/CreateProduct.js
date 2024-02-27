@@ -10,8 +10,11 @@ export default class CreateProduct extends Component {
         super(props);
         this.state = {
             defaultProduct: [],
+            products: [],
             redirectToDashboard: false,
             inputsAreInvalid: false,
+            idIsInvalid: false,
+            idAlreadyAssigned: false,
             nameIsInvalid: false,
             colourIsInvalid: false,
             sizeIsInvalid: false,
@@ -19,6 +22,7 @@ export default class CreateProduct extends Component {
             categoryIsInvalid: false,
             brandIsInvalid: false,
             stockIsInInvalid: false,
+            inputErrMessage: "",
             product : {
                 product_id: "",
                 name: "",
@@ -33,6 +37,21 @@ export default class CreateProduct extends Component {
 
         }
 
+    }
+    componentDidMount() {
+        // Fetch products in the parent component
+        axios.get(`${SERVER_HOST}/products`)
+            .then((res) => {
+                if (res.data) {
+                    if (res.data.errorMessage) {
+                    } else {
+                        console.log("Records read to Admin dashboard");
+                        this.setState({products: res.data});
+                    }
+                } else {
+                    console.log("Record not found");
+                }
+            });
     }
 
     handleChange = (e) => {
@@ -157,6 +176,32 @@ export default class CreateProduct extends Component {
             this.setState({stockIsInvalid: false})
 
         }
+
+        //console.log(this.state.products)
+        // Validate Product ID to check if it's already assigned to a product
+        const isIdInvalid = this.state.products.some(p => p.product_id.toString() === product.product_id)
+        if(isIdInvalid) {
+            document.getElementById("idInput").classList.add("invalid-input")
+            this.setState({
+                idIsInvalid: true,
+                idAlreadyAssigned: true,
+                inputErrMessage: `Product ID ${product.product_id} is already assigned to a product.`
+            })
+            isValid = false
+        } else {
+            if(!product.product_id.trim()) {
+                document.getElementById("idInput").classList.add("invalid-input")
+            } else {
+                document.getElementById("idInput").classList.remove("invalid-input")
+            }
+
+            this.setState({
+                idIsInvalid: !product.product_id.trim(),
+                idAlreadyAssigned: false,
+                inputErrMessage: ""
+            })
+        }
+
         if(!isValid) { // if inputs are invalid trigger visual response to let user know
             this.setState({inputsAreInvalid: true})
         } else {
@@ -171,12 +216,14 @@ export default class CreateProduct extends Component {
         // scroll back to the top of the form , take from https://www.w3schools.com/howto/howto_js_scroll_into_view.asp
         const topOfForm = document.getElementById('top-of-form')
         topOfForm.scrollIntoView()
-
+        console.log("Token: ",localStorage.token)
         console.log("Product: ", this.state.product)
         console.log("Inputs are valid: ",this.validateInputs())
         if(this.validateInputs()){
             const createdProduct = this.state.product;
-            axios.post(`${SERVER_HOST}/products`, {createdProduct}, {headers:{"authorization":localStorage.token}})
+
+            axios.post(`${SERVER_HOST}/products`, createdProduct, {headers:{"authorization":localStorage.token}})
+
                 .then(res =>
                 {
                     if(res.data)
@@ -185,7 +232,7 @@ export default class CreateProduct extends Component {
                             console.log("Product NOT created")
                         } else {
                             console.log("Product created: ", createdProduct)
-                            this.handleReturn()
+                            //this.handleReturn()
                         }
 
 
@@ -201,6 +248,7 @@ export default class CreateProduct extends Component {
 
     render() {
 
+        console.log("idIsInvalid: ", this.state.idIsInvalid)
         return (
             <div>
                 {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/Dashboard"}/> : null }
@@ -236,6 +284,18 @@ export default class CreateProduct extends Component {
                             </label>
                         </div>
 
+                        <div className="create-input">
+                            <label className="form-label" htmlFor="idInput">
+                                Product ID {this.state.idIsInvalid ? <span className="err">*</span> : null}
+                                <input
+                                    type="text"
+                                    name="product_id"
+                                    id="idInput"
+                                    value={this.state.product.product_id}
+                                    onChange={this.handleChange}
+                                /> {this.state.idAlreadyAssigned ? <span className="err">{this.state.inputErrMessage}</span> : null}
+                            </label>
+                        </div>
                         <div className="create-input">
                             <label className="form-label" htmlFor="nameInput">
                                 Name {this.state.nameIsInvalid ? <span className="err">*</span> : null}

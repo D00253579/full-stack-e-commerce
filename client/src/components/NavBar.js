@@ -61,7 +61,7 @@ export default class NavBar extends Component {
     }
 
     render() {
-        console.log("Search results in NavBar: ",this.state.searchResults)
+        //console.log("Search results in NavBar: ",this.state.searchResults)
         return (
             <div className="nav-container">
                 <nav>

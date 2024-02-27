@@ -33,19 +33,24 @@ router.get(`/products/:id`, (req, res) => {
 router.post(`/products`, (req, res) => {
     console.log("here1")
 
+
     jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
+        console.log("token: ", decodedToken)
+        console.log(req.body)
         if (err) {
-            console.log("here2")
             res.json(`User is not logged in`)
         } else {
-            console.log("here3")
-
             if (decodedToken.accessLevel >= process.env.ACCESS_LEVEL_ADMIN) {
-                console.log("here4")
-                console.log(decodedToken.accessLevel)
                     tShirtModel.create(req.body, (error, data) => {
-                        res.json(data)
-                        console.log("response")
+                        // console.log("data: ", data)
+                        // console.log("req.body: ", req.body)
+                        if(error) {
+                            console.log("SERVER: Error creating product: ", error)
+                        } else {
+                            console.log("SERVER: Product created: ", data)
+                            res.json(data)
+                        }
+
 
                     })
                     // if (IdData){
