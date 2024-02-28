@@ -33,11 +33,6 @@ export default class ShoppingCart extends Component {
                         <div className="bag-title">
                             <h1>Your Bag</h1>
                         </div>
-<<<<<<< Updated upstream
-                        <div className="product">
-=======
-                        {/*<div className="product">*/}
->>>>>>> Stashed changes
                         <div className="sub-container">
                             <div className={"tshirt-container"}>
                                 <div className="titles">
@@ -79,27 +74,11 @@ export default class ShoppingCart extends Component {
                                 <h3>€25.00</h3>
                             </div>
                         </div>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                        <div className={"tshirt-container"}>
-                          <img src={PinkTShirt} alt="test-image"/>
-                            {/*selected tshirt displayed in here*/}
-                        </div>
-                        <div className="total-container">
-                            <h2>Total</h2>
-                            <h1>€25.00</h1>
-                        </div>
-                            <Link to={"/Payments"}>
-                                <div className="checkout-buttons">
-=======
-=======
->>>>>>> Stashed changes
                         <Link to={"/Payments"}>
                             <div className="checkout-buttons">
->>>>>>> Stashed changes
                                 <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
-                                </div>
-                            </Link>
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <footer>

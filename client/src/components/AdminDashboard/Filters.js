@@ -128,17 +128,17 @@ export default class Filters extends Component {
                         </button>
                         <div className="filter-dropdown-menu">
 
-                            <label>
-                                M
+                            <label className="filter-checkboxes">                                M
                                 <input type="checkbox" name="gender" value="Male"/>
+                                <span className="checkmark"></span>
                             </label>
-                            <label>
-                                F
+                            <label className="filter-checkboxes">                                F
                                 <input type="checkbox" name="gender" value="Female"/>
+                                <span className="checkmark"></span>
                             </label>
-                            <label>
-                                O
+                            <label className="filter-checkboxes">                                O
                                 <input type="checkbox" name="gender" value="Other"/>
+                                <span className="checkmark"></span>
                             </label>
 
                         </div>
@@ -153,25 +153,28 @@ export default class Filters extends Component {
                             SIZE
                         </button>
                         <div className="filter-dropdown-menu">
-                            <label> S
+                            <label className="filter-checkboxes"> S
                                 <input
                                     type="checkbox"
                                     name="size"
                                     value="small"/>
+                                <span className="checkmark"></span>
                             </label>
 
-                            <label> M
+                            <label className="filter-checkboxes"> M
                                 <input
                                     type="checkbox"
                                     name="size"
                                     value="medium"/>
+                                <span className="checkmark"></span>
                             </label>
 
-                            <label> L
+                            <label className="filter-checkboxes"> L
                                 <input
                                     type="checkbox"
                                     name="size"
                                     value="large"/>
+                                <span className="checkmark"></span>
                             </label>
                         </div>
                     </div>
@@ -185,53 +188,60 @@ export default class Filters extends Component {
                             CATEGORY
                         </button>
                         <div className="filter-dropdown-menu">
-                            <label> Sports
+                            <label className="filter-checkboxes"> Sports
                                 <input
                                     type="checkbox"
                                     name="category"
                                     value="Sports"/>
+                                <span className="checkmark"></span>
                             </label>
 
-                            <label> Casual
+                            <label className="filter-checkboxes"> Casual
                                 <input
                                     type="checkbox"
                                     name="category"
                                     value="Casual"/>
+                                <span className="checkmark"></span>
                             </label>
 
-                            <label> Summer
+                            <label className="filter-checkboxes"> Summer
                                 <input
                                     type="checkbox"
                                     name="category"
                                     value="Summer"/>
+                                <span className="checkmark"></span>
                             </label>
 
-                            <label> Spooky
+                            <label className="filter-checkboxes">Spooky
                                 <input
                                     type="checkbox"
                                     name="category"
                                     value="Spooky"/>
+                                <span className="checkmark"></span>
                             </label>
 
-                            <label> Graphic
+                            <label className="filter-checkboxes"> Graphic
                                 <input
                                     type="checkbox"
                                     name="category"
                                     value="Graphic"/>
+                                <span className="checkmark"></span>
                             </label>
 
-                            <label> Smart
+                            <label className="filter-checkboxes">Smart
                                 <input
                                     type="checkbox"
                                     name="category"
                                     value="Smart"/>
+                                <span className="checkmark"></span>
                             </label>
 
-                            <label> Marvel
+                            <label className="filter-checkboxes"> Marvel
                                 <input
                                     type="checkbox"
                                     name="category"
                                     value="Superhero"/>
+                                <span className="checkmark"></span>
                             </label>
                         </div>
                     </div>
@@ -246,53 +256,61 @@ export default class Filters extends Component {
                         </button>
 
                         <div className="filter-dropdown-menu">
-                            <label>Red
+                            <label className="filter-checkboxes">Red
                                 <input
                                     type="checkbox"
                                     name="colour"
                                     value="Red"/>
+                                <span className="checkmark"></span>
                             </label>
-                            <label> Green
+                            <label className="filter-checkboxes"> Green
                                 <input
                                     type="checkbox"
                                     name="colour"
                                     value="Green"/>
+                                <span className="checkmark"></span>
                             </label>
-                            <label> Blue
+                            <label className="filter-checkboxes"> Blue
                                 <input
                                     type="checkbox"
                                     name="colour"
                                     value="Blue"/>
+                                <span className="checkmark"></span>
                             </label>
-                            <label> Grey
+                            <label className="filter-checkboxes"> Grey
                                 <input
                                     type="checkbox"
                                     name="colour"
                                     value="Grey"/>
+                                <span className="checkmark"></span>
                             </label>
-                            <label> Purple
+                            <label className="filter-checkboxes"> Purple
                                 <input
                                     type="checkbox"
                                     name="colour"
                                     value="Purple"/>
+                                <span className="checkmark"></span>
                             </label>
-                            <label> White
+                            <label className="filter-checkboxes"> White
                                 <input
                                     type="checkbox"
                                     name="colour"
                                     value="White"/>
+                                <span className="checkmark"></span>
                             </label>
-                            <label> Pink
+                            <label className="filter-checkboxes"> Pink
                                 <input
                                     type="checkbox"
                                     name="colour"
                                     value="Pink"/>
+                                <span className="checkmark"></span>
                             </label>
-                            <label> Yellow
+                            <label className="filter-checkboxes"> Yellow
                                 <input
                                     type="checkbox"
                                     name="colour"
                                     value="Yellow"/>
+                                <span className="checkmark"></span>
                             </label>
                         </div>
                     </div>
