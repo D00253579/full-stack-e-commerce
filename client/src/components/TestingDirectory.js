@@ -39,6 +39,7 @@ export default class TestingDirectory extends Component
                 <div className="testing-link-container">
                     {localStorage.accessLevel > ACCESS_LEVEL_GUEST ?
                         <div className="logout">
+                            {localStorage.profilePhoto !=="null" ? <img id="profilePhoto" src={`data:;base64,${localStorage.profilePhoto}`} alt=""/>: null}
                             <Logout/>
                         </div>
                         :
