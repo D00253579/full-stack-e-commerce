@@ -587,16 +587,23 @@ body {
   flex-direction: column;
 }
 
-.user-profile h1 {
+div h1,
+.user-profile {
   display: flex;
   justify-content: center;
 }
 
 .profile-container {
+  background-color: white;
   display: flex;
   justify-content: space-around;
-  max-width: 500px;
+  max-width: 700px;
+  width: 700px;
   border: solid black 2px;
+}
+
+.profile-span {
+  font-weight: lighter;
 }
 
 #profilePhoto {
