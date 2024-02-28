@@ -25,6 +25,7 @@ import DeleteUsers from"./components/AdminDashboard/DeleteUsers";
 import Payments from "./components/Payments"
 import BuyProduct from "./components/BuyProduct";
 import PaymentMessage from "./components/PaymentMessage"
+import UserProfile from "./components/AdminDashboard/UserProfile";
 
 if (typeof localStorage.accessLevel==="undefined"){
     localStorage.name="GUEST"
@@ -56,6 +57,7 @@ export default class App extends Component
                     <Route exact path={"/AdminDashboard/EditProduct/:id"} component={EditProduct}/>
                     <Route exact path={"/AdminDashboard/CreateProduct/"} component={CreateProduct}/>
                     <Route exact path={"/AdminDashboard/DeleteUsers/:id"} component={DeleteUsers}/>
+                    <Route exact path={"/AdminDashboard/UserProfile/:id"} component={UserProfile}/>
                     <Route exact path={"/MainPageData"} component={MainPageData}/>
                     <Route path="*" component={TestingDirectory}/>
                 </Switch>

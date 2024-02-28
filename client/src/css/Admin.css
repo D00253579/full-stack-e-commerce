@@ -592,6 +592,13 @@ body {
   justify-content: center;
 }
 
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+  border: solid black 2px;
+}
+
 #profilePhoto {
   width: 100px;
   height: 100px;

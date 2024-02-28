@@ -136,6 +136,23 @@ router.delete(`/users/:id`, (req, res) => {
         }
     })
 })
+
+
+// Read one user
+router.get(`/users/:id`, (req, res) => {
+    jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
+        if (err) {
+            res.json(`User is not logged in`)
+        } else {
+            usersModel.findById(req.params.id, (error, data) => {
+                res.json(data)
+            })
+        }
+
+    })
+})
+
+
 router.post(`/users/Login/Logout`, (req, res) => {
     res.json({})
 })

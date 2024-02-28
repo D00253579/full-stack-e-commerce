@@ -36,7 +36,7 @@ export default class UserTableRow extends Component
         } = this.props.users;
 
         return (
-            this.state.rowIsClicked ? (<Redirect to={`/AdminDashboard/DeleteUsers/${this.props.users._id}`} />
+            this.state.rowIsClicked ? (<Redirect to={`/AdminDashboard/UserProfile/${this.props.users._id}`} />
             ) : (
                 <tr onClick={this.handleRowClick}>
                     <td>{name}</td>
