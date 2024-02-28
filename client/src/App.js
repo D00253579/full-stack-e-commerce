@@ -6,6 +6,7 @@ import "./css/NavBar.css"
 import "./css/ShoppingCart.css"
 import "./css/Footer.css"
 import "./css/AccountPage.css"
+import "./css/UserProfile.css"
 import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
@@ -25,7 +26,7 @@ import DeleteUsers from"./components/AdminDashboard/DeleteUsers";
 import Payments from "./components/Payments"
 import BuyProduct from "./components/BuyProduct";
 import PaymentMessage from "./components/PaymentMessage"
-import UserProfile from "./components/AdminDashboard/UserProfile";
+import UserProfile from "./components/UserProfile";
 
 if (typeof localStorage.accessLevel==="undefined"){
     localStorage.name="GUEST"
@@ -57,7 +58,7 @@ export default class App extends Component
                     <Route exact path={"/AdminDashboard/EditProduct/:id"} component={EditProduct}/>
                     <Route exact path={"/AdminDashboard/CreateProduct/"} component={CreateProduct}/>
                     <Route exact path={"/AdminDashboard/DeleteUsers/:id"} component={DeleteUsers}/>
-                    <Route exact path={"/AdminDashboard/UserProfile/:id"} component={UserProfile}/>
+                    <Route exact path={"/UserProfile/:id"} component={UserProfile}/>
                     <Route exact path={"/MainPageData"} component={MainPageData}/>
                     <Route path="*" component={TestingDirectory}/>
                 </Switch>

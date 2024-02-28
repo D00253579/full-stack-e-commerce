@@ -66,7 +66,6 @@ export default class AdminTableRow extends Component
                     <td>{price}</td>
                     <td>{current_stock}</td>
                     <td>{product_id}</td>
-                    <td className="photos">{photos.map(photo =><img key={photo._id} id={photo._id} alt=""/>)}</td>
                 </tr>
             )
         )
