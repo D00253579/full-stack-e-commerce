@@ -43,8 +43,7 @@ body {
   margin-left: 20px;
   margin-left: 20px;
   margin-bottom: 400px; }
-
-.admin-table-container .admin-table-container table {
+  .admin-table-container .admin-table-container table {
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
@@ -488,21 +487,14 @@ body {
   width: 35px;
   height: 35px; }
 
-<<<<<<< Updated upstream
-=======
 .sort-button > h1 {
   font-size: 20px;
   font-family: Times New Roman, Serif, serif; }
 
->>>>>>> Stashed changes
 /*
     Styling for checkboxes from w3schools
     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
  */
-.sort-button > h1 {
-  font-size: 20px;
-  font-family: Times New Roman, Serif, serif; }
-
 .sort-button {
   display: flex;
   flex-direction: column; }
