@@ -5,9 +5,88 @@ $white: #ffffff;
 $grey-border: #363131;
 $title_font_size: 16px;
 $light_green: #8EAF9D;
+$title_font: Times New Roman, Serif, serif;
 
-.footer-container{
-  background-color: $light_green;
-  position: fixed;
+
+.footer-container {
+  background-color: #efe6e6;
   width: 100%;
+  border-radius: 2px;
+  border: solid #d4c7c7c2;
+  display: flex;
+}
+
+.footer-container > h2{
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.help-section,
+.link-section > h2{
+  font-family: $title_font;
+  font-size: 16px;
+}
+
+.link-section > h2{
+  margin-bottom: 20px;
+}
+
+.help-section,
+.link-section > h3 {
+  font-family: $title_font;
+  font-size: 12px;
+}
+
+//.facebook-image,
+//.instagram-image,
+//.snapchat-image{
+//  width: 45px;
+//  height: 45px;
+//  margin-right: 10px;
+//}
+
+.facebook-image, .instagram-image{
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+.snapchat-image{
+  height: 80px;
+  margin-right: 10px;
+}
+
+.help-section{
+  display: flex;
+  flex-direction: column;
+  margin-left: 65px;
+}
+
+.link-section, .social-media-icons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.link-section{
+  margin-left: 250px;
+}
+
+/*
+    Copyright symbol
+    https://blog.hubspot.com/website/html-code-copyright
+ */
+
+.copyright-section{
+  background-color: #d6cfcf;
+  width: 100%;
+  height: 30px;
+  border-radius: 2px;
+  border: solid #d4cbcb;
+  display: flex;
+}
+
+.copyright-section > span{
+  margin-left: 65px;
+  font-family: Times New Roman, Serif, serif;
 }

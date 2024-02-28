@@ -40,10 +40,8 @@ export default class AdminTable extends Component
             this.setState({priceIsAscending: true})
             this.setState({stockIsAscending: true})
         }
-
-
-
     }
+
     sortPrice = () => { // default ascending
         let products = [...this.props.products]
 
@@ -109,7 +107,7 @@ export default class AdminTable extends Component
                 <thead>
                 <tr>
                     <th>Inventory Number</th>
-                    <th>Name <label className="sortLabel" onClick={this.sortName}><span id="priceSort">{!this.state.nameIsAscending ? '\u25B4' : '\u25BE'} </span></label></th>
+                    <th>Name <label className="sortLabel" onClick={this.sortName}><span id="nameSort">{!this.state.nameIsAscending ? '\u25B4' : '\u25BE'} </span></label></th>
                     <th>Brand</th>
                     <th>Category</th>
                     <th>Price <label className="sortLabel" onClick={this.sortPrice}><span id="priceSort">{!this.state.priceIsAscending ? '\u25B4' : '\u25BE'}</span></label></th>

@@ -10,29 +10,30 @@
   padding-bottom: 100px; }
 
 .account-box {
-  padding-top: 20px;
   width: 700px;
   height: 450px;
   border-radius: 5px;
-  /* Box shadow from w3 schools*/
   box-shadow: 20px 20px 50px grey;
-  position: relative;
   border-color: #A26D5D;
   border-style: outset;
   display: flex;
-  flex-direction: column; }
+  align-items: center; }
 
-.account-box h1 {
+.login-box,
+.register-box {
+  padding: 40px; }
+
+.login-box,
+.register-box > h1 {
   margin: 0;
   font-family: Times New Roman, Serif, serif;
   font-weight: bold;
-  font-size: 24px;
-  padding-left: 20px; }
+  font-size: 16px; }
 
-.account-box h2 {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif;
-  padding-left: 20px; }
+.login-box > h2 {
+  font-size: 14px;
+  font-weight: normal;
+  font-family: Times New Roman, Serif, serif; }
 
 .signIn-btn > button {
   background-color: #ccb1a7;
@@ -54,5 +55,21 @@ button:hover {
   background-color: #A26D5D;
   border-color: #363131;
   cursor: pointer; }
+
+/*
+    A vertical line between the login section and the register/guest
+    https://www.w3schools.com/howto/howto_css_vertical_line.asp
+ */
+.vl {
+  border-left: 3px solid #d4c7c7c2;
+  height: 425px;
+  left: 50%;
+  margin-left: -3px;
+  top: 0; }
+
+.login-box > input {
+  border-color: white;
+  border-radius: 0;
+  border-style: outset; }
 
 /*# sourceMappingURL=AccountPage.css.map */

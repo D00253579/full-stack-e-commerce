@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import PinkTShirt from "../Images/front.png";
+import anotherTshirt from "../../src/tshirts-images/p13/back.png";
 import AddIcon from "../Images/AddIcon.png";
 import MinusIcon from "../Images/MinusIcon.png";
 import {Link} from "react-router-dom"
@@ -38,7 +39,10 @@ export default class ShoppingCart extends Component {
                                     <h2>PRODUCT</h2>
                                 </div>
                                 <img src={PinkTShirt} alt="test-image"/>
+                                {/*testing the scroll*/}
+                                {/*<img src={anotherTshirt}/>*/}
                             </div>
+                            {/*</div>*/}
                             <div className="edit-bag">
                                 <div className="titles">
                                     <h2>EDIT</h2>
@@ -54,6 +58,7 @@ export default class ShoppingCart extends Component {
                                     </div>
                                 </div>
                             </div>
+                            {/*</div>*/}
                             <div className="total-container">
                                 <div className="titles">
                                     <h2>TOTAL</h2>
@@ -61,6 +66,7 @@ export default class ShoppingCart extends Component {
                                 <h3>€25.00</h3>
                             </div>
                         </div>
+  
                         <Link to={"/Payments"}>
                             <div className="checkout-buttons">
                                 <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
@@ -68,11 +74,11 @@ export default class ShoppingCart extends Component {
                         </Link>
                     </div>
                 </div>
-                <div className="footer-container">
-                    <Footer/>
+                    <footer>
+                        <Footer/>
+                    </footer>
                 </div>
-            </div>
-        )
-    }
+                )
+                }
 
-}
+                }

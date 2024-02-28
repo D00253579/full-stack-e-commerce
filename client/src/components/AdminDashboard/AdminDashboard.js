@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {SERVER_HOST} from "../../config/global_constants";
 import axios from "axios";
 import Navbar from "../NavBar"
+import Footer from "../Footer";
 import AdminProductView from "./AdminProductView";
 import Filters from "./Filters";
 import {Link, Redirect} from "react-router-dom";
@@ -122,6 +123,9 @@ export default class AdminDashboard extends Component {
 
                 <div className="testing-return"><Link className="testing-red-button"
                                                       to={"/TestingDirectory"}>RETURN</Link></div>
+                <footer>
+                    <Footer/>
+                </footer>
             </div>
 
 
