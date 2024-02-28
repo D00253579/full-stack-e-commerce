@@ -436,7 +436,7 @@ export default class CreateProduct extends Component {
                         </div>
                         <div className="create-input">
                             <label className="form-label" htmlFor="brandInput">
-                                Brand {this.state.brandIsInvalid ? <span className="err">*</span> : null}
+                                Image
                                 <input
                                     type="file" multiple onChange={this.handleFileChange} name="photos" id="photoInput"
                                 />
@@ -449,8 +449,6 @@ export default class CreateProduct extends Component {
                             <button onClick={this.handleCreateProduct}>Create</button>
                             <button onClick={this.handleReturn}>Return</button>
                         </div>
-
-
                     </form>
                 </div>
 

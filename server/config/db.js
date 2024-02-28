@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`, {useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true})
- // mongoose.connect(`mongodb+srv://${process.env.DB_USER_NAME}:${process.env.DB_USER_PASSWORD}@cluster0.f1hibes.mongodb.net/${process.env.DB_NAME}`)
+mongoose.connect(`mongodb+srv://${process.env.DB_USER_NAME}:${process.env.DB_USER_PASSWORD}@cluster0.f1hibes.mongodb.net/${process.env.DB_NAME}`,{useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true})
 
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
