@@ -20,10 +20,10 @@ export default class UserProfile extends Component {
         // console.log(productID)
 
         // get the product with the matching id from database collection
-        axios.get(`${SERVER_HOST}/users/${userID}`,{headers:{"authorization":localStorage.token}})
+        axios.get(`${SERVER_HOST}/users/${userID}`, {headers: {"authorization": localStorage.token}})
             .then(res => {
-                if(res.data) {
-                    if(res.data.errorMessage) {
+                if (res.data) {
+                    if (res.data.errorMessage) {
 
                     } else {
                         console.log("User found and displaying in UserProfile")
@@ -42,30 +42,47 @@ export default class UserProfile extends Component {
 
     render() {
         return (
-            <div>
+            <div className="profile-view">
                 {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/ViewUsers/"}/> : null}
                 <div className="admin-head-container">
                     <NavBar/>
                 </div>
 
                 <h1>User Profile</h1>
-                <div  className="user-profile">
+                <div className="user-profile">
 
                     <div className="profile-container">
-
-                        <div className="profile-left">
-                            {/*TODO this is where the user profile will go*/}
-
-                        </div>
-                        <div className="profile-right">
-                            <h2>Name: <span className="profile-span">{this.state.user.name}</span></h2>
-                            <h2>Email: <span className="profile-span">{this.state.user.email}</span></h2>
+                        <div className="profile-photo">
+                            {localStorage.profilePhoto !== "null" ?
+                                <img id="profilePhoto" src={`data:;base64,${localStorage.profilePhoto}`}
+                                     alt=""/> : null}
                         </div>
 
+                        <div className="profile-details">
+                            <div className="left">
+                                <h3>Your Details</h3>
+                                <h4>Name: <span>{this.state.user.name}</span></h4>
+                                <h4>Email: <span>{this.state.user.email}</span></h4>
+
+                            </div>
+                            <div className="right">
+                                <h3>Address</h3>
+                                <h4>Line 1: <span>{this.state.user.name}</span></h4>
+                                <h4>Line 2: <span>{this.state.user.name}</span></h4>
+                                <h4>Line 3: <span>{this.state.user.name}</span></h4>
+                                <h4>City: <span>{this.state.user.name}</span></h4>
+                                <h4>County: <span>{this.state.user.name}</span></h4>
+                                <h4>Country: <span>{this.state.user.name}</span></h4>
+                                <h4>Post Code: <span>{this.state.user.name}</span></h4>
+                            </div>
+                        </div>
+                        <button onClick={this.handleReturn}>Return</button>
+
+                    </div>
                 </div>
-                </div>
-                <button onClick={this.handleReturn}>Return</button>
             </div>
         )
     }
 }
+
+            

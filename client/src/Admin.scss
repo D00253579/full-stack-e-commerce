@@ -673,20 +673,71 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-div h1,
-.user-profile{
+.profile-view {
+  h1 {
+    display: flex;
+    justify-content: center;
+  }
+}
+.user-profile {
   display: flex;
   justify-content: center;
 }
+
 .profile-container {
   background-color: white;
-  display: flex;
-  justify-content: space-around;
   max-width: 700px;
   width: 700px;
   border: solid black 2px;
+
+  .profile-photo {
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .profile-details {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    border: solid black 1px;
+
+
+
+    .right{
+      width: 50%;
+      padding: 20px;
+      h3{
+        display: flex;
+        justify-content: center;
+      }
+      h4{
+        display: flex;
+      }
+      span {
+        font-weight: lighter;
+        margin-left: 10px;
+      }
+      p {
+        border-bottom: solid gray 1px;
+        border-top: solid gray 1px;
+        width: 100%;
+      }
+
+    }
+    .left {
+      width: 50%;
+      padding: 20px;
+    }
+    span {
+      font-weight: lighter;
+      margin-left: 10px;
+    }
+  }
+
+
 }
+
 
 .profile-span {
   font-weight: lighter;
