@@ -34,76 +34,6 @@
   font-family: Times New Roman, Serif, serif;
   padding-left: 20px; }
 
-.edit-bag > h2 {
-  padding-left: 300px; }
-
-.bag > h1 {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif; }
-
-.bag > h2 {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif; }
-
-.tshirt-container {
-  width: 150px;
-  height: 200px;
-  border-radius: 5px;
-  margin-left: 20px; }
-
-.tshirt-container > img {
-  padding-top: 40px;
-  width: 150px;
-  height: 200px; }
-
-.total-container {
-  float: right;
-  padding-left: 500px; }
-
-.checkout-buttons {
-  padding-right: 20px;
-  padding-top: 65px; }
-
-.checkout-buttons > button {
-  background-color: #ccb1a7;
-  border: 2px solid #ffffff;
-  font-family: Times New Roman, Serif, serif;
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  float: right; }
-
-.checkout-buttons > button:hover {
-  background-color: #A26D5D;
-  border-color: #363131;
-  cursor: pointer; }
-
-.titles {
-  display: flex; }
-
-<<<<<<< Updated upstream
-/* Box shadow from w3 schools*/
-.bag-box {
-  padding-top: 20px;
-  width: 700px;
-  height: 450px;
-  border-radius: 5px;
-  box-shadow: 20px 20px 50px grey;
-  border-color: #A26D5D;
-  border-style: outset;
-  overflow: scroll; }
-
-.bag-box h1 {
-  margin: 0;
-  font-family: Times New Roman, Serif, serif;
-  font-weight: bold;
-  font-size: 30px;
-  padding-left: 20px; }
-
-.bag-box h2 {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif; }
-
 .edit-bag {
   display: flex;
   align-items: center;
@@ -165,8 +95,6 @@
 .total-container > h3 {
   padding-right: 20px; }
 
-=======
->>>>>>> Stashed changes
 .tshirt-container, .edit-bag, .total-container {
   display: flex;
   align-items: center; }
@@ -216,7 +144,20 @@
 .add-btn {
   margin-left: 7.5px; }
 
+.edit-bag > h2 {
+  margin-bottom: 40px; }
+
 .minus-btn {
   margin-right: 7.5px; }
+
+.tshirt-details > h3 {
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px; }
+
+.tshirt-details > h2 {
+  margin-bottom: 20px; }
+
+.stock-container > h3 {
+  color: #73af8a; }
 
 /*# sourceMappingURL=ShoppingCart.css.map */

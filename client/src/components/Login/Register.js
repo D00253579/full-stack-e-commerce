@@ -256,8 +256,6 @@ render(){
                                 <label>Add a Profile Picture: </label>
                                 <input type="file" onChange={this.handleFileChange}/>
                             </div>
-<<<<<<< Updated upstream
-                        ))}
                         <br/>
 
                         <input
@@ -303,15 +301,6 @@ render(){
                             value = {this.state.confirmPassword}
                             onChange = {this.handleChange}
                         />
-
-                        {this.state.errors.confirmPassword.length > 0 && this.state.errors.confirmPassword.map((error, index) => (
-                            <div key={index} className="error-message">
-                                &#x2022; {error}
-                            </div>
-                        ))}
-                        <br/><br/>
-=======
->>>>>>> Stashed changes
 
                             {this.state.errors.confirmPassword.length > 0 && this.state.errors.confirmPassword.map((error, index) => (
                                 <div key={index} className="error-message">
