@@ -33,6 +33,7 @@ export default class ShoppingCart extends Component {
                         <div className="bag-title">
                             <h1>Your Bag</h1>
                         </div>
+
                         <div className="sub-container">
                             <div className={"tshirt-container"}>
                                 <div className="titles">

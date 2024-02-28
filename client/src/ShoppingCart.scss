@@ -22,6 +22,7 @@ $title_font: Times New Roman, Serif, serif;
     padding-bottom: 100px;
   }
 
+
 /* Box shadow from w3 schools*/
 .bag-box {
   padding-top: 20px;
@@ -37,6 +38,7 @@ $title_font: Times New Roman, Serif, serif;
   //align-items: center;
   //justify-content: space-between;
 }
+
 
 .bag-box h1{
   margin: 0;
@@ -57,6 +59,10 @@ $title_font: Times New Roman, Serif, serif;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+
+
 }
 
 .edit-bag > h2{
@@ -190,6 +196,7 @@ $title_font: Times New Roman, Serif, serif;
 .add-btn {
   margin-left: 7.5px;
 }
+
 
 .minus-btn{
   margin-right: 7.5px;

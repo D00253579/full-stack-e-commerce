@@ -140,7 +140,20 @@
 .add-btn {
   margin-left: 7.5px; }
 
+.edit-bag > h2 {
+  margin-bottom: 40px; }
+
 .minus-btn {
   margin-right: 7.5px; }
+
+.tshirt-details > h3 {
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px; }
+
+.tshirt-details > h2 {
+  margin-bottom: 20px; }
+
+.stock-container > h3 {
+  color: #73af8a; }
 
 /*# sourceMappingURL=ShoppingCart.css.map */
