@@ -28,6 +28,8 @@ import PaymentMessage from "./components/PaymentMessage"
 if (typeof localStorage.accessLevel==="undefined"){
     localStorage.name="GUEST"
     localStorage.accessLevel=ACCESS_LEVEL_GUEST
+    localStorage.token=null
+    localStorage.profilePhoto=null
 }
 
 export default class App extends Component

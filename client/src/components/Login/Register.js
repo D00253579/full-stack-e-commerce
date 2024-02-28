@@ -12,6 +12,7 @@ export default class Register extends Component{
             password:"",
             confirmPassword:"",
             isRegistered:false,
+            selectedFile:null,
             errors: { // used to keep track of current validation errors
                 name: [],
                 email: [],
@@ -23,6 +24,9 @@ export default class Register extends Component{
     handleChange = (e) =>
     {
         this.setState({[e.target.name]: e.target.value})
+    }
+    handleFileChange=(e)=>{
+        this.setState({selectedFile: e.target.files[0]})
     }
 
     // Client side validation for Registration page
@@ -130,11 +134,13 @@ export default class Register extends Component{
         let isEmailValid = this.validateEmail()
         let isPasswordValid = this.validatePassword()
         let isConfirmPasswordValid = this.validateConfirmPassword()
+        let formData=new FormData()
+        formData.append("profilePhoto",this.state.selectedFile)
         if(!isNameValid && !isEmailValid && !isPasswordValid && !isConfirmPasswordValid) // if inputs have passed validation
         {
             e.preventDefault()
 
-            axios.post(`${SERVER_HOST}/users/Login/Register/${this.state.name}/${this.state.email}/${this.state.password}`)
+            axios.post(`${SERVER_HOST}/users/Login/Register/${this.state.name}/${this.state.email}/${this.state.password}`,formData, {headers: {"Content-type": "multipart/form-data"}})
                 .then(res =>
                 {
                     if(res.data)
@@ -149,6 +155,7 @@ export default class Register extends Component{
 
                             localStorage.name = res.data.name
                             localStorage.accessLevel = res.data.accessLevel
+                            localStorage.profilePhoto=res.data.profilePhoto
                             localStorage.token=res.data.token
                             this.setState({isRegistered:true})
                         }
@@ -236,6 +243,7 @@ render(){
                             value = {this.state.confirmPassword}
                             onChange = {this.handleChange}
                         />
+                        <input type="file" onChange={this.handleFileChange}/>
 
                         {this.state.errors.confirmPassword.length > 0 && this.state.errors.confirmPassword.map((error, index) => (
                             <div key={index} className="error-message">
