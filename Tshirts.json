@@ -8,24 +8,18 @@
     "gender": "Male",
     "category": "Sports",
     "brand": "Under Armour",
-    "current_stock": 17,
-    "image_1": "thsirt-images/p0/wearing.png",
-    "image_2": "thsirt-images/p0/front.png",
-    "image_3":" thsirt-images/p0/back.png"
+    "current_stock": 17
   },
   {
     "product_id": 1,
-    "name": "White Stuff Abersoch Short Sleeve T-Shirt",
+    "name": "Purple Stuff Abersoch Short Sleeve T-Shirt",
     "colour": "Purple",
     "size": ["small", "large"],
     "price": 21.99,
     "gender": "Male",
     "category": "Casual",
-    "brand": "White Stuff Abersoch",
-    "current_stock": 7,
-    "image_1": "thsirt-images/p1/wearing.png",
-    "image_2": "thsirt-images/p1/front.png",
-    "image_3":" thsirt-images/p1/back.png"
+    "brand": "Purple Stuff Abersoch",
+    "current_stock": 7
   },
   {
     "product_id": 2,
@@ -36,10 +30,7 @@
     "gender": "Male",
     "category": "Summer",
     "brand": "Salt Creek",
-    "current_stock": 4 ,
-    "image_1": "thsirt-images/p2/wearing.png",
-    "image_2": "thsirt-images/p2/front.png",
-    "image_3":" thsirt-images/p2/back.png"
+    "current_stock": 4
   },
   {
     "product_id": 3,
@@ -50,10 +41,7 @@
     "gender": "Male",
     "category": "Spooky",
     "brand": "Pumpkin Co.",
-    "current_stock": 11,
-    "image_1": "thsirt-images/p3/wearing.png",
-    "image_2": "thsirt-images/p3/front.png",
-    "image_3":" thsirt-images/p3/back.png"
+    "current_stock": 11
   },
   {
     "product_id": 4,
@@ -63,25 +51,19 @@
     "price": 11.99,
     "gender": "Male",
     "category": "Graphic",
-    "brand": "ThreadMystique",
-    "current_stock": 21,
-    "image_1": "thsirt-images/p4/wearing.png",
-    "image_2": "thsirt-images/p4/front.png",
-    "image_3":" thsirt-images/p4/back.png"
+    "brand": "Thread Mystique",
+    "current_stock": 21
   },
   {
     "product_id": 5,
     "name": "Light pink family printed T-shirt",
     "colour": "Pink" ,
-    "size": ["6-9M","9-12M","2-3Y"],
+    "size": ["small","medium","large"],
     "price": 3.99,
     "gender": "Female",
     "category": "Casual",
     "brand": "H & M",
-    "current_stock": 15 ,
-    "image_1": "thsirt-images/p5/front.jpg",
-    "image_2": "thsirt-images/p5/close-up.jpg",
-    "image_3":""
+    "current_stock": 15
   },
 
   {
@@ -93,10 +75,7 @@
     "gender": "Female",
     "category": "Casual",
     "brand": "H & M",
-    "current_stock": 20 ,
-    "image_1": "thsirt-images/p6/front.jpg",
-    "image_2": "thsirt-images/p6/close-up.jpg",
-    "image_3": null
+    "current_stock": 20
   },
   {
     "product_id": 7,
@@ -106,11 +85,8 @@
     "price": 6.99,
     "gender": "Female",
     "category": "Smart",
-    "brand": "ASOS",
-    "current_stock": 27 ,
-    "image_1": "thsirt-images/p7/front.png",
-    "image_2": "thsirt-images/p7/close-up.jpg",
-    "image_3": null
+    "brand": "Asos",
+    "current_stock": 27
   },
   {
     "product_id": 8,
@@ -121,10 +97,7 @@
     "gender": "Male",
     "category": "Superhero",
     "brand": "Marvel Studios",
-    "current_stock": 36,
-    "image_1": "thsirt-images/p8/front.png",
-    "image_2": "thsirt-images/p8/close-up.png",
-    "image_3": null
+    "current_stock": 36
   },
   {
     "product_id": 9,
@@ -135,39 +108,30 @@
     "gender": "Male",
     "category": "Casual",
     "brand": "H & M",
-    "current_stock": 25 ,
-    "image_1": "thsirt-images/p9/front.png",
-    "image_2": "thsirt-images/p9/close-up.png",
-    "image_3": null
+    "current_stock": 25
   },
 
     {
       "product_id": 10,
-      "name":  "1985 Collection Slim Fit t-shirt",
+      "name":  "Pink Tommy Hilfiger t-shirt",
       "colour": "Pink" ,
       "size": ["small", "medium", "large"],
       "price": 29.00,
-      "gender": "female",
+      "gender": "Female",
       "category": "Casual",
       "brand": "Tommy Hilfiger",
-      "current_stock": 22,
-      "image_1": "thsirt-images/p10/wearing.png" ,
-      "image_2": "thsirt-images/p10/front.png",
-      "image_3": "thsirt-images/p10/bacm.png"
+      "current_stock": 22
     },
     {
       "product_id": 11,
-      "name":  "1985 Collection Slim Fit t-shirt",
+      "name":  "Blue Tommy Hilfiger t-shirt",
       "colour": "Blue" ,
       "size": ["small", "medium", "large"],
       "price": 29.00,
       "gender": "female",
       "category": "Casual",
       "brand": "Tommy Hilfiger",
-      "current_stock": 25,
-      "image_1": "thsirt-images/p11/wearing.png",
-      "image_2": "thsirt-images/p11/front.png",
-      "image_3": "thsirt-images/p11/back.png"
+      "current_stock": 25
     },
     {
       "product_id": 12,
@@ -175,27 +139,21 @@
       "colour": "Grey" ,
       "size": ["small", "medium", "large"],
       "price": 8.99,
-      "gender": "female",
+      "gender": "Female",
       "category": "Casual",
       "brand": "Asos",
-      "current_stock": 30,
-      "image_1": "thsirt-images/p12/wearing.png" ,
-      "image_2": "thsirt-images/p12/front.png",
-      "image_3": "thsirt-images/p12/back.png"
+      "current_stock": 30
     },
     {
       "product_id": 13,
-      "name":  "Adidias Originals Essentials t-shirt",
+      "name":  "Adidas Originals Essentials t-shirt",
       "colour": "Beige" ,
       "size": ["small", "medium", "large"],
       "price": 28.00,
-      "gender": "female",
+      "gender": "Female",
       "category": "Casual",
       "brand": "Asos",
-      "current_stock": 35,
-      "image_1": "thsirt-images/p13/wearing.png",
-      "image_2": "thsirt-images/p13/front.png",
-      "image_3": "thsirt-images/p13/back.png"
+      "current_stock": 35
     },
     {
       "product_id": 14,
@@ -203,12 +161,9 @@
       "colour": "Brown" ,
       "size": ["small", "medium", "large"],
       "price": 30.00,
-      "gender": "female",
+      "gender": "Female",
       "category": "Sports",
       "brand": "Asos",
-      "current_stock": 20,
-      "image_1": "thsirt-images/p14/wearing.png" ,
-      "image_2": "thsirt-images/p14/front.png",
-      "image_3": "thsirt-images/p14/back.png"
+      "current_stock": 20
     }
 ]

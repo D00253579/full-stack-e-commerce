@@ -1,56 +1,509 @@
+
+body {
+  background-color: #efe6e6; }
+
+/* AdminControls */
+.controls-container {
+  height: 100px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* Button style */ }
+  .controls-container .controls-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    background-color: #ccb1a7;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-right: 10px;
+    font-family: Times New Roman, Serif, serif; }
+  .controls-container .controls-button:hover {
+    background-color: #A26D5D;
+    border-color: #363131; }
+
+/* AdminTable */
+.admin-head-container {
+  padding-bottom: 75px; }
+
+.admin-body-container {
+  display: flex; }
+
+.admin-table-container {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-left: 20px;
+  margin-bottom: 400px; }
+  .admin-table-container .admin-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: 2px solid #363131;
+    border-radius: 5px; }
+
+.admin-table-container thead {
+  background-color: #A26D5D;
+  color: #ffffff;
+  border-color: #ffffff;
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: bold;
+  font-family: Times New Roman, Serif, serif; }
+
+.admin-table-container thead :hover {
+  border-color: #363131; }
+
+.admin-table thead th,
+.admin-table-container tbody td {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center; }
+
+.admin-table-container tbody tr {
+  border-bottom: 1px solid #363131;
+  background-color: #ffffff;
+  position: relative; }
+
+.admin-table-container tbody tr:hover {
+  background-color: #e5e3e3;
+  transition: background-color 0.6s ease; }
+
+.admin-table-container tbody tr:hover td {
+  color: transparent;
+  cursor: pointer; }
+
+.admin-table-container tbody tr:hover::after {
+  content: "\1F50D";
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; }
+
+.admin-table-container table {
+  border-color: #363131;
+  border-radius: 5px; }
+
+.sortLabel:hover {
+  cursor: pointer; }
+
+.add-new-product {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; }
+
+/* Filters */
+.filter-container {
+  width: 300px;
+  padding: 20px;
+  /* Styling for filter dropdown menus */ }
+  .filter-container .filter-buttons {
+    margin: 10px;
+    display: flex;
+    justify-content: center; }
+  .filter-container .filter-dropdown.open .filter-dropdown-menu {
+    display: block; }
+  .filter-container .filter-dropdown-menu {
+    display: none;
+    top: 0;
+    left: 100%;
+    padding: 10px;
+    z-index: 1; }
+  .filter-container .filter-dropdown-menu label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: Times New Roman, Serif, serif;
+    font-size: 16px; }
+  .filter-container .filter-dropdown-toggle {
+    width: 100%;
+    background-color: #ccb1a7;
+    /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.8ms ease;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Times New Roman, Serif, serif;
+    font-size: 14px;
+    font-weight: bold; }
+  .filter-container .filter-dropdown-toggle:hover {
+    background-color: #ffffff;
+    border-color: #363131; }
+
+.filter-dropdown-toggle > input[type="checkbox" i] {
+  border-style: outset; }
+
+.filter-buttons > button {
+  background-color: #ccb1a7;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-family: Times New Roman, Serif, serif; }
+
+.filter-buttons > button:hover {
+  background-color: #A26D5D;
+  border-color: #363131; }
+
 /*
-Error: Invalid CSS after "": expected selector, was "<<<<<<< Updated..."
-        on line 441 of Admin.scss
+  Checkbox styling
 
-436: input[type="checkbox"] {
-437:   background-color: black;
-438: }
-439: 
-440: 
-441: <<<<<<< Updated upstream
-442: /*
-443:     Styling for checkboxes from w3schools
-444:     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
-445:  *\/
-446: //
+ */
+.filter-checkboxes {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
-Backtrace:
-Admin.scss:441
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1218:in `expr!'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/static_parser.rb:20:in `parse_selector'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:434:in `visit_rule'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
-C:/Ruby32-x64/bin/sass:32:in `load'
-C:/Ruby32-x64/bin/sass:32:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"\": expected selector, was \"<<<<<<< Updated...\"\A         on line 441 of Admin.scss\A \A 436: input[type=\"checkbox\"] {\A 437:   background-color: black;\A 438: }\A 439: \A 440: \A 441: <<<<<<< Updated upstream\A 442: /*\A 443:     Styling for checkboxes from w3schools\A 444:     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox\A 445:  */\A 446: //"; }
+.filter-checkboxes input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0; }
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white; }
+
+.filter-checkboxes:hover input ~ .checkmark {
+  background-color: #ccc; }
+
+.filter-checkboxes:checked ~ .checkmark {
+  background-color: #363131; }
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none; }
+
+.filter-checkboxes input:checked ~ .checkmark:after {
+  display: block; }
+
+.filter-checkboxes .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #363131;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+/* */
+.apply-button {
+  margin-top: 20px; }
+
+.apply-button button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; }
+
+.apply-button button:hover {
+  background-color: #0056b3; }
+
+/* Admin product edit */
+.admin-edit-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.admin-create-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.create-form,
+.edit-form {
+  width: 40%;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #f9f9f9;
+  margin-bottom: 350px; }
+
+.edit-form label {
+  font-size: 30px;
+  font-weight: bold; }
+
+.form-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.create-input,
+.edit-input {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold; }
+
+.form-label {
+  font-size: 20px;
+  font-weight: bold; }
+
+.create-input input,
+.edit-input input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px; }
+
+.edit-input input[type="text"] {
+  width: calc(100% - 22px);
+  /* Adjusted to account for padding and border */
+  font-size: 20px;
+  font-weight: lighter; }
+
+.create-input input[type="text"]:hover,
+.edit-input input[type="text"]:hover {
+  cursor: pointer; }
+
+.size-selector {
+  display: flex;
+  flex-direction: column; }
+
+.size-option input {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px; }
+
+.err-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.err-container div {
+  width: 80%; }
+
+.err {
+  color: red;
+  font-size: 14px; }
+
+.create-input input.invalid-input,
+.edit-input input.invalid-input {
+  border: 2px solid red; }
+
+.size-selector.invalid-input {
+  border: 2px solid red; }
+
+.edit-input input [type="text"]:hover {
+  cursor: pointer; }
+
+.size-selector {
+  display: flex;
+  flex-direction: column; }
+
+.size-option input {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px; }
+
+.err-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.err-container div {
+  width: 80%; }
+
+.err {
+  color: red;
+  font-size: 14px; }
+
+.create-input input.invalid-input,
+.edit-input input.invalid-input {
+  border: 2px solid red; }
+
+.size-selector.invalid-input {
+  border: 2px solid red; }
+
+/*
+  Price and stock slider
+  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider_round
+ */
+.price-filter {
+  width: 100%; }
+
+.price-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s; }
+
+.price-slider:hover {
+  opacity: 1; }
+
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #363131;
+  cursor: pointer; }
+
+.price-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #363131;
+  cursor: pointer; }
+
+.stock-filter h4,
+.price-filter h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif;
+  color: #333; }
+
+.stock-filter {
+  width: 100%; }
+
+.stock-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s; }
+
+.stock-slider:hover {
+  opacity: 1; }
+
+.stock-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #363131;
+  cursor: pointer; }
+
+.stock-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #363131;
+  cursor: pointer; }
+
+.stock-filter h4,
+.price-filter h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif;
+  color: #333; }
+
+/*End of slider styling*/
+.testing-link-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  padding: 20px;
+  border: black solid 2px; }
+
+.testing-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.red-text {
+  color: red;
+  font-weight: bold; }
+
+.filter-button {
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  flex-direction: column; }
+
+.filter-button > h1 {
+  font-size: 20px;
+  font-family: Times New Roman, Serif, serif; }
+
+.filter-icon:hover {
+  cursor: pointer; }
+
+.filter-icon > img {
+  width: 55px;
+  height: 55px; }
+
+.filter-container {
+  width: 150px;
+  border: none;
+  position: absolute; }
+
+.filter-container > fieldset {
+  position: relative;
+  border: none;
+  padding-top: 100px; }
+
+.filter-box {
+  display: flex;
+  flex-direction: column; }
+
+.sort-icon > img {
+  width: 35px;
+  height: 35px; }
+
+.sort-button > h1 {
+  font-size: 20px;
+  font-family: Times New Roman, Serif, serif; }
+
+/*
+    Styling for checkboxes from w3schools
+    https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
+ */
+.sort-button {
+  display: flex;
+  flex-direction: column; }
+
+#profilePhoto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; }
+
+/*# sourceMappingURL=Admin.css.map */
+
