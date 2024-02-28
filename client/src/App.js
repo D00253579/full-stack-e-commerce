@@ -6,6 +6,7 @@ import "./css/NavBar.css"
 import "./css/ShoppingCart.css"
 import "./css/Footer.css"
 import "./css/AccountPage.css"
+import "./css/RegisterPage.css"
 import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";

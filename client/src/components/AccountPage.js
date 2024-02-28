@@ -17,23 +17,28 @@ export default class AccountPage extends Component {
                     <div className="account-box">
                         <div className="login-box">
                             <h1>WELCOME BACK!</h1>
-                            <h2> Email Address: </h2>
-                            <input type="text" id="address"/>
-                            <h2>Password:</h2>
-                            <input type="text" id="postcode"/>
+                            <label> Email Address:<span> *</span> </label>
+                            <input type="text" id="email-input"/><br/>
+                            <label>Password:<span> *</span></label>
+                            <input type="password" id="password-input"/>
                             <div className="register-box">
-                                <Link to={"/Login/login"}>
-                                    <button className={"signIn-btn"}>SIGN IN</button>
-                                </Link>
+                                    <Link to={"/Login/login"}>
+                                        <button className={"signIn-btn"}>SIGN IN</button>
+                                    </Link>
                             </div>
                         </div>
                             <div className="vl"></div>
                         <div className="register-box">
-                        <h1>DON'T HAVE AN ACCOUNT?</h1>
-                            <Link to={"/Login/Register"}>
-                                <button className={"register-btn"}>REGISTER</button>
-                            </Link>
-                            <button className={"guest-btn"}>CONTINUE AS GUEST</button>
+                            <div className={"no-account-container"}>
+                            <h1>DON'T HAVE AN ACCOUNT?</h1>
+                                <Link to={"/Login/Register"}>
+                                    <button className={"register-btn"}>CREATE AN ACCOUNT</button>
+                                </Link>
+                                {/*Continue as guest would take you back to the main page - using the guest features*/}
+                                <Link to={"/MainPage"}>
+                                    <button className={"guest-btn"}>CONTINUE AS GUEST</button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -47,7 +47,16 @@ export default class ShoppingCart extends Component {
                                 {/*testing the scroll*/}
                                 {/*<img src={anotherTshirt}/>*/}
                             </div>
-                            {/*</div>*/}
+                            <div className="tshirt-details">
+                                <h2>DETAILS</h2>
+                                {/*Change to the actual name of the selected tshirt*/}
+                                <h3>1985 Collection Slim Fit t-shirt</h3>
+                                <h3>S</h3>
+                                {/*Green in stock, yellow low in stock, red out of stock*/}
+                                <div className={"stock-container"}>
+                                    <h3>In stock</h3>
+                                </div>
+                            </div>
                             <div className="edit-bag">
                                 <div className="titles">
                                     <h2>EDIT</h2>
@@ -63,7 +72,6 @@ export default class ShoppingCart extends Component {
                                     </div>
                                 </div>
                             </div>
-                            {/*</div>*/}
                             <div className="total-container">
                                 <div className="titles">
                                     <h2>TOTAL</h2>
@@ -71,6 +79,7 @@ export default class ShoppingCart extends Component {
                                 <h3>€25.00</h3>
                             </div>
                         </div>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                         <div className={"tshirt-container"}>
                           <img src={PinkTShirt} alt="test-image"/>
@@ -83,6 +92,8 @@ export default class ShoppingCart extends Component {
                             <Link to={"/Payments"}>
                                 <div className="checkout-buttons">
 =======
+=======
+>>>>>>> Stashed changes
                         <Link to={"/Payments"}>
                             <div className="checkout-buttons">
 >>>>>>> Stashed changes
@@ -91,11 +102,11 @@ export default class ShoppingCart extends Component {
                             </Link>
                     </div>
                 </div>
-                    <footer>
-                        <Footer/>
-                    </footer>
-                </div>
-                )
-                }
+                <footer>
+                    <Footer/>
+                </footer>
+            </div>
+        )
+    }
 
-                }
+}

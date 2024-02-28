@@ -35,6 +35,7 @@ export default class Footer extends Component {
                             </div>
                         </div>
                     </div>
+                    {/* Copyright symbol from https://blog.hubspot.com/website/html-code-copyright */}
                     <div className={"copyright-section"}>
                         <span>&copy; 2024 JLC CLOTHING</span>
                     </div>
