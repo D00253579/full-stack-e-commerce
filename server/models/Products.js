@@ -14,7 +14,7 @@ let tShirtSchema = new mongoose.Schema(
        brand:{type: String},
        current_stock: {type:Number},
        //sold:{type:Boolean,default:false}
-       // photos:[tShirtPhotosSchema]
+       photos:[tShirtPhotosSchema]
    },
    {
        collection: `tshirts`

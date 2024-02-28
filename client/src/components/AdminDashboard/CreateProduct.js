@@ -3,6 +3,7 @@ import NavBar from "../NavBar";
 import {Redirect} from "react-router-dom";
 import {SERVER_HOST} from "../../config/global_constants";
 import axios from "axios";
+import MainPage from "../MainPage";
 
 export default class CreateProduct extends Component {
 
@@ -33,6 +34,7 @@ export default class CreateProduct extends Component {
                 category: "",
                 brand: "",
                 current_stock: "",
+                selectedFiles:null
             },
 
         }
@@ -64,6 +66,10 @@ export default class CreateProduct extends Component {
             }
         }))
     }
+    handleFileChange=(e)=>{
+        this.setState({selectedFiles:e.target.files})
+    }
+
     handleCheckboxChange = (e) => {
         const {checked, value} = e.target
         if(checked) { // if checkbox is checked add it to sizes array in product state
@@ -179,7 +185,7 @@ export default class CreateProduct extends Component {
 
         //console.log(this.state.products)
         // Validate Product ID to check if it's already assigned to a product
-        const isIdInvalid = this.state.products.some(p => p.product_id.toString() === product.product_id)
+        const isIdInvalid = this.state.products.some(p => p.product_id === product.product_id)
         if(isIdInvalid) {
             document.getElementById("idInput").classList.add("invalid-input")
             this.setState({
@@ -220,9 +226,24 @@ export default class CreateProduct extends Component {
         console.log("Product: ", this.state.product)
         console.log("Inputs are valid: ",this.validateInputs())
         if(this.validateInputs()){
-            const createdProduct = this.state.product;
+            let formData=new FormData()
+            formData.append("product_id",this.state.product.product_id)
+            formData.append("name",this.state.product.name)
+            formData.append("colour",this.state.product.colour)
+            formData.append("size",this.state.product.size)
+            formData.append("price",this.state.product.price)
+            formData.append("gender",this.state.product.gender)
+            formData.append("category",this.state.product.category)
+            formData.append("brand",this.state.product.brand)
+            if (this.state.selectedFiles){
+                for (let i=0; i<this.state.selectedFiles.length; i++){
+                    formData.append("photos", this.state.selectedFiles[i])
+                }
 
-            axios.post(`${SERVER_HOST}/products`, createdProduct, {headers:{"authorization":localStorage.token}})
+            }
+            // const createdProduct = this.state.product;
+
+            axios.post(`${SERVER_HOST}/products`, formData, {headers:{"authorization":localStorage.token}})
 
                 .then(res =>
                 {
@@ -231,7 +252,7 @@ export default class CreateProduct extends Component {
                         if(res.data.errorMessage) {
                             console.log("Product NOT created")
                         } else {
-                            console.log("Product created: ", createdProduct)
+                            console.log("Product created: ", formData)
                             this.handleReturn()
                         }
 
@@ -412,6 +433,15 @@ export default class CreateProduct extends Component {
                                     onChange={this.handleChange}
                                 />
                             </label>
+                        </div>
+                        <div className="create-input">
+                            <label className="form-label" htmlFor="brandInput">
+                                Brand {this.state.brandIsInvalid ? <span className="err">*</span> : null}
+                                <input
+                                    type="file" multiple onChange={this.handleFileChange} name="photos" id="photoInput"
+                                />
+                            </label>
+                        <MainPage photos={this.state.selectedFiles}/>
                         </div>
 
                         <div className="form-controls">
