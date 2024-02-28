@@ -21,34 +21,25 @@
 
 .login-box,
 .register-box {
-  padding: 40px; }
+  padding: 70px; }
 
-.login-box,
+.login-box > h1,
 .register-box > h1 {
-  margin: 0;
   font-family: Times New Roman, Serif, serif;
   font-weight: bold;
-  font-size: 16px; }
+  font-size: 24px; }
 
-.login-box > h2 {
-  font-size: 14px;
+.login-box > label {
+  font-size: 16px;
   font-weight: normal;
   font-family: Times New Roman, Serif, serif; }
-
-.signIn-btn > button {
-  background-color: #ccb1a7;
-  border: 2px solid #ffffff;
-  font-family: Times New Roman, Serif, serif;
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px; }
 
 button {
   background-color: #ccb1a7;
   border: 2px solid #ffffff;
   font-family: Times New Roman, Serif, serif;
   font-size: 16px;
-  padding: 5px 10px;
+  padding: 5px 7px;
   border-radius: 5px; }
 
 button:hover {
@@ -70,6 +61,24 @@ button:hover {
 .login-box > input {
   border-color: white;
   border-radius: 0;
-  border-style: outset; }
+  border-style: outset;
+  height: 20px;
+  width: 200px; }
+
+.no-account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 200px; }
+
+.no-account-container > h1 {
+  font-family: Times New Roman, Serif, serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 50px; }
+
+.register-btn {
+  margin-top: 30px;
+  margin-bottom: 30px; }
 
 /*# sourceMappingURL=AccountPage.css.map */

@@ -3,6 +3,8 @@ import {Redirect, Link} from "react-router-dom"
 import axios from "axios"
 import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../../config/global_constants"
 import LinkInClass from "../LinkInClass";
+import NavBar from "../NavBar";
+import Footer from "../Footer";
 export default class Register extends Component{
     constructor(props) {
         super(props);
@@ -177,26 +179,89 @@ export default class Register extends Component{
     }
 render(){
         return(
-            <div className="register-container">
-                <h2>Registration</h2>
+            <div>
+                <div className="register-head-container">
+                <NavBar/>
+                </div>
+                <div className="register-container">
+                    <div className="register-page-box">
+                <h1>CREATE YOUR ACCOUNT</h1>
 
                     <form className="register-form" noValidate = {true} id = "loginOrRegistrationForm">
                         {this.state.isRegistered ? <Redirect to="/TestingDirectory"/> : null}
 
                         {/*  &#x2022; == unicode for bullet point  */}
-                        <input
-                            name = "name"
-                            type = "text"
-                            placeholder = "Name"
-                            autoComplete="name"
-                            value = {this.state.name}
-                            onChange = {this.handleChange}
-                            ref = {(input) => { this.inputToFocus = input }}
-                        />
-                        {this.state.errors.name.length > 0 && this.state.errors.name.map((error, index) => (
-                            <div key={index} className="error-message">
-                                &#x2022; {error}
+                        <div className={"register-section1"}>
+                            <label>Name:<span> *</span></label>
+                            <input
+                                name = "name"
+                                type = "text"
+                                placeholder = "Name"
+                                autoComplete="name"
+                                value = {this.state.name}
+                                onChange = {this.handleChange}
+                                ref = {(input) => { this.inputToFocus = input }}
+                            />
+                            {this.state.errors.name.length > 0 && this.state.errors.name.map((error, index) => (
+                                <div key={index} className="error-message">
+                                    &#x2022; {error}
+                                </div>
+                            ))}
+                            <br/>
+
+                            <label>Email Address:<span> *</span> </label>
+                            <input
+                                name = "email"
+                                type = "email"
+                                placeholder = "Email"
+                                autoComplete="email"
+                                value = {this.state.email}
+                                onChange = {this.handleChange}
+                            />
+                            {this.state.errors.email.length > 0 && this.state.errors.email.map((error, index) => (
+                                <div key={index} className="error-message">
+                                    &#x2022; {error}
+                                </div>
+                            ))}
+                            <br/>
+                        </div>
+
+                        <div className={"register-section2"}>
+                            <label>Password:<span> *</span></label>
+                            <input
+                                name = "password"
+                                type = "password"
+                                placeholder = "Password"
+                                autoComplete="password"
+                                value = {this.state.password}
+                                onChange = {this.handleChange}
+                            />
+                            {this.state.errors.password.length > 0 ? (
+                                <div className="password-error-container">
+                                    {this.state.errors.password.map((error, index) => (
+                                        <div key={index}>
+                                            &#x2022; {error}
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : null}
+
+                            <br/>
+
+                            <label>Confirm Password:<span> *</span></label>
+                            <input
+                                name = "confirmPassword"
+                                type = "password"
+                                placeholder = "Confirm password"
+                                autoComplete="confirmPassword"
+                                value = {this.state.confirmPassword}
+                                onChange = {this.handleChange}
+                            />
+                            <div className={"select-profile-image"}>
+                                <label>Add a Profile Picture: </label>
+                                <input type="file" onChange={this.handleFileChange}/>
                             </div>
+<<<<<<< Updated upstream
                         ))}
                         <br/>
 
@@ -251,15 +316,32 @@ render(){
                             </div>
                         ))}
                         <br/><br/>
+=======
+>>>>>>> Stashed changes
 
+                            {this.state.errors.confirmPassword.length > 0 && this.state.errors.confirmPassword.map((error, index) => (
+                                <div key={index} className="error-message">
+                                    &#x2022; {error}
+                                </div>
+                            ))}
+                            <br/><br/>
+                        </div>
                         <div className="register-buttons">
-                            <LinkInClass value="Register New User" className="green-button" onClick={this.handleSubmit} /> <br/>
-                            <Link className="red-button" to={"/TestingDirectory"}>Cancel</Link>
+                            <LinkInClass value="Register" className="green-button" onClick={this.handleSubmit} /> <br/>
+                            <Link to={"/AccountPage"}>
+                                <button className={"cancel-btn"}>
+                                    Cancel
+                                </button>
+                            </Link>
+                            {/*<Link className="red-button" to={"/AccountPage"}>Cancel</Link>*/}
                         </div>
                     </form>
                 </div>
-
-
+                </div>
+                <footer>
+                    <Footer/>
+                </footer>
+            </div>
 
         )}
 }
