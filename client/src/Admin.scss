@@ -674,6 +674,10 @@ body {
   flex-direction: column;
 }
 
+.user-profile h1 {
+  display: flex;
+  justify-content: center;
+}
 
 #profilePhoto{
   width:100px;
