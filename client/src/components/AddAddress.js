@@ -11,6 +11,7 @@ export default class AddAddress extends Component {
         super(props);
         this.state={
 
+            user: [],
             address: {
                 address_line_1: "",
                 address_line_2: "",
@@ -20,144 +21,55 @@ export default class AddAddress extends Component {
                 country: "",
                 post_code: ""
             }
-
         }
     }
+
+    // Get specific user details to add their address
+    componentDidMount() {
+        axios.get(`${SERVER_HOST}/AddAddress/users/${localStorage.email}`, {headers:{"authorization":localStorage.token}})
+            .then((res => {
+                if(res.data){
+                    if(res.data.errorMessage) {
+                        console.log("Error fetching user profile")
+                    } else {
+                        console.log("User fetched: ", res.data)
+                        this.setState({user: res.data})
+                    }
+                }
+            }))
+    }
+
     handleChange = (e) => {
+        const {name, value} = e.target
         this.setState(prevState => ({
             address: {
                 ...prevState.address,
-                [e.target.name]: e.target.value
+                [name]: value
             }
         }));
     }
 
 
-    // Client side validation for Registration page
-    // if all of these return true the data will be posted
-    validateName()
-    {
-        const name = this.state.name
-        const errors = [];
-
-
-        if(/\d/.test(name)) {
-            errors.push("Name cannot contain numbers")
-        }
-        if(/[!"£_'$*^&()+=#.-]/.test(name)) {
-            errors.push("Name cannot contain special characters")
-        }
-        if(!name.trim()) {
-            errors.push("Name cannot be empty")
-        }
-
-        // update the state of name within errors with the current errors
-        this.setState(prevState => ({
-            errors: {
-                ...prevState.errors,
-                name: errors
-            }
-        }))
-        //console.log("Errors for name: ", errors)
-        return errors.length !== 0
-    }
-    validateEmail()
-    {
-        const pattern = /^[a-zA-Z0-9_.-]+@[a-zA-Z]+.[a-zA-Z]+$/
-        const email = this.state.email
-        const errors = []
-
-
-        if(!email.trim()) {
-            errors.push("Email cannot be empty")
-        }
-        if(!pattern.test(email) && email.trim()) {
-            errors.push("Invalid email format")
-        }
-
-        // update the state of email within errors with the current errors
-        this.setState(prevState => ({
-            errors: {
-                ...prevState.errors,
-                email: errors
-            }
-        }))
-        //console.log("Errors for email: ", errors)
-        return errors.length !== 0
-    }
-    validatePassword()
-    {
-        const specialCharPattern = /[!£_"$*^&()+=#.-]/
-        const password = this.state.password
-        const errors = []
-
-
-        if(password.length < 8) {
-            errors.push("Password must be > 8 characters long")
-        }
-        if(!/[0-9]/.test(password)) {
-            errors.push("Password must contain at least 1 number ")
-        }
-        if(!specialCharPattern.test(password)) {
-            errors.push("Password must contain at least 1 special character !£_$*^&()+=#.-")
-        }
-
-        // update the state of password within errors with the current errors
-        this.setState(prevState => ({
-            errors: {
-                ...prevState.errors,
-                password: errors
-            }
-        }))
-        //console.log("Errors for password: ", errors)
-        return errors.length !== 0
-    }
-    validateConfirmPassword()
-    {
-        const errors = []
-
-
-        if(this.state.password !== this.state.confirmPassword) {
-            errors.push("Passwords do not match")
-        }
-
-        // update the state of confirmPassword within errors with current errors
-        this.setState(prevState => ({
-            errors: {
-                ...prevState.errors,
-                confirmPassword: errors
-            }
-        }))
-
-        //console.log("Errors for confirmPassword: ", errors)
-        return errors.length !== 0
-    }
-
     handleSubmit=(e)=> {
-            e.preventDefault()
-            const newAddress = this.state.address
+        e.preventDefault()
+        const newAddress = this.state.address
+        const id = this.state.user._id
 
-            axios.post(`${SERVER_HOST}/address/${localStorage.email}`, newAddress)
-                .then(res =>
-                {
-                    if(res.data)
-                    {
-                        if (res.data.errorMessage)
-                        {
-                            console.log("error")
-
-                        }
-                        else
-                        {
-                            console.log("address created")
-                        }
-
-                    }else{
-                        console.log("failed to create an address")
+        axios.put(`${SERVER_HOST}/AddAddress/users/${id}`, {newAddress})
+            .then(res => {
+                if(res.data) {
+                    if(res.data.errorMessage) {
+                        console.log("Error finding user profile")
+                    } else {
+                        console.log("Address added to profile")
+                        console.log("Address: ", res.data)
                     }
-                })
+                }
+            })
     }
     render(){
+        console.log("User: ",this.state.user)
+
         return(
             <div className="add-address">
                 <div className="admin-head-container">
@@ -223,7 +135,7 @@ export default class AddAddress extends Component {
                         />
                         <br/>
                         <input
-                            name = "postcode"
+                            name = "post_code"
                             type = "text"
                             placeholder = "Postcode"
                             autoComplete="postcode"

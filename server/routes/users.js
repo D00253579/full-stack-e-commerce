@@ -34,6 +34,15 @@ router.post(`/users/Login/Register/:name/:email/:password`,upload.single("profil
                                 name: "Admin",
                                 email: "admin@admin.com",
                                 password: hash,
+                                address: {
+                                    address_line_1: "",
+                                    address_line_2: "",
+                                    address_line_3: "",
+                                    city: "",
+                                    county: "",
+                                    country: "",
+                                    post_code: "",
+                                },
                                 accessLevel: parseInt(process.env.ACCESS_LEVEL_ADMIN)
                             }, (createError, createData) => {
                                 if (createData) {
@@ -53,6 +62,15 @@ router.post(`/users/Login/Register/:name/:email/:password`,upload.single("profil
                             usersModel.create({
                                 name: req.params.name,
                                 email: req.params.email,
+                                address: {
+                                    address_line_1: "",
+                                    address_line_2: "",
+                                    address_line_3: "",
+                                    city: "",
+                                    county: "",
+                                    country: "",
+                                    post_code: "",
+                                },
                                 password: hash,
                                 profilePhotoFileName: req.file.filename
                             }, (error, data) => {
@@ -130,7 +148,7 @@ router.delete(`/users/:id`, (req, res) => {
             if (decodedToken.accessLevel >= process.env.ACCESS_LEVEL_ADMIN) {
                 usersModel.findByIdAndRemove(req.params.id, (error, data) => {
                     console.log("SERVER: Product deleted from collection")
-                    res.json(data)
+                    r
                 })
             }
         }
@@ -140,6 +158,8 @@ router.delete(`/users/:id`, (req, res) => {
 
 // Read one user via id
 router.get(`/users/:id`, (req, res) => {
+    console.log("here1")
+
     jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
         if (err) {
             res.json(`User is not logged in`)
@@ -152,17 +172,55 @@ router.get(`/users/:id`, (req, res) => {
     })
 })
 // Read one user via email
-router.get(`/users/:email`, (req, res) => {
+router.get(`/AddAddress/users/:email`, (req, res) => {
+    console.log("passed email: ", req.params.email)
+
     jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: 'HS256'}, (err, decodedToken) => {
+        console.log("here2")
         if (err) {
+            console.log("here3")
             res.json(`User is not logged in`)
         } else {
-            usersModel.findById(req.params.email, (error, data) => {
-                res.json(data)
+            usersModel.findOne({email: req.params.email}, (error, data) => {
+                if(!error){
+                    console.log("data:",data)
+                    res.json(data)
+                } else {
+                    console.log("error finding email")
+                }
+
             })
         }
 
     })
+})
+
+// Post new address to users data
+router.put(`/AddAddress/users/:id`, (req, res) => {
+    console.log(req.params.id);
+    console.log("req.body: ",req.body)
+
+    const update = {
+        $set: {
+            "address.address_line_1": req.body.newAddress.address_line_1,
+            "address.address_line_2": req.body.newAddress.address_line_2,
+            "address.address_line_3": req.body.newAddress.address_line_3,
+            "address.city": req.body.newAddress.city,
+            "address.county": req.body.newAddress.county,
+            "address.country": req.body.newAddress.country,
+            "address.post_code": req.body.newAddress.post_code,
+        }
+    };
+
+    usersModel.findByIdAndUpdate(req.params.id, update, { new: true }, (error, data) => {
+        if (data) {
+            console.log("SERVER: User found, adding address to profile");
+            res.json(data); // Send back the updated user data
+        } else {
+            console.log("SERVER: Error updating user address:", error);
+            res.status(500).json({ errorMessage: "Error updating user address" });
+        }
+    });
 })
 
 
