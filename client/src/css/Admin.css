@@ -277,13 +277,8 @@ body {
 }
 
 /* Admin product edit */
+.admin-create-product,
 .admin-edit-product {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.admin-create-product {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -310,6 +305,7 @@ body {
   justify-content: space-around;
 }
 
+.address-input,
 .create-input,
 .edit-input {
   margin-bottom: 15px;
@@ -405,6 +401,7 @@ body {
   font-size: 14px;
 }
 
+.address-input input.invalid-input,
 .create-input input.invalid-input,
 .edit-input input.invalid-input {
   border: 2px solid red;
