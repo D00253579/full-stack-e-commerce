@@ -50,6 +50,7 @@ router.post(`/products`,upload.array("photos",parseInt(process.env.MAX_NUMBER_OF
         } else {
             if (decodedToken.accessLevel >= process.env.ACCESS_LEVEL_ADMIN) {
                 let tShirtDetails=new Object()
+                tShirtDetails.product_id=req.body.product_id
                 tShirtDetails.name=req.body.name
                 tShirtDetails.colour=req.body.colour
                 tShirtDetails.size=req.body.size

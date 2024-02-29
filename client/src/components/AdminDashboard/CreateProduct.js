@@ -227,7 +227,6 @@ export default class CreateProduct extends Component {
         console.log("Inputs are valid: ",this.validateInputs())
         if(this.validateInputs()){
             let formData=new FormData()
-            formData.append("product_id",this.state.product.product_id)
             formData.append("name",this.state.product.name)
             formData.append("colour",this.state.product.colour)
             formData.append("size",this.state.product.size)
@@ -235,6 +234,8 @@ export default class CreateProduct extends Component {
             formData.append("gender",this.state.product.gender)
             formData.append("category",this.state.product.category)
             formData.append("brand",this.state.product.brand)
+            formData.append("current_stock",this.state.product.current_stock)
+            formData.append("product_id",this.state.product.product_id)
             if (this.state.selectedFiles){
                 for (let i=0; i<this.state.selectedFiles.length; i++){
                     formData.append("photos", this.state.selectedFiles[i])
