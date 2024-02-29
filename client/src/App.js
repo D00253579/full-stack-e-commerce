@@ -27,12 +27,14 @@ import Payments from "./components/Payments"
 import BuyProduct from "./components/BuyProduct";
 import PaymentMessage from "./components/PaymentMessage"
 import UserProfile from "./components/UserProfile";
+import AddAddress from "./components/AddAddress";
 
 if (typeof localStorage.accessLevel==="undefined"){
     localStorage.name="GUEST"
     localStorage.accessLevel=ACCESS_LEVEL_GUEST
     localStorage.token=null
     localStorage.profilePhoto=null
+    localStorage.email=null
 }
 
 export default class App extends Component
@@ -60,6 +62,7 @@ export default class App extends Component
                     <Route exact path={"/AdminDashboard/DeleteUsers/:id"} component={DeleteUsers}/>
                     <Route exact path={"/UserProfile/:id"} component={UserProfile}/>
                     <Route exact path={"/MainPageData"} component={MainPageData}/>
+                    <Route exact path={"/AddAddress"} component={AddAddress}/>
                     <Route path="*" component={TestingDirectory}/>
                 </Switch>
             </BrowserRouter>
