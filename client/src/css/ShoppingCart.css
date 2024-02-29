@@ -39,6 +39,14 @@
 .edit-bag > h2 {
   margin-bottom: 40px; }
 
+.bag > h1 {
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif; }
+
+.bag > h2 {
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif; }
+
 .tshirt-container {
   width: 150px;
   height: 200px;
