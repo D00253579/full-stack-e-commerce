@@ -575,10 +575,6 @@ body {
   font-family: Times New Roman, Serif, serif;
 }
 
-/*
-    Styling for checkboxes from w3schools
-    https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
- */
 .sort-button {
   display: flex;
   flex-direction: column;

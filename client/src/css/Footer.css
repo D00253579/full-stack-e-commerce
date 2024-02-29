@@ -9,10 +9,10 @@
   font-weight: bold;
   cursor: pointer; }
 
-.help-section,
+.help-section > h2,
 .link-section > h2 {
   font-family: Times New Roman, Serif, serif;
-  font-size: 16px; }
+  font-size: 18px; }
 
 .link-section > h2 {
   margin-bottom: 20px; }

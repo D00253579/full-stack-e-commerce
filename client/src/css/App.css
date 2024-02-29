@@ -5,65 +5,6 @@
   max-width: 700px;
   margin: 0 auto; }
 
-.login-container,
-.register-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-
-.register-form,
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 450px;
-  border-left: thin solid #8c8787;
-  padding: 40px;
-  border-radius: 50px;
-  background: #8c8787; }
-
-.error-message {
-  width: 60%;
-  text-align: left;
-  font-size: 15px;
-  color: red;
-  background-color: white;
-  padding: 10px;
-  border-radius: 20px; }
-
-.password-error-container {
-  background-color: white;
-  width: 60%;
-  border-radius: 20px;
-  padding: 10px; }
-
-.password-error-container div {
-  text-align: left;
-  font-size: 15px;
-  color: red;
-  background-color: white;
-  padding: 5px;
-  border-radius: 20px; }
-
-.register-container input[type="text"],
-.register-container input[type="email"],
-.register-container input[type="password"] {
-  width: 300px;
-  height: 40px;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  border-radius: 100px;
-  border: 1px solid #ccc; }
-
-.register-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-
-.logout {
-  margin-bottom: 30px; }
-
 /* link buttons */
 .green-button,
 .red-button,

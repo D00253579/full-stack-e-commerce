@@ -10,6 +10,7 @@ export default class AdminTableRow extends Component
             rowIsClicked: false
         }
     }
+  
     componentDidMount() {
             this.props.product.photos.map(photo =>{
                 return axios.get(`${SERVER_HOST}/products/photo/${photo.filename}`)
@@ -27,6 +28,7 @@ export default class AdminTableRow extends Component
             })
     }
 
+
     handleRowClick = () => {
         this.setState({rowIsClicked: true})
     }
@@ -38,8 +40,7 @@ export default class AdminTableRow extends Component
             price,
             category,
             brand,
-            current_stock,
-            photos
+            current_stock   
         } = this.props.product;
 
         return (
@@ -59,13 +60,13 @@ export default class AdminTableRow extends Component
         }
                */
                 <tr onClick={this.handleRowClick}>
-                    <td>{this.props.rowNum}</td>
+                    <td>{product_id}</td>
                     <td>{name} </td>
                     <td>{category}</td>
                     <td>{brand}</td>
                     <td>{price}</td>
                     <td>{current_stock}</td>
-                    <td>{product_id}</td>
+
                 </tr>
             )
         )

@@ -1,0 +1,178 @@
+$white: #ffffff;
+$grey-border: #363131;
+$title_font_size: 16px;
+$title_font: Times New Roman, Serif, serif;
+
+.register-head-container {
+  position: fixed;
+  padding-top: 0;
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+
+.register-page-box {
+  width: 700px;
+  height: 450px;
+  border-radius: 5px;
+  box-shadow: 20px 20px 50px grey;
+  border-color: #A26D5D;
+  border-style: outset;
+  position: relative;
+  //display: flex;
+  //flex-direction: row;
+  //flex-direction: column;
+  //align-items: center;
+}
+
+.register-container input[type="text"],
+.register-container input[type="email"],
+.register-container input[type="password"] {
+  border-color: white;
+  border-radius: 0;
+  border-style: outset;
+  height: 20px;
+  width: 250px;
+}
+
+.register-page-box > h1 {
+  font-family: Times New Roman, Serif, serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+//.login-container,
+//.register-container {
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//}
+
+.register-form,
+.login-form {
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
+  //width: 450px;
+  //border-left:thin solid #8c8787;
+  //padding: 40px;
+  //border-radius: 50px;
+  //background: #8c8787;
+}
+
+.register-form > label {
+  margin-right: 50px;
+}
+
+.error-message {
+  width: 60%;
+  text-align: left;
+  font-size: 15px;
+  color: red;
+  //background-color: white;
+  padding: 10px;
+  //border-radius: 20px;
+}
+
+.password-error-container {
+  //background-color: white;
+  width: 60%;
+  //border-radius: 20px;
+  //padding: 10px;
+}
+
+.password-error-container div {
+  text-align: left;
+  font-size: 15px;
+  color: red;
+  //background-color: white;
+  padding: 5px;
+  //border-radius: 20px;
+}
+
+
+.register-buttons > button {
+  background-color: #ccb1a7;
+  border: 2px solid $white;
+  font-family: $title-font;
+  font-size: 16px;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+
+.submit-register > button {
+  background-color: #ccb1a7;
+  border: 2px solid $white;
+  font-family: $title-font;
+  font-size: 16px;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+
+.logout {
+  margin-bottom: 30px;
+}
+
+.register-section1,
+.register-section2 {
+
+  //display: flex;
+  //flex-direction: column;
+  //padding: 70px;
+}
+
+.register-section1 {
+  float: left;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.register-section2 {
+  float: right;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+.register-buttons {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  margin-bottom: 70px;
+  //margin-right: 150px;
+  //margin-right: 20px;
+}
+
+.select-profile-image {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 80px;
+  margin-left: 40px;
+}
+
+.select-profile-image > label{
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif;
+}
+
+.register-section1 > label,
+.register-section2 > label{
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif;
+}

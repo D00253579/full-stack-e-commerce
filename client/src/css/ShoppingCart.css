@@ -16,7 +16,6 @@
   height: 450px;
   border-radius: 5px;
   box-shadow: 20px 20px 50px grey;
-  position: relative;
   border-color: #A26D5D;
   border-style: outset; }
 
@@ -35,8 +34,10 @@
 .edit-bag {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 75px; }
+  justify-content: space-between; }
+
+.edit-bag > h2 {
+  margin-bottom: 40px; }
 
 .bag > h1 {
   font-size: 16px;
@@ -98,11 +99,8 @@
 .sub-container {
   display: flex;
   flex-direction: row;
-  /* Change to row */
   align-items: center;
-  /* Center vertically */
-  justify-content: space-between;
-  /* Spacing between titles */ }
+  justify-content: space-between; }
 
 /*
     Quantity styling
@@ -142,5 +140,15 @@
 
 .minus-btn {
   margin-right: 7.5px; }
+
+.tshirt-details > h3 {
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px; }
+
+.tshirt-details > h2 {
+  margin-bottom: 20px; }
+
+.stock-container > h3 {
+  color: #73af8a; }
 
 /*# sourceMappingURL=ShoppingCart.css.map */

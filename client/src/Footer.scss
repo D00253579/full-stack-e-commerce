@@ -21,10 +21,10 @@ $title_font: Times New Roman, Serif, serif;
   cursor: pointer;
 }
 
-.help-section,
+.help-section > h2,
 .link-section > h2{
   font-family: $title_font;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .link-section > h2{

@@ -6,7 +6,6 @@ $grey-border: #363131;
 $title_font_size: 16px;
 $title_font: Times New Roman, Serif, serif;
 
-
 .bag-container {
 }
 
@@ -23,6 +22,7 @@ $title_font: Times New Roman, Serif, serif;
     padding-bottom: 100px;
   }
 
+
 /* Box shadow from w3 schools*/
 .bag-box {
   padding-top: 20px;
@@ -30,7 +30,7 @@ $title_font: Times New Roman, Serif, serif;
   height: 450px;
   border-radius: 5px;
   box-shadow: 20px 20px 50px grey;
-  position: relative;
+  //position: relative;
   border-color: #A26D5D;
   border-style: outset;
   //display: flex;
@@ -38,6 +38,7 @@ $title_font: Times New Roman, Serif, serif;
   //align-items: center;
   //justify-content: space-between;
 }
+
 
 .bag-box h1{
   margin: 0;
@@ -58,7 +59,11 @@ $title_font: Times New Roman, Serif, serif;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 75px;
+}
+
+
+.edit-bag > h2{
+  margin-bottom: 40px;
 }
 
 //.edit-bag > h2 {
@@ -140,9 +145,9 @@ $title_font: Times New Roman, Serif, serif;
 
 .sub-container{
   display: flex;
-  flex-direction: row; /* Change to row */
-  align-items: center; /* Center vertically */
-  justify-content: space-between; /* Spacing between titles */
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /*
@@ -189,12 +194,24 @@ $title_font: Times New Roman, Serif, serif;
   margin-left: 7.5px;
 }
 
+
 .minus-btn{
   margin-right: 7.5px;
 }
 
+.test{
 
+}
 
+.tshirt-details > h3{
+  font-family: $title_font;
+  font-size: 16px;
+}
 
+.tshirt-details > h2{
+  margin-bottom: 20px;
+}
 
-
+.stock-container > h3{
+  color: #73af8a;
+}
