@@ -74,7 +74,7 @@ export default class UserTable extends Component
                     <th>Name <label className="sortLabel" onClick={this.sortName}><span id="nameSort">{!this.state.nameIsAscending ? '\u25B4' : '\u25BE'} </span></label></th>
                     <th>Email</th>
                     <th>AccessLevel <label className="sortLabel" onClick={this.sortAccess}><span id="accessSort">{!this.state.accessIsAscending ? '\u25B4' : '\u25BE'} </span></label></th>
-                    <th>Address</th>
+                    <th>Country</th>
                     <th>U. Code</th>
                 </tr>
                 </thead>

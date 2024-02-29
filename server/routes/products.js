@@ -39,6 +39,7 @@ router.get(`/products/:id`, (req, res) => {
 })
 
 
+
 // Add new record
 router.post(`/products`,upload.array("photos",parseInt(process.env.MAX_NUMBER_OF_UPLOAD_FILES_ALLOWED)), (req, res) => {
 
