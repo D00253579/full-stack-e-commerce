@@ -113,7 +113,6 @@ export default class AdminTable extends Component
                     <th>Price <label className="sortLabel" onClick={this.sortPrice}><span id="priceSort">{!this.state.priceIsAscending ? '\u25B4' : '\u25BE'}</span></label></th>
                     <th>Stock <label className="sortLabel" onClick={this.sortStock}><span id="stockSort">{!this.state.stockIsAscending ? '\u25B4' : '\u25BE'}</span></label></th>
                     <th>P. Code</th>
-
                 </tr>
                 </thead>
 

@@ -10,22 +10,7 @@ export default class AdminTableRow extends Component
             rowIsClicked: false
         }
     }
-componentDidMount() {
-        this.props.product.photos.map(photo =>{
-            return axios.get(`${SERVER_HOST}/products/photo/${photo.filename}`)
-                .then(res =>{
-                    if (res.data){
-                        if (res.data.errorMessage){
-                            console.log(res.data.errorMessage)
-                        }else{
-                            document.getElementById(photo._id).src=`data:;base64,${res.data.image}`
-                        }
-                    }else{
-                        console.log("Record not found")
-                    }
-                })
-        })
-}
+
 
     handleRowClick = () => {
         this.setState({rowIsClicked: true})
@@ -38,8 +23,7 @@ componentDidMount() {
             price,
             category,
             brand,
-            current_stock,
-            photos
+            current_stock
         } = this.props.product;
 
         return (
@@ -66,7 +50,6 @@ componentDidMount() {
                     <td>{price}</td>
                     <td>{current_stock}</td>
                     <td>{product_id}</td>
-                    <td className="photos">{photos.map(photo =><img key={photo._id} id={photo._id} alt=""/>)}</td>
                 </tr>
             )
         )
