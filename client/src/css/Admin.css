@@ -1,7 +1,8 @@
-<<<<<<< Updated upstream
-=======
+@charset "UTF-8";
+
 body {
   background-color: #efe6e6; }
+
 
 /* AdminControls */
 .controls-container {
@@ -10,6 +11,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+
   /* Button style */ }
   .controls-container .controls-button {
     display: inline-block;
@@ -45,6 +47,7 @@ body {
   margin-left: 20px;
   margin-left: 20px;
   margin-bottom: 400px; }
+
   .admin-table-container .admin-table-container table {
     width: 100%;
     border-collapse: collapse;
@@ -63,6 +66,7 @@ body {
 
 .admin-table-container thead :hover {
   border-color: #363131; }
+
 
 .admin-table thead th,
 .admin-table-container tbody td {
@@ -103,6 +107,7 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 20px; }
+
 
 /* Filters */
 .filter-container {
@@ -150,6 +155,7 @@ body {
 .filter-dropdown-toggle > input[type="checkbox" i] {
   border-style: outset; }
 
+
 .filter-buttons > button {
   background-color: #ccb1a7;
   border-radius: 5px;
@@ -168,66 +174,10 @@ body {
   background-color: #A26D5D;
   border-color: #363131; }
 
->>>>>>> Stashed changes
-/*
-Error: Invalid CSS after "": expected selector, was "<<<<<<< Updated..."
-        on line 441 of Admin.scss
 
-<<<<<<< Updated upstream
-436: input[type="checkbox"] {
-437:   background-color: black;
-438: }
-439: 
-440: 
-441: <<<<<<< Updated upstream
-442: /*
-443:     Styling for checkboxes from w3schools
-444:     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
-445:  *\/
-446: //
-
-Backtrace:
-Admin.scss:441
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1218:in `expr!'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/static_parser.rb:20:in `parse_selector'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:434:in `visit_rule'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
-C:/Ruby32-x64/bin/sass:32:in `load'
-C:/Ruby32-x64/bin/sass:32:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"\": expected selector, was \"<<<<<<< Updated...\"\A         on line 441 of Admin.scss\A \A 436: input[type=\"checkbox\"] {\A 437:   background-color: black;\A 438: }\A 439: \A 440: \A 441: <<<<<<< Updated upstream\A 442: /*\A 443:     Styling for checkboxes from w3schools\A 444:     https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox\A 445:  */\A 446: //"; }
-=======
+/*         https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
  */
+    
 .filter-checkboxes {
   display: block;
   position: relative;
@@ -409,12 +359,15 @@ body:before {
 .size-selector.invalid-input {
   border: 2px solid red; }
 
+
 /*
   Price and stock slider
   https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider_round
  */
 .price-filter {
   width: 100%; }
+}
+
 
 .price-slider {
   -webkit-appearance: none;
@@ -430,6 +383,7 @@ body:before {
 .price-slider:hover {
   opacity: 1; }
 
+
 .price-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -439,12 +393,14 @@ body:before {
   background-color: #363131;
   cursor: pointer; }
 
+
 .price-slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   background: #363131;
   cursor: pointer; }
+
 
 .stock-filter h4,
 .price-filter h4 {
@@ -455,6 +411,7 @@ body:before {
 
 .stock-filter {
   width: 100%; }
+
 
 .stock-slider {
   -webkit-appearance: none;
@@ -470,12 +427,14 @@ body:before {
 .stock-slider:hover {
   opacity: 1; }
 
+
 .stock-slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   background: #363131;
   cursor: pointer; }
+
 
 .stock-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -486,12 +445,14 @@ body:before {
   background-color: #363131;
   cursor: pointer; }
 
+
 .stock-filter h4,
 .price-filter h4 {
   margin-bottom: 10px;
   font-size: 16px;
   font-family: Times New Roman, Serif, serif;
   color: #333; }
+
 
 /*End of slider styling*/
 .testing-link-container {
@@ -500,6 +461,7 @@ body:before {
   margin: 50px;
   padding: 20px;
   border: black solid 2px; }
+
 
 .testing-header {
   display: flex;
@@ -527,10 +489,12 @@ body:before {
   width: 55px;
   height: 55px; }
 
+
 .filter-container {
   width: 150px;
   border: none;
   position: absolute; }
+
 
 .filter-container > fieldset {
   position: relative;
@@ -553,10 +517,11 @@ body:before {
   display: flex;
   flex-direction: column; }
 
+
 #profilePhoto {
   width: 100px;
   height: 100px;
   border-radius: 50%; }
 
 /*# sourceMappingURL=Admin.css.map */
->>>>>>> Stashed changes
+

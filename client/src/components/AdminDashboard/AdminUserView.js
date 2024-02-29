@@ -11,8 +11,9 @@ export default class AdminUserView extends Component
         console.log("Displaying Admin view of Users")
         return (
             <div className="admin-table-container">
-                <UserTable users={this.props.users}
-                            handleRowClick={this.props.handleRowClick}
+                <UserTable
+                    users={this.props.users}
+                    updateUsers={this.props.updateUsers}
                 />
             </div>
 

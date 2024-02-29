@@ -4,8 +4,22 @@ import {Link} from "react-router-dom";
 import {ACCESS_LEVEL_ADMIN, ACCESS_LEVEL_GUEST, SERVER_HOST} from "../config/global_constants";
 import Logout from "./Login/Logout";
 import axios from "axios";
+import router from "react-router-dom/es/Router";
 export default class TestingDirectory extends Component
 {
+    constructor() {
+        super();
+
+        this.state = {
+        }
+    }
+    componentDidMount() {
+        if(localStorage.accessLevel === ACCESS_LEVEL_GUEST) {
+            const email = localStorage.email
+        }
+
+    }
+
     loginAsAdminTEST() {
         axios.post(`${SERVER_HOST}/users/Login/Login/admin@admin.com/adminadmin1!`)
             .then(res =>
@@ -17,12 +31,13 @@ export default class TestingDirectory extends Component
                     else // user successfully logged in
                     {
                         console.log("Logged in as ADMIN for testing")
-                        sessionStorage.name=res.data.name
+                        localStorage.name=res.data.name
                         localStorage.accessLevel = ACCESS_LEVEL_ADMIN
 
                     }
                 }
             })
+
 
     }
 
@@ -39,6 +54,7 @@ export default class TestingDirectory extends Component
                 <div className="testing-link-container">
                     {localStorage.accessLevel > ACCESS_LEVEL_GUEST ?
                         <div className="logout">
+                            {localStorage.profilePhoto !=="null" ? <img id="profilePhoto" src={`data:;base64,${localStorage.profilePhoto}`} alt=""/>: null}
                             <Logout/>
                         </div>
                         :
@@ -53,6 +69,7 @@ export default class TestingDirectory extends Component
                             <Link className="testing-green-button" to={"AdminDashboard/AdminDashboard/"}>Admin Dashboard</Link>
                             <Link className="testing-green-button" to={"AddTShirt/"}>Add T-Shirt</Link>
                             <Link className="testing-green-button" to={"NavBar/"}>Nav Bar</Link>
+                            <Link className="testing-green-button" to={"AddAddress/"}>Add Address</Link>
                         </div>:null
                     }
 

@@ -1,8 +1,7 @@
 import React, {Component} from "react"
 import NavBar from "./NavBar";
-import pinkTshirt from "../tshirts-images/p10/front.png";
-import {Link} from "react-router-dom";
 import Footer from "./Footer";
+import BuyProduct from "./BuyProduct";
 
 export default class Payments extends Component {
 constructor(props) {
@@ -42,7 +41,7 @@ constructor(props) {
                                     <h1>Payment Details</h1>
                                 </div>
                                 <div className="checkout-buttons">
-                                    {/*<BuyProduct productID={this.state.products._id} price={this.state.products.price}/>*/}
+                                    <BuyProduct productID={this.state.products.id} price={this.state.products.price}/>
                                 </div>
                             </div>
                         </div>
