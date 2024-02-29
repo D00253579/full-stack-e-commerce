@@ -23,7 +23,7 @@ export default class AdminTableRow extends Component
             price,
             category,
             brand,
-            current_stock
+            current_stock   
         } = this.props.product;
 
         return (
@@ -43,13 +43,12 @@ export default class AdminTableRow extends Component
         }
                */
                 <tr onClick={this.handleRowClick}>
-                    <td>{this.props.rowNum}</td>
+                    <td>{product_id}</td>
                     <td>{name} </td>
                     <td>{category}</td>
                     <td>{brand}</td>
                     <td>{price}</td>
                     <td>{current_stock}</td>
-                    <td>{product_id}</td>
                 </tr>
             )
         )
