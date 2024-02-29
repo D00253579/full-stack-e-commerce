@@ -18,7 +18,7 @@ export default class AccountPage extends Component {
                         <div className="login-box">
                             <h1>WELCOME BACK!</h1>
                             <label> Email Address:<span> *</span> </label>
-                            <input type="text" id="email-input"/><br/>
+                            <input type="text" id="email-input"/><br/><br/>
                             <label>Password:<span> *</span></label>
                             <input type="password" id="password-input"/>
                             <div className="register-box">

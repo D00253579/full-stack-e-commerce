@@ -16,7 +16,6 @@
   border-radius: 5px;
   /* Box shadow from w3 schools*/
   box-shadow: 20px 20px 50px grey;
-  position: relative;
   border-color: #A26D5D;
   border-style: outset;
   display: flex;
@@ -39,16 +38,23 @@
   align-items: center;
   justify-content: space-between; }
 
+<<<<<<< Updated upstream
 .titles {
   margin-right: 10px; }
+=======
+.edit-bag > h2 {
+  margin-bottom: 150px; }
+>>>>>>> Stashed changes
 
 .bag > h1 {
+  margin: 0;
   font-size: 16px;
   font-family: Times New Roman, Serif, serif; }
 
 .bag > h2 {
   font-size: 16px;
-  font-family: Times New Roman, Serif, serif; }
+  font-family: Times New Roman, Serif, serif;
+  padding-left: 20px; }
 
 .tshirt-container {
   width: 150px;
@@ -102,11 +108,8 @@
 .sub-container {
   display: flex;
   flex-direction: row;
-  /* Change to row */
   align-items: center;
-  /* Center vertically */
-  justify-content: space-between;
-  /* Spacing between titles */ }
+  justify-content: space-between; }
 
 /*
     Quantity styling
@@ -143,9 +146,6 @@
 
 .add-btn {
   margin-left: 7.5px; }
-
-.edit-bag > h2 {
-  margin-bottom: 40px; }
 
 .minus-btn {
   margin-right: 7.5px; }
