@@ -36,13 +36,13 @@ export default class UserTableRow extends Component
         } = this.props.users;
 
         return (
-            this.state.rowIsClicked ? (<Redirect to={`/UserProfile/${this.props.users._id}`} />
+            this.state.rowIsClicked ? (<Redirect to={`/AdminDashboard/AdminProfileView/${this.props.users._id}`} />
             ) : (
                 <tr onClick={this.handleRowClick}>
                     <td>{name}</td>
                     <td>{email}</td>
                     <td>{this.convertLevelToString(accessLevel)}</td>
-                    <td>             </td>
+                    <td>{this.props.users.address.country}</td>
                     <td>{this.props.rowNum}</td>
 
                 </tr>

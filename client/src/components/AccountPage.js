@@ -21,7 +21,7 @@ export default class AccountPage extends Component {
                 <div className="account-head-container">
                     <NavBar/>
                 </div>
-                {localStorage.accessLevel > ACCESS_LEVEL_GUEST ?
+                {localStorage.accessLevel === ACCESS_LEVEL_GUEST ?
                     <div className="account-container">
                         <div className="account-box">
                             <div className="login-box">
@@ -51,7 +51,7 @@ export default class AccountPage extends Component {
                             </div>
                         </div>
                     </div>
-                        : <Redirect to={"/UserProfile"}/>}
+                        : <Redirect to={`/UserProfile/${localStorage.email}`}/>}
                         <footer>
                             <Footer/>
                         </footer>

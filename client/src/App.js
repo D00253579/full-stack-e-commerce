@@ -30,6 +30,8 @@ import BuyProduct from "./components/BuyProduct";
 import PaymentMessage from "./components/PaymentMessage"
 import UserProfile from "./components/UserProfile";
 import AddAddress from "./components/AddAddress";
+import AdminProfileView from "./components/AdminDashboard/AdminProfileView";
+
 
 if (typeof localStorage.accessLevel==="undefined"){
     localStorage.name="GUEST"
@@ -37,6 +39,7 @@ if (typeof localStorage.accessLevel==="undefined"){
     localStorage.token=null
     localStorage.profilePhoto=null
     localStorage.email=null
+    localStorage.id=null
 }
 
 export default class App extends Component
@@ -62,7 +65,8 @@ export default class App extends Component
                     <Route exact path={"/AdminDashboard/EditProduct/:id"} component={EditProduct}/>
                     <Route exact path={"/AdminDashboard/CreateProduct/"} component={CreateProduct}/>
                     <Route exact path={"/AdminDashboard/DeleteUsers/:id"} component={DeleteUsers}/>
-                    <Route exact path={"/UserProfile/:id"} component={UserProfile}/>
+                    <Route exact path={"/AdminDashboard/AdminProfileView/:id"} component={AdminProfileView}/>
+                    <Route exact path={"/UserProfile/:email"} component={UserProfile}/>
                     <Route exact path={"/MainPageData"} component={MainPageData}/>
                     <Route exact path={"/AddAddress"} component={AddAddress}/>
                     <Route path="*" component={TestingDirectory}/>

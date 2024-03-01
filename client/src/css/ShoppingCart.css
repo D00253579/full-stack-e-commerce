@@ -1,13 +1,15 @@
 .shopping-bag-head-container {
   position: fixed;
-  padding-top: 0; }
+  padding-top: 0;
+}
 
 .bag-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 150px;
-  padding-bottom: 100px; }
+  padding-bottom: 100px;
+}
 
 /* Box shadow from w3 schools*/
 .bag-box {
@@ -18,24 +20,28 @@
   box-shadow: 20px 20px 50px grey;
   border-color: #A26D5D;
   border-style: outset;
-  overflow: scroll; }
+  overflow: scroll;
+}
 
 .bag-box h1 {
   margin: 0;
   font-family: Times New Roman, Serif, serif;
   font-weight: bold;
   font-size: 30px;
-  padding-left: 20px; }
+  padding-left: 20px;
+}
 
 .bag-box h2 {
   font-size: 16px;
-  font-family: Times New Roman, Serif, serif; }
+  font-family: Times New Roman, Serif, serif;
+}
 
 .edit-bag {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 80px; }
+  padding-bottom: 80px;
+}
 
 .tshirt-container {
   width: 150px;
@@ -43,21 +49,25 @@
   display: flex;
   flex-direction: column;
   padding-left: 20px;
-  padding-top: 30px; }
+  padding-top: 30px;
+}
 
 .tshirt-container > img {
   width: 150px;
-  height: 200px; }
+  height: 200px;
+}
 
 .total-container {
   float: right;
   align-items: center;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .checkout-buttons {
   padding-right: 20px;
-  padding-top: 90px; }
+  padding-top: 90px;
+}
 
 .checkout-buttons > button {
   background-color: #ccb1a7;
@@ -66,31 +76,38 @@
   font-size: 16px;
   padding: 5px 10px;
   border-radius: 5px;
-  float: right; }
+  float: right;
+}
 
 .checkout-buttons > button:hover {
   background-color: #A26D5D;
   border-color: #363131;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .titles {
-  margin-right: 20px; }
+  margin-right: 20px;
+}
 
 .total-container {
-  padding-bottom: 55px; }
+  padding-bottom: 55px;
+}
 
 .total-container > h3 {
-  padding-right: 20px; }
+  padding-right: 20px;
+}
 
 .tshirt-container, .edit-bag, .total-container {
   display: flex;
-  align-items: center; }
+  align-items: center;
+}
 
 .sub-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+}
 
 /*
     Quantity styling
@@ -100,7 +117,8 @@
 .edit-quantity {
   display: flex;
   align-items: center;
-  margin-top: 30px; }
+  margin-top: 30px;
+}
 
 .edit-quantity input {
   text-align: center;
@@ -109,7 +127,8 @@
   color: black;
   font-weight: 300;
   font-family: Times New Roman, Serif, serif;
-  border-color: black; }
+  border-color: black;
+}
 
 .edit-quantity > button {
   width: 20px;
@@ -117,28 +136,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none; }
+  border: none;
+}
 
 .add-btn > img,
 .minus-btn > img {
   width: 20px;
   height: 20px;
-  margin: 0; }
+  margin: 0;
+}
 
 .add-btn {
-  margin-left: 7.5px; }
+  margin-left: 7.5px;
+}
 
 .minus-btn {
-  margin-right: 7.5px; }
+  margin-right: 7.5px;
+}
 
 .tshirt-details > h3 {
   font-family: Times New Roman, Serif, serif;
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 .tshirt-details > h2 {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
 .stock-container > h3 {
-  color: #73af8a; }
+  color: #73af8a;
+}
 
 /*# sourceMappingURL=ShoppingCart.css.map */

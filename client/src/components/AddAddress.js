@@ -27,6 +27,7 @@ export default class AddAddress extends Component {
             cityIsInvalid: false,
             countryIsInvalid: false,
             postcodeIsInvalid: false,
+            redirectBackToProfile: false
         }
     }
 
@@ -54,6 +55,10 @@ export default class AddAddress extends Component {
             }
         }));
     }
+    handleReturn = () => {
+        this.setState({redirectBackToProfile: true})
+    }
+
     validateInput = () => {
         const currentInput = this.state.address
         let isValid = true
@@ -149,11 +154,13 @@ export default class AddAddress extends Component {
         }
     }
     render(){
-        console.log("User: ",this.state.user)
+        //console.log("User: ",this.state.user)
 
         return(
 
             <div>
+                {this.state.redirectBackToProfile ? <Redirect to={`UserProfile/${localStorage.email}`}/> : null}
+
                 <div className="admin-head-container">
                     <NavBar/>
                 </div>
@@ -197,7 +204,7 @@ export default class AddAddress extends Component {
 
                                 <div className="address-input">
                                     <label htmlFor={"lineThreeInput"}>
-                                        <span className="red-text">*</span>Address Line 3 :
+                                        Address Line 3 :
                                         <input
                                             name="address_line_3"
                                             type="text"
@@ -274,7 +281,7 @@ export default class AddAddress extends Component {
                     </div>
                         <div className="buttons">
                             <LinkInClass value="Add Shipping Address" className="green-button" onClick={this.handleSubmit} /> <br/>
-                            <Link className="red-button" to={"/TestingDirectory"}>Cancel</Link>
+                            <button onClick={this.handleReturn}>Return</button>
                         </div>
                 </form>
 
