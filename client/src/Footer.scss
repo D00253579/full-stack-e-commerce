@@ -90,3 +90,10 @@ $title_font: Times New Roman, Serif, serif;
   margin-left: 65px;
   font-family: Times New Roman, Serif, serif;
 }
+
+.returns-button:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  position: relative;
+  transform: scale(1.1); // scale(1.1) = scale this to 110% its original size
+}

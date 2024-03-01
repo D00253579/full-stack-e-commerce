@@ -9,6 +9,8 @@ import "./css/AccountPage.css"
 import "./css/UserProfile.css"
 import "./css/AddAddress.css"
 import "./css/RegisterPage.css"
+import "./css/ProductReturns.css"
+import "./css/CreateProduct.css"
 import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
@@ -31,6 +33,8 @@ import PaymentMessage from "./components/PaymentMessage"
 import UserProfile from "./components/UserProfile";
 import AddAddress from "./components/AddAddress";
 import AdminProfileView from "./components/AdminDashboard/AdminProfileView";
+import ProductReturn from "./components/ProductReturn";
+
 
 
 
@@ -69,6 +73,7 @@ export default class App extends Component {
                     <Route exact path={"/MainPageData"} component={MainPageData}/>
                     <Route exact path={"/AddAddress"} component={AddAddress}/>
                     <Route exact path={"/AddAddress/:email"} component={AddAddress}/>
+                    <Route exact path={"/ProductReturn"} component={ProductReturn}/>
                     <Route path="*" component={TestingDirectory}/>
                 </Switch>
             </BrowserRouter>

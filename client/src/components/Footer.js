@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import FacebookIcon from "../Images/FacebookIcon.png";
 import InstagramIcon from "../Images/InstagramIcon.png";
 import SnapchatIcon from "../Images/SnapchatIcon.png";
+import {Redirect} from "react-router-dom";
 
 
 export default class Footer extends Component {
@@ -14,16 +15,26 @@ export default class Footer extends Component {
 
         track my order - could be linked to the view previous purchases?
      */
+    constructor() {
+        super();
+        this.state = {
+            redirectToReturnProduct: false
+        }
+    }
+    redirectToReturns = () => {
+        this.setState({redirectToReturnProducts: true})
+    }
 
     render() {
         return (
             <div>
+                {this.state.redirectToReturnProducts ? <Redirect to={"/ProductReturn"}/> : null}
                 <footer>
                     <div className={"footer-container"}>
                         <div className={"help-section"}>
                             <h2>CUSTOMER CARE</h2>
                             <h3>Help & Contact Us</h3>
-                            <h3>Returns</h3>
+                            <h3 onClick={this.redirectToReturns} className="returns-button">Returns</h3>
                             <h3>Track My Order</h3>
                         </div>
                         <div className={"link-section"}>

@@ -277,14 +277,12 @@ body {
 }
 
 /* Admin product edit */
-.admin-create-product,
 .admin-edit-product {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.create-form,
 .edit-form {
   width: 40%;
   padding: 30px;
@@ -306,19 +304,12 @@ body {
 }
 
 .address-input,
-.create-input,
 .edit-input {
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: bold;
 }
 
-.form-label {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.create-input input,
 .edit-input input {
   padding: 10px;
   border: 1px solid #ccc;
@@ -331,20 +322,8 @@ body {
   font-weight: lighter;
 }
 
-.create-input input[type=text]:hover,
 .edit-input input[type=text]:hover {
   cursor: pointer;
-}
-
-.size-selector {
-  display: flex;
-  flex-direction: column;
-}
-
-.size-option input {
-  width: 13px;
-  height: 13px;
-  margin-right: 5px;
 }
 
 .err-container {
@@ -362,28 +341,12 @@ body {
   font-size: 14px;
 }
 
-.create-input input.invalid-input,
 .edit-input input.invalid-input {
-  border: 2px solid red;
-}
-
-.size-selector.invalid-input {
   border: 2px solid red;
 }
 
 .edit-input input [type=text]:hover {
   cursor: pointer;
-}
-
-.size-selector {
-  display: flex;
-  flex-direction: column;
-}
-
-.size-option input {
-  width: 13px;
-  height: 13px;
-  margin-right: 5px;
 }
 
 .err-container {
@@ -402,12 +365,7 @@ body {
 }
 
 .address-input input.invalid-input,
-.create-input input.invalid-input,
 .edit-input input.invalid-input {
-  border: 2px solid red;
-}
-
-.size-selector.invalid-input {
   border: 2px solid red;
 }
 
