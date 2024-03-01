@@ -48,6 +48,9 @@
   border-top: solid gray 1px;
   width: 100%;
 }
+.profile-container .profile-details .right .lighter-text {
+  font-weight: lighter;
+}
 .profile-container .profile-details .left {
   width: 50%;
   padding: 20px;

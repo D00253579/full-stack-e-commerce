@@ -33,6 +33,7 @@ import AddAddress from "./components/AddAddress";
 import AdminProfileView from "./components/AdminDashboard/AdminProfileView";
 
 
+
 if (typeof localStorage.accessLevel==="undefined"){
     localStorage.name="GUEST"
     localStorage.accessLevel=ACCESS_LEVEL_GUEST
@@ -42,15 +43,13 @@ if (typeof localStorage.accessLevel==="undefined"){
     localStorage.id=null
 }
 
-export default class App extends Component
-{
-    render() 
-    {
+export default class App extends Component {
+    render() {
         return (
             <BrowserRouter>
-                <Switch>                 
-                    <Route exact path="/" component={TestingDirectory} />
-                    <Route exact path="/Login/login" component={Login} />
+                <Switch>
+                    <Route exact path="/" component={TestingDirectory}/>
+                    <Route exact path="/Login/login" component={Login}/>
                     <Route exact path="/NavBar" component={NavBar}/>
                     <Route exact path="/AccountPage" component={AccountPage}/>
                     <Route exact path="/Footer" component={Footer}/>
@@ -59,8 +58,8 @@ export default class App extends Component
                     <Route exact path="/Payments" component={Payments}/>
                     <Route exact path="/BuyProduct" component={BuyProduct}/>
                     <Route exact path="/PaymentMessage" component={PaymentMessage}/>
-                    <Route exact path="/Login/Register" component={Register} />
-                    <LoggedRoute exact path="/AdminDashboard/AdminDashboard" component={AdminDashboard} />
+                    <Route exact path="/Login/Register" component={Register}/>
+                    <LoggedRoute exact path="/AdminDashboard/AdminDashboard" component={AdminDashboard}/>
                     <LoggedRoute exact path="/AdminDashboard/ViewUsers" component={ViewUsers}/>
                     <Route exact path={"/AdminDashboard/EditProduct/:id"} component={EditProduct}/>
                     <Route exact path={"/AdminDashboard/CreateProduct/"} component={CreateProduct}/>
@@ -69,6 +68,7 @@ export default class App extends Component
                     <Route exact path={"/UserProfile/:email"} component={UserProfile}/>
                     <Route exact path={"/MainPageData"} component={MainPageData}/>
                     <Route exact path={"/AddAddress"} component={AddAddress}/>
+                    <Route exact path={"/AddAddress/:email"} component={AddAddress}/>
                     <Route path="*" component={TestingDirectory}/>
                 </Switch>
             </BrowserRouter>
