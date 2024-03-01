@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import NavBar from "./NavBar";
 import LinkInClass from "./LinkInClass";
 import axios from "axios";
@@ -27,6 +27,7 @@ export default class AddAddress extends Component {
             cityIsInvalid: false,
             countryIsInvalid: false,
             postcodeIsInvalid: false,
+            redirectBackToProfile: false
         }
     }
 
@@ -54,6 +55,10 @@ export default class AddAddress extends Component {
             }
         }));
     }
+    handleReturn = () => {
+        this.setState({redirectBackToProfile: true})
+    }
+
     validateInput = () => {
         const currentInput = this.state.address
         let isValid = true
@@ -76,18 +81,6 @@ export default class AddAddress extends Component {
         } else {
             this.setState({line2IsInvalid: false})
             document.getElementById("lineTwoInput").classList.remove("invalid-input")
-
-        }
-
-        // ADDRESS LINE THREE
-        if(!currentInput.address_line_2.trim()) {
-            this.setState({line2IsInvalid: true})
-            document.getElementById("lineThreeInput").classList.add("invalid-input")
-
-            isValid = false
-        } else {
-            this.setState({line2IsInvalid: false})
-            document.getElementById("lineThreeInput").classList.remove("invalid-input")
 
         }
 
@@ -139,8 +132,9 @@ export default class AddAddress extends Component {
                         if(res.data.errorMessage) {
                             console.log("Error finding user profile")
                         } else {
-                            console.log("Address added to profile")
+                            //console.log("Address added to profile")
                             console.log("Address: ", res.data)
+                            this.handleReturn()
                         }
                     }
                 })
@@ -149,26 +143,26 @@ export default class AddAddress extends Component {
         }
     }
     render(){
-        console.log("User: ",this.state.user)
-
         return(
-
             <div>
+                {this.state.redirectBackToProfile ? <Redirect to={`/UserProfile/${localStorage.email}`}/> : null}
+
                 <div className="admin-head-container">
                     <NavBar/>
                 </div>
-                <div className="create-address">
+
+                <div className="address-container">
                     <h2>Address</h2>
-                    <p>Anything marked <span className="red-text">*</span> is a <b>mandatory</b> field</p>
+                    <p>Anything marked <span className="red-text">* </span> is a <b>mandatory</b> field</p>
 
                     <form className="address-form" noValidate = {true} id = "loginOrRegistrationForm">
 
-                        <div className="address-input-container">
+                        <div className="input-container">
 
                             <div className="left">
                                 <div className="address-input">
                                     <label>
-                                        <span className="red-text">*</span>Address Line 1 :
+                                        <span className="red-text">* </span>Address Line 1 :
                                         <input
                                             name="address_line_1"
                                             type="text"
@@ -183,7 +177,7 @@ export default class AddAddress extends Component {
 
                                 <div className="address-input">
                                     <label htmlFor={"lineTwoInput"} >
-                                        <span className="red-text">*</span>Address Line 2 :
+                                        <span className="red-text">* </span>Address Line 2 :
                                         <input
                                             name="address_line_2"
                                             type="text"
@@ -197,7 +191,7 @@ export default class AddAddress extends Component {
 
                                 <div className="address-input">
                                     <label htmlFor={"lineThreeInput"}>
-                                        <span className="red-text">*</span>Address Line 3 :
+                                        Address Line 3 :
                                         <input
                                             name="address_line_3"
                                             type="text"
@@ -212,7 +206,7 @@ export default class AddAddress extends Component {
 
                                 <div className="address-input">
                                     <label htmlFor="cityInput">
-                                        <span className="red-text">*</span>City :
+                                        <span className="red-text">* </span>City :
                                         <input
                                             name="city"
                                             type="text"
@@ -243,7 +237,7 @@ export default class AddAddress extends Component {
 
                                 <div className="address-input">
                                     <label htmlFor="countryInput">
-                                        <span className="red-text">*</span>Country :
+                                        <span className="red-text">* </span>Country :
                                         <input
                                             name="country"
                                             type="text"
@@ -258,7 +252,7 @@ export default class AddAddress extends Component {
 
                                 <div className="address-input">
                                     <label htmlFor="postcodeInput">
-                                        <span className="red-text">*</span>Postcode :
+                                        <span className="red-text">* </span>Postcode :
                                         <input
                                             name="post_code"
                                             type="text"
@@ -270,19 +264,19 @@ export default class AddAddress extends Component {
                                         />
                                     </label>
                                 </div>
+                            </div>
                         </div>
-                    </div>
                         <div className="buttons">
                             <LinkInClass value="Add Shipping Address" className="green-button" onClick={this.handleSubmit} /> <br/>
-                            <Link className="red-button" to={"/TestingDirectory"}>Cancel</Link>
+                            <button onClick={this.handleReturn}>Return</button>
                         </div>
-                </form>
+                    </form>
 
+                </div>
             </div>
-        </div>
 
 
 
 
-    )}
+        )}
 }

@@ -1,9 +1,9 @@
-.create-address {
+.address-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.create-address .buttons {
+.address-container .buttons {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
@@ -18,27 +18,31 @@
   margin-bottom: 350px;
 }
 
-.address-input-container {
+.input-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.address-input-container .address-input {
+.input-container .address-input input.invalid-input {
+  border-bottom: 1px solid red;
+  border-top: 1px solid red;
+}
+.input-container .address-input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.address-input-container .address-input label {
+.input-container .address-input label {
   font-weight: lighter;
 }
-.address-input-container .address-input input {
+.input-container .address-input input {
   border-style: none;
   margin-left: 20px;
 }
-.address-input-container .address-input .red-text {
+.input-container .address-input .red-text {
   font-size: 15px;
 }
-.address-input-container .address-input .address-input input[type=text]:hover {
+.input-container .address-input .address-input input[type=text]:hover {
   cursor: pointer;
 }
 
