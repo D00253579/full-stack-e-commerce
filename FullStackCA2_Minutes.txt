@@ -139,3 +139,65 @@ Caitlin
 - Ask Derek about the user purchase history vs previous history 
 
 As a group get more tshirt data, which can be one of the last tasks. 
+
+29/02/24 at 2pm 
+Meeting attendees: 
+Caitlin, Jamie & Luke
+
+Topics of Discussion: 
+Tasks completed since the last meeting: 
+
+Luke 
+- Basic user profile page
+- Admin table changed from showing level to the admin or customer
+- Address saves to the user
+
+Jamie 
+- Displaying user profile photo
+- Pulled in the product images and display on main page
+- Atlas is fully set up and working
+
+Caitlin 
+- Footer is finished 
+- Finished the account page (needs properly linked to the login)
+- Almost Finished the register page 
+
+Tasks we plan on doing: 
+Luke 
+- Returns page layout 
+- Return products
+
+Last minute things:
+- Fix the search bar display
+- MongoDB document validation
+
+Jamie 
+- Link account page to login 
+- Payments 
+- Purchase products
+- View purchase history (user) - have the option to view in the user profile 
+- a guest customer can purchase products. If a customer makes a purchase, you will need to save minimal     customer details (name, address, phone, email) along with the product sale details, so that the       
+ administrator can view this sale's purchase history (2.5%)
+- Change stock levels (admin side)
+- Selected product page layout - showing the 3 images for each tshirt 
+
+Caitlin
+- Style user profile
+- Main Page 
+- Style the selected product page layout 
+- Put in the x button for delete for the table (then the question comes up of are you sure?)
+- x button for the delete users
+- X button to go out of the account page and other pages
+- Layout for the admin dashboard when the admin logs in 
+- Creating options for product dashboard, users dashboard, or purchase history dashboard
+- Style the returns Page 
+- Remove Derek's bootstrap code
+- Fix the positioning of the logo 
+- Make responsive 
+
+Last minute things: 
+- Middleware & error handling - Jamie
+- Remote server (google cloud) - Jamie 
+- The products dashboard, customers dashboard and purchase history dashboards must allow the administrator to view, filter, search and sort items (2.5%)
+- The previous history dashboard must allow a logged-in customer to view, filter, search and sort items (2.5%)
+

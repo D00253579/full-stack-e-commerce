@@ -17,7 +17,8 @@
   border-radius: 5px;
   box-shadow: 20px 20px 50px grey;
   border-color: #A26D5D;
-  border-style: outset; }
+  border-style: outset;
+  overflow: scroll; }
 
 .bag-box h1 {
   margin: 0;
@@ -28,24 +29,13 @@
 
 .bag-box h2 {
   font-size: 16px;
-  font-family: Times New Roman, Serif, serif;
-  padding-left: 20px; }
+  font-family: Times New Roman, Serif, serif; }
 
 .edit-bag {
   display: flex;
   align-items: center;
-  justify-content: space-between; }
-
-.edit-bag > h2 {
-  margin-bottom: 40px; }
-
-.bag > h1 {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif; }
-
-.bag > h2 {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif; }
+  justify-content: space-between;
+  padding-bottom: 80px; }
 
 .tshirt-container {
   width: 150px;

@@ -12,6 +12,7 @@ export default class AdminTableRow extends Component
     }
     
 
+
     handleRowClick = () => {
         this.setState({rowIsClicked: true})
     }
