@@ -49,7 +49,7 @@ export default class CreateProduct extends Component {
                 if (res.data) {
                     if (res.data.errorMessage) {
                     } else {
-                        console.log("Records read to Admin dashboard");
+                        console.log("Records read to CreateProduct");
                         this.setState({products: res.data});
                     }
                 } else {
@@ -216,8 +216,10 @@ export default class CreateProduct extends Component {
 
         //console.log(this.state.products)
         // Validate Product ID to check if it's already assigned to a product
-        const isIdInvalid = this.state.products.some(p => p.product_id === product.product_id)
+        const isIdInvalid = this.state.products.some(p => p.product_id === parseInt(product.product_id))
+        console.log(isIdInvalid)
         if(isIdInvalid) {
+            console.log("here")
             document.getElementById("idInput").classList.add("invalid-input")
             this.setState({
                 idIsInvalid: true,
