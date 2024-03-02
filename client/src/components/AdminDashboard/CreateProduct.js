@@ -442,7 +442,6 @@ export default class CreateProduct extends Component {
                                     type="file" multiple onChange={this.handleFileChange} name="photos" id="photoInput"
                                 />
                             </label>
-                        <MainPage photos={this.state.selectedFiles}/>
                         </div>
 
                         <div className="form-controls">

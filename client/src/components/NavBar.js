@@ -1,12 +1,10 @@
 import React, {Component} from "react"
-import {Link} from "react-router-dom"
+import {Redirect, Link} from "react-router-dom"
 import Logo from "../Images/logo.png"
 import AccountIcon from "../Images/AccountIcon.png"
 import BagIcon from "../Images/BagIcon.png"
 import SearchIcon from "../Images/SearchIcon.png"
-import login from "./Login/Login";
-import {SERVER_HOST} from "../config/global_constants";
-import ShoppingCart from "./ShoppingCart";
+import {SERVER_HOST, ACCESS_LEVEL_GUEST} from "../config/global_constants";
 import SearchDropdown from "./SearchDropdown";
 import axios from "axios";
 
@@ -18,8 +16,10 @@ export default class NavBar extends Component {
             products: [],
             searchResults: [],
             searchInput: "",
+            userIsLoggedIn: localStorage.accessLevel > ACCESS_LEVEL_GUEST
         }
     }
+
     componentDidMount() {
         // Fetch products in the parent component
         axios.get(`${SERVER_HOST}/products`)
@@ -42,7 +42,7 @@ export default class NavBar extends Component {
 
     handleSearchChange = (e) => {
         this.setState({searchInput: e.target.value})
-        if(this.state.searchInput.length > 0) {
+        if (this.state.searchInput.length > 0) {
             this.handleProductSearch()
         } else {
             this.setState({searchResults: []})
@@ -52,12 +52,12 @@ export default class NavBar extends Component {
     handleProductSearch = () => {
         let matchingProducts = this.state.products.filter((product) =>
             (product.name.toLowerCase().includes(this.state.searchInput.toLowerCase()) ||
-            product.brand.toLowerCase().includes(this.state.searchInput.toLowerCase()))
+                product.brand.toLowerCase().includes(this.state.searchInput.toLowerCase()))
         )
 
-        matchingProducts.sort((a, b) => a.name < b.name?-1:1)
+        matchingProducts.sort((a, b) => a.name < b.name ? -1 : 1)
         this.setState({searchResults: matchingProducts})
-        console.log("Found Products: ",matchingProducts)
+        console.log("Found Products: ", matchingProducts)
     }
 
     render() {
@@ -68,7 +68,7 @@ export default class NavBar extends Component {
                     <div className={"container"}>
                         <div className={"search-container"}>
                             <div className="search-bar">
-                                <input        
+                                <input
                                     type="text"
                                     id="search"
                                     placeholder="Search for names and brands"
@@ -93,14 +93,20 @@ export default class NavBar extends Component {
                                 <img src={Logo} alt="logo"/>
                             </i>
                         </div>
-
-                        <div className={"icons-container"}>
+                        {this.state.userIsLoggedIn ? <div className={"icons-container"}>
+                            <Link to={`/UserProfile/${localStorage.email}`}>
+                                <i className={"account"}>
+                                    <img src={AccountIcon} alt="Account Tab"/>
+                                </i>
+                            </Link>
+                        </div> : <div className={"icons-container"}>
                             <Link to={"/AccountPage"}>
                                 <i className={"account"}>
                                     <img src={AccountIcon} alt="Account Tab"/>
                                 </i>
                             </Link>
-                        </div>
+                        </div>}
+
                         <div className={"icons-container"}>
                             <Link to={"/ShoppingCart"}>
                                 <i className={"shopping-bag"}>

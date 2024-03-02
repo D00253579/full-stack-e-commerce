@@ -9,7 +9,6 @@ import "./css/AccountPage.css"
 import "./css/UserProfile.css"
 import "./css/AddAddress.css"
 import "./css/RegisterPage.css"
-import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import AccountPage from "./components/AccountPage";
@@ -30,6 +29,9 @@ import BuyProduct from "./components/BuyProduct";
 import PaymentMessage from "./components/PaymentMessage"
 import UserProfile from "./components/UserProfile";
 import AddAddress from "./components/AddAddress";
+import AdminProfileView from "./components/AdminDashboard/AdminProfileView";
+import TShirtView from "./components/TShirtView";
+
 
 if (typeof localStorage.accessLevel==="undefined"){
     localStorage.name="GUEST"
@@ -45,13 +47,14 @@ export default class App extends Component
     {
         return (
             <BrowserRouter>
-                <Switch>                 
-                    <Route exact path="/" component={TestingDirectory} />
-                    <Route exact path="/Login/login" component={Login} />
+
+                <Switch>
+                    <Route exact path="/" component={TestingDirectory}/>
                     <Route exact path="/NavBar" component={NavBar}/>
                     <Route exact path="/AccountPage" component={AccountPage}/>
                     <Route exact path="/Footer" component={Footer}/>
                     <Route exact path="/MainPage" component={MainPage}/>
+                    <Route exact path={"/TShirtView/:id"} component={TShirtView}/>
                     <Route exact path="/ShoppingCart" component={ShoppingCart}/>
                     <Route exact path="/Payments" component={Payments}/>
                     <Route exact path="/BuyProduct" component={BuyProduct}/>

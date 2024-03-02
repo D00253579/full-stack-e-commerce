@@ -34,6 +34,7 @@ router.post(`/users/Login/Register/:name/:email/:password`,upload.single("profil
                                 name: "Admin",
                                 email: "admin@admin.com",
                                 password: hash,
+                                profilePhotoFileName: req.file.filename,
                                 address: {
                                     address_line_1: "",
                                     address_line_2: "",
@@ -46,11 +47,10 @@ router.post(`/users/Login/Register/:name/:email/:password`,upload.single("profil
                                 accessLevel: parseInt(process.env.ACCESS_LEVEL_ADMIN)
                             }, (createError, createData) => {
                                 if (createData) {
-                                    const token = jwt.sign({
-                                        email: createData.email,
-                                        accessLevel: createData.accessLevel
-                                    }, JWT_PRIVATE_KEY, {algorithm: 'HS256', expiresIn: process.env.JWT_EXPIRY})
-                                    res.json({name: createData.name, accessLevel: createData.accessLevel, token: token})
+                                    const token = jwt.sign({email: createData.email,accessLevel: createData.accessLevel}, JWT_PRIVATE_KEY, {algorithm: 'HS256', expiresIn: process.env.JWT_EXPIRY})
+                                    fs.readFile(`${process.env.TSHIRT_FILES_FOLDER}/${req.file.filename}`, 'base64', (err,fileData)=>{
+                                        res.json({name: createData.name, accessLevel: createData.accessLevel, profilePhoto:fileData,token: token})
+                                    })
                                 } else {
                                     res.json({errorMessage: `Failed to create Admin user for testing purposes`})
                                 }
@@ -92,7 +92,7 @@ router.post(`/users/Login/Register/:name/:email/:password`,upload.single("profil
     }
 })
 
-router.post(`/users/Login/Login/:email/:password`, (req, res) => {
+router.post(`/users/AccountPage/:email/:password`, (req, res) => {
     usersModel.findOne({email: req.params.email}, (error, data) => {
 
         if (data) {
