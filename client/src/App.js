@@ -11,6 +11,7 @@ import "./css/AddAddress.css"
 import "./css/RegisterPage.css"
 import "./css/ProductReturns.css"
 import "./css/CreateProduct.css"
+import "./css/EditProduct.css"
 import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";

@@ -309,25 +309,8 @@ body {
 
 
 /* Admin product edit */
-.admin-edit-product {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.edit-form {
-  width: 40%;
-  padding: 30px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  background-color: #f9f9f9;
-  margin-bottom: 350px;
-}
 
-.edit-form label {
-  font-size: 30px;
-  font-weight: bold;
-}
 
 
 .form-controls {
@@ -336,37 +319,28 @@ body {
   justify-content: space-around;
 }
 
-.address-input,
-.edit-input {
+.address-input {
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: bold;
 }
 
 
-.edit-input input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.edit-input input[type="text"] {
-  width: calc(100% - 22px); /* Adjusted to account for padding and border */
-  font-size: 20px;
-  font-weight: lighter;
-}
-
-.edit-input input[type="text"]:hover {
-  cursor: pointer;
-}
-
-
 .err-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
+
+.err-container div {
+  width: 80%;
+}
+
+.err {
+  color: red;
+  font-size: 14px;
+}
+
 
 .err-container div {
   width: 80%;
@@ -378,35 +352,7 @@ body {
   font-size: 14px;
 }
 
-.edit-input input.invalid-input {
-  border: 2px solid red;
-}
-
-.edit-input input [ type = "text" ]:hover {
-  cursor: pointer;
-}
-
-
-
-.err-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-.err-container div {
-  width: 80%;
-
-}
-
-.err {
-  color: red;
-  font-size: 14px;
-}
-
-.address-input input.invalid-input,
-.edit-input input.invalid-input {
+.address-input input.invalid-input {
   border: 2px solid red;
 }
 

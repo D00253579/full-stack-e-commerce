@@ -31,7 +31,8 @@ export default class EditProduct extends Component {
                 image_1: "",
                 image_2: "",
                 image_3: ""
-            }
+            },
+            alternateSizes: true // true -> adult, false -> kids
         }
     }
     componentDidMount() {
@@ -53,8 +54,17 @@ export default class EditProduct extends Component {
                     console.log("Product not found")
                 }
             })
+        console.log(this.handleSizeInputChange())
     }
 
+    handleSizeInputChange = () => {
+        const size = this.state.product.size
+        const sizesToCheck = ["xs","small","m","l","xl"]
+
+        // returns true if this product is for adults and false for kids
+        return sizesToCheck.some(sizesToCheck => size.includes(sizesToCheck))
+
+    }
 
     handleChange = (e) => {
         const name = e.target.name
@@ -245,7 +255,7 @@ export default class EditProduct extends Component {
                 <div className="admin-head-container" id="top-of-form">
                     <Navbar/>
                 </div>
-                <div className="admin-edit-product">
+                <div className="edit-product-container">
                     <h1>Update Product</h1>
                     <form className="edit-form" >
 
@@ -260,7 +270,7 @@ export default class EditProduct extends Component {
                             : null
                         }
                         <div className="edit-input">
-                            <label className="form-label" htmlFor="nameInput">
+                            <label htmlFor="nameInput">
                                 Name {this.state.nameIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
@@ -273,7 +283,7 @@ export default class EditProduct extends Component {
                         </div>
 
                         <div className="edit-input">
-                            <label className="form-label" htmlFor="colourInput">
+                            <label htmlFor="colourInput">
                                 Colour {this.state.colourIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
@@ -328,7 +338,7 @@ export default class EditProduct extends Component {
                             </fieldset>
                         </div>
                         <div className="edit-input">
-                            <label className="form-label" htmlFor="priceInput">
+                            <label htmlFor="priceInput">
                                 Price {this.state.priceIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
@@ -340,7 +350,7 @@ export default class EditProduct extends Component {
                             </label>
                         </div>
                         <div className="edit-input">
-                            <label className="form-label" htmlFor="genderInput">
+                            <label htmlFor="genderInput">
                                 Gender {this.state.genderIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
@@ -352,7 +362,7 @@ export default class EditProduct extends Component {
                             </label>
                         </div>
                         <div className="edit-input">
-                            <label className="form-label" htmlFor="categoryInput">
+                            <label htmlFor="categoryInput">
                                 Category {this.state.categoryIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"
@@ -364,7 +374,7 @@ export default class EditProduct extends Component {
                             </label>
                         </div>
                         <div className="edit-input">
-                            <label className="form-label" htmlFor="brandInput">
+                            <label htmlFor="brandInput">
                                 Brand {this.state.brandIsInvalid ? <span className="err">*</span> : null}
                                 <input
                                     type="text"

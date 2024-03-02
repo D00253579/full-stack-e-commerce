@@ -224,7 +224,7 @@ export default class CreateProduct extends Component {
             this.setState({
                 idIsInvalid: true,
                 idAlreadyAssigned: true,
-                inputErrMessage: `Product ID ${product.product_id} is already assigned to a product.`
+                inputErrMessage: `ID ${product.product_id} is already assigned to a product.`
             })
             isValid = false
         } else {
