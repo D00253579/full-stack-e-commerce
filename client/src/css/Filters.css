@@ -1,47 +1,54 @@
 .filter-container {
   width: 300px;
   padding: 20px;
-  /* Styling for filter dropdown menus */ }
-  .filter-container .filter-buttons {
-    margin: 10px;
-    display: flex;
-    justify-content: center; }
-  .filter-container .filter-dropdown.open .filter-dropdown-menu {
-    display: block; }
-  .filter-container .filter-dropdown-menu {
-    display: none;
-    top: 0;
-    left: 100%;
-    padding: 10px;
-    z-index: 1; }
-  .filter-container .filter-dropdown-menu label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    font-family: Times New Roman, Serif, serif;
-    font-size: 16px; }
-  .filter-container .filter-dropdown-toggle {
-    width: 100%;
-    background-color: #ccb1a7;
-    /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
-    border: 1px solid #ffffff;
-    border-radius: 3px;
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: background-color 0.8ms ease;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: Times New Roman, Serif, serif;
-    font-size: 14px;
-    font-weight: bold; }
-  .filter-container .filter-dropdown-toggle:hover {
-    background-color: #ffffff;
-    border-color: #363131; }
+  /* Styling for filter dropdown menus */
+}
+.filter-container .filter-buttons {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.filter-container .filter-dropdown.open .filter-dropdown-menu {
+  display: block;
+}
+.filter-container .filter-dropdown-menu {
+  display: none;
+  top: 0;
+  left: 100%;
+  padding: 10px;
+  z-index: 1;
+}
+.filter-container .filter-dropdown-menu label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px;
+}
+.filter-container .filter-dropdown-toggle {
+  width: 100%;
+  background-color: #ccb1a7; /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.8ms ease;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Times New Roman, Serif, serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+.filter-container .filter-dropdown-toggle:hover {
+  background-color: #ffffff;
+  border-color: #363131;
+}
 
-.filter-dropdown-toggle > input[type="checkbox" i] {
-  border-style: outset; }
+.filter-dropdown-toggle > input[type=checkbox i] {
+  border-style: outset;
+}
 
 .filter-buttons > button {
   background-color: #ccb1a7;
@@ -55,11 +62,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
-  font-family: Times New Roman, Serif, serif; }
+  font-family: Times New Roman, Serif, serif;
+}
 
 .filter-buttons > button:hover {
   background-color: #A26D5D;
-  border-color: #363131; }
+  border-color: #363131;
+}
 
 /*
     Checkbox styling
@@ -73,14 +82,16 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 .filter-checkboxes input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
-  width: 0; }
+  width: 0;
+}
 
 .checkmark {
   position: absolute;
@@ -88,21 +99,26 @@
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: white; }
+  background-color: white;
+}
 
 .filter-checkboxes:hover input ~ .checkmark {
-  background-color: #ccc; }
+  background-color: #ccc;
+}
 
 .filter-checkboxes:checked ~ .checkmark {
-  background-color: #363131; }
+  background-color: #363131;
+}
 
 .checkmark:after {
   content: "";
   position: absolute;
-  display: none; }
+  display: none;
+}
 
 .filter-checkboxes input:checked ~ .checkmark:after {
-  display: block; }
+  display: block;
+}
 
 .filter-checkboxes .checkmark:after {
   left: 9px;
@@ -113,7 +129,8 @@
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  transform: rotate(45deg); }
+  transform: rotate(45deg);
+}
 
 /* */
 /*
@@ -123,41 +140,49 @@
   display: flex;
   padding-left: 20px;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .filter-button > h1 {
   font-size: 18px;
-  font-family: Times New Roman, Serif, serif; }
+  font-family: Times New Roman, Serif, serif;
+}
 
 .filter-icon:hover {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .filter-icon > img {
   width: 30px;
-  height: 30px; }
+  height: 30px;
+}
 
 .filter-container {
   width: 150px;
   border: none;
-  position: absolute; }
+  position: absolute;
+}
 
 .filter-container > fieldset {
   position: relative;
   border: none;
-  padding-top: 100px; }
+  padding-top: 100px;
+}
 
 .filter-box {
   display: flex;
   /*flex-direction: column;*/
   align-items: center;
-  /* margin-left: auto;*/ }
+  /* margin-left: auto;*/
+}
 
 /*
   Price and stock slider
   https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider_round
  */
 .price-filter {
-  width: 100%; }
+  width: 100%;
+}
 
 .price-slider {
   -webkit-appearance: none;
@@ -167,11 +192,13 @@
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s; }
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
 
 .price-slider:hover {
-  opacity: 1; }
+  opacity: 1;
+}
 
 .price-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -180,24 +207,28 @@
   height: 15px;
   border-radius: 50%;
   background-color: #363131;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .price-slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   background: #363131;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .stock-filter h4,
 .price-filter h4 {
   margin-bottom: 10px;
   font-size: 16px;
   font-family: Times New Roman, Serif, serif;
-  color: #333; }
+  color: #333;
+}
 
 .stock-filter {
-  width: 100%; }
+  width: 100%;
+}
 
 .stock-slider {
   -webkit-appearance: none;
@@ -207,18 +238,21 @@
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s; }
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
 
 .stock-slider:hover {
-  opacity: 1; }
+  opacity: 1;
+}
 
 .stock-slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   background: #363131;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .stock-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -227,14 +261,16 @@
   height: 15px;
   border-radius: 50%;
   background-color: #363131;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .stock-filter h4,
 .price-filter h4 {
   margin-bottom: 10px;
   font-size: 16px;
   font-family: Times New Roman, Serif, serif;
-  color: #333; }
+  color: #333;
+}
 
 /*End of slider styling*/
 
