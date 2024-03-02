@@ -1,9 +1,15 @@
 import React, {Component} from "react"
-import MainPage from "./MainPage";
+import {Redirect} from "react-router-dom";
 import axios from "axios";
 import {SERVER_HOST} from "../config/global_constants";
 
 export default class MainPagePhotoData extends Component{
+    constructor(props) {
+        super(props)
+        this.state = {
+            redirectToTShirtView:false
+        }
+    }
     componentDidMount() {
         this.props.products.photos.map(photo =>{
             return axios.get(`${SERVER_HOST}/products/photo/${photo.filename}`)
@@ -20,10 +26,16 @@ export default class MainPagePhotoData extends Component{
                 })
         })
     }
+    handleReturn = () => {
+        this.setState({redirectToTShirtView: true})
+    }
 render(){
 return(
     <div>
-        {this.props.products.photos.map(photo => <img key={photo._id} id={photo._id} alt={""}/>)}
+
+        {this.props.products.photos.map(photo => <button onClick={this.handleReturn}><img key={photo._id}  id={photo._id} alt={""} /></button>)}
+        {this.state.redirectToTShirtView ? <Redirect to={`/TShirtView/${this.props.products._id}`}/> : null }
+
     </div>
 )
 }

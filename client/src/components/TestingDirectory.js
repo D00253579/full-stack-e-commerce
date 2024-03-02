@@ -21,7 +21,7 @@ export default class TestingDirectory extends Component
     }
 
     loginAsAdminTEST() {
-        axios.post(`${SERVER_HOST}/users/Login/Login/admin@admin.com/adminadmin1!`)
+        axios.post(`${SERVER_HOST}/users/AccountPage/luke@admin.com/adminadmin1!`)
             .then(res =>
             {
                 if(res.data)
