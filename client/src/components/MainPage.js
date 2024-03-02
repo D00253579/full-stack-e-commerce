@@ -7,6 +7,7 @@ import axios from "axios";
 import {SERVER_HOST} from "../config/global_constants";
 import MainPageData from "./MainPageData";
 
+
 export default class MainPage extends Component {
     constructor(props) {
         super(props)
@@ -42,6 +43,7 @@ export default class MainPage extends Component {
                 <div className="testing-return"><Link className="testing-red-button"
                                                       to={"/TestingDirectory`"}>RETURN</Link></div>
                 <div className="main-container">
+
 
                 </div>
                 <footer>

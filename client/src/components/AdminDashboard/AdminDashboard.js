@@ -11,6 +11,7 @@ import FilterImage from "../../Images/FilterImage.png";
 import SortImage from "../../Images/SortIcon.png";
 import AdminMenu from "./AdminMenu";
 
+
 export default class AdminDashboard extends Component {
 
     constructor(props) {
@@ -39,13 +40,16 @@ export default class AdminDashboard extends Component {
                         this.setState({
                             products: res.data,       // This state of products when passed will have the filters applied
                             defaultProducts: res.data // keep a default view for filtering
+
                         });
+                        this.sortName()
                     }
                 } else {
                     console.log("Record not found");
                 }
             });
     }
+
 
     updateProducts = (newProductState) => {
         this.setState({products: newProductState})
@@ -56,9 +60,10 @@ export default class AdminDashboard extends Component {
     sortName = () => { // default descending
         let productNaturalOrderByName = [...this.state.products] // soft copy of products to manipulate
 
-        let descendingProducts = productNaturalOrderByName.sort((a, b) => a.name < b.name ? -1 : 1)
-        this.updateProducts(descendingProducts)
-        console.log("Natural order set: product.name DESC")
+
+            let descendingProducts = productNaturalOrderByName.sort((a, b) => a.name < b.name?-1:1)
+            this.updateProducts(descendingProducts)
+            console.log("Natural order set: product.name DESC")
     }
 
     /*
@@ -83,6 +88,7 @@ export default class AdminDashboard extends Component {
                     <div className="side-menu">
                         <AdminMenu/>
                     </div>
+
                     <div className={"sort-box"}>
                         <div className={"sort-button"}>
                             <h1>SORT</h1>
@@ -116,6 +122,7 @@ export default class AdminDashboard extends Component {
                                 )}
                             </div>
                         </div>
+
 
                         <div className="testing-return"><Link className="testing-red-button"
                                                               to={"/TestingDirectory"}>RETURN</Link></div>

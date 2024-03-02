@@ -5,12 +5,14 @@ import {Redirect} from "react-router-dom";
 import Navbar from "../NavBar";
 import Footer from "../Footer";
 
+
 export default class EditProduct extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            defaultProduct: [],
+
+            defaultProduct : [],
             redirectToDashboard: false,
             inputsAreInvalid: false,
             nameIsInvalid: false,
@@ -20,7 +22,8 @@ export default class EditProduct extends Component {
             categoryIsInvalid: false,
             brandIsInInvalid: false,
             stockIsInInvalid: false,
-            product: {
+
+            product : {
                 name: "",
                 colour: "",
                 size: [],
@@ -41,17 +44,16 @@ export default class EditProduct extends Component {
         // console.log(productID)
 
         // get the product with the matching id from database collection
-        axios.get(`${SERVER_HOST}/products/${productID}`, {headers: {"authorization": localStorage.token}})
+
+        axios.get(`${SERVER_HOST}/products/${productID}`,{headers:{"authorization":localStorage.token}})
             .then(res => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
+                if(res.data) {
+                    if(res.data.errorMessage) {
 
                     } else {
                         console.log("Product found and displaying in EditProduct")
-                        this.setState({
-                            product: res.data,
-                            defaultProduct: res.data
-                        }) // set state of product to response data
+                        this.setState({product: res.data,
+                                              defaultProduct: res.data}) // set state of product to response data
                     }
                 } else {
                     console.log("Product not found")
@@ -72,7 +74,8 @@ export default class EditProduct extends Component {
     }
     handleCheckboxChange = (e) => {
         const {checked, value} = e.target
-        if (checked) { // if checkbox is checked add it to sizes array in product state
+
+        if(checked) { // if checkbox is checked add it to sizes array in product state
             this.setState(prevState => ({
                 product: {
                     ...prevState.product,
@@ -95,7 +98,8 @@ export default class EditProduct extends Component {
         let isValid = true // true = valid
         console.log(product.price)
         //console.log("Product: ", product)
-        if (!product.name.trim()) {              // name
+
+        if(!product.name.trim()) {              // name
             isValid = false
             document.getElementById("nameInput").classList.add("invalid-input")
             this.setState({nameIsInvalid: true})
@@ -105,6 +109,7 @@ export default class EditProduct extends Component {
         }
 
         if (!product.colour.trim()) {            // colour
+
             isValid = false
             document.getElementById("colourInput").classList.add("invalid-input")
             this.setState({colourIsInvalid: true})
@@ -114,7 +119,8 @@ export default class EditProduct extends Component {
 
         }
 
-        if (product.size.length === 0) {         // size
+
+        if(product.size.length === 0) {         // size
             isValid = false
             document.getElementById("sizeSelector").classList.add("invalid-input")
             this.setState({sizeIsInvalid: true})
@@ -125,7 +131,8 @@ export default class EditProduct extends Component {
 
         }
 
-        if (!String(product.price).trim()) {             // price
+
+        if(!String(product.price).trim()) {             // price
             isValid = false
             document.getElementById("priceInput").classList.add("invalid-input")
             this.setState({priceIsInvalid: true})
@@ -136,7 +143,8 @@ export default class EditProduct extends Component {
 
         }
 
-        if (!product.gender.trim()) {            // gender
+
+        if(!product.gender.trim()) {            // gender
             isValid = false
             document.getElementById("genderInput").classList.add("invalid-input")
             this.setState({genderIsInvalid: true})
@@ -147,7 +155,8 @@ export default class EditProduct extends Component {
 
         }
 
-        if (!product.category.trim()) {          // category
+
+        if(!product.category.trim()) {          // category
             isValid = false
             document.getElementById("categoryInput").classList.add("invalid-input")
             this.setState({categoryIsInvalid: true})
@@ -157,7 +166,8 @@ export default class EditProduct extends Component {
             this.setState({categoryIsInvalid: false})
         }
 
-        if (!product.brand.trim()) {             // brand
+
+        if(!product.brand.trim()) {             // brand
             isValid = false
             document.getElementById("brandInput").classList.add("invalid-input")
             this.setState({brandIsInvalid: true})
@@ -167,7 +177,8 @@ export default class EditProduct extends Component {
 
         }
 
-        if (!isValid) { // if inputs are invalid trigger visual response to let user know
+
+        if(!isValid) { // if inputs are invalid trigger visual response to let user know
             this.setState({inputsAreInvalid: true})
         } else {
             this.setState({inputsAreInvalid: false})
@@ -197,16 +208,17 @@ export default class EditProduct extends Component {
         }
 
         // if function returns false then one or more inputs are empty, if true send updated product to server
-        if (!this.validateInputs(updatedProduct)) {
+
+        if(!this.validateInputs(updatedProduct)) {
             console.log("TODO   Some inputs are invalid ")
         } else {
-            axios.put(`${SERVER_HOST}/products/${this.state.product._id}`, {updatedProduct}, {headers: {"authorization": localStorage.token}})
+            axios.put(`${SERVER_HOST}/products/${this.state.product._id}`, {updatedProduct}, {headers:{"authorization":localStorage.token}})
                 .then((res) => {
                     if (res.data) {
-                        if (res.data.errorMessage) {
+                        if(res.data.errorMessage) {
 
                         } else {
-                            console.log("Updated product: ", updatedProduct)
+                            console.log("Updated product: ",updatedProduct)
                             this.setState({redirectToDashboard: true}) // after the update is complete redirect back to AdminDashboard
                         }
                     } else {
@@ -221,10 +233,12 @@ export default class EditProduct extends Component {
         e.preventDefault()
         const productID = this.props.match.params.id
         //console.log(productID)
-        axios.delete(`${SERVER_HOST}/products/${productID}`, {headers: {"authorization": localStorage.token}})
-            .then(res => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
+
+        axios.delete(`${SERVER_HOST}/products/${productID}`, {headers:{"authorization":localStorage.token}})
+            .then (res =>
+            {
+                if(res.data) {
+                    if(res.data.errorMessage) {
 
                     } else {
                         console.log("Product has been deleted")
@@ -237,12 +251,14 @@ export default class EditProduct extends Component {
     }
 
 
+
     render() {
         console.log(this.state.product)
         return (
 
             <div>
-                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null}
+
+                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
 
                 <div className="admin-head-container" id="top-of-form">
                     <Navbar/>
@@ -250,6 +266,7 @@ export default class EditProduct extends Component {
                 <div className="admin-edit-product">
                     <h1>Update Products</h1>
                     <form className="edit-form">
+
 
                         {this.state.inputsAreInvalid ?
                             <div className="err-container">
@@ -264,6 +281,7 @@ export default class EditProduct extends Component {
                         <div className="edit-input">
                             <label className="form-label" htmlFor="nameInput">
                                 Enter Name: {this.state.nameIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="name"
@@ -277,6 +295,7 @@ export default class EditProduct extends Component {
                         <div className="edit-input">
                             <label className="form-label" htmlFor="colourInput">
                                 Enter Colour: {this.state.colourIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="colour"
@@ -309,6 +328,7 @@ export default class EditProduct extends Component {
                                 </div>
                                 <div className="size-option">
                                     <label className="filter-checkboxes">
+
                                     <label htmlFor="medium">
                                         Medium
                                         <input
@@ -324,6 +344,7 @@ export default class EditProduct extends Component {
                                 </div>
                                 <div className="size-option">
                                     <label className="filter-checkboxes">
+
                                     <label htmlFor="large">
                                         Large
                                         <input
@@ -335,6 +356,7 @@ export default class EditProduct extends Component {
                                         />
                                         <span className="checkmark"></span>
                                     </label>
+
                                     </label>
                                 </div>
                             </fieldset>
@@ -342,6 +364,7 @@ export default class EditProduct extends Component {
                         <div className="edit-input">
                             <label className="form-label" htmlFor="priceInput">
                                 Enter Price: {this.state.priceIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="price"
@@ -354,6 +377,7 @@ export default class EditProduct extends Component {
                         <div className="edit-input">
                             <label className="form-label" htmlFor="genderInput">
                                 Enter Gender: {this.state.genderIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="gender"
@@ -366,6 +390,7 @@ export default class EditProduct extends Component {
                         <div className="edit-input">
                             <label className="form-label" htmlFor="categoryInput">
                                 Enter Category: {this.state.categoryIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="category"
@@ -378,6 +403,7 @@ export default class EditProduct extends Component {
                         <div className="edit-input">
                             <label className="form-label" htmlFor="brandInput">
                                 Enter Brand: {this.state.brandIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="brand"
@@ -399,6 +425,7 @@ export default class EditProduct extends Component {
                 <footer>
                     <Footer/>
                 </footer>
+
             </div>
         )
     }

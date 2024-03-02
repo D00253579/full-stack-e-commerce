@@ -1,5 +1,6 @@
 Minutes – CA2 Full Stack Project
 08/02/2024 at 10am 
+
 Meeting attendees:
 Caitlin, Luke and Jamie 
 
@@ -84,3 +85,119 @@ Caitlin
 - Style the users once the data is complete 
 
 As a group we discussed that we would like to have all admin and user features complete, and be able to move on to the main page next week.
+
+27/02/24 at 10:20am 
+Meeting attendees: 
+Caitlin, Jamie & Luke
+
+Topics of Discussion: 
+Tasks completed since the last meeting: 
+
+Luke 
+- Delete product is complete and working
+- Validation is complete for the add product, however it doesn't push to server
+- Edit product is complete 
+- Search for products by the name or brand is complete
+- Sort is fully working (in admin table)
+
+Jamie 
+- Delete users is complete
+- Payments code is finished however it cannot be implemented yet (as tshirts)
+- Started to embed the tshirt images (not working yet)
+
+Caitlin 
+- Finished styling the filters (checkboxes and sliders)
+- Added in a sort icon (attach the sort functionality to this in the main page)
+- Finished the shopping cart styling (hardcoded a tshirt image in for now to see how it would look) 
+- Also included plus and minus buttons to allow the user to change the quantity of tshirts in the shopping cart (styling is there but functionality needs added)
+
+Tasks we plan on doing: 
+Luke 
+- MongoDB document validation
+- Make the search fully functional (visually)
+- Return products (user) 
+
+Jamie 
+- Payments 
+- Middleware & error handling 
+- Remote server
+- Change stock levels (admin side)
+- Purchase products 
+- View purchase history (user)
+- Create user profile (with a profile image)- get image
+
+Caitlin
+- Make responsive 
+- Remove Derek's bootstrap code
+- Creating options for product dashboard, users dashboard, or purchase history dashboard
+- Main Page 
+- Returns Page 
+- Footer 
+- Layout of user profile 
+
+- User purchase history can't be done until we are storing purchase history 
+- Ask Derek about the user purchase history vs previous history 
+
+As a group get more tshirt data, which can be one of the last tasks. 
+
+29/02/24 at 2pm 
+Meeting attendees: 
+Caitlin, Jamie & Luke
+
+Topics of Discussion: 
+Tasks completed since the last meeting: 
+
+Luke 
+- Basic user profile page
+- Admin table changed from showing level to the admin or customer
+- Address saves to the user
+
+Jamie 
+- Displaying user profile photo
+- Pulled in the product images and display on main page
+- Atlas is fully set up and working
+
+Caitlin 
+- Footer is finished 
+- Finished the account page (needs properly linked to the login)
+- Almost Finished the register page 
+
+Tasks we plan on doing: 
+Luke 
+- Returns page layout 
+- Return products
+
+Last minute things:
+- Fix the search bar display
+- MongoDB document validation
+
+Jamie 
+- Link account page to login 
+- Payments 
+- Purchase products
+- View purchase history (user) - have the option to view in the user profile 
+- a guest customer can purchase products. If a customer makes a purchase, you will need to save minimal     customer details (name, address, phone, email) along with the product sale details, so that the       
+ administrator can view this sale's purchase history (2.5%)
+- Change stock levels (admin side)
+- Selected product page layout - showing the 3 images for each tshirt 
+
+Caitlin
+- Style user profile
+- Main Page 
+- Style the selected product page layout 
+- Put in the x button for delete for the table (then the question comes up of are you sure?)
+- x button for the delete users
+- X button to go out of the account page and other pages
+- Layout for the admin dashboard when the admin logs in 
+- Creating options for product dashboard, users dashboard, or purchase history dashboard
+- Style the returns Page 
+- Remove Derek's bootstrap code
+- Fix the positioning of the logo 
+- Make responsive 
+
+Last minute things: 
+- Middleware & error handling - Jamie
+- Remote server (google cloud) - Jamie 
+- The products dashboard, customers dashboard and purchase history dashboards must allow the administrator to view, filter, search and sort items (2.5%)
+- The previous history dashboard must allow a logged-in customer to view, filter, search and sort items (2.5%)
+

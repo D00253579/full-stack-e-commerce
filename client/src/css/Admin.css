@@ -1,5 +1,8 @@
+
+@charset "UTF-8";
 body {
-  background-color: #efe6e6; }
+  background-color: #efe6e6;
+}
 
 .admin-container {
   display: flex;
@@ -13,34 +16,39 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  /* Button style */ }
-  .controls-container .controls-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: black;
-    background-color: #ccb1a7;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    margin-right: 10px;
-    font-family: Times New Roman, Serif, serif; }
-  .controls-container .controls-button:hover {
-    background-color: #A26D5D;
-    border-color: #363131; }
+  /* Button style */
+}
+.controls-container .controls-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  background-color: #ccb1a7;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-right: 10px;
+  font-family: Times New Roman, Serif, serif;
+}
+.controls-container .controls-button:hover {
+  background-color: #A26D5D;
+  border-color: #363131;
+}
 
 /* AdminTable */
 .admin-head-container {
-  padding-bottom: 75px; }
+  padding-bottom: 75px;
+}
 
 .admin-body-container {
   flex: 1;
   display: flex;
   flex-direction: column; }
+
 
 .admin-table-container {
   display: flex;
@@ -56,6 +64,7 @@ body {
     border-radius: 5px;
     flex: 1; }
 
+
 .admin-table-container thead {
   background-color: #A26D5D;
   color: #ffffff;
@@ -63,51 +72,62 @@ body {
   text-transform: capitalize;
   text-align: center;
   font-weight: bold;
-  font-family: Times New Roman, Serif, serif; }
+  font-family: Times New Roman, Serif, serif;
+}
 
 .admin-table-container thead :hover {
-  border-color: #363131; }
+  border-color: #363131;
+}
 
 .admin-table thead th,
 .admin-table-container tbody td {
   padding: 10px;
   font-size: 16px;
-  text-align: center; }
+  text-align: center;
+}
 
 .admin-table-container tbody tr {
   border-bottom: 1px solid #363131;
   background-color: #ffffff;
-  position: relative; }
+  position: relative;
+}
 
 .admin-table-container tbody tr:hover {
   background-color: #e5e3e3;
-  transition: background-color 0.6s ease; }
+  transition: background-color 0.6s ease;
+}
 
 .admin-table-container tbody tr:hover td {
   color: transparent;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .admin-table-container tbody tr:hover::after {
-  content: "\1F50D";
+  content: "🔍";
   font-size: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1; }
+  z-index: 1;
+}
 
 .admin-table-container table {
   border-color: #363131;
-  border-radius: 5px; }
+  border-radius: 5px;
+}
 
 .sortLabel:hover {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 /*
   Add product styling
  */
+
 .apply-button {
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
 .apply-button button {
   background-color: #007bff;
@@ -116,55 +136,71 @@ body {
   border-radius: 3px;
   padding: 10px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease; }
+  transition: background-color 0.3s ease;
+}
 
 .apply-button button:hover {
-  background-color: #0056b3; }
+  background-color: #0056b3;
+}
 
 /*
   Error container
  */
+
 .err-container {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+}
 
 .err-container div {
-  width: 80%; }
+  width: 80%;
+}
 
 .err {
   color: red;
-  font-size: 14px; }
+  font-size: 14px;
+}
+
 
 .err-container div {
-  width: 80%; }
+  width: 80%;
+}
 
 .err {
   color: red;
-  font-size: 14px; }
+  font-size: 14px;
+}
 
+.address-input input.invalid-input,
 .create-input input.invalid-input,
 .edit-input input.invalid-input {
-  border: 2px solid red; }
+  border: 2px solid red;
+}
 
 .size-selector.invalid-input {
-  border: 2px solid red; }
+  border: 2px solid red;
+}
+
 
 .testing-link-container {
   display: flex;
   justify-content: center;
   margin: 50px;
   padding: 20px;
-  border: black solid 2px; }
+  border: black solid 2px;
+}
 
 .testing-header {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+}
 
 .red-text {
   color: red;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 /*
      Sort image and button
@@ -183,9 +219,11 @@ body {
   font-size: 18px;
   font-family: Times New Roman, Serif, serif; }
 
+
 .sort-button {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 /*
    End of sort
@@ -193,7 +231,8 @@ body {
 #profilePhoto {
   width: 100px;
   height: 100px;
-  border-radius: 50%; }
+  border-radius: 50%;
+}
 
 /*
     Admin side bar menu

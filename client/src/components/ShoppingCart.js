@@ -78,8 +78,8 @@ export default class ShoppingCart extends Component {
                         <Link to={"/Payments"}>
                             <div className="checkout-buttons">
                                 <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
-                                </div>
-                            </Link>
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <footer>

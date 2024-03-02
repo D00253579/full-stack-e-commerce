@@ -24,7 +24,8 @@ export default class ViewUsers extends Component {
                         res.json({errorMessage: `Users not found`})
                     } else {
                         console.log("Records read to Admin view of Users");
-                        this.setState({users: res.data, defaultUsers: res.data})
+                        this.setState({users: res.data})
+                        this.sortName()
                     }
 
                 } else {
@@ -32,6 +33,17 @@ export default class ViewUsers extends Component {
                 }
 
             })
+    }
+    sortName = () => { // default descending
+        let productNaturalOrderByName = [...this.state.users] // soft copy of products to manipulate
+
+        let descendingProducts = productNaturalOrderByName.sort((a, b) => a.name < b.name?-1:1)
+        this.updateUsers(descendingProducts)
+        console.log("Natural order set: product.name DESC")
+    }
+    updateUsers = (newUserState) => {
+        this.setState({users: newUserState})
+        console.log("State of Users updated ")
     }
 
     render() {
@@ -45,7 +57,7 @@ export default class ViewUsers extends Component {
                     <div className="admin-table-container">
                         <AdminUserView
                             users={this.state.users}
-                            handleRowClick={this.handleRowClick}
+                            updateUsers={this.updateUsers}
                         />
                     </div>
                 </div>

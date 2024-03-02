@@ -1,4 +1,6 @@
+
 @import "Main.scss";
+
 
 .nav-container {
   background-color: #A26D5D;
@@ -43,6 +45,7 @@
 .searchIcon > img {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 .icons-container {
@@ -55,7 +58,7 @@
 }
 
 .logo-image > img{
-  width: 300px;
+  width: 275px;
   padding-bottom: 65px;
   padding-left: 225px;
   padding-right: 200px;
@@ -79,6 +82,54 @@ padding-left: 300px;}
   padding-right: 20px;
 }
 
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 5px;
+  background-color: white;
+  border: 1px solid $grey-border;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.search-dropdown-content {
+  padding: 10px;
+  cursor: pointer;
+  width: 450px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-dropdown-item {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 20px;
+}
+
+.search-dropdown-item:last-child {
+  border-bottom: none; /* Remove border for last item */
+}
+
+.search-dropdown-item:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+
+
+.catch-name-overload {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.search-category,
+.search-brand {
+  max-width: 100px;
+}
 
 
 

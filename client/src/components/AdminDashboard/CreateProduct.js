@@ -4,6 +4,8 @@ import {Redirect} from "react-router-dom";
 import {SERVER_HOST} from "../../config/global_constants";
 import axios from "axios";
 import Footer from "../Footer";
+import MainPage from "../MainPage";
+
 
 export default class CreateProduct extends Component {
 
@@ -25,6 +27,7 @@ export default class CreateProduct extends Component {
             stockIsInInvalid: false,
             inputErrMessage: "",
             product: {
+
                 product_id: "",
                 name: "",
                 colour: "",
@@ -40,6 +43,7 @@ export default class CreateProduct extends Component {
         }
 
     }
+
 
     componentDidMount() {
         // Fetch products in the parent component
@@ -69,18 +73,20 @@ export default class CreateProduct extends Component {
     }
     handleFileChange = (e) => {
         this.setState({selectedFiles: e.target.files})
+
     }
 
     handleCheckboxChange = (e) => {
         const {checked, value} = e.target
-        if (checked) { // if checkbox is checked add it to sizes array in product state
-            this.setState(prevState => ({
-                product: {
-                    ...prevState.product,
-                    size: [...prevState.product.size, value]
-                }
 
-            }))
+        if(checked) { // if checkbox is checked add it to sizes array in product state
+               this.setState(prevState => ({
+                   product: {
+                       ...prevState.product,
+                       size: [...prevState.product.size, value]
+                   }
+
+               }))
 
         } else { // if unchecked remove the value from the array
             this.setState(prevState => ({
@@ -107,7 +113,8 @@ export default class CreateProduct extends Component {
         const product = this.state.product
 
         //console.log("Product: ", product)
-        if (!product.name.trim()) {              // name
+
+        if(!product.name.trim()) {              // name
             isValid = false
             document.getElementById("nameInput").classList.add("invalid-input")
             this.setState({nameIsInvalid: true})
@@ -117,6 +124,7 @@ export default class CreateProduct extends Component {
         }
 
         if (!product.colour.trim()) {            // colour
+
             isValid = false
             document.getElementById("colourInput").classList.add("invalid-input")
             this.setState({colourIsInvalid: true})
@@ -126,6 +134,7 @@ export default class CreateProduct extends Component {
         }
 
         if (product.size.length === 0) {         // size
+
             isValid = false
             document.getElementById("sizeSelector").classList.add("invalid-input")
             this.setState({sizeIsInvalid: true})
@@ -135,7 +144,8 @@ export default class CreateProduct extends Component {
             this.setState({sizeIsInvalid: false})
         }
 
-        if (!product.price.trim()) {             // price
+
+        if(!product.price.trim()) {             // price
             isValid = false
             document.getElementById("priceInput").classList.add("invalid-input")
             this.setState({priceIsInvalid: true})
@@ -146,6 +156,7 @@ export default class CreateProduct extends Component {
         }
 
         if (!product.gender.trim()) {            // gender
+
             isValid = false
             document.getElementById("genderInput").classList.add("invalid-input")
             this.setState({genderIsInvalid: true})
@@ -155,7 +166,8 @@ export default class CreateProduct extends Component {
             this.setState({genderIsInvalid: false})
         }
 
-        if (!product.category.trim()) {          // category
+
+        if(!product.category.trim()) {          // category
             isValid = false
             document.getElementById("categoryInput").classList.add("invalid-input")
             this.setState({categoryIsInvalid: true})
@@ -166,6 +178,7 @@ export default class CreateProduct extends Component {
         }
 
         if (!product.brand.trim()) {             // brand
+
             isValid = false
             document.getElementById("brandInput").classList.add("invalid-input")
             this.setState({brandIsInvalid: true})
@@ -175,6 +188,7 @@ export default class CreateProduct extends Component {
         }
 
         if (!product.current_stock.trim()) {     // current_stock
+
             isValid = false
             document.getElementById("stockInput").classList.add("invalid-input")
             this.setState({stockIsInvalid: true})
@@ -188,6 +202,7 @@ export default class CreateProduct extends Component {
         // Validate Product ID to check if it's already assigned to a product
         const isIdInvalid = this.state.products.some(p => p.product_id === product.product_id)
         if (isIdInvalid) {
+
             document.getElementById("idInput").classList.add("invalid-input")
             this.setState({
                 idIsInvalid: true,
@@ -197,6 +212,7 @@ export default class CreateProduct extends Component {
             isValid = false
         } else {
             if (!product.product_id.trim()) {
+
                 document.getElementById("idInput").classList.add("invalid-input")
             } else {
                 document.getElementById("idInput").classList.remove("invalid-input")
@@ -210,6 +226,7 @@ export default class CreateProduct extends Component {
         }
 
         if (!isValid) { // if inputs are invalid trigger visual response to let user know
+
             this.setState({inputsAreInvalid: true})
         } else {
             this.setState({inputsAreInvalid: false})
@@ -223,33 +240,37 @@ export default class CreateProduct extends Component {
         // scroll back to the top of the form , take from https://www.w3schools.com/howto/howto_js_scroll_into_view.asp
         const topOfForm = document.getElementById('top-of-form')
         topOfForm.scrollIntoView()
-        console.log("Token: ", localStorage.token)
+
+        console.log("Token: ",localStorage.token)
         console.log("Product: ", this.state.product)
-        console.log("Inputs are valid: ", this.validateInputs())
-        if (this.validateInputs()) {
-            let formData = new FormData()
-            formData.append("name", this.state.product.name)
-            formData.append("colour", this.state.product.colour)
-            formData.append("size", this.state.product.size)
-            formData.append("price", this.state.product.price)
-            formData.append("gender", this.state.product.gender)
-            formData.append("category", this.state.product.category)
-            formData.append("brand", this.state.product.brand)
-            formData.append("current_stock", this.state.product.current_stock)
-            formData.append("product_id", this.state.product.product_id)
-            if (this.state.selectedFiles) {
-                for (let i = 0; i < this.state.selectedFiles.length; i++) {
+        console.log("Inputs are valid: ",this.validateInputs())
+        if(this.validateInputs()){
+            let formData=new FormData()
+            formData.append("name",this.state.product.name)
+            formData.append("colour",this.state.product.colour)
+            formData.append("size",this.state.product.size)
+            formData.append("price",this.state.product.price)
+            formData.append("gender",this.state.product.gender)
+            formData.append("category",this.state.product.category)
+            formData.append("brand",this.state.product.brand)
+            formData.append("current_stock",this.state.product.current_stock)
+            formData.append("product_id",this.state.product.product_id)
+            if (this.state.selectedFiles){
+                for (let i=0; i<this.state.selectedFiles.length; i++){
                     formData.append("photos", this.state.selectedFiles[i])
                 }
 
             }
             // const createdProduct = this.state.product;
 
-            axios.post(`${SERVER_HOST}/products`, formData, {headers: {"authorization": localStorage.token}})
 
-                .then(res => {
-                    if (res.data) {
-                        if (res.data.errorMessage) {
+            axios.post(`${SERVER_HOST}/products`, formData, {headers:{"authorization":localStorage.token}})
+
+                .then(res =>
+                {
+                    if(res.data)
+                    {
+                        if(res.data.errorMessage) {
                             console.log("Product NOT created")
                         } else {
                             console.log("Product created: ", formData)
@@ -272,7 +293,8 @@ export default class CreateProduct extends Component {
         console.log("idIsInvalid: ", this.state.idIsInvalid)
         return (
             <div>
-                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null}
+
+                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
 
                 <div className="admin-head-container" id="top-of-form">
                     <NavBar/>
@@ -466,6 +488,7 @@ export default class CreateProduct extends Component {
                 <footer>
                     <Footer/>
                 </footer>
+
             </div>
         )
     }

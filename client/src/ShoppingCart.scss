@@ -26,18 +26,18 @@
 }
 
 
+
 /* Box shadow from w3 schools*/
 .bag-box {
   width: 700px;
   height: 450px;
   border-radius: 5px;
   box-shadow: 20px 20px 50px grey;
+
+
   border-color: #A26D5D;
   border-style: outset;
-  //display: flex;
-  //flex-direction: row;
-  //align-items: center;
-  //justify-content: space-between;
+  overflow: scroll;
 }
 
 .bag-box h1 {
@@ -51,7 +51,7 @@
 .bag-box h2 {
   font-size: 16px;
   font-family: Times New Roman, Serif, serif;
-  padding-left: 20px;
+  //padding-left: 20px;
 }
 
 .edit-bag {
@@ -80,6 +80,7 @@
   font-size: $title_font_size;
   font-family: $title_font;
   padding-left: 20px;
+
 }
 
 .tshirt-container {
@@ -99,8 +100,10 @@
 .total-container {
   float: right;
   align-items: center;
+  //justify-content: flex-end;
   display: flex;
   flex-direction: column;
+  //padding-left: 500px;
 }
 
 .checkout-buttons {
@@ -144,9 +147,9 @@
 
 .sub-container {
   display: flex;
-  flex-direction: row; /* Change to row */
-  align-items: center; /* Center vertically */
-  justify-content: space-between; /* Spacing between titles */
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /*
@@ -193,7 +196,9 @@
 }
 
 
+
 .minus-btn {
+
   margin-right: 7.5px;
 }
 

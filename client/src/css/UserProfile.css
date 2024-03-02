@@ -19,6 +19,7 @@
     flex-direction: row;
     justify-content: center;
     border: solid black 1px; }
+
     .profile-container .profile-details .right {
       width: 50%;
       padding: 20px; }
@@ -40,5 +41,6 @@
     .profile-container .profile-details span {
       font-weight: lighter;
       margin-left: 10px; }
+
 
 /*# sourceMappingURL=UserProfile.css.map */

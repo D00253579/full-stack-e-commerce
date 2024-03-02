@@ -9,14 +9,6 @@ import Footer from "../Footer";
 export default class Register extends Component {
     constructor(props) {
         super(props);
-<<<<<<< Updated upstream
-        this.state={
-            name:"",
-            email:"",
-            password:"",
-            confirmPassword:"",
-            isRegistered:false,
-=======
         this.state = {
             name: "",
             email: "",
@@ -24,7 +16,6 @@ export default class Register extends Component {
             confirmPassword: "",
             isRegistered: false,
             selectedFile: null,
->>>>>>> Stashed changes
             errors: { // used to keep track of current validation errors
                 name: [],
                 email: [],
@@ -37,12 +28,9 @@ export default class Register extends Component {
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }
-<<<<<<< Updated upstream
-=======
     handleFileChange = (e) => {
         this.setState({selectedFile: e.target.files[0]})
     }
->>>>>>> Stashed changes
 
     // Client side validation for Registration page
     // if all of these return true the data will be posted
@@ -148,19 +136,6 @@ export default class Register extends Component {
         let isEmailValid = this.validateEmail()
         let isPasswordValid = this.validatePassword()
         let isConfirmPasswordValid = this.validateConfirmPassword()
-<<<<<<< Updated upstream
-        if(!isNameValid && !isEmailValid && !isPasswordValid && !isConfirmPasswordValid) // if inputs have passed validation
-        {
-            e.preventDefault()
-
-            axios.post(`${SERVER_HOST}/users/Login/Register/${this.state.name}/${this.state.email}/${this.state.password}`)
-                .then(res =>
-                {
-                    if(res.data)
-                    {
-                        if (res.data.errorMessage)
-                        {
-=======
         let formData = new FormData()
         formData.append("profilePhoto", this.state.selectedFile)
         if (!isNameValid && !isEmailValid && !isPasswordValid && !isConfirmPasswordValid) // if inputs have passed validation
@@ -171,24 +146,16 @@ export default class Register extends Component {
                 .then(res => {
                     if (res.data) {
                         if (res.data.errorMessage) {
->>>>>>> Stashed changes
                             console.log(res.data.errorMessage)
                         } else // user successfully registered
                         {
                             console.log("User registered and logged in")
-                            if (this.state.name==="Admin"){
-                                res.data.accessLevel=ACCESS_LEVEL_ADMIN
-                            }
+
                             localStorage.name = res.data.name
                             localStorage.accessLevel = res.data.accessLevel
-<<<<<<< Updated upstream
-                            localStorage.token=res.data.token
-                            this.setState({isRegistered:true})
-=======
                             localStorage.profilePhoto = res.data.profilePhoto
                             localStorage.token = res.data.token
                             this.setState({isRegistered: true})
->>>>>>> Stashed changes
                         }
 
                     } else {
@@ -242,22 +209,6 @@ export default class Register extends Component {
                                 <br/>
                                 <br/>
 
-<<<<<<< Updated upstream
-                        <br/>
-
-                        <input
-                            name = "confirmPassword"
-                            type = "password"
-                            placeholder = "Confirm password"
-                            autoComplete="confirmPassword"
-                            value = {this.state.confirmPassword}
-                            onChange = {this.handleChange}
-                        />
-
-                            {this.state.errors.confirmPassword.length > 0 && this.state.errors.confirmPassword.map((error, index) => (
-                                <div key={index} className="error-message">
-                                    &#x2022; {error}
-=======
                                 <label>Email Address:<span> *</span> </label><br/>
                                 <input
                                     name="email"
@@ -275,10 +226,9 @@ export default class Register extends Component {
                                 <br/>
                                 <div className="register-buttons">
                                     <div className={"submit-btn-container"}>
-                                        <LinkInClass value="Submit" type="button" className="submit-btn"
+                                        <LinkInClass value="Register" type="button" className="submit-btn"
                                                      onClick={this.handleSubmit}/> <br/>
                                     </div>
->>>>>>> Stashed changes
                                 </div>
                             </div>
 
@@ -329,11 +279,11 @@ export default class Register extends Component {
                             <div className="register-buttons">
                                 {/*<LinkInClass value="Register" type="button" className="submit-btn" onClick={this.handleSubmit}/> <br/>*/}
                                 <div className={"register-btn-container"}>
-                                <Link to={"/AccountPage"}>
-                                    <button className={"cancel-btn"}>
-                                        Cancel
-                                    </button>
-                                </Link>
+                                    <Link to={"/AccountPage"}>
+                                        <button className={"cancel-btn"}>
+                                            Cancel
+                                        </button>
+                                    </Link>
                                 </div>
                                 {/*<Link className="red-button" to={"/AccountPage"}>Cancel</Link>*/}
                             </div>

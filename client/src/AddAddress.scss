@@ -1,3 +1,4 @@
+
 @import "Main.scss";
 
 .create-address {
@@ -22,18 +23,22 @@
 }
 
 .address-input-container {
+
   display:flex;
   flex-direction: row;
   justify-content: center;
+
 
   .address-input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 
+
     label {
       font-weight: lighter;
     }
+
 
     input {
       border-style: none;

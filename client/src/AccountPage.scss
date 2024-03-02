@@ -1,5 +1,6 @@
 @import "Main.scss";
 
+
 .account-head-container {
   position: fixed;
   padding-top: 0;
@@ -11,7 +12,6 @@
   align-items: center;
   padding-top: 100px;
   padding-bottom: 100px;
-
 
   .account-box {
     width: 700px;
@@ -64,6 +64,7 @@
 
   }
 
+
 }
 
 /*
@@ -79,6 +80,7 @@
   margin-left: -3px;
   top: 0;
 }
+
 
 .no-account-container {
   display: flex;
