@@ -9,6 +9,13 @@ import "./css/AccountPage.css"
 import "./css/UserProfile.css"
 import "./css/AddAddress.css"
 import "./css/RegisterPage.css"
+import "./css/Filters.css"
+import "./css/Main.css"
+import "./css/TShirtLayout.css"
+import "./css/CreateProduct.css"
+import "./css/EditProduct.css"
+import "./AdminMenu.scss"
+import Login from "./components/Login/Login";
 import TShirtView from "./components/TShirtView";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
@@ -25,6 +32,7 @@ import {ACCESS_LEVEL_GUEST} from "./config/global_constants";
 import EditProduct from "./components/AdminDashboard/EditProduct";
 import CreateProduct from "./components/AdminDashboard/CreateProduct";
 import DeleteUsers from"./components/AdminDashboard/DeleteUsers";
+import AdminMenu from "./components/AdminDashboard/AdminMenu";
 import Payments from "./components/Payments"
 import BuyProduct from "./components/BuyProduct";
 import PaymentMessage from "./components/PaymentMessage"
@@ -64,6 +72,7 @@ export default class App extends Component {
                     <Route exact path={"/AdminDashboard/EditProduct/:id"} component={EditProduct}/>
                     <Route exact path={"/AdminDashboard/CreateProduct/"} component={CreateProduct}/>
                     <Route exact path={"/AdminDashboard/DeleteUsers/:id"} component={DeleteUsers}/>
+                    <Route exact path={"/AdminDashboard/AdminMenu"} component={AdminMenu}/>
                     <Route exact path={"/AdminDashboard/AdminProfileView/:id"} component={AdminProfileView}/>
                     <Route exact path={"/UserProfile/:email"} component={UserProfile}/>
                     <Route exact path={"/MainPageData"} component={MainPageData}/>

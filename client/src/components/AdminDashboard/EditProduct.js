@@ -3,12 +3,15 @@ import axios from "axios";
 import {SERVER_HOST} from "../../config/global_constants";
 import {Redirect} from "react-router-dom";
 import Navbar from "../NavBar";
+import Footer from "../Footer";
+
 
 export default class EditProduct extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
+
             defaultProduct : [],
             redirectToDashboard: false,
             inputsAreInvalid: false,
@@ -19,6 +22,7 @@ export default class EditProduct extends Component {
             categoryIsInvalid: false,
             brandIsInInvalid: false,
             stockIsInInvalid: false,
+
             product : {
                 name: "",
                 colour: "",
@@ -34,11 +38,13 @@ export default class EditProduct extends Component {
             }
         }
     }
+
     componentDidMount() {
         const productID = this.props.match.params.id // get productID passed from redirect parameters
         // console.log(productID)
 
         // get the product with the matching id from database collection
+
         axios.get(`${SERVER_HOST}/products/${productID}`,{headers:{"authorization":localStorage.token}})
             .then(res => {
                 if(res.data) {
@@ -68,6 +74,7 @@ export default class EditProduct extends Component {
     }
     handleCheckboxChange = (e) => {
         const {checked, value} = e.target
+
         if(checked) { // if checkbox is checked add it to sizes array in product state
             this.setState(prevState => ({
                 product: {
@@ -91,6 +98,7 @@ export default class EditProduct extends Component {
         let isValid = true // true = valid
         console.log(product.price)
         //console.log("Product: ", product)
+
         if(!product.name.trim()) {              // name
             isValid = false
             document.getElementById("nameInput").classList.add("invalid-input")
@@ -100,7 +108,8 @@ export default class EditProduct extends Component {
             this.setState({nameIsInvalid: false})
         }
 
-        if(!product.colour.trim()) {            // colour
+        if (!product.colour.trim()) {            // colour
+
             isValid = false
             document.getElementById("colourInput").classList.add("invalid-input")
             this.setState({colourIsInvalid: true})
@@ -109,6 +118,7 @@ export default class EditProduct extends Component {
             this.setState({colourIsInvalid: false})
 
         }
+
 
         if(product.size.length === 0) {         // size
             isValid = false
@@ -121,6 +131,7 @@ export default class EditProduct extends Component {
 
         }
 
+
         if(!String(product.price).trim()) {             // price
             isValid = false
             document.getElementById("priceInput").classList.add("invalid-input")
@@ -131,6 +142,7 @@ export default class EditProduct extends Component {
             this.setState({priceIsInvalid: false})
 
         }
+
 
         if(!product.gender.trim()) {            // gender
             isValid = false
@@ -143,6 +155,7 @@ export default class EditProduct extends Component {
 
         }
 
+
         if(!product.category.trim()) {          // category
             isValid = false
             document.getElementById("categoryInput").classList.add("invalid-input")
@@ -153,6 +166,7 @@ export default class EditProduct extends Component {
             this.setState({categoryIsInvalid: false})
         }
 
+
         if(!product.brand.trim()) {             // brand
             isValid = false
             document.getElementById("brandInput").classList.add("invalid-input")
@@ -162,6 +176,7 @@ export default class EditProduct extends Component {
             this.setState({brandIsInvalid: false})
 
         }
+
 
         if(!isValid) { // if inputs are invalid trigger visual response to let user know
             this.setState({inputsAreInvalid: true})
@@ -193,6 +208,7 @@ export default class EditProduct extends Component {
         }
 
         // if function returns false then one or more inputs are empty, if true send updated product to server
+
         if(!this.validateInputs(updatedProduct)) {
             console.log("TODO   Some inputs are invalid ")
         } else {
@@ -217,6 +233,7 @@ export default class EditProduct extends Component {
         e.preventDefault()
         const productID = this.props.match.params.id
         //console.log(productID)
+
         axios.delete(`${SERVER_HOST}/products/${productID}`, {headers:{"authorization":localStorage.token}})
             .then (res =>
             {
@@ -240,14 +257,16 @@ export default class EditProduct extends Component {
         return (
 
             <div>
+
                 {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
 
                 <div className="admin-head-container" id="top-of-form">
                     <Navbar/>
                 </div>
                 <div className="admin-edit-product">
-                    <h1>Update Product</h1>
-                    <form className="edit-form" >
+                    <h1>Update Products</h1>
+                    <form className="edit-form">
+
 
                         {this.state.inputsAreInvalid ?
                             <div className="err-container">
@@ -261,7 +280,8 @@ export default class EditProduct extends Component {
                         }
                         <div className="edit-input">
                             <label className="form-label" htmlFor="nameInput">
-                                Name {this.state.nameIsInvalid ? <span className="err">*</span> : null}
+                                Enter Name: {this.state.nameIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="name"
@@ -274,7 +294,8 @@ export default class EditProduct extends Component {
 
                         <div className="edit-input">
                             <label className="form-label" htmlFor="colourInput">
-                                Colour {this.state.colourIsInvalid ? <span className="err">*</span> : null}
+                                Enter Colour: {this.state.colourIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="colour"
@@ -286,22 +307,28 @@ export default class EditProduct extends Component {
                         </div>
                         <div className="edit-input">
                             <fieldset className="size-selector" id="sizeSelector">
-                                <legend  className="form-label">
-                                    Available Sizes {this.state.sizeIsInvalid ? <span className="err">*</span> : null}
+                                <legend className="form-label">
+                                    Choose Available Sizes: {this.state.sizeIsInvalid ?
+                                    <span className="err">*</span> : null}
                                 </legend>
                                 <div className="size-option">
-                                    <label htmlFor="small">
-                                        Small
-                                        <input
-                                            type="checkbox"
-                                            id="small"
-                                            name="size"
-                                            value="small"
-                                            onChange={this.handleCheckboxChange}
-                                        />
+                                    <label className="filter-checkboxes">
+                                        <label htmlFor="small">
+                                            Small
+                                            <input
+                                                type="checkbox"
+                                                id="small"
+                                                name="size"
+                                                value="small"
+                                                onChange={this.handleCheckboxChange}
+                                            />
+                                            <span className="checkmark"></span>
+                                        </label>
                                     </label>
                                 </div>
                                 <div className="size-option">
+                                    <label className="filter-checkboxes">
+
                                     <label htmlFor="medium">
                                         Medium
                                         <input
@@ -311,9 +338,13 @@ export default class EditProduct extends Component {
                                             value="medium"
                                             onChange={this.handleCheckboxChange}
                                         />
+                                        <span className="checkmark"></span>
+                                    </label>
                                     </label>
                                 </div>
                                 <div className="size-option">
+                                    <label className="filter-checkboxes">
+
                                     <label htmlFor="large">
                                         Large
                                         <input
@@ -323,13 +354,17 @@ export default class EditProduct extends Component {
                                             value="large"
                                             onChange={this.handleCheckboxChange}
                                         />
+                                        <span className="checkmark"></span>
+                                    </label>
+
                                     </label>
                                 </div>
                             </fieldset>
                         </div>
                         <div className="edit-input">
                             <label className="form-label" htmlFor="priceInput">
-                                Price {this.state.priceIsInvalid ? <span className="err">*</span> : null}
+                                Enter Price: {this.state.priceIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="price"
@@ -341,7 +376,8 @@ export default class EditProduct extends Component {
                         </div>
                         <div className="edit-input">
                             <label className="form-label" htmlFor="genderInput">
-                                Gender {this.state.genderIsInvalid ? <span className="err">*</span> : null}
+                                Enter Gender: {this.state.genderIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="gender"
@@ -353,7 +389,8 @@ export default class EditProduct extends Component {
                         </div>
                         <div className="edit-input">
                             <label className="form-label" htmlFor="categoryInput">
-                                Category {this.state.categoryIsInvalid ? <span className="err">*</span> : null}
+                                Enter Category: {this.state.categoryIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="category"
@@ -365,7 +402,8 @@ export default class EditProduct extends Component {
                         </div>
                         <div className="edit-input">
                             <label className="form-label" htmlFor="brandInput">
-                                Brand {this.state.brandIsInvalid ? <span className="err">*</span> : null}
+                                Enter Brand: {this.state.brandIsInvalid ? <span className="err">*</span> : null}
+
                                 <input
                                     type="text"
                                     name="brand"
@@ -384,6 +422,10 @@ export default class EditProduct extends Component {
                         </div>
                     </form>
                 </div>
+                <footer>
+                    <Footer/>
+                </footer>
+
             </div>
         )
     }

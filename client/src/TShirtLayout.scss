@@ -1,0 +1,28 @@
+@import "Main.scss";
+/*
+.all-tshirts{
+  padding-top: 1000px;
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  height: 100px;
+}
+
+ */
+.tshirts-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tshirts-rows{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tshirt-image{
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}

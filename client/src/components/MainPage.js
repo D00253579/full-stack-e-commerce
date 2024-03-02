@@ -2,9 +2,12 @@ import React, {Component} from "react"
 import {Link} from "react-router-dom"
 import NavBar from "./NavBar";
 import Footer from "./Footer"
+
 import axios from "axios";
 import {SERVER_HOST} from "../config/global_constants";
 import MainPageData from "./MainPageData";
+
+
 export default class MainPage extends Component {
     constructor(props) {
         super(props)
@@ -12,6 +15,7 @@ export default class MainPage extends Component {
             products: []
         }
     }
+
     componentDidMount() {
         // Fetch products in the parent component
         axios.get(`${SERVER_HOST}/products`)
@@ -31,22 +35,23 @@ export default class MainPage extends Component {
             });
     }
 
-render()
-{
-    return (
-                   <div>
-                       <NavBar/>
-<MainPageData product={this.state.products}/>
-                       <div className="testing-return"><Link className="testing-red-button" to={"/TestingDirectory`"}>RETURN</Link></div>
-                       <div className="main-container">
+    render() {
+        return (
+            <div>
+                <NavBar/>
+                <MainPageData product={this.state.products}/>
+                <div className="testing-return"><Link className="testing-red-button"
+                                                      to={"/TestingDirectory`"}>RETURN</Link></div>
+                <div className="main-container">
 
-                       </div>
-                       <footer>
-                           <Footer/>
-                       </footer>
-                   </div>
 
-    )
+                </div>
+                <footer>
+                    <Footer/>
+                </footer>
+            </div>
 
-}
+        )
+
+    }
 }

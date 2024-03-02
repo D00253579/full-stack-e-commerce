@@ -9,6 +9,7 @@ import {Link, Redirect} from "react-router-dom";
 import AdminControls from "./AdminControls";
 import FilterImage from "../../Images/FilterImage.png";
 import SortImage from "../../Images/SortIcon.png";
+import AdminMenu from "./AdminMenu";
 
 
 export default class AdminDashboard extends Component {
@@ -59,6 +60,7 @@ export default class AdminDashboard extends Component {
     sortName = () => { // default descending
         let productNaturalOrderByName = [...this.state.products] // soft copy of products to manipulate
 
+
             let descendingProducts = productNaturalOrderByName.sort((a, b) => a.name < b.name?-1:1)
             this.updateProducts(descendingProducts)
             console.log("Natural order set: product.name DESC")
@@ -79,13 +81,14 @@ export default class AdminDashboard extends Component {
 
         return (
             <div>
+                <div className="admin-container">
+                    <div className="admin-head-container">
+                        <Navbar/>
+                    </div>
+                    <div className="side-menu">
+                        <AdminMenu/>
+                    </div>
 
-                <div className="admin-head-container">
-                    <Navbar/>
-                </div>
-
-                <AdminControls/>
-                <div className="admin-body-container">
                     <div className={"sort-box"}>
                         <div className={"sort-button"}>
                             <h1>SORT</h1>
@@ -94,41 +97,41 @@ export default class AdminDashboard extends Component {
                             </i>
                         </div>
                     </div>
-
-                    <div className={"filter-box"}>
-                        <div className={"filter-button"}>
-                            <h1>FILTERS</h1>
-                            <i className={"filter-icon"}>
-                                <img src={FilterImage} alt="filter" onClick={this.showFilters}/>
-                            </i>
-                            {this.state.displayFilters && (
-                                <div className="filter-container">
-                                    <Filters
-                                        updateProducts={this.updateProducts}
-                                        products={this.state.products}
-                                        defaultProducts={this.state.defaultProducts}
-                                    />
-                                </div>
-                            )}
+                    {/*<AdminControls/>*/}
+                    <div className="admin-body-container">
+                        <div className="admin-table-container">
+                            <AdminProductView
+                                products={this.state.products}
+                                updateProducts={this.updateProducts}
+                            />
                         </div>
-                    </div>
-                    <div className="admin-table-container">
-                        <AdminProductView
-                            products={this.state.products}
-                            updateProducts={this.updateProducts}
-                        />
-                    </div>
+                        <div className={"filter-box"}>
+                            <div className={"filter-button"}>
+                                <h1>FILTER</h1>
+                                <i className={"filter-icon"}>
+                                    <img src={FilterImage} alt="filter" onClick={this.showFilters}/>
+                                </i>
+                                {this.state.displayFilters && (
+                                    <div className="filter-container">
+                                        <Filters
+                                            updateProducts={this.updateProducts}
+                                            products={this.state.products}
+                                            defaultProducts={this.state.defaultProducts}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        </div>
 
+
+                        <div className="testing-return"><Link className="testing-red-button"
+                                                              to={"/TestingDirectory"}>RETURN</Link></div>
+                    </div>
                 </div>
-
-                <div className="testing-return"><Link className="testing-red-button"
-                                                      to={"/TestingDirectory"}>RETURN</Link></div>
                 <footer>
                     <Footer/>
                 </footer>
             </div>
-
-
         )
     }
 

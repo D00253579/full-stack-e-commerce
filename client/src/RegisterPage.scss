@@ -1,7 +1,4 @@
-$white: #ffffff;
-$grey-border: #363131;
-$title_font_size: 16px;
-$title_font: Times New Roman, Serif, serif;
+@import "Main.scss";
 
 .register-head-container {
   position: fixed;
@@ -11,117 +8,81 @@ $title_font: Times New Roman, Serif, serif;
 .register-container {
   display: flex;
   justify-content: center;
-  //align-items: center;
-  padding-top: 150px;
+  padding-top: 120px;
   padding-bottom: 100px;
+
+  .register-page-box {
+    width: 700px;
+    height: 450px;
+    border-radius: 5px;
+    box-shadow: 20px 20px 50px grey;
+    border-color: #A26D5D;
+    border-style: outset;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      display: flex;
+      justify-content: center;
+      @include important-titles;
+    }
+
+    .register-form {
+      display: flex;
+      flex-direction: row;
+
+      /*
+         Register Section 1 contents
+       */
+      .register-section1 {
+        padding-right: 40px;
+
+        .submit-btn {
+          @include basic-button(white);
+          @include normal-text;
+          font-size: 16px;
+          padding: 5px 7px;
+          border-radius: 5px;
+          color: black;
+
+          &:hover {
+            @include basic-button-hover;
+          }
+        }
+      }
+
+      .register-section2 {
+        padding-left: 40px;
+      }
+    }
+
+    /* End of form*/
+  }
+
+  /* End of page box*/
 }
 
-.register-page-box {
-  width: 700px;
-  height: 450px;
-  border-radius: 5px;
-  box-shadow: 20px 20px 50px grey;
-  border-color: #A26D5D;
-  border-style: outset;
-  position: relative;
-  display: flex;
-  //flex-direction: row;
-  flex-direction: column;
-  align-items: center;
-}
-
-.register-container input[type="text"],
-.register-container input[type="email"],
-.register-container input[type="password"] {
-  border-color: white;
-  border-radius: 0;
-  border-style: outset;
-  height: 20px;
-  width: 250px;
-}
-
-.register-page-box > h1 {
-  font-family: Times New Roman, Serif, serif;
-  font-weight: bold;
-  font-size: 24px;
-  display: flex;
-  justify-content: center;
-}
-
-//.login-container,
-//.register-container {
-//  display: flex;
-//  flex-direction: column;
-//  align-items: center;
-//}
-
-.register-form {
-  display: flex;
-  flex-direction: row;
-  //justify-content: center;
-  //padding: 70px;
-  //display: flex;
-  //flex-direction: column;
-  //align-items: center;
-  //width: 450px;
-  //border-left:thin solid #8c8787;
-  //padding: 40px;
-  //border-radius: 50px;
-  //background: #8c8787;
-}
-
-//.register-form > label {
-//  margin-right: 50px;
-//}
+/* End of register container*/
 
 .error-message {
-  //width: 60%;
   text-align: left;
   font-size: 14px;
   color: red;
-  //background-color: white;
   padding: 10px;
-  //border-radius: 20px;
 }
 
 .password-error-container div {
   text-align: left;
   font-size: 15px;
   color: red;
-  //background-color: white;
   padding: 5px;
-  //border-radius: 20px;
-}
-
-.register-buttons > button {
-  background-color: #ccb1a7;
-  border: 2px solid $white;
-  font-family: $title-font;
-  font-size: 16px;
-  padding: 5px 7px;
-  border-radius: 5px;
-}
-
-.submit-btn {
-  background-color: #ccb1a7;
-  border: 2px solid $white;
-  font-family: $title-font;
-  font-size: 16px;
-  padding: 5px 7px;
-  border-radius: 5px;
-}
-
-.submit-btn:hover {
-  background-color: #A26D5D;
-  border-color: $grey-border;
-  cursor: pointer;
 }
 
 .logout {
   margin-bottom: 30px;
 }
-
-
 
 .register-btn-container {
   position: absolute;
@@ -143,25 +104,27 @@ $title_font: Times New Roman, Serif, serif;
   left: 0;
   margin-bottom: 80px;
   margin-left: 40px;
+
+  label {
+    font-size: 16px;
+    font-family: Times New Roman, Serif, serif;
+  }
 }
 
-.select-profile-image > label {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif;
+
+.vl {
+  border-left: 3px solid #d4c7c7c2;
+  height: 360px;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
 }
+
 
 .register-section1 > label,
 .register-section2 > label {
   font-size: 16px;
   font-family: Times New Roman, Serif, serif;
-}
-
-.register-section1 {
-  padding-right: 40px;
-}
-
-.register-section2 {
-  padding-left: 40px;
 }
 
 .register-section1,
@@ -170,11 +133,25 @@ $title_font: Times New Roman, Serif, serif;
   flex-direction: column;
 }
 
-.vl {
-  border-left: 3px solid #d4c7c7c2;
-  height: 360px;
-  //position: relative;
-  left: 50%;
-  margin-left: -3px;
-  top: 0;
+.register-container input[type="text"],
+.register-container input[type="email"],
+.register-container input[type="password"] {
+  border-color: white;
+  border-radius: 0;
+  border-style: outset;
+  height: 20px;
+  width: 250px;
 }
+
+.cancel-btn {
+  @include basic-button($white);
+  font-size: 16px;
+  padding: 5px 7px;
+  border-radius: 5px;
+  color: black;
+
+  &:hover {
+    @include basic-button-hover;
+  }
+}
+

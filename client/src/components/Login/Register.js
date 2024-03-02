@@ -231,6 +231,7 @@ export default class Register extends Component {
                                     </div>
                                 </div>
                             </div>
+
                             <div className="vl"></div>
                             <div className={"register-section2"}>
                                 <label>Password:<span> *</span></label><br/>

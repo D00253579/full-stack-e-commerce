@@ -19,9 +19,7 @@
     flex-direction: row;
     justify-content: center;
     border: solid black 1px; }
-    .profile-container .profile-details span {
-      font-weight: lighter;
-      margin-left: 10px; }
+
     .profile-container .profile-details .right {
       width: 50%;
       padding: 20px; }
@@ -34,17 +32,15 @@
         font-weight: lighter;
         margin-left: 10px; }
       .profile-container .profile-details .right p {
-        border-bottom: solid gray 1px;
-        border-top: solid gray 1px;
+        border-bottom: solid grey 1px;
+        border-top: solid grey 1px;
         width: 100%; }
-      .profile-container .profile-details .right .lighter-text {
-        font-weight: lighter; }
     .profile-container .profile-details .left {
       width: 50%;
       padding: 20px; }
-  .profile-container .profile-history h2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; }
+    .profile-container .profile-details span {
+      font-weight: lighter;
+      margin-left: 10px; }
+
 
 /*# sourceMappingURL=UserProfile.css.map */

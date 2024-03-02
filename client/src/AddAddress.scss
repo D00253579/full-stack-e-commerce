@@ -1,4 +1,7 @@
-.address-container{
+
+@import "Main.scss";
+
+.create-address {
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -19,26 +22,29 @@
   margin-bottom: 350px;
 }
 
-.input-container {
+.address-input-container {
+
   display:flex;
   flex-direction: row;
   justify-content: center;
 
-  .address-input input.invalid-input {
-    border-bottom: 1px solid red;
-    border-top: 1px solid red;
-  }
+
   .address-input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+
+
     label {
       font-weight: lighter;
     }
+
+
     input {
       border-style: none;
       margin-left: 20px;
     }
+
     .red-text {
       font-size: 15px;
     }
