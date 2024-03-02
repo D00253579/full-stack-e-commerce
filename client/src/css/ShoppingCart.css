@@ -20,7 +20,6 @@
   padding-top: 150px;
   padding-bottom: 100px; }
 
-
 /* Box shadow from w3 schools*/
 .bag-box {
   width: 700px;
@@ -28,8 +27,8 @@
   border-radius: 5px;
   box-shadow: 20px 20px 50px grey;
   border-color: #A26D5D;
-  border-style: outset; }
-
+  border-style: outset;
+  overflow: scroll; }
 
 .bag-box h1 {
   margin: 0;
@@ -59,7 +58,6 @@
   font-size: 16px;
   font-family: Times New Roman, Serif, serif;
   padding-left: 20px; }
-
 
 .tshirt-container {
   width: 150px;
@@ -113,11 +111,8 @@
 .sub-container {
   display: flex;
   flex-direction: row;
-  /* Change to row */
   align-items: center;
-  /* Center vertically */
-  justify-content: space-between;
-  /* Spacing between titles */ }
+  justify-content: space-between; }
 
 /*
     Quantity styling

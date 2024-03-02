@@ -38,7 +38,7 @@ return(
         {this.state.redirectToTShirtView ? <Redirect to={`/TShirtView/${this.props.products._id}`}/> : null }
            
            </div>
-    </div>
+
 )
 }
 }
