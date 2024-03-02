@@ -9,17 +9,25 @@
   padding-top: 150px;
   padding-bottom: 100px; }
 
+.shopping-bag-head-container {
+  position: fixed;
+  padding-top: 0; }
+
+.bag-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 100px; }
+
+/* Box shadow from w3 schools*/
 .bag-box {
-  padding-top: 20px;
   width: 700px;
   height: 450px;
   border-radius: 5px;
-  /* Box shadow from w3 schools*/
   box-shadow: 20px 20px 50px grey;
   border-color: #A26D5D;
-  border-style: outset;
-  display: flex;
-  flex-direction: column; }
+  border-style: outset; }
 
 .bag-box h1 {
   margin: 0;
@@ -38,13 +46,8 @@
   align-items: center;
   justify-content: space-between; }
 
-<<<<<<< Updated upstream
-.titles {
-  margin-right: 10px; }
-=======
 .edit-bag > h2 {
   margin-bottom: 150px; }
->>>>>>> Stashed changes
 
 .bag > h1 {
   margin: 0;
@@ -108,8 +111,11 @@
 .sub-container {
   display: flex;
   flex-direction: row;
+  /* Change to row */
   align-items: center;
-  justify-content: space-between; }
+  /* Center vertically */
+  justify-content: space-between;
+  /* Spacing between titles */ }
 
 /*
     Quantity styling
@@ -141,7 +147,7 @@
 .add-btn > img,
 .minus-btn > img {
   width: 20px;
-  height: 20px;
+  height: 10px;
   margin: 0; }
 
 .add-btn {
@@ -149,6 +155,19 @@
 
 .minus-btn {
   margin-right: 7.5px; }
+
+.add-btn,
+.minus-btn {
+  background-color: #c5a790;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: white; }
+
+.add-btn:hover,
+.minus-btn:hover {
+  background-color: #A26D5D;
+  border-color: #363131;
+  cursor: pointer; }
 
 .tshirt-details > h3 {
   font-family: Times New Roman, Serif, serif;

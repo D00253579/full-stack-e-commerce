@@ -281,6 +281,7 @@ export default class Register extends Component {
 >>>>>>> Stashed changes
                                 </div>
                             </div>
+
                             <div className="vl"></div>
                             <div className={"register-section2"}>
                                 <label>Password:<span> *</span></label><br/>
