@@ -59,7 +59,7 @@ export default class TestingDirectory extends Component
                         </div>
                         :
                         <div>
-                            <Link className="testing-green-button" to={"Login/login/"}>Login</Link>
+                            <Link className="testing-green-button" to={"AccountPage/"}>Login</Link>
                             <Link className="testing-green-button" to={"Login/register/"}>Register</Link>
                             <button className="testing-green-button" onClick={this.loginAsAdminTEST}>Login as ADMIN</button>
                         </div>
