@@ -1,12 +1,10 @@
 import React, {Component} from "react"
-import {Link} from "react-router-dom"
+import {Redirect, Link} from "react-router-dom"
 import Logo from "../Images/logo.png"
 import AccountIcon from "../Images/AccountIcon.png"
 import BagIcon from "../Images/BagIcon.png"
 import SearchIcon from "../Images/SearchIcon.png"
-import login from "./Login/Login";
-import {SERVER_HOST} from "../config/global_constants";
-import ShoppingCart from "./ShoppingCart";
+import {SERVER_HOST, ACCESS_LEVEL_GUEST} from "../config/global_constants";
 import SearchDropdown from "./SearchDropdown";
 import axios from "axios";
 
@@ -18,6 +16,7 @@ export default class NavBar extends Component {
             products: [],
             searchResults: [],
             searchInput: "",
+            userIsLoggedIn: localStorage.accessLevel > ACCESS_LEVEL_GUEST
         }
     }
     componentDidMount() {
@@ -94,13 +93,19 @@ export default class NavBar extends Component {
                             </i>
                         </div>
 
-                        <div className={"icons-container"}>
+                        {this.state.userIsLoggedIn ? <div className={"icons-container"}>
+                            <Link to={`/UserProfile/${localStorage.email}`}>
+                                <i className={"account"}>
+                                    <img src={AccountIcon} alt="Account Tab"/>
+                                </i>
+                            </Link>
+                        </div> : <div className={"icons-container"}>
                             <Link to={"/AccountPage"}>
                                 <i className={"account"}>
                                     <img src={AccountIcon} alt="Account Tab"/>
                                 </i>
                             </Link>
-                        </div>
+                        </div>}
                         <div className={"icons-container"}>
                             <Link to={"/ShoppingCart"}>
                                 <i className={"shopping-bag"}>
