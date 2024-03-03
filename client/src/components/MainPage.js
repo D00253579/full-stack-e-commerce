@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import Footer from "./Footer"
 
 import axios from "axios";
-import {SERVER_HOST} from "../config/global_constants";
+import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants";
 import MainPageData from "./MainPageData";
 import Filters from "./AdminDashboard/Filters";
 import Sorts from "./AdminDashboard/Sorts";
@@ -109,6 +109,9 @@ export default class MainPage extends Component {
                         {/*          to={"/TestingDirectory`"}>RETURN*/}
                         {/*    </Link>*/}
                         {/*</div>*/}
+                        {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ?<Link to={"/AdminDashboard/AdminDashboard"}>
+                            <button onClick={this.handleReturn} className={"user-profile-return-btn"}>Admin Dashboard</button>
+                        </Link>:null}
                     </div>
                 </div>
                 <footer>

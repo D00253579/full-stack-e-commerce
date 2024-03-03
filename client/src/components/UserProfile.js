@@ -114,9 +114,7 @@ export default class UserProfile extends Component {
 
                         </div>
                         <button onClick={this.handleReturn} className={"user-profile-return-btn"}>Return</button>
-                        {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ?<Link to={"/AddAddress"}>
-                            <button onClick={this.handleReturn} className={"user-profile-return-btn"}>Admin Dashboard</button>
-                        </Link>:null}
+
                         </div>
                 </div>
             </div>
