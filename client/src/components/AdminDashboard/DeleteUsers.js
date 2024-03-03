@@ -42,7 +42,7 @@ console.log(`ERROR`)
                 {this.state.redirectToUserDashboard ? <Redirect to={"/AdminDashboard/ViewUsers"}/> : null }
 
 
-                <div className="admin-edit-product">
+                <div>
                     <h1>Are you sure you want to delete this user?</h1>
 
                         <button onClick={this.handleDeleteUser}>Delete</button>

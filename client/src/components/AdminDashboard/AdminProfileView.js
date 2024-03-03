@@ -3,6 +3,7 @@ import NavBar from "../NavBar";
 import axios from "axios";
 import {SERVER_HOST} from "../../config/global_constants";
 import {Redirect} from "react-router-dom";
+import DeleteUsers from "./DeleteUsers";
 
 export default class AdminProfileView extends Component {
 
@@ -12,7 +13,8 @@ export default class AdminProfileView extends Component {
         this.state = {
             user: {},
             redirectToDashboard: false,
-            hasAddress: false
+            hasAddress: false,
+            redirectToDeleteUser:false
         }
     }
 
@@ -44,11 +46,15 @@ export default class AdminProfileView extends Component {
     handleReturn = () => {
         this.setState({redirectToDashboard: true})
     }
+handleDelete=()=>{
+        this.setState({redirectToDeleteUser:true})
+}
 
-    render() {
+render() {
         return (
             <div className="profile-view">
                 {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/ViewUsers/"}/> : null}
+                {this.state.redirectToDeleteUser ?<Redirect to={`/AdminDashboard/DeleteUsers/${this.state.user._id}`}/> : null}
                 <div className="admin-head-container">
                     <NavBar/>
                 </div>
@@ -103,7 +109,7 @@ export default class AdminProfileView extends Component {
 
                         </div>
                         <button onClick={this.handleReturn}>Return</button>
-
+                        <button onClick={this.handleDelete}>Delete</button>
                     </div>
                 </div>
             </div>

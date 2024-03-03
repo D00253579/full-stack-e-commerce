@@ -78,7 +78,7 @@ export default class App extends Component {
                     <Route exact path={"/MainPageData"} component={MainPageData}/>
                     <Route exact path={"/AddAddress"} component={AddAddress}/>
                     <Route exact path={"/AddAddress/:email"} component={AddAddress}/>
-                    <Route path="*" component={TestingDirectory}/>
+                    <Route path="*" component={MainPage}/>
                 </Switch>
             </BrowserRouter>
         )

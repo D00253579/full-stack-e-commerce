@@ -28,35 +28,6 @@ router.post(`/users/Login/Register/:name/:email/:password`,upload.single("profil
                 if (uniqueData) {
                     res.json({errorMessage: `User already exists`})
                 } else {
-                    if (req.params.email === "admin@admin.com") {
-                        bcrypt.hash(req.params.password, parseInt(process.env.PASSWORD_HASH_SALT_ROUNDS), (err, hash) => {
-                            usersModel.create({
-                                name: "Admin",
-                                email: "admin@admin.com",
-                                password: hash,
-                                profilePhotoFileName: req.file.filename,
-                                address: {
-                                    address_line_1: "",
-                                    address_line_2: "",
-                                    address_line_3: "",
-                                    city: "",
-                                    county: "",
-                                    country: "",
-                                    post_code: "",
-                                },
-                                accessLevel: parseInt(process.env.ACCESS_LEVEL_ADMIN)
-                            }, (createError, createData) => {
-                                if (createData) {
-                                    const token = jwt.sign({email: createData.email,accessLevel: createData.accessLevel}, JWT_PRIVATE_KEY, {algorithm: 'HS256', expiresIn: process.env.JWT_EXPIRY})
-                                    fs.readFile(`${process.env.TSHIRT_FILES_FOLDER}/${req.file.filename}`, 'base64', (err,fileData)=>{
-                                        res.json({name: createData.name, accessLevel: createData.accessLevel, profilePhoto:fileData,token: token})
-                                    })
-                                } else {
-                                    res.json({errorMessage: `Failed to create Admin user for testing purposes`})
-                                }
-                            })
-                        })
-                    } else {
                         //Password              saltRounds
                         bcrypt.hash(req.params.password, parseInt(process.env.PASSWORD_HASH_SALT_ROUNDS), (err, hash) => {
                             usersModel.create({
@@ -86,7 +57,6 @@ router.post(`/users/Login/Register/:name/:email/:password`,upload.single("profil
                             })
                         })
                     }
-                }
             })
         }
     }
@@ -148,7 +118,6 @@ router.delete(`/users/:id`, (req, res) => {
             if (decodedToken.accessLevel >= process.env.ACCESS_LEVEL_ADMIN) {
                 usersModel.findByIdAndRemove(req.params.id, (error, data) => {
                     console.log("SERVER: Product deleted from collection")
-                    r
                 })
             }
         }
@@ -225,7 +194,7 @@ router.put(`/AddAddress/users/:id`, (req, res) => {
 })
 
 
-router.post(`/users/Login/Logout`, (req, res) => {
+router.post(`/users/AdminMenu`, (req, res) => {
     res.json({})
 })
 module.exports = router
