@@ -57,17 +57,17 @@ export default class ViewUsers extends Component {
                         <Navbar/>
                     </div>
                     <div className="admin-body-container">
-                        <div className="admin-table-container">
+
                             <AdminUserView
                                 users={this.state.users}
                                 updateUsers={this.updateUsers}
                             />
-                        </div>
                     </div>
+                </div>
                     <footer>
                         <Footer/>
                     </footer>
-                </div>
+
             </div>
         )
     }
