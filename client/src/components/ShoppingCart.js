@@ -10,18 +10,6 @@ import {Link} from "react-router-dom"
 
 export default class ShoppingCart extends Component {
 
-    //check if tshirts have been added to the bag if so - display the tshirt, price , size and quantity
-
-    //if not then display bag is empty
-
-    //option to add or remove for quantity
-
-    //or remove tshirt completely from the bag
-
-    //put a reserve time when a tshirt is in the bag
-
-    //proceed to checkout button onclick will open up the payments component
-
     render() {
         return (
             <div>
@@ -33,7 +21,6 @@ export default class ShoppingCart extends Component {
                         <div className="bag-title">
                             <h1>Your Bag</h1>
                         </div>
-
                         <div className="sub-container">
                             <div className={"tshirt-container"}>
                                 <div className="titles">
@@ -49,7 +36,7 @@ export default class ShoppingCart extends Component {
                                 <h3>1985 Collection Slim Fit t-shirt</h3>
                                 <h3>S</h3>
                                 {/*Green in stock, yellow low in stock, red out of stock*/}
-                                <div className={"stock-container"}>
+                                <div className={"in-stock-container"}>
                                     <h3>In stock</h3>
                                 </div>
                             </div>

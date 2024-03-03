@@ -13,7 +13,7 @@
   h1 {
     @include important-titles;
     position: absolute;
-    margin-bottom: 950px
+    margin-bottom: 1000px;
   }
 
   .create-form {
@@ -64,22 +64,22 @@
     }
   }
   .submit-button {
-    width:60%;
+    padding-top: 5px;
+    width:50px;
+    height: 45px;
+    @include basic-button(white);
+    color: black;
 
     input:hover {
       cursor: pointer;
     }
-
   }
-
-
 }
 
 .size-selector {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-
 
   .size-option input {
     width: 13px;
@@ -108,4 +108,12 @@
   margin-right: 10px;
 }
 
+.switch-btn{
+  @include basic-button(white);
+  color: black;
+  padding: 5px 7px;
+}
 
+.switch-btn:hover{
+  @include basic-button-hover;
+}

@@ -67,15 +67,12 @@ export default class AdminDashboard extends Component {
             console.log("Natural order set: product.name DESC")
     }
 
-    /*
-        Used chatgpt to help with the logic, I tried passing in the displayFilters and then setting the state to true.
-        However, doing it that way would result in the filters staying on the page until you refresh.
-        showFilters is used to toggle between showing the filters (state is false then hide filters),
-        onClick twice will hide the filters again
-     */
-
     showFilters = (e) => {
-        this.setState({displayFilters: !this.state.displayFilters})
+        if(!this.state.displayFilters){
+            this.setState({displayFilters: true})
+        }else{
+            this.setState({displayFilters: false})
+        }
     }
 
     showSort = (e) => {
@@ -98,8 +95,6 @@ export default class AdminDashboard extends Component {
                     <div className="side-menu">
                         <AdminMenu/>
                     </div>
-
-
                     <div className={"sort-box"}>
                         <div className={"sort-button"}>
                             <h1>SORT</h1>

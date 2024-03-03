@@ -1,16 +1,4 @@
 @import "Main.scss";
- .shopping-bag-head-container {
-    position: fixed;
-    padding-top: 0;
-  }
-
-  .bag-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 150px;
-    padding-bottom: 100px;
-  }
 
 .shopping-bag-head-container {
   position: fixed;
@@ -23,208 +11,169 @@
   align-items: center;
   padding-top: 150px;
   padding-bottom: 100px;
-}
 
+  /* Box shadow from w3 schools*/
+  .bag-box {
+    width: 700px;
+    height: 450px;
+    border-radius: 5px;
+    box-shadow: 20px 20px 50px grey;
+    border-color: #A26D5D;
+    border-style: outset;
+    overflow: scroll;
 
+    h1 {
+      margin: 0;
+      font-family: Times New Roman, Serif, serif;
+      font-weight: bold;
+      font-size: 30px;
+      padding-left: 20px;
+    }
 
-/* Box shadow from w3 schools*/
-.bag-box {
-  width: 700px;
-  height: 450px;
-  border-radius: 5px;
-  box-shadow: 20px 20px 50px grey;
+    h2 {
+      font-size: 16px;
+      font-family: Times New Roman, Serif, serif;
+    }
+  }
 
+  .edit-bag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 80px;
+  }
 
-  border-color: #A26D5D;
-  border-style: outset;
-  overflow: scroll;
-}
+  .tshirt-container {
+    width: 150px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 30px;
 
-.bag-box h1 {
-  margin: 0;
-  font-family: Times New Roman, Serif, serif;
-  font-weight: bold;
-  font-size: 30px;
-  padding-left: 20px;
-}
+     img {
+      width: 150px;
+      height: 200px;
+    }
+  }
 
-.bag-box h2 {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif;
-  //padding-left: 20px;
-}
+  .total-container {
+    float: right;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 
-.edit-bag {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .checkout-buttons {
+    padding-right: 20px;
+    padding-top: 90px
+  }
 
+  .checkout-buttons > button {
+    background-color: #ccb1a7;
+    border: 2px solid $white;
+    font-family: $title-font;
+    font-size: $title_font_size;
+    padding: 5px 10px;
+    border-radius: 5px;
+    float: right;
 
-.edit-bag > h2{
-  margin-bottom: 150px;
-}
+    &:hover {
+      background-color: #A26D5D;
+      border-color: $grey-border;
+      cursor: pointer;
+    }
+  }
 
-//.edit-bag > h2 {
-//  padding-left: 300px;
-//  padding-bottom: 120px;
-//}
+  .titles {
+    margin-right: 20px;
+  }
 
-.bag > h1 {
-  margin: 0;
-  font-size: $title_font_size;
-  font-family: $title_font;
-}
+  .total-container {
+    padding-bottom: 55px;
 
-.bag > h2 {
-  font-size: $title_font_size;
-  font-family: $title_font;
-  padding-left: 20px;
+    h3{
+      padding-right: 20px;
+    }
+  }
 
-}
+  .tshirt-container, .edit-bag, .total-container {
+    display: flex;
+    align-items: center;
+  }
 
-.tshirt-container {
-  width: 150px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  padding-left: 20px;
-  padding-top: 30px;
-}
+  .sub-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.tshirt-container > img {
-  width: 150px;
-  height: 200px;
-}
+  /*
+      Quantity styling
+      Used reference for the quantity buttons, but used my own images
+      https://designmodo.com/shopping-cart-ui/
+   */
 
-.total-container {
-  float: right;
-  align-items: center;
-  //justify-content: flex-end;
-  display: flex;
-  flex-direction: column;
-  //padding-left: 500px;
-}
+  .edit-quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
 
-.checkout-buttons {
-  padding-right: 20px;
-  padding-top: 90px
-}
+    input {
+      text-align: center;
+      width: 32px;
+      font-size: 16px;
+      color: black;
+      font-weight: 300;
+      font-family: $title_font;
+      border-color: black;
+    }
 
-.checkout-buttons > button {
-  background-color: #ccb1a7;
-  border: 2px solid $white;
-  font-family: $title-font;
-  font-size: $title_font_size;
-  padding: 5px 10px;
-  border-radius: 5px;
-  float: right;
-}
+    button {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+  }
+  .add-btn > img,
+  .minus-btn > img {
+    width: 20px;
+    height: 10px;
+    margin: 0;
+  }
 
-.checkout-buttons > button:hover {
-  background-color: #A26D5D;
-  border-color: $grey-border;
-  cursor: pointer;
-}
+  .add-btn {
+    margin-left: 7.5px;
+  }
 
-.titles {
-  margin-right: 20px;
-}
+  .minus-btn {
+    margin-right: 7.5px;
+  }
 
-.total-container {
-  padding-bottom: 55px;
-}
+  .add-btn,
+  .minus-btn {
+    @include basic-button($white);
+  }
 
-.total-container > h3 {
-  padding-right: 20px;
-}
+  .add-btn:hover,
+  .minus-btn:hover {
+    @include basic-button-hover;
+  }
 
+  .tshirt-details > h3 {
+    font-family: $title_font;
+    font-size: 16px;
+  }
 
-.tshirt-container, .edit-bag, .total-container {
-  display: flex;
-  align-items: center;
-}
+  .tshirt-details > h2 {
+    margin-bottom: 20px;
+  }
 
-.sub-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/*
-    Quantity styling
-    Used reference for the quantity buttons, but used my own images
-    https://designmodo.com/shopping-cart-ui/
- */
-
-.edit-quantity {
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-  //margin-right: 60px;
-}
-
-.edit-quantity input {
-  text-align: center;
-  width: 32px;
-  font-size: 16px;
-  color: black;
-  font-weight: 300;
-  font-family: $title_font;
-  border-color: black;
-}
-
-.edit-quantity > button {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-}
-
-.add-btn > img,
-.minus-btn > img {
-  width: 20px;
-  height: 10px;
-  margin: 0;
-}
-
-.add-btn {
-  margin-left: 7.5px;
-}
-
-
-
-.minus-btn {
-
-  margin-right: 7.5px;
-}
-
-.add-btn,
-.minus-btn {
-  @include basic-button($white);
-}
-
-.add-btn:hover,
-.minus-btn:hover {
-  @include basic-button-hover;
-}
-
-.test {
-
-}
-
-.tshirt-details > h3 {
-  font-family: $title_font;
-  font-size: 16px;
-}
-
-.tshirt-details > h2 {
-  margin-bottom: 20px;
-}
-
-.stock-container > h3 {
-  color: #73af8a;
+  .in-stock-container > h3 {
+    color: #73af8a;
+  }
 }

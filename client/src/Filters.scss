@@ -35,8 +35,7 @@
 
   .filter-dropdown-toggle {
     width: 100%;
-    //color: $white;
-    background-color: #ccb1a7; /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
+    background-color: #ccb1a7;
     border: 1px solid $white;
     border-radius: 3px;
     padding: 8px 12px;
@@ -69,17 +68,16 @@
   font-size: $title_font_size;
   font-weight: bold;
   text-transform: uppercase;
-  //color: $white;
   border: 2px solid $white;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   font-family: $title_font;
-}
 
-.filter-buttons > button:hover {
-  background-color: #A26D5D;
-  border-color: $grey-border;
+  &:hover {
+    background-color: #A26D5D;
+    border-color: $grey-border;
+  }
 }
 
 /*

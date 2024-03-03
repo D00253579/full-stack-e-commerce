@@ -19,22 +19,22 @@
   .hl {
     display: block;
     height: 3px;
-    border:0;
+    border: 0;
     border-top: 3px solid #d4c7c7c2;
     margin-bottom: 20px;
-    padding:0;
+    padding: 0;
     width: 100%;
     position: relative;
   }
 
-  .sub-titles{
+  .sub-titles {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-decoration: none;
 
-    h2{
+    h2 {
       @include normal-text;
       font-size: 18px;
       font-weight: normal;
@@ -53,20 +53,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+      background-color: #A26D5D;
+      border-color: $grey-border;
+      cursor: pointer;
+    }
   }
 
-  button:hover {
-    background-color: #A26D5D;
-    border-color: $grey-border;
-    cursor: pointer;
-  }
-
-  .controls-button{
+  .controls-button {
     text-decoration: none;
     color: black;
   }
 
-  .admin-logout-btn-container{
+  .admin-logout-btn-container {
     padding-left: 50px;
   }
 }

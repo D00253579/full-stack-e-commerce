@@ -405,7 +405,7 @@ export default class CreateProduct extends Component {
                                          {/** SIZES CHECKBOXES GO BELOW HERE*/}
 
 
-                            <button onClick={this.handleSizeChange}>Switch Size Range</button>
+                            <button onClick={this.handleSizeChange} className={"switch-btn"}>Switch Size Range</button>
                             {!this.state.alternateSize ?
                                 <div className="create-input">
                                     <fieldset className="size-selector" id="sizeSelector">
@@ -678,7 +678,7 @@ export default class CreateProduct extends Component {
 
                             <div className="form-controls">
                                 <button onClick={this.handleClear}>CLEAR</button>
-                                <input className="submit-button" type="submit" value="Add"/>
+                                <input className="submit-button" type="submit" value="ADD"/>
                                 {/*<button onClick={this.handleSubmit}>Add</button>*/}
                                 <button onClick={this.handleReturn}>RETURN</button>
                             </div>

@@ -1,11 +1,55 @@
-.tshirt-image {
-  width: 100%;
-  height: auto;
-  max-width: 100%; }
+/*
+    All the t-shirt images
+ */
+.tshirts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
 
+.tshirts-container img {
+  width: calc(33.33% - 20px);
+  max-width: 250px;
+  height: auto;
+  border: solid 2px #363131;
+  border-radius: 5px;
+  margin-bottom: 20px; }
+
+/*
+    Troubleshooting with chatgpt to try and style the tshirts into rows
+    with 3 images in each row
+ */
+/*
+.tshirts-container {
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tshirts-container img {
+  max-width: 100%;
+  height: auto;
+  border: solid 2px $grey-border;
+  border-radius: 5px;
+}
+*/
+/*
+    Trying to get Individual images by photo id
+ */
+/*
 .photo-65e061aad02190677027082d {
-  width: 250px;
-  height: 250px;
-  padding-left: 50%; }
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+}
+
+.photo-65e061fad02190677027082e {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+.photo-65e066bbc2091b5bb0f7c16b {
+
+}
+*/
 
 /*# sourceMappingURL=TShirtLayout.css.map */

@@ -17,6 +17,7 @@ import "./css/EditProduct.css"
 import "./AdminMenu.scss"
 import "./Sort.scss"
 import "./UserTable.scss"
+import "./MainPage.scss"
 import TShirtView from "./components/TShirtView";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";

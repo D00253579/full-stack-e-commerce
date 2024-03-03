@@ -98,18 +98,26 @@ export default class UserProfile extends Component {
                                     <h4>Country: <span>{this.state.user.address.country}</span></h4>
                                     <h4>Post Code: <span>{this.state.user.address.post_code}</span></h4>
                                     <br/>
-                                    <Link className="testing-green-button" to={`/AddAddress/${localStorage.email}/`}>Update</Link>
+                                    <Link to={`/AddAddress/${localStorage.email}/`}>
+                                        <button className={"update-btn"}>
+                                            Update
+                                        </button>
+                                    </Link>
                                 </div>
 
                                 :
                                 <div className="right">
                                     <h3>Want to store your address for a faster checkout?</h3>
-                                    <Link className="testing-green-button" to={"/AddAddress"}>Add Address</Link>
+                                    <Link to={"/AddAddress"}>
+                                        <button className={"add-address-btn"}>
+                                            Add Address
+                                        </button>
+                                    </Link>
                                 </div>
                             }
 
                         </div>
-                        <button onClick={this.handleReturn}>Return</button>
+                        <button onClick={this.handleReturn} className={"user-profile-return-btn"}>Return</button>
                     </div>
                 </div>
             </div>

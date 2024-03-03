@@ -10,42 +10,6 @@ body {
   display: flex;
 }
 
-/* AdminControls */
-/*
-.controls-container {
-  height: 100px;
-  margin: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-
-  /* Button style */
-/*
-  .controls-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: $title_font_size;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: black;
-    background-color: #ccb1a7;
-    border: 2px solid $white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    margin-right: 10px;
-    font-family: $title_font;
-  }
-
-  .controls-button:hover {
-    background-color: #A26D5D;
-    border-color: $grey-border;
-  }
-}
-*/
-
 /* AdminTable */
 
 .admin-head-container {
@@ -197,8 +161,6 @@ body {
   transform: rotate(45deg);
 }
 
-/* */
-
 /*
   Add product styling
  */
@@ -282,30 +244,6 @@ body {
   font-weight: bold;
 }
 
-/*
-     Sort image and button
- */
-
-.sort-icon > img {
-  width: 30px;
-  height: 30px;
-}
-
-.sort-button > h1 {
-  font-size: 18px;
-  font-family: Times New Roman, Serif, serif;
-
-}
-
-.sort-button {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
-
-/*
-   End of sort
- */
 
 #profilePhoto {
   width: 100px;
@@ -331,7 +269,7 @@ body {
 .sort-box {
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
+  margin-bottom: 1900px;
 }
 
 .filter-box {
@@ -342,3 +280,39 @@ body {
   right: 0;
   padding: 10px;
 }
+
+/* AdminControls */
+/*
+.controls-container {
+  height: 100px;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  /* Button style */
+/*
+  .controls-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: $title_font_size;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    background-color: #ccb1a7;
+    border: 2px solid $white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-right: 10px;
+    font-family: $title_font;
+  }
+
+  .controls-button:hover {
+    background-color: #A26D5D;
+    border-color: $grey-border;
+  }
+}
+*/

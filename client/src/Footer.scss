@@ -8,62 +8,59 @@
   display: flex;
   z-index: 2;
   position: relative;
-}
 
-.footer-container > h2{
-  font-weight: bold;
-  cursor: pointer;
-}
 
-.help-section > h2,
-.link-section > h2{
-  font-family: $title_font;
-  font-size: 18px;
-}
+  h2 {
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-.link-section > h2{
-  margin-bottom: 20px;
-}
+  .help-section > h2,
+  .link-section > h2 {
+    font-family: $title_font;
+    font-size: 18px;
+  }
 
-.help-section,
-.link-section > h3 {
-  font-family: $title_font;
-  font-size: 12px;
-}
+  .link-section {
+    h2 {
+      margin-bottom: 20px;
 
-//.facebook-image,
-//.instagram-image,
-//.snapchat-image{
-//  width: 45px;
-//  height: 45px;
-//  margin-right: 10px;
-//}
+    }
+  }
 
-.facebook-image, .instagram-image{
-  width: 45px;
-  height: 45px;
-  margin-right: 10px;
-}
+  .help-section,
+  .link-section > h3 {
+    font-family: $title_font;
+    font-size: 12px;
+  }
 
-.snapchat-image{
-  height: 80px;
-  margin-right: 10px;
-}
+  .facebook-image, .instagram-image {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+  }
 
-.help-section{
-  display: flex;
-  flex-direction: column;
-  margin-left: 65px;
-}
+  .snapchat-image {
+    height: 80px;
+    margin-right: 10px;
+  }
 
-.link-section, .social-media-icons{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .help-section {
+    display: flex;
+    flex-direction: column;
+    margin-left: 65px;
+  }
 
-.link-section{
-  margin-left: 250px;
+  .link-section, .social-media-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .link-section {
+    margin-left: 250px;
+  }
+
 }
 
 /*
@@ -71,16 +68,17 @@
     https://blog.hubspot.com/website/html-code-copyright
  */
 
-.copyright-section{
+.copyright-section {
   background-color: #d6cfcf;
   width: 100%;
   height: 30px;
   border-radius: 2px;
   border: solid #d4cbcb;
   display: flex;
+
+  span{
+      margin-left: 65px;
+      font-family: Times New Roman, Serif, serif;
+  }
 }
 
-.copyright-section > span{
-  margin-left: 65px;
-  font-family: Times New Roman, Serif, serif;
-}
