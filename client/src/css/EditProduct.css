@@ -4,85 +4,101 @@
   align-items: center;
   padding-top: 80px;
   padding-bottom: 100px;
-  position: relative; }
-  .admin-create-product h1 {
-    color: black;
-    font-family: Times New Roman, Serif, serif;
-    font-size: 24px;
-    font-weight: bold;
-    position: absolute;
-    margin-bottom: 950px; }
-  .admin-create-product .create-form {
-    border-radius: 5px;
-    box-shadow: 20px 20px 50px grey;
-    border-color: #A26D5D;
-    border-style: outset;
-    background-color: #efe6e6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px;
-    width: 500px; }
-  .admin-create-product .label {
-    font-family: Times New Roman, Serif, serif;
-    font-size: 16px;
-    font-weight: normal;
-    font-size: 18px; }
-  .admin-create-product input {
-    display: flex;
-    justify-content: center;
-    border-color: white;
-    border-radius: 0;
-    border-style: outset;
-    height: 15px;
-    width: 400px;
-    padding: 10px;
-    margin-bottom: 10px; }
+  position: relative;
+}
+.admin-create-product h1 {
+  color: black;
+  font-family: Times New Roman, Serif, serif;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  margin-bottom: 950px;
+}
+.admin-create-product .create-form {
+  border-radius: 5px;
+  box-shadow: 20px 20px 50px grey;
+  border-color: #A26D5D;
+  border-style: outset;
+  background-color: #efe6e6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  width: 500px;
+}
+.admin-create-product .label {
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-size: 18px;
+}
+.admin-create-product input {
+  display: flex;
+  justify-content: center;
+  border-color: white;
+  border-radius: 0;
+  border-style: outset;
+  height: 15px;
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
 
 .form-controls {
   display: flex;
-  justify-content: center; }
-  .form-controls button {
-    background-color: #c5a790;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    color: white;
-    padding: 5px 7px;
-    color: black;
-    border-color: white;
-    margin: 5px 60px; }
-    .form-controls button:hover {
-      background-color: #A26D5D;
-      border-color: #363131;
-      cursor: pointer; }
-  .form-controls .submit-button {
-    width: 60%; }
-    .form-controls .submit-button input:hover {
-      cursor: pointer; }
+  justify-content: center;
+}
+.form-controls button {
+  background-color: #c5a790;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 7px;
+  color: black;
+  border-color: white;
+  margin: 5px 60px;
+}
+.form-controls button:hover {
+  background-color: #A26D5D;
+  border-color: #363131;
+  cursor: pointer;
+}
+.form-controls .submit-button {
+  width: 60%;
+}
+.form-controls .submit-button input:hover {
+  cursor: pointer;
+}
 
 .size-selector {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px; }
-  .size-selector .size-option input {
-    width: 13px;
-    height: 13px;
-    margin-right: 5px; }
-  .size-selector .size-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; }
-    .size-selector .size-container .item {
-      display: flex;
-      flex-direction: column;
-      padding: 20px; }
+  margin-bottom: 10px;
+}
+.size-selector .size-option input {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
+}
+.size-selector .size-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.size-selector .size-container .item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
 
 .form-label {
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 .filter-checkboxes {
-  margin-right: 10px; }
+  margin-right: 10px;
+}
 
 /*
     Edit product page
@@ -93,58 +109,82 @@
   align-items: center;
   padding-top: 80px;
   padding-bottom: 100px;
-  position: relative; }
-  .admin-edit-product h1 {
-    color: black;
-    font-family: Times New Roman, Serif, serif;
-    font-size: 24px;
-    font-weight: bold;
-    position: absolute;
-    margin-bottom: 800px; }
-  .admin-edit-product .edit-form {
-    border-radius: 5px;
-    box-shadow: 20px 20px 50px grey;
-    border-color: #A26D5D;
-    border-style: outset;
-    background-color: #efe6e6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px; }
-  .admin-edit-product label {
-    font-family: Times New Roman, Serif, serif;
-    font-size: 16px;
-    font-weight: normal;
-    font-size: 18px; }
-  .admin-edit-product input {
-    display: flex;
-    justify-content: center;
-    border-color: white;
-    border-radius: 0;
-    border-style: outset;
-    height: 15px;
-    width: 400px;
-    padding: 10px;
-    margin-bottom: 10px; }
+  position: relative;
+}
+.admin-edit-product h1 {
+  color: black;
+  font-family: Times New Roman, Serif, serif;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  margin-bottom: 800px;
+}
+.admin-edit-product .edit-form {
+  border-radius: 5px;
+  box-shadow: 20px 20px 50px grey;
+  border-color: #A26D5D;
+  border-style: outset;
+  background-color: #efe6e6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+}
+.admin-edit-product label {
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-size: 18px;
+}
+.admin-edit-product input {
+  display: flex;
+  justify-content: center;
+  border-color: white;
+  border-radius: 0;
+  border-style: outset;
+  height: 15px;
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
 
 .form-controls {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px; }
-  .form-controls button {
-    background-color: #c5a790;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    color: white;
-    padding: 5px 7px;
-    color: black;
-    border-color: white;
-    margin: 5px 40px; }
-    .form-controls button:hover {
-      background-color: #A26D5D;
-      border-color: #363131;
-      cursor: pointer; }
+  margin-bottom: 20px;
+}
+.form-controls button {
+  background-color: #c5a790;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 7px;
+  color: black;
+  border-color: white;
+  margin: 5px 40px;
+}
+.form-controls button:hover {
+  background-color: #A26D5D;
+  border-color: #363131;
+  cursor: pointer;
+}
+
+.stock-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 30px;
+  max-height: 50%;
+}
+.stock-container label,
+.stock-container input {
+  margin-left: 30px;
+  max-width: 30%;
+}
+.stock-container .item {
+  max-width: 30%;
+}
 
 /*
     From admin scss
@@ -153,13 +193,16 @@
 .edit-input {
   margin-bottom: 15px;
   font-size: 20px;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
-.create-input input[type="text"]:hover,
-.edit-input input[type="text"]:hover {
-  cursor: pointer; }
+.create-input input[type=text]:hover,
+.edit-input input[type=text]:hover {
+  cursor: pointer;
+}
 
 .form-label {
-  font-family: Times New Roman, Serif, serif; }
+  font-family: Times New Roman, Serif, serif;
+}
 
 /*# sourceMappingURL=EditProduct.css.map */

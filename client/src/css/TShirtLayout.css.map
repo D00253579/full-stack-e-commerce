@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAEA,aAAa;EACX,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,SAAS,EAAE,IAAI;;AAKf,+BAAgC;EAC9B,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,YAAY,EAAE,GAAG",
-"sources": ["../TShirtLayout.scss"],
-"names": [],
-"file": "TShirtLayout.css"
-}
+{"version":3,"sourceRoot":"","sources":["../TShirtLayout.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;;;AAKA;EACE;EACA;EACA","file":"TShirtLayout.css"}

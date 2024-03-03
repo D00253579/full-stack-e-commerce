@@ -29,7 +29,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 40px;
   }
 
   label {
@@ -69,6 +69,23 @@
   }
 }
 
+.stock-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 30px;
+  max-height: 50%;
+
+  label,
+  input {
+    margin-left: 30px;
+    max-width: 30%;
+  }
+  .item {
+    max-width: 30%;
+  }
+
+}
 /*
     From admin scss
  */

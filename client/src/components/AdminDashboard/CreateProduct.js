@@ -51,12 +51,13 @@ export default class CreateProduct extends Component {
                     if (res.data.errorMessage) {
                     } else {
                         console.log("Records read to Admin dashboard");
-                        this.setState({products: res.data});
+                        this.setState({
+                            products: res.data});
                     }
                 } else {
                     console.log("Record not found");
                 }
-            });
+            })
     }
     handleSizeChange = (e) => {
         e.preventDefault()
@@ -79,10 +80,7 @@ export default class CreateProduct extends Component {
         checkboxes.forEach((checkbox => { // uncheck all checkboxes
             checkbox.checked = false
         }))
-        this.setState({product: {
-                size: []
-            }
-        })
+        this.setState({size: []})
     }
     handleFileChange = (e) => {
         this.setState({selectedFiles: e.target.files})
@@ -96,19 +94,20 @@ export default class CreateProduct extends Component {
             // If checked, add the value to the size array
             this.setState({
                 size: [...size, value]
-            });
+            })
         } else {
             // If unchecked, remove the value from the size array
             this.setState({
                 size: size.filter(item => item !== value)
-            });
+            })
         }
     }
 
     handleReturn = () => {
         this.setState({redirectToDashboard: true})
     }
-    handleClear = () => {
+    handleClear = (e) => {
+        e.preventDefault()
         const checkboxes = document.querySelectorAll('input[type="checkbox"]')
         checkboxes.forEach((checkbox => { // uncheck all checkboxes
             checkbox.checked = false
@@ -131,12 +130,12 @@ export default class CreateProduct extends Component {
 
 
         const validationPatterns = {
-            name: /^[a-zA-Z\s]{1,}$/, // At least one letter or space required
+            name: /^[a-zA-Z\s-]{1,}$/, // At least one letter or space required
             colour: /^[a-zA-Z\s]{1,}$/, // At least one letter or space required
             price: /^\d+(\.\d{1,2})?$/, // Positive number with up to 2 decimal places allowed
             gender: /^[a-zA-Z]{1,}$/, // At least one letter required
             category: /^[a-zA-Z\s]{1,}$/, // At least one letter or space required
-            brand: /^[a-zA-Z\s]{1,}$/, // At least one letter or space required
+            brand: /^[a-zA-Z\s-.&]{1,}$/, // At least one letter or space required
             current_stock: /^\d{1,}$/, // At least one digit required
             product_id: /^\d{1,}$/ // At least one digit required
         };
@@ -188,7 +187,7 @@ export default class CreateProduct extends Component {
         else
         {
             document.getElementById("sizeSelector").classList.remove("invalid-input")
-            this.setState({sizeIsInvalid: true})
+            this.setState({sizeIsInvalid: false})
         }
 
         /** Validate product PRICE input  */
@@ -289,6 +288,7 @@ export default class CreateProduct extends Component {
                 current_stock: this.stockInput.current.value,
                 size: this.state.size
             }
+            console.log(product.size)
             formData.append("name", product.name)
             formData.append("colour", product.colour)
             formData.append("size", product.size)
