@@ -23,7 +23,6 @@ import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import AccountPage from "./components/AccountPage";
 import Footer from "./components/Footer";
-import TestingDirectory from "./components/TestingDirectory";
 import MainPage from "./components/MainPage"
 import MainPageData from "./components/MainPageData";
 import ShoppingCart from "./components/ShoppingCart";
@@ -57,7 +56,7 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={TestingDirectory}/>
+                    <Route exact path="/" component={MainPage}/>
                     <Route exact path="/NavBar" component={NavBar}/>
                     <Route exact path="/AccountPage" component={AccountPage}/>
                     <Route exact path="/Footer" component={Footer}/>
