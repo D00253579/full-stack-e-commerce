@@ -129,10 +129,7 @@ const returnUsersDetailsAsJSON = (req, res) =>
     {
     fs.readFile(`${process.env.UPLOADED_FILES_FOLDER}/${req.data.profilePhotoFileName}`, 'base64', (err, fileData) =>
     {
-        if(err)
-        {
-            return next(err)
-        }
+        
 
         return res.json({name: req.data.name, accessLevel:req.data.accessLevel, profilePhoto:fileData, token:token})
     })
