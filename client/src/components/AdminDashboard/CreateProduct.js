@@ -23,6 +23,7 @@ export default class CreateProduct extends Component {
         this.state = {
             defaultProduct: [],
             products: [],
+            wasSubmittedAtLeastOnce:false,
             redirectToDashboard: false,
             inputsAreInvalid: false,
             idIsInvalid: false,
@@ -47,16 +48,10 @@ export default class CreateProduct extends Component {
         // Fetch products in the parent component
         axios.get(`${SERVER_HOST}/products`)
             .then((res) => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
-                    } else {
-                        console.log("Records read to Admin dashboard");
-                        this.setState({
-                            products: res.data});
-                    }
-                } else {
-                    console.log("Record not found");
-                }
+                this.setState({products: res.data});
+            })
+            .catch(err =>{
+
             })
     }
     handleSizeChange = (e) => {
@@ -307,21 +302,16 @@ export default class CreateProduct extends Component {
             // const createdProduct = this.state.product;
 
 
-            axios.post(`${SERVER_HOST}/products`, formData, {headers:{"authorization":localStorage.token}})
+            axios.post(`${SERVER_HOST}/products`, formData,{headers:{"authorization":localStorage.token, "Content-type": "multipart/form-data"}})
 
                 .then(res =>
                 {
-                    if(res.data)
-                    {
-                        if(res.data.errorMessage) {
-                            console.log("Product NOT created")
-                        } else {
-                            console.log("Product created: ", formData)
-                            this.handleReturn()
-                        }
-                    } else {
-                        console.log("No response")
-                    }
+                    this.handleReturn()
+
+
+                })
+                .catch(err =>{
+                    this.setState({wasSubmittedAtLeastOnce:true})
                 })
 
         } else {
@@ -330,12 +320,16 @@ export default class CreateProduct extends Component {
     }
 
     render() {
-
+        let errorMessage=""
+        if (this.state.wasSubmittedAtLeastOnce){
+            errorMessage = <div>Error: All fields must be filled in<br/></div>;
+        }
         console.log("idIsInvalid: ", this.state.idIsInvalid)
         return (
             <div>
 
                 {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
+                {errorMessage}
                 <div className="admin-container">
                 <div className="admin-head-container" id="top-of-form">
                     <NavBar/>

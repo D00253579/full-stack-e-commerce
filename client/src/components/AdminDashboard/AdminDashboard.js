@@ -29,26 +29,17 @@ export default class AdminDashboard extends Component {
         // Fetch products in the parent component
         axios.get(`${SERVER_HOST}/products`)
             .then((res) => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
-                        /* TODO
-                            Display a message to the screen showing the products were not found */
 
-
-                        console.log(res.data.errorMessage);
-                    } else {
                         console.log("Records read to Admin dashboard");
                         this.setState({
                             products: res.data,       // This state of products when passed will have the filters applied
                             defaultProducts: res.data // keep a default view for filtering
-
                         });
                         this.sortName()
-                    }
-                } else {
-                    console.log("Record not found");
-                }
-            });
+            })
+            .catch(err=>{
+
+            })
     }
 
 

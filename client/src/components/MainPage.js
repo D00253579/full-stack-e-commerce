@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import Footer from "./Footer"
 
 import axios from "axios";
-import {SERVER_HOST} from "../config/global_constants";
+import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants";
 import MainPageData from "./MainPageData";
 import Filters from "./AdminDashboard/Filters";
 import Sorts from "./AdminDashboard/Sorts";
@@ -26,19 +26,14 @@ export default class MainPage extends Component {
         // Fetch products in the parent component
         axios.get(`${SERVER_HOST}/products`)
             .then((res) => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
-                        console.log(res.data.errorMessage);
-                    } else {
-                        console.log("Records read to Admin dashboard");
+                        // console.log("Records read to Admin dashboard");
                         this.setState({
-                            products: res.data,       // This state of products when passed will have the filters applied
+                            products: res.data       // This state of products when passed will have the filters applied
                         });
-                    }
-                } else {
-                    console.log("Record not found");
-                }
-            });
+            })
+            .catch(err =>{
+
+            })
     }
 
     updateProducts = (newProductState) => {
@@ -114,6 +109,9 @@ export default class MainPage extends Component {
                         {/*          to={"/TestingDirectory`"}>RETURN*/}
                         {/*    </Link>*/}
                         {/*</div>*/}
+                        {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ?<Link to={"/AdminDashboard/AdminDashboard"}>
+                            <button onClick={this.handleReturn} className={"user-profile-return-btn"}>Admin Dashboard</button>
+                        </Link>:null}
                     </div>
                 </div>
                 <footer>

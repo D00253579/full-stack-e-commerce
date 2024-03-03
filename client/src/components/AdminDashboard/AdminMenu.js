@@ -20,26 +20,17 @@ export default class AdminMenu extends Component {
         axios.post(`${SERVER_HOST}/users/AdminMenu`)
             .then(res =>
             {
-                if(res.data)
-                {
-                    if (res.data.errorMessage)
-                    {
-                        console.log(res.data.errorMessage)
-                    }
-                    else
-                    {
-                        console.log("User logged out")
+                        // console.log("User logged out")
                         localStorage.clear()
 
                         localStorage.name = "GUEST"
                         localStorage.accessLevel = ACCESS_LEVEL_GUEST
                         this.setState({isLoggedIn:false})
-                    }
-                }
-                else
-                {
-                    console.log("Logout failed")
-                }
+
+
+            })
+            .catch(err=>{
+
             })
     }
     render() {

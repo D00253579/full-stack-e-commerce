@@ -23,20 +23,17 @@ export default class NavBar extends Component {
         // Fetch products in the parent component
         axios.get(`${SERVER_HOST}/products`)
             .then((res) => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
 
-                        console.log(res.data.errorMessage);
-                    } else {
                         //console.log("Records read to NavBar");
                         this.setState({
                             products: res.data,
                         });
-                    }
-                } else {
-                    console.log("Record not found");
-                }
-            });
+
+
+            })
+            .catch(err=>{
+
+            })
     }
 
     handleSearchChange = (e) => {

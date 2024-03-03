@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import NavBar from "./NavBar";
 import axios from "axios";
-import {SERVER_HOST} from "../config/global_constants";
+import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants";
 import {Link, Redirect} from "react-router-dom";
 
 
@@ -21,7 +21,7 @@ export default class UserProfile extends Component {
                 country: "",
                 post_code: ""
             },
-            redirectToDashboard: false,
+            redirectToMainPage: false,
             hasAddress: false
         }
     }
@@ -34,11 +34,8 @@ export default class UserProfile extends Component {
         // get the user with the matching id from database collection
         axios.get(`${SERVER_HOST}/AddAddress/users/${email}`, {headers: {"authorization": localStorage.token}})
             .then(res => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
 
-                    } else {
-                        console.log("User found and displaying in UserProfile")
+                        // console.log("User found and displaying in UserProfile")
                         this.setState({user: res.data})
                         if(!res.data.address.address_line_1) { // check if the user has an address saved already
                             this.setState({hasAddress: false})
@@ -46,17 +43,16 @@ export default class UserProfile extends Component {
                         } else {
                             this.setState({hasAddress: true})
                             this.setState({address: res.data.address})
-                            console.log("address from response: ", this.state.address)
+                            // console.log("address from response: ", this.state.address)
                         }
-                    }
-                } else {
-                    console.log("User not found")
-                }
+            })
+            .catch(err=>{
+
             })
     }
 
     handleReturn = () => {
-        this.setState({redirectToDashboard: true})
+        this.setState({redirectToMainPage: true})
     }
 
     render() {
@@ -64,7 +60,7 @@ export default class UserProfile extends Component {
         console.log("Address: ",this.state.user.address)
         return (
             <div className="profile-view">
-                {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/ViewUsers/"}/> : null}
+                {this.state.redirectToMainPage ? <Redirect to={"/MainPage"}/> : null}
                 <div className="admin-head-container">
                     <NavBar/>
                 </div>
@@ -118,7 +114,8 @@ export default class UserProfile extends Component {
 
                         </div>
                         <button onClick={this.handleReturn} className={"user-profile-return-btn"}>Return</button>
-                    </div>
+
+                        </div>
                 </div>
             </div>
         )

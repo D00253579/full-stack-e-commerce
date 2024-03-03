@@ -18,16 +18,12 @@ export default class DeleteUsers extends Component {
         axios.delete(`${SERVER_HOST}/users/${userID}`, {headers:{"authorization":localStorage.token}})
             .then (res =>
             {
-                if(res.data) {
-                    if(res.data.errorMessage) {
-console.log(`ERROR`)
-                    } else {
-                        console.log("Product has been deleted")
+                        // console.log("Product has been deleted")
                         this.setState({redirectToUserDashboard: true})
-                    }
-                } else {
-                    console.log("Product not deleted")
-                }
+
+            })
+            .catch(err=>{
+
             })
 
     }

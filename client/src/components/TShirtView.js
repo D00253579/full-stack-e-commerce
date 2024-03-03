@@ -17,21 +17,18 @@ export default class TShirtView extends Component {
         // console.log(productID)
 
         // get the product with the matching id from database collection
-        axios.get(`${SERVER_HOST}/products/${tShirtID}`,{headers:{"authorization":localStorage.token}})
+        axios.get(`${SERVER_HOST}/products/${tShirtID}`, {headers: {"authorization": localStorage.token}})
             .then(res => {
-                if(res.data) {
-                    if(res.data.errorMessage) {
 
-                    } else {
-                        console.log("Product found")
-                        this.setState({products: res.data}) // set state of product to response data
-                    }
-                } else {
-                    console.log("Product not found")
-                }
+                console.log("Product found")
+                this.setState({products: res.data}) // set state of product to response data
+
+
+            })
+            .catch(err=>{
+
             })
     }
-
     render()
     {
         console.log(this.state.products)
