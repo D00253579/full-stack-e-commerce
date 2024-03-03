@@ -1,0 +1,76 @@
+/*
+    User table Styling
+ */
+.user-table {
+  margin-left: 200px;
+  margin-top: 50px; }
+
+.admin-body-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.admin-table-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: 80px;
+  margin-left: 40px; }
+  .admin-table-container table {
+    padding: 30px;
+    width: 100%;
+    height: 500px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: 2px solid #363131;
+    border-radius: 5px; }
+
+.admin-table-container thead {
+  background-color: #A26D5D;
+  color: #ffffff;
+  border-color: #ffffff;
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: bold;
+  font-family: Times New Roman, Serif, serif;
+  height: 30px; }
+
+.admin-table-container thead :hover {
+  border-color: #363131; }
+
+.admin-table thead th {
+  width: 100px; }
+
+.admin-table thead th,
+.admin-table-container tbody td {
+  padding: 20px;
+  font-size: 16px;
+  text-align: center; }
+
+.admin-table-container tbody tr {
+  border-bottom: 1px solid #363131;
+  background-color: #ffffff;
+  position: relative; }
+
+.admin-table-container tbody tr:hover {
+  background-color: #e5e3e3;
+  transition: background-color 0.6s ease; }
+
+.admin-table-container tbody tr:hover td {
+  color: transparent;
+  cursor: pointer; }
+
+.admin-table-container tbody tr:hover::after {
+  content: "\1F50D";
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; }
+
+.admin-table-container .user-table table {
+  border-color: #363131;
+  border-radius: 5px; }
+
+/*# sourceMappingURL=UserTable.css.map */

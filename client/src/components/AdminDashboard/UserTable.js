@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import UserTableRow from "./UserTableRow";
+
 export default class UserTable extends Component
 {
     constructor(props) {

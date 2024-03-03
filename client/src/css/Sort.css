@@ -1,49 +1,43 @@
 .sort-container {
   margin-top: 30px;
   display: flex;
-  /* Styling for filter dropdown menus */
-}
-.sort-container .sort-buttons {
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-}
-.sort-container .sort-dropdown.open .sort-dropdown-menu {
-  display: flex;
-}
-.sort-container .sort-dropdown-menu {
-  display: none;
-  top: 0;
-  left: 100%;
-  padding: 10px;
-}
-.sort-container .sort-dropdown-menu label {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  font-family: Times New Roman, Serif, serif;
-  font-size: 16px;
-}
-.sort-container .sort-dropdown-toggle {
-  width: 100%;
-  background-color: #ccb1a7; /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
-  border: 1px solid #ffffff;
-  border-radius: 3px;
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: background-color 0.8ms ease;
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-family: Times New Roman, Serif, serif;
-  font-size: 14px;
-  font-weight: bold;
-}
-.sort-container .sort-dropdown-toggle:hover {
-  background-color: #ffffff;
-  border-color: #363131;
-}
+  /* Styling for filter dropdown menus */ }
+  .sort-container .sort-buttons {
+    margin: 10px;
+    display: flex;
+    justify-content: center; }
+  .sort-container .sort-dropdown.open .sort-dropdown-menu {
+    display: flex; }
+  .sort-container .sort-dropdown-menu {
+    display: none;
+    top: 0;
+    left: 100%;
+    padding: 10px; }
+  .sort-container .sort-dropdown-menu label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: Times New Roman, Serif, serif;
+    font-size: 16px; }
+  .sort-container .sort-dropdown-toggle {
+    width: 100%;
+    background-color: #ccb1a7;
+    /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.8ms ease;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Times New Roman, Serif, serif;
+    font-size: 14px;
+    font-weight: bold; }
+  .sort-container .sort-dropdown-toggle:hover {
+    background-color: #ffffff;
+    border-color: #363131; }
 
 .sort-buttons > button {
   background-color: #ccb1a7;
@@ -57,13 +51,11 @@
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
-  font-family: Times New Roman, Serif, serif;
-}
+  font-family: Times New Roman, Serif, serif; }
 
 .sort-buttons > button:hover {
   background-color: #A26D5D;
-  border-color: #363131;
-}
+  border-color: #363131; }
 
 /* */
 /*
@@ -74,30 +66,25 @@
   padding-left: 20px;
   align-items: center;
   flex-direction: column;
-  position: relative;
-}
+  position: relative; }
 
 .sort-button > h1 {
   font-size: 18px;
   font-family: Times New Roman, Serif, serif;
-  margin-left: 200px;
-}
+  margin-left: 200px; }
 
 .sort-icon {
   position: absolute;
   margin-top: 25px;
-  margin-right: 10px;
-}
+  margin-right: 10px; }
 
 .sort-icon:hover {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .sort-icon > img {
   width: 45px;
   height: 45px;
   margin-left: 85px;
-  position: absolute;
-}
+  position: absolute; }
 
 /*# sourceMappingURL=Sort.css.map */

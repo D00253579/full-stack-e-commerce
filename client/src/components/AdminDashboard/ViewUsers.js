@@ -6,6 +6,7 @@ import AdminUserView from "./AdminUserView";
 import UserControls from "./UserControls";
 import AdminMenu from "./AdminMenu";
 import Footer from "../Footer";
+import UserTable from "../../UserTable.scss"
 
 export default class ViewUsers extends Component {
 
@@ -57,7 +58,6 @@ export default class ViewUsers extends Component {
                         <Navbar/>
                     </div>
                     <div className="admin-body-container">
-
                             <AdminUserView
                                 users={this.state.users}
                                 updateUsers={this.updateUsers}
