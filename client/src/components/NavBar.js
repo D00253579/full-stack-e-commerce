@@ -28,7 +28,7 @@ export default class NavBar extends Component {
 
                         console.log(res.data.errorMessage);
                     } else {
-                        console.log("Records read to Admin dashboard");
+                        //console.log("Records read to NavBar");
                         this.setState({
                             products: res.data,
                         });
