@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b352fedd.css",
+    "main.js": "/static/js/main.3aefcefb.js",
+    "static/media/front.png": "/static/media/front.441a9c272862ebf8462b.png",
+    "static/media/InstagramIcon.png": "/static/media/InstagramIcon.8fd7bc6a671aa658fb03.png",
+    "static/media/back.png": "/static/media/back.374456155fd33df44ae7.png",
+    "static/media/SearchIcon.png": "/static/media/SearchIcon.a398eaf3b34454cc02c7.png",
+    "static/media/AccountIcon.png": "/static/media/AccountIcon.5cd00691a0355cb9437d.png",
+    "static/media/AddIcon.png": "/static/media/AddIcon.35a3396b5726fb41b817.png",
+    "static/media/SnapchatIcon.png": "/static/media/SnapchatIcon.ef1390d1bc3f4ef2f7ea.png",
+    "static/media/BagIcon.png": "/static/media/BagIcon.83636f7715d6581d273d.png",
+    "static/media/FilterImage.png": "/static/media/FilterImage.fe661b231df73348afbf.png",
+    "static/media/logo.png": "/static/media/logo.1f65c56cbc3281addd95.png",
+    "index.html": "/index.html",
+    "main.b352fedd.css.map": "/static/css/main.b352fedd.css.map",
+    "main.3aefcefb.js.map": "/static/js/main.3aefcefb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b352fedd.css",
+    "static/js/main.3aefcefb.js"
+  ]
+}

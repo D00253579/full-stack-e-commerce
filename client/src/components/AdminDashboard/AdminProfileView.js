@@ -23,10 +23,6 @@ export default class AdminProfileView extends Component {
 
         axios.get(`${SERVER_HOST}/users/${id}`, {headers: {"authorization": localStorage.token}})
             .then(res => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
-
-                    } else {
                         console.log("User found, displaying profile")
                         this.setState({user: res.data})
 
@@ -35,10 +31,9 @@ export default class AdminProfileView extends Component {
                         } else {
                             this.setState({hasAddress: true})
                         }
-                    }
-                } else {
-                    console.log("User not found")
-                }
+            })
+            .catch(err=>{
+
             })
     }
 

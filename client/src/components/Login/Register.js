@@ -16,6 +16,7 @@ export default class Register extends Component {
             confirmPassword: "",
             isRegistered: false,
             selectedFile: null,
+            wasSubmittedAtLeastOnce:false,
             errors: { // used to keep track of current validation errors
                 name: [],
                 email: [],
@@ -144,23 +145,17 @@ export default class Register extends Component {
 
             axios.post(`${SERVER_HOST}/users/Login/Register/${this.state.name}/${this.state.email}/${this.state.password}`, formData, {headers: {"Content-type": "multipart/form-data"}})
                 .then(res => {
-                    if (res.data) {
-                        if (res.data.errorMessage) {
-                            console.log(res.data.errorMessage)
-                        } else // user successfully registered
-                        {
-                            console.log("User registered and logged in")
-
+                    // user successfully registered
+                            // console.log("User registered and logged in")
                             localStorage.name = res.data.name
                             localStorage.accessLevel = res.data.accessLevel
                             localStorage.profilePhoto = res.data.profilePhoto
                             localStorage.token = res.data.token
                             this.setState({isRegistered: true})
-                        }
-
-                    } else {
-                        console.log("Registration failed")
-                    }
+                })
+                .catch(err =>
+                {
+                    this.setState({wasSubmittedAtLeastOnce: true})
                 })
         } else {
 
@@ -175,6 +170,11 @@ export default class Register extends Component {
     }
 
     render() {
+        let errorMessage = "";
+        if(this.state.wasSubmittedAtLeastOnce)
+        {
+            errorMessage = <div className="error">Error: All fields must be filled in<br/></div>;
+        }
         return (
             <div>
                 <div className="register-head-container">
@@ -185,8 +185,8 @@ export default class Register extends Component {
                         <h1>CREATE YOUR ACCOUNT</h1>
 
                         <form className="register-form" noValidate={true} id="loginOrRegistrationForm">
-                            {this.state.isRegistered ? <Redirect to="/TestingDirectory"/> : null}
-
+                            {this.state.isRegistered ? <Redirect to="/MainPage"/> : null}
+                            {errorMessage}
                             {/*  &#x2022; == unicode for bullet point  */}
                             <div className={"register-section1"}>
                                 <label>Name:<span> *</span></label><br/>

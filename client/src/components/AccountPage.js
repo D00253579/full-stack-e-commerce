@@ -11,9 +11,11 @@ export default class AccountPage extends Component {
         super(props)
 
         this.state = {
-            email: "",
-            password: "",
-            isLoggedIn: false,
+
+            email:"",
+            password:"",
+            isLoggedIn:false,
+            wasSubmittedAtLeastOnce:false,
             users: [],
             errors: { // used to keep track of current validation errors
                 email: [],
@@ -25,20 +27,18 @@ export default class AccountPage extends Component {
     componentDidMount() {
 
         axios.get(`${SERVER_HOST}/users`)
-            .then(res => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
-                        console.log(res.data.errorMessage)
-                    } else {
+
+            .then(res =>
+            {
                         console.log("Users read to Login page")
                         this.setState({users: res.data})
                         //console.log("users: ",this.state.users)
-                    }
-                } else {
-                    console.log("Users not found")
-                }
-            })
 
+
+            })
+            .catch(err=>{
+
+            })
     }
 
     handleChange = (e) => {
@@ -103,12 +103,11 @@ export default class AccountPage extends Component {
 
             axios.post(`${SERVER_HOST}/users/AccountPage/${this.state.email}/${this.state.password}`)
 
-                .then(res => {
-                    if (res.data) {
-                        if (res.data.errorMessage) {
-                            this.state.isPasswordWrong = true
-                        } else // user successfully logged in
-                        {
+
+                .then(res =>
+                {
+                    // user successfully logged in
+
                             this.state.isPasswordWrong = false
 
                             console.log("User logged in")
@@ -119,30 +118,35 @@ export default class AccountPage extends Component {
                             localStorage.token = res.data.token
 
                             this.setState({isLoggedIn: true})
-                        }
-                    } else {
-                        console.log("Error logging in")
-                    }
                 })
-        } else {
-            console.log("login denied invalid credentials")
+                .catch(err =>
+                {
+                    this.setState({wasSubmittedAtLeastOnce: true})
+                })
         }
     }
 
 
     render() {
+        let errorMessage = "";
+        if(this.state.wasSubmittedAtLeastOnce)
+        {
+            errorMessage = <div className="error">Login Details are incorrect<br/></div>;
+        }
         return (
             <div>
 
                 <div className="account-head-container">
                     <NavBar/>
                 </div>
-                <div className="account-container">
-                    <div className="account-box">
-                        <div className="login-box">
-                            <h1>WELCOME BACK!</h1>
-                            <label> Email Address:<span> *</span> </label>
-                            {this.state.isLoggedIn ? <Redirect to="/MainPage"/> : null}
+
+                    <div className="account-container">
+                        <div className="account-box">
+                            <div className="login-box">
+                                <h1>WELCOME BACK!</h1>
+                                <label> Email Address:<span> *</span> </label>
+                                {this.state.isLoggedIn ? <Redirect to="/MainPage"/> : null}
+                                {errorMessage}
 
                             <input type="email" name="email" id="email-input" placeholder="Email" autoComplete="email"
                                    value={this.state.email} onChange={this.handleChange}/>

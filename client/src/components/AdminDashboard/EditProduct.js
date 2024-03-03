@@ -36,6 +36,7 @@ export default class EditProduct extends Component {
                 image_2: "",
                 image_3: ""
             },
+            wasSubmittedAtLeastOnce:false,
             alternateSizes: false, // false = adult size, true = kids size
             sizeText: "Adult"
         }
@@ -49,22 +50,18 @@ export default class EditProduct extends Component {
 
         axios.get(`${SERVER_HOST}/products/${productID}`,{headers:{"authorization":localStorage.token}})
             .then(res => {
-                if(res.data) {
-                    if(res.data.errorMessage) {
 
-                    } else {
                         console.log("Product found and displaying in EditProduct")
                         this.setState({product: res.data,// set state of product to response data
                                               defaultProduct: res.data,
                                               stock: res.data.current_stock,
                                               size: res.data.size  })
-                    }
 
-                } else {
-                    console.log("Product not found")
-                }
                 console.log("hasAdultSizes: ", this.handleSizeInputChange())
                 this.setPresetCheckboxes()
+            })
+            .catch(err =>{
+
             })
     }
 
@@ -286,19 +283,13 @@ export default class EditProduct extends Component {
         if(this.validateInputs()) {
             axios.put(`${SERVER_HOST}/products/${this.state.product._id}`, {updatedProduct}, {headers:{"authorization":localStorage.token}})
                 .then((res) => {
-                    if (res.data) {
-                        if(res.data.errorMessage) {
-
-                        } else {
-                            console.log("Updated product: ",updatedProduct)
+                            // console.log("Updated product: ",updatedProduct)
                             this.setState({redirectToDashboard: true}) // after the update is complete redirect back to AdminDashboard
-                        }
-                    } else {
-                        console.log("Product not updated")
-                    }
+
                 })
-        } else {
-            console.log("Inputs are invalid")
+                .catch(err =>{
+                    this.setState({wasSubmittedAtLeastOnce:true})
+                })
         }
 
     }
@@ -311,17 +302,12 @@ export default class EditProduct extends Component {
         axios.delete(`${SERVER_HOST}/products/${productID}`, {headers:{"authorization":localStorage.token}})
             .then (res =>
             {
-                if(res.data) {
-                    if(res.data.errorMessage) {
-
-                    } else {
-                        console.log("Product has been deleted")
-                    }
-                } else {
-                    console.log("Product not deleted")
-                }
+                        // console.log("Product has been deleted")
+                this.setState({redirectToDashboard: true})
             })
-        this.setState({redirectToDashboard: true})
+            .catch(err =>{
+
+            })
     }
 
 
@@ -329,10 +315,15 @@ export default class EditProduct extends Component {
     render() {
         //console.log(this.state.product)
         //console.log(this.validateInputs())
+        let errorMessage = "";
+        if(this.state.wasSubmittedAtLeastOnce)
+        {
+            errorMessage = <div className="error">Error: All fields must be filled in<br/></div>;
+        }
         return (
             <div>
                 {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
-
+                {errorMessage}
                 <div className="admin-head-container" id="top-of-form">
                     <Navbar/>
                 </div>

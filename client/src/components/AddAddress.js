@@ -35,15 +35,13 @@ export default class AddAddress extends Component {
     componentDidMount() {
         axios.get(`${SERVER_HOST}/AddAddress/users/${localStorage.email}`, {headers:{"authorization":localStorage.token}})
             .then((res => {
-                if(res.data){
-                    if(res.data.errorMessage) {
-                        console.log("Error fetching user profile")
-                    } else {
-                        console.log("User fetched: ", res.data)
+                        // console.log("User fetched: ", res.data)
                         this.setState({user: res.data})
-                    }
-                }
-            }))
+            })
+                .catch(err=>{
+
+                })
+            )
     }
 
     handleChange = (e) => {
@@ -128,15 +126,12 @@ export default class AddAddress extends Component {
         if(this.validateInput()) {
             axios.put(`${SERVER_HOST}/AddAddress/users/${id}`, {newAddress})
                 .then(res => {
-                    if(res.data) {
-                        if(res.data.errorMessage) {
-                            console.log("Error finding user profile")
-                        } else {
                             //console.log("Address added to profile")
                             console.log("Address: ", res.data)
                             this.handleReturn()
-                        }
-                    }
+                })
+                .catch(err=>{
+
                 })
         } else {
             console.log("inputs are invalid")

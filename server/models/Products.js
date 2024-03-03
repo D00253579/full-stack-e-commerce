@@ -5,8 +5,8 @@ let tShirtPhotosSchema=new mongoose.Schema({
 let tShirtSchema = new mongoose.Schema(
    {
        product_id: {type: Number},
-       name: {type: String},
-       colour: {type: String},
+       name: {type: String, required:true},
+       colour: {type: String, required:true},
        size: {
            type: [String],
            set: function(value) { // this function splits the string before storing it in the collection
@@ -18,11 +18,11 @@ let tShirtSchema = new mongoose.Schema(
                return value;
            }
        },
-       price:{type: Number},
-       gender:{type: String},
-       category:{type: String},
-       brand:{type: String},
-       current_stock: {type:Number},
+       price:{type: Number, required:true},
+       gender:{type: String, required:true},
+       category:{type: String, required:true},
+       brand:{type: String, required:true},
+       current_stock: {type:Number, required:true},
        //sold:{type:Boolean,default:false}
        photos:[tShirtPhotosSchema]
    },

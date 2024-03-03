@@ -26,19 +26,14 @@ export default class MainPage extends Component {
         // Fetch products in the parent component
         axios.get(`${SERVER_HOST}/products`)
             .then((res) => {
-                if (res.data) {
-                    if (res.data.errorMessage) {
-                        console.log(res.data.errorMessage);
-                    } else {
-                        console.log("Records read to Admin dashboard");
+                        // console.log("Records read to Admin dashboard");
                         this.setState({
-                            products: res.data,       // This state of products when passed will have the filters applied
+                            products: res.data       // This state of products when passed will have the filters applied
                         });
-                    }
-                } else {
-                    console.log("Record not found");
-                }
-            });
+            })
+            .catch(err =>{
+
+            })
     }
 
     updateProducts = (newProductState) => {
