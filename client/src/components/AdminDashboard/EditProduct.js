@@ -22,7 +22,7 @@ export default class EditProduct extends Component {
             categoryIsInvalid: false,
             brandIsInInvalid: false,
             stockIsInInvalid: false,
-
+            stock: 0,
             product : {
                 name: "",
                 colour: "",
@@ -35,7 +35,9 @@ export default class EditProduct extends Component {
                 image_1: "",
                 image_2: "",
                 image_3: ""
-            }
+            },
+            alternateSizes: false, // false = adult size, true = kids size
+            sizeText: "Adult"
         }
     }
 
@@ -52,15 +54,19 @@ export default class EditProduct extends Component {
 
                     } else {
                         console.log("Product found and displaying in EditProduct")
-                        this.setState({product: res.data,
-                                              defaultProduct: res.data}) // set state of product to response data
+                        this.setState({product: res.data,// set state of product to response data
+                                              defaultProduct: res.data,
+                                              stock: res.data.current_stock,
+                                              size: res.data.size  })
                     }
+
                 } else {
                     console.log("Product not found")
                 }
+                console.log("hasAdultSizes: ", this.handleSizeInputChange())
+                this.setPresetCheckboxes()
             })
     }
-
 
     handleChange = (e) => {
         const name = e.target.name
@@ -69,6 +75,46 @@ export default class EditProduct extends Component {
             product: {
                 ...prevState.product,
                 [name]: value,
+            }
+        }))
+    }
+
+    /** Checks if the current product contains 'adult' sizes
+     *  true -> show adult sizes
+     *  false -> show kids sizes
+     **/
+    handleSizeInputChange = (e) => {
+        const sizesToCheck = ["xs", "s", "m", "l", "xl"];
+        const sizeArray = this.state.product.size.toString().split(",");
+        const hasAdultSizes = sizesToCheck.some(size => sizeArray.includes(size));
+
+        // Change sizes displayed
+        if(!hasAdultSizes)
+            this.setState({alternateSizes: true}) // show kids
+         else
+             this.setState({alternateSizes: false}) // show adult
+        return hasAdultSizes
+    }
+
+    /**
+     *   Checks the sizes array in the product for each size
+     *   if size in array, set that checkbox -> checked
+     */
+    setPresetCheckboxes = () => {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+
+        let passedSizes = this.state.product.size
+        passedSizes = passedSizes.map(item => item.split(','))
+        console.log(passedSizes)
+        checkboxes.forEach((checkbox => {
+            console.log("here")
+            for(let i =0; i < passedSizes.length; i++) {
+                //console.log("array:", passedSizes[i])
+                //console.log("checkbox:", checkbox.value)
+                if(passedSizes[i][0] === checkbox.value) {
+                    // console.log("MATCHED")
+                    checkbox.checked = true;
+                }
             }
         }))
     }
@@ -94,97 +140,8 @@ export default class EditProduct extends Component {
         }
 
     }
-    validateInputs = (product) => {
-        let isValid = true // true = valid
-        console.log(product.price)
-        //console.log("Product: ", product)
-
-        if(!product.name.trim()) {              // name
-            isValid = false
-            document.getElementById("nameInput").classList.add("invalid-input")
-            this.setState({nameIsInvalid: true})
-        } else {
-            document.getElementById("nameInput").classList.remove("invalid-input")
-            this.setState({nameIsInvalid: false})
-        }
-
-        if (!product.colour.trim()) {            // colour
-
-            isValid = false
-            document.getElementById("colourInput").classList.add("invalid-input")
-            this.setState({colourIsInvalid: true})
-        } else {
-            document.getElementById("colourInput").classList.remove("invalid-input")
-            this.setState({colourIsInvalid: false})
-
-        }
-
-
-        if(product.size.length === 0) {         // size
-            isValid = false
-            document.getElementById("sizeSelector").classList.add("invalid-input")
-            this.setState({sizeIsInvalid: true})
-
-        } else {
-            document.getElementById("sizeSelector").classList.remove("invalid-input")
-            this.setState({sizeIsInvalid: false})
-
-        }
-
-
-        if(!String(product.price).trim()) {             // price
-            isValid = false
-            document.getElementById("priceInput").classList.add("invalid-input")
-            this.setState({priceIsInvalid: true})
-
-        } else {
-            document.getElementById("priceInput").classList.remove("invalid-input")
-            this.setState({priceIsInvalid: false})
-
-        }
-
-
-        if(!product.gender.trim()) {            // gender
-            isValid = false
-            document.getElementById("genderInput").classList.add("invalid-input")
-            this.setState({genderIsInvalid: true})
-
-        } else {
-            document.getElementById("genderInput").classList.remove("invalid-input")
-            this.setState({genderIsInvalid: false})
-
-        }
-
-
-        if(!product.category.trim()) {          // category
-            isValid = false
-            document.getElementById("categoryInput").classList.add("invalid-input")
-            this.setState({categoryIsInvalid: true})
-
-        } else {
-            document.getElementById("categoryInput").classList.remove("invalid-input")
-            this.setState({categoryIsInvalid: false})
-        }
-
-
-        if(!product.brand.trim()) {             // brand
-            isValid = false
-            document.getElementById("brandInput").classList.add("invalid-input")
-            this.setState({brandIsInvalid: true})
-        } else {
-            document.getElementById("brandInput").classList.remove("invalid-input")
-            this.setState({brandIsInvalid: false})
-
-        }
-
-
-        if(!isValid) { // if inputs are invalid trigger visual response to let user know
-            this.setState({inputsAreInvalid: true})
-        } else {
-            this.setState({inputsAreInvalid: false})
-        }
-
-        return isValid
+    handleStockChange = (e) => {
+        this.setState({stock: e.target.value})
     }
     handleReset = () => {
         this.setState({product: this.state.defaultProduct})
@@ -192,6 +149,122 @@ export default class EditProduct extends Component {
     handleReturn = () => {
         this.setState({redirectToDashboard: true})
     }
+    validateInputs = () => {
+        let isValid = true // true = valid
+        const product = this.state.product
+        console.log("******-> ", product)
+
+
+        const validationPatterns = {
+            name: /^[a-zA-Z\s-]{1,}$/, // At least one letter or space required
+            colour: /^[a-zA-Z\s]{1,}$/, // At least one letter or space required
+            price: /^\d+(\.\d{1,2})?$/, // Positive number with up to 2 decimal places allowed
+            gender: /^[a-zA-Z]{1,}$/, // At least one letter required
+            category: /^[a-zA-Z\s]{1,}$/, // At least one letter or space required
+            brand: /^[a-zA-Z\s-.&]{1,}$/, // At least one letter or space required
+            current_stock: /^\d{1,}$/ // At least one digit required
+        }
+        const isInputValid = (input, pattern) => {
+            return pattern.test(input)
+        }
+
+        /** Validate product STOCK input */
+        if(!isInputValid(product.current_stock, validationPatterns.current_stock)) {
+            isValid = false
+            document.getElementById("stockInput").classList.add("invalid-input")
+            this.setState({stockIsInvalid: true})
+        }
+        else
+        {
+            document.getElementById("stockInput").classList.remove("invalid-input")
+            this.setState({stockIsInvalid: false})
+        }
+
+        /** Validate product NAME input */
+        if(!isInputValid(product.name, validationPatterns.name)) {
+            isValid = false
+            document.getElementById("nameInput").classList.add("invalid-input")
+            this.setState({nameIsInvalid: true})
+        }
+        else
+        {
+            document.getElementById("nameInput").classList.remove("invalid-input")
+            this.setState({nameIsInvalid: false})
+        }
+
+        /** Validate product COLOUR input  */
+        if(!isInputValid(product.colour, validationPatterns.colour)) {
+            isValid = false
+            document.getElementById("colourInput").classList.add("invalid-input")
+            this.setState({colourIsInvalid: true})
+        } else {
+            document.getElementById("colourInput").classList.remove("invalid-input")
+            this.setState({colourIsInvalid: false})
+        }
+
+        /** Validate product SIZE input */
+        const productSizes = this.state.product.size
+        if(productSizes.length === 0) {
+            isValid = false
+            document.getElementById("sizeSelector").classList.add("invalid-input")
+            this.setState({sizeIsInvalid: true})
+        }
+        else
+        {
+            document.getElementById("sizeSelector").classList.remove("invalid-input")
+            this.setState({sizeIsInvalid: false})
+        }
+
+        /** Validate product PRICE input  */
+        if(!isInputValid(product.price, validationPatterns.price)) {
+            isValid = false
+            document.getElementById("priceInput").classList.add("invalid-input")
+            this.setState({priceIsInvalid: true})
+        } else {
+            document.getElementById("priceInput").classList.remove("invalid-input")
+            this.setState({priceIsInvalid: false})
+        }
+
+        /** Validate product GENDER input */
+        if(!isInputValid(product.gender, validationPatterns.gender)) {
+            isValid = false
+            document.getElementById("genderInput").classList.add("invalid-input")
+            this.setState({genderIsInvalid: true})
+        } else {
+            document.getElementById("genderInput").classList.remove("invalid-input")
+            this.setState({genderIsInvalid: false})
+        }
+
+        /** Validate product CATEGORY input */
+        if(!isInputValid(product.category, validationPatterns.category)) {
+            isValid = false
+            document.getElementById("categoryInput").classList.add("invalid-input")
+            this.setState({categoryIsInvalid: true})
+        } else {
+            document.getElementById("categoryInput").classList.remove("invalid-input")
+            this.setState({categoryIsInvalid: false})
+        }
+
+        /** Validate product BRAND input */
+        if(!isInputValid(product.brand, validationPatterns.brand)) {
+            isValid = false
+            document.getElementById("brandInput").classList.add("invalid-input")
+            this.setState({brandIsInvalid: true})
+        } else {
+            document.getElementById("brandInput").classList.remove("invalid-input")
+            this.setState({brandIsInvalid: false})
+        }
+
+        // if inputs are invalid trigger visual response to let user know
+        if(!isValid) {
+            this.setState({inputsAreInvalid: true})
+        } else {
+            this.setState({inputsAreInvalid: false})
+        }
+
+        return isValid
+    }
+
     handleUpdateProduct = (e) => {
         e.preventDefault()
         // scroll back to the top of the form , take from https://www.w3schools.com/howto/howto_js_scroll_into_view.asp
@@ -205,13 +278,12 @@ export default class EditProduct extends Component {
             gender: this.state.product.gender,
             category: this.state.product.category,
             brand: this.state.product.brand,
+            current_stock: this.state.stock
         }
+        console.log(updatedProduct)
 
         // if function returns false then one or more inputs are empty, if true send updated product to server
-
-        if(!this.validateInputs(updatedProduct)) {
-            console.log("TODO   Some inputs are invalid ")
-        } else {
+        if(this.validateInputs()) {
             axios.put(`${SERVER_HOST}/products/${this.state.product._id}`, {updatedProduct}, {headers:{"authorization":localStorage.token}})
                 .then((res) => {
                     if (res.data) {
@@ -225,6 +297,8 @@ export default class EditProduct extends Component {
                         console.log("Product not updated")
                     }
                 })
+        } else {
+            console.log("Inputs are invalid")
         }
 
     }
@@ -253,11 +327,10 @@ export default class EditProduct extends Component {
 
 
     render() {
-        console.log(this.state.product)
+        //console.log(this.state.product)
+        //console.log(this.validateInputs())
         return (
-
             <div>
-
                 {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
 
                 <div className="admin-head-container" id="top-of-form">
@@ -305,62 +378,213 @@ export default class EditProduct extends Component {
                                 />
                             </label>
                         </div>
-                        <div className="edit-input">
-                            <fieldset className="size-selector" id="sizeSelector">
-                                <legend className="form-label">
-                                    Choose Available Sizes: {this.state.sizeIsInvalid ?
-                                    <span className="err">*</span> : null}
-                                </legend>
-                                <div className="size-option">
-                                    <label className="filter-checkboxes">
-                                        <label htmlFor="small">
-                                            Small
-                                            <input
-                                                type="checkbox"
-                                                id="small"
-                                                name="size"
-                                                value="small"
-                                                onChange={this.handleCheckboxChange}
-                                            />
-                                            <span className="checkmark"></span>
-                                        </label>
-                                    </label>
-                                </div>
-                                <div className="size-option">
-                                    <label className="filter-checkboxes">
 
-                                    <label htmlFor="medium">
-                                        Medium
-                                        <input
-                                            type="checkbox"
-                                            id="medium"
-                                            name="size"
-                                            value="medium"
-                                            onChange={this.handleCheckboxChange}
-                                        />
-                                        <span className="checkmark"></span>
-                                    </label>
-                                    </label>
-                                </div>
-                                <div className="size-option">
-                                    <label className="filter-checkboxes">
+                        {!this.state.alternateSizes ?
+                            <div className="create-input">
+                                <fieldset className="size-selector" id="sizeSelector">
+                                    <legend>
+                                        Adult Sizes {this.state.sizeIsInvalid ? <span className="err">*</span> : null}
+                                    </legend>
 
-                                    <label htmlFor="large">
-                                        Large
-                                        <input
-                                            type="checkbox"
-                                            id="large"
-                                            name="size"
-                                            value="large"
-                                            onChange={this.handleCheckboxChange}
-                                        />
-                                        <span className="checkmark"></span>
-                                    </label>
+                                    <div className="size-container">
 
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
+                                        <div className="item">
+
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="x-small">
+                                                        XS
+                                                        <input
+                                                            type="checkbox"
+                                                            id="x-small"
+                                                            name="size"
+                                                            value="xs"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="small">
+                                                        S
+                                                        <input
+                                                            type="checkbox"
+                                                            id="small"
+                                                            name="size"
+                                                            value="s"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div className="item">
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="medium">
+                                                        M
+                                                        <input
+                                                            type="checkbox"
+                                                            id="medium"
+                                                            name="size"
+                                                            value="m"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="large">
+                                                        L
+                                                        <input
+                                                            type="checkbox"
+                                                            id="large"
+                                                            name="size"
+                                                            value="l"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div className="item">
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="x-large">
+                                                        XL
+                                                        <input
+                                                            type="checkbox"
+                                                            id="x-large"
+                                                            name="size"
+                                                            value="xl"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            :
+                            <div className="create-input">
+                                <fieldset className="size-selector" id="sizeSelector">
+                                    <legend>
+                                        Children Sizes {this.state.sizeIsInvalid ? <span className="err">*</span> : null}
+                                    </legend>
+
+                                    <div className="size-container">
+                                        <div className="item">
+
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="kid-range-1">
+                                                        6-7Y
+                                                        <input
+                                                            type="checkbox"
+                                                            id="kid-range-1"
+                                                            name="size"
+                                                            value="6-7Y"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="kid-range-2">
+                                                        7-8Y
+                                                        <input
+                                                            type="checkbox"
+                                                            id="kid-range-2"
+                                                            name="size"
+                                                            value="7-8Y"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className="item">
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="kid-range-3">
+                                                        8-9Y
+                                                        <input
+                                                            type="checkbox"
+                                                            id="kid-range-3"
+                                                            name="size"
+                                                            value="8-9Y"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="kid-range-4">
+                                                        9-10y
+                                                        <input
+                                                            type="checkbox"
+                                                            id="kid-range-4"
+                                                            name="size"
+                                                            value="9-10Y"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className="item">
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="kid-range-5">
+                                                        10-11Y
+                                                        <input
+                                                            type="checkbox"
+                                                            id="kid-range-5"
+                                                            name="size"
+                                                            value="10-11Y"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                            <div className="size-option">
+                                                <label className="filter-checkboxes">
+                                                    <label htmlFor="kid-range-6">
+                                                        11-12Y
+                                                        <input
+                                                            type="checkbox"
+                                                            id="kid-range-6"
+                                                            name="size"
+                                                            value="11-12Y"
+                                                            onChange={this.handleCheckboxChange}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        }
+
                         <div className="edit-input">
                             <label className="form-label" htmlFor="priceInput">
                                 Enter Price: {this.state.priceIsInvalid ? <span className="err">*</span> : null}
@@ -412,6 +636,27 @@ export default class EditProduct extends Component {
                                     onChange={this.handleChange}
                                 />
                             </label>
+                        </div>
+
+                            <div className="stock-container">
+
+                                    <div className="item">
+                                        <h4>Current Stock: <span className="stock-level">{this.state.product.current_stock}</span></h4>
+                                    </div>
+                                    <div className="item">
+                                        <label className="form-label" htmlFor="stockInput">
+                                            New Stock: {this.state.stockIsInvalid ? <span className="err">*</span> : null}
+
+                                            <input
+                                                type="number"
+                                                name="current_stock"
+                                                id="stockInput"
+                                                value={this.state.stock}
+                                                onChange={this.handleStockChange}
+                                            />
+                                        </label>
+                                    </div>
+
                         </div>
 
                         <div className="form-controls">

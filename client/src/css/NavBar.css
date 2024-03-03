@@ -8,22 +8,26 @@
   align-items: center;
   overflow: hidden; }
 
+
 .container {
   display: flex;
-  align-items: center; }
+  align-items: center;
+}
 
 .search-container {
   display: flex;
   align-items: center;
   padding-left: 20px;
-  padding-bottom: 75px; }
+  padding-bottom: 75px;
+}
 
 .search-bar {
   border-color: white;
   border-radius: 0;
   border-style: outset;
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 .search-bar > #search {
   font-family: Times New Roman, Serif, serif;
@@ -32,41 +36,49 @@
   width: 310px;
   height: 30px;
   border: none;
-  outline: none; }
+  outline: none;
+}
 
 .searchIcon > img {
   width: 30px;
   height: 30px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .icons-container {
-  display: flex; }
+  display: flex;
+}
 
 .icons-container > .logo-image {
   display: flex;
-  margin: auto; }
+  margin: auto;
+}
 
 .logo-image > img {
   width: 275px;
   padding-bottom: 65px;
   padding-left: 225px;
-  padding-right: 200px; }
+  padding-right: 200px;
+}
 
 .icons-container > .searchIcon {
-  margin-left: 10px; }
+  margin-left: 10px;
+}
 
 .account > img {
   width: 35px;
   height: 30px;
   padding-bottom: 60px;
-  padding-left: 300px; }
+  padding-left: 300px;
+}
 
 .shopping-bag > img {
   width: 40px;
   height: 30px;
   padding-bottom: 60px;
   padding-left: 10px;
-  padding-right: 20px; }
+  padding-right: 20px;
+}
 
 .search-dropdown {
   position: absolute;
@@ -76,38 +88,44 @@
   border: 1px solid #363131;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000; }
+  z-index: 1000;
+}
 
 .search-dropdown-content {
   padding: 10px;
   cursor: pointer;
   width: 450px;
   max-height: 400px;
-  overflow-y: auto; }
+  overflow-y: auto;
+}
 
 .search-dropdown-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc;
-  padding: 20px; }
+  padding: 20px;
+}
 
 .search-dropdown-item:last-child {
-  border-bottom: none;
-  /* Remove border for last item */ }
+  border-bottom: none; /* Remove border for last item */
+}
 
 .search-dropdown-item:hover {
   cursor: pointer;
-  background-color: gray; }
+  background-color: gray;
+}
 
 .catch-name-overload {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px; }
+  max-width: 200px;
+}
 
 .search-category,
 .search-brand {
-  max-width: 100px; }
+  max-width: 100px;
+}
 
 /*# sourceMappingURL=NavBar.css.map */
