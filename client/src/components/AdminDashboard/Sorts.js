@@ -10,12 +10,12 @@ export default class Sorts extends Component {
     }
 
     sortHigh = () => {
-        let products = [...this.state.props.products]
+        let products = [...this.props.products]
         let ascendingProducts = products.sort((a, b) => a.price < b.price?1:-1)
         this.props.updateProducts(ascendingProducts)
     }
     sortLow = () => {
-        let products = [...this.state.props.products]
+        let products = [...this.props.products]
         let descendingProducts = products.sort((a, b) => a.price < b.price?-1:1)
         this.props.updateProducts(descendingProducts)
     }
