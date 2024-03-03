@@ -5,7 +5,8 @@
   height: 55px;
   z-index: 1000;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  overflow: hidden; }
 
 .container {
   display: flex;

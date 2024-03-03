@@ -1,11 +1,13 @@
 body {
-  background-color: #efe6e6; }
+  background-color: #efe6e6;
+  margin: 0;
+  min-height: 100vh; }
 
 .admin-container {
-  display: flex;
-  flex-direction: row; }
+  display: flex; }
 
 /* AdminControls */
+/*
 .controls-container {
   height: 100px;
   margin: 20px;
@@ -13,49 +15,55 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  /* Button style */ }
-  .controls-container .controls-button {
+
+  /* Button style */
+/*
+  .controls-button {
     display: inline-block;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: $title_font_size;
     font-weight: bold;
     text-transform: uppercase;
     color: black;
     background-color: #ccb1a7;
-    border: 2px solid #ffffff;
+    border: 2px solid $white;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
     margin-right: 10px;
-    font-family: Times New Roman, Serif, serif; }
-  .controls-container .controls-button:hover {
-    background-color: #A26D5D;
-    border-color: #363131; }
+    font-family: $title_font;
+  }
 
+  .controls-button:hover {
+    background-color: #A26D5D;
+    border-color: $grey-border;
+  }
+}
+*/
 /* AdminTable */
 .admin-head-container {
   padding-bottom: 75px; }
 
 .admin-body-container {
-  flex: 1;
   display: flex;
-  flex-direction: column; }
+  flex-direction: row;
+  justify-content: space-between; }
 
 .admin-table-container {
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  margin-left: 20px;
   margin-bottom: 400px;
-  margin-top: 80px; }
+  margin-top: 80px;
+  margin-left: 40px; }
   .admin-table-container .admin-table-container table {
+    padding: 30px;
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     border: 2px solid #363131;
-    border-radius: 5px;
-    flex: 1; }
+    border-radius: 5px; }
 
 .admin-table-container thead {
   background-color: #A26D5D;
@@ -71,7 +79,7 @@ body {
 
 .admin-table thead th,
 .admin-table-container tbody td {
-  padding: 10px;
+  padding: 20px;
   font-size: 16px;
   text-align: center; }
 
@@ -227,12 +235,6 @@ body {
 /*
      Sort image and button
  */
-.sort-box {
-  display: flex;
-  flex-direction: row;
-  margin-top: 50px;
-  margin-left: 30px; }
-
 .sort-icon > img {
   width: 30px;
   height: 30px; }
@@ -243,7 +245,8 @@ body {
 
 .sort-button {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  margin-left: 20px; }
 
 /*
    End of sort
@@ -258,12 +261,39 @@ body {
  */
 .side-menu {
   width: 200px;
-  background-color: #ccb1a7; }
+  background-color: #ccb1a7;
+  top: 0;
+  bottom: 0;
+  padding: 20px;
+  z-index: 1; }
 
 /*
-   Filters container on the right
+   Position sort and filter beside eachother
  */
+.sort-box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px; }
+
 .filter-box {
-  width: 200px; }
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  right: 0;
+  padding: 10px; }
+
+/*
+    User table
+ */
+/*
+.user-table {
+
+  .user-table table {
+    padding: 30px;
+    width: 100%;
+  }
+}
+*/
 
 /*# sourceMappingURL=Admin.css.map */
