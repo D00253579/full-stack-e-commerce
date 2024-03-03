@@ -2,9 +2,11 @@
   background-color: #efe6e6;
   width: 100%;
   border-radius: 2px;
-  border: solid rgba(212, 199, 199, 0.7607843137);
+  border: solid #d4c7c7c2;
   display: flex;
-}
+  z-index: 2;
+  position: relative; }
+
 
 .footer-container > h2 {
   font-weight: bold;

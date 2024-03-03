@@ -5,9 +5,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 150px;
   padding-bottom: 100px;
   position: relative;
+  padding-left: 450px;
 
   h1 {
     @include important-titles;

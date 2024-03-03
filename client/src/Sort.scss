@@ -1,1 +1,120 @@
 @import "Main.scss";
+
+@import "Main.scss";
+
+.sort-container {
+  //width: 300px;
+  //padding: 20px;
+  //position: relative;
+  margin-top: 30px;
+  display:flex;
+
+  .sort-buttons {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Styling for filter dropdown menus */
+  .sort-dropdown.open .sort-dropdown-menu {
+    display: flex;
+
+  }
+
+  .sort-dropdown-menu {
+    display: none;
+    top: 0;
+    left: 100%;
+
+    padding: 10px;
+  }
+
+  .sort-dropdown-menu label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: $title_font;
+    font-size: 16px;
+  }
+
+  .sort-dropdown-toggle {
+    width: 100%;
+    //color: $white;
+    background-color: #ccb1a7; /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
+    border: 1px solid $white;
+    border-radius: 3px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.8ms ease;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: $title_font;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .sort-dropdown-toggle:hover {
+    background-color: $white;
+    border-color: $grey-border;
+  }
+}
+
+.sort-buttons > button {
+  background-color: #ccb1a7;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: $title_font_size;
+  font-weight: bold;
+  text-transform: uppercase;
+  //color: $white;
+  border: 2px solid $white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-family: $title_font;
+}
+
+.sort-buttons > button:hover {
+  background-color: #A26D5D;
+  border-color: $grey-border;
+}
+
+
+/* */
+
+/*
+  Filter image and button
+ */
+
+.sort-button {
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.sort-button > h1 {
+  font-size: 18px;
+  font-family: Times New Roman, Serif, serif;
+  margin-left: 200px;
+}
+.sort-icon {
+  position: absolute;
+  margin-top: 25px;
+  margin-right: 10px;
+}
+
+.sort-icon:hover {
+  cursor: pointer;
+}
+
+.sort-icon > img {
+  width: 45px;
+  height: 45px;
+  margin-left: 85px;
+  position: absolute;
+}

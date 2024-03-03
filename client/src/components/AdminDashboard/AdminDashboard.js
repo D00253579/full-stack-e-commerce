@@ -5,12 +5,12 @@ import Navbar from "../NavBar"
 import Footer from "../Footer";
 import AdminProductView from "./AdminProductView";
 import Filters from "./Filters";
+import Sorts from "./Sorts";
 import {Link, Redirect} from "react-router-dom";
 import AdminControls from "./AdminControls";
 import FilterImage from "../../Images/FilterImage.png";
 import SortImage from "../../Images/SortIcon.png";
 import AdminMenu from "./AdminMenu";
-
 
 export default class AdminDashboard extends Component {
 
@@ -20,7 +20,8 @@ export default class AdminDashboard extends Component {
             products: [],
             defaultProducts: [], // If no filters are applied
             rowClickedID: 0,
-            displayFilters: false //false until icon is clicked
+            displayFilters: false, //false until icon is clicked
+            displaySort: false
         }
     }
 
@@ -73,8 +74,17 @@ export default class AdminDashboard extends Component {
         onClick twice will hide the filters again
      */
 
-    showFilters = e => {
+    showFilters = (e) => {
         this.setState({displayFilters: !this.state.displayFilters})
+    }
+
+    showSort = (e) => {
+        if(!this.state.displaySort) {
+            this.setState({displaySort : true})
+        } else {
+            this.setState({displaySort : false})
+        }
+        //console.log(his.state.displaySort)
     }
 
     render() {
@@ -89,12 +99,40 @@ export default class AdminDashboard extends Component {
                         <AdminMenu/>
                     </div>
 
+
                     <div className={"sort-box"}>
                         <div className={"sort-button"}>
                             <h1>SORT</h1>
                             <i className={"sort-icon"}>
-                                <img src={SortImage} alt="sort"/>
+                                <img src={SortImage} alt="sort" onClick={this.showSort}/>
                             </i>
+                            {this.state.displaySort ?
+                                <div className="sort-container">
+                                    <Sorts
+                                        updateProducts={this.updateProducts}
+                                        products={this.state.products}
+                                        defaultProducts={this.state.defaultProducts}
+                                    />
+                                </div>
+                                : null
+                            }
+                        </div>
+                    </div>
+                    <div className={"filter-box"}>
+                        <div className={"filter-button"}>
+                            <h1>FILTER</h1>
+                            <i className={"filter-icon"}>
+                                <img src={FilterImage} alt="filter" onClick={this.showFilters}/>
+                            </i>
+                            {this.state.displayFilters && (
+                                <div className="filter-container">
+                                    <Filters
+                                        updateProducts={this.updateProducts}
+                                        products={this.state.products}
+                                        defaultProducts={this.state.defaultProducts}
+                                    />
+                                </div>
+                            )}
                         </div>
                     </div>
                     {/*<AdminControls/>*/}
@@ -105,25 +143,6 @@ export default class AdminDashboard extends Component {
                                 updateProducts={this.updateProducts}
                             />
                         </div>
-                        <div className={"filter-box"}>
-                            <div className={"filter-button"}>
-                                <h1>FILTER</h1>
-                                <i className={"filter-icon"}>
-                                    <img src={FilterImage} alt="filter" onClick={this.showFilters}/>
-                                </i>
-                                {this.state.displayFilters && (
-                                    <div className="filter-container">
-                                        <Filters
-                                            updateProducts={this.updateProducts}
-                                            products={this.state.products}
-                                            defaultProducts={this.state.defaultProducts}
-                                        />
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-
-
                         <div className="testing-return"><Link className="testing-red-button"
                                                               to={"/TestingDirectory"}>RETURN</Link></div>
                     </div>

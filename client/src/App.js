@@ -15,6 +15,8 @@ import "./css/TShirtLayout.css"
 import "./css/CreateProduct.css"
 import "./css/EditProduct.css"
 import "./AdminMenu.scss"
+import "./Sort.scss"
+import "./UserTable.scss"
 import TShirtView from "./components/TShirtView";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
@@ -38,7 +40,6 @@ import PaymentMessage from "./components/PaymentMessage"
 import UserProfile from "./components/UserProfile";
 import AddAddress from "./components/AddAddress";
 import AdminProfileView from "./components/AdminDashboard/AdminProfileView";
-
 
 
 if (typeof localStorage.accessLevel==="undefined"){
