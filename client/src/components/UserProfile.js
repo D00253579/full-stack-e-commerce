@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import axios from "axios";
 import {SERVER_HOST} from "../config/global_constants";
 import {Link, Redirect} from "react-router-dom";
-import Logout from "./Login/Logout";
+
 
 export default class UserProfile extends Component {
 
@@ -110,7 +110,6 @@ export default class UserProfile extends Component {
 
                         </div>
                         <button onClick={this.handleReturn}>Return</button>
-                    <Logout/>
                     </div>
                 </div>
             </div>
