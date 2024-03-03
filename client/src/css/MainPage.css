@@ -1,26 +1,33 @@
 .main-container {
   display: flex;
   flex-direction: column;
-  align-items: center; }
-  .main-container .main-content {
-    width: 100%;
-    max-width: 1200px; }
-  .main-container .sort-box,
-  .main-container .filter-box {
-    display: flex;
-    align-items: center;
-    margin: 20px 0; }
-  .main-container .sort-button {
-    margin-top: 20px;
-    margin-right: 1000px; }
-  .main-container .filter-button {
-    padding-bottom: 1000px; }
-  .main-container .sort-button h1,
-  .main-container .filter-button h1 {
-    margin-right: 10px; }
-  .main-container .sort-button img,
-  .main-container .filter-button img {
-    width: 45px;
-    height: 45px; }
+  align-items: center;
+}
+.main-container .main-content {
+  width: 100%;
+  max-width: 1200px;
+}
+.main-container .sort-box,
+.main-container .filter-box {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.main-container .sort-button {
+  margin-top: 20px;
+  margin-right: 1000px;
+}
+.main-container .filter-button {
+  padding-bottom: 1000px;
+}
+.main-container .sort-button h1,
+.main-container .filter-button h1 {
+  margin-right: 10px;
+}
+.main-container .sort-button img,
+.main-container .filter-button img {
+  width: 45px;
+  height: 45px;
+}
 
 /*# sourceMappingURL=MainPage.css.map */

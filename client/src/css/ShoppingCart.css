@@ -1,6 +1,7 @@
 .shopping-bag-head-container {
   position: fixed;
-  padding-top: 0; }
+  padding-top: 0;
+}
 
 .bag-container {
   display: flex;
@@ -13,118 +14,149 @@
       Quantity styling
       Used reference for the quantity buttons, but used my own images
       https://designmodo.com/shopping-cart-ui/
-   */ }
-  .bag-container .bag-box {
-    width: 700px;
-    height: 450px;
-    border-radius: 5px;
-    box-shadow: 20px 20px 50px grey;
-    border-color: #A26D5D;
-    border-style: outset;
-    overflow: scroll; }
-    .bag-container .bag-box h1 {
-      margin: 0;
-      font-family: Times New Roman, Serif, serif;
-      font-weight: bold;
-      font-size: 30px;
-      padding-left: 20px; }
-    .bag-container .bag-box h2 {
-      font-size: 16px;
-      font-family: Times New Roman, Serif, serif; }
-  .bag-container .edit-bag {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 80px; }
-  .bag-container .tshirt-container {
-    width: 150px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
-    padding-top: 30px; }
-    .bag-container .tshirt-container img {
-      width: 150px;
-      height: 200px; }
-  .bag-container .total-container {
-    float: right;
-    align-items: center;
-    display: flex;
-    flex-direction: column; }
-  .bag-container .checkout-buttons {
-    padding-right: 20px;
-    padding-top: 90px; }
-  .bag-container .checkout-buttons > button {
-    background-color: #ccb1a7;
-    border: 2px solid #ffffff;
-    font-family: Times New Roman, Serif, serif;
-    font-size: 16px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    float: right; }
-    .bag-container .checkout-buttons > button:hover {
-      background-color: #A26D5D;
-      border-color: #363131;
-      cursor: pointer; }
-  .bag-container .titles {
-    margin-right: 20px; }
-  .bag-container .total-container {
-    padding-bottom: 55px; }
-    .bag-container .total-container h3 {
-      padding-right: 20px; }
-  .bag-container .tshirt-container, .bag-container .edit-bag, .bag-container .total-container {
-    display: flex;
-    align-items: center; }
-  .bag-container .sub-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between; }
-  .bag-container .edit-quantity {
-    display: flex;
-    align-items: center;
-    margin-top: 30px; }
-    .bag-container .edit-quantity input {
-      text-align: center;
-      width: 32px;
-      font-size: 16px;
-      color: black;
-      font-weight: 300;
-      font-family: Times New Roman, Serif, serif;
-      border-color: black; }
-    .bag-container .edit-quantity button {
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none; }
-  .bag-container .add-btn > img,
-  .bag-container .minus-btn > img {
-    width: 20px;
-    height: 10px;
-    margin: 0; }
-  .bag-container .add-btn {
-    margin-left: 7.5px; }
-  .bag-container .minus-btn {
-    margin-right: 7.5px; }
-  .bag-container .add-btn,
-  .bag-container .minus-btn {
-    background-color: #c5a790;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    color: white; }
-  .bag-container .add-btn:hover,
-  .bag-container .minus-btn:hover {
-    background-color: #A26D5D;
-    border-color: #363131;
-    cursor: pointer; }
-  .bag-container .tshirt-details > h3 {
-    font-family: Times New Roman, Serif, serif;
-    font-size: 16px; }
-  .bag-container .tshirt-details > h2 {
-    margin-bottom: 20px; }
-  .bag-container .in-stock-container > h3 {
-    color: #73af8a; }
+   */
+}
+.bag-container .bag-box {
+  width: 700px;
+  height: 450px;
+  border-radius: 5px;
+  box-shadow: 20px 20px 50px grey;
+  border-color: #A26D5D;
+  border-style: outset;
+  overflow: scroll;
+}
+.bag-container .bag-box h1 {
+  margin: 0;
+  font-family: Times New Roman, Serif, serif;
+  font-weight: bold;
+  font-size: 30px;
+  padding-left: 20px;
+}
+.bag-container .bag-box h2 {
+  font-size: 16px;
+  font-family: Times New Roman, Serif, serif;
+}
+.bag-container .edit-bag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 80px;
+}
+.bag-container .tshirt-container {
+  width: 150px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-top: 30px;
+}
+.bag-container .tshirt-container img {
+  width: 150px;
+  height: 200px;
+}
+.bag-container .total-container {
+  float: right;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.bag-container .checkout-buttons {
+  padding-right: 20px;
+  padding-top: 90px;
+}
+.bag-container .cart-controls {
+  display: flex;
+  justify-content: flex-end;
+}
+.bag-container .checkout-buttons > button {
+  background-color: #ccb1a7;
+  border: 2px solid #ffffff;
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  float: right;
+}
+.bag-container .checkout-buttons > button:hover {
+  background-color: #A26D5D;
+  border-color: #363131;
+  cursor: pointer;
+}
+.bag-container .titles {
+  margin-right: 20px;
+}
+.bag-container .total-container {
+  padding-bottom: 55px;
+}
+.bag-container .total-container h3 {
+  padding-right: 20px;
+}
+.bag-container .tshirt-container, .bag-container .edit-bag, .bag-container .total-container {
+  display: flex;
+  align-items: center;
+}
+.bag-container .sub-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.bag-container .edit-quantity {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+.bag-container .edit-quantity input {
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: black;
+  font-weight: 300;
+  font-family: Times New Roman, Serif, serif;
+  border-color: black;
+}
+.bag-container .edit-quantity button {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.bag-container .add-btn > img,
+.bag-container .minus-btn > img {
+  width: 20px;
+  height: 10px;
+  margin: 0;
+}
+.bag-container .add-btn {
+  margin-left: 7.5px;
+}
+.bag-container .minus-btn {
+  margin-right: 7.5px;
+}
+.bag-container .add-btn,
+.bag-container .minus-btn {
+  background-color: #c5a790;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: white;
+}
+.bag-container .add-btn:hover,
+.bag-container .minus-btn:hover {
+  background-color: #A26D5D;
+  border-color: #363131;
+  cursor: pointer;
+}
+.bag-container .tshirt-details > h3 {
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px;
+}
+.bag-container .tshirt-details > h2 {
+  margin-bottom: 20px;
+}
+.bag-container .in-stock-container > h3 {
+  color: #73af8a;
+}
 
 /*# sourceMappingURL=ShoppingCart.css.map */

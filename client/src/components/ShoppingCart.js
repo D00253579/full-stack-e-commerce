@@ -5,14 +5,26 @@ import PinkTShirt from "../Images/front.png";
 import anotherTshirt from "../../src/tshirts-images/p13/back.png";
 import AddIcon from "../Images/AddIcon.png";
 import MinusIcon from "../Images/MinusIcon.png";
-import {Link} from "react-router-dom"
+import {Link, Redirect} from "react-router-dom"
 
 
 export default class ShoppingCart extends Component {
 
+
+    constructor() {
+        super();
+        this.state = {
+            redirectToMainPage: false
+        }
+    }
+    handleReturn = () => {
+        this.setState({redirectToMainPage: true})
+    }
+
     render() {
         return (
             <div>
+                {this.state.redirectToMainPage ? <Redirect to="/MainPage"/> : null}
                 <div className="shopping-bag-head-container">
                     <NavBar/>
                 </div>
@@ -62,11 +74,18 @@ export default class ShoppingCart extends Component {
                                 <h3>€25.00</h3>
                             </div>
                         </div>
-                        <Link to={"/Payments"}>
+
+                        <div className="cart-controls">
+                            <Link to={"/Payments"}>
+                                <div className="checkout-buttons">
+                                    <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
+                                </div>
+                            </Link>
+
                             <div className="checkout-buttons">
-                                <button type="button" id={"bag-checkout"}>PROCEED TO CHECKOUT</button>
+                                <button onClick={this.handleReturn}>Return</button>
                             </div>
-                        </Link>
+                        </div>
                     </div>
                 </div>
                 <footer>

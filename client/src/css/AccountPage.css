@@ -1,6 +1,7 @@
 .account-head-container {
   position: fixed;
-  padding-top: 0; }
+  padding-top: 0;
+}
 
 .account-container {
   display: flex;
@@ -11,67 +12,79 @@
   /*
       A vertical line between the login section and the register/guest
       https://www.w3schools.com/howto/howto_css_vertical_line.asp
-   */ }
-  .account-container .account-box {
-    width: 700px;
-    height: 450px;
-    border-radius: 5px;
-    box-shadow: 20px 20px 50px grey;
-    border-color: #A26D5D;
-    border-style: outset;
-    display: flex;
-    align-items: center; }
-    .account-container .account-box .login-box,
-    .account-container .account-box .register-box {
-      padding: 70px; }
-      .account-container .account-box .login-box h1,
-      .account-container .account-box .register-box h1 {
-        font-family: Times New Roman, Serif, serif;
-        font-weight: bold;
-        font-size: 24px; }
-      .account-container .account-box .login-box label,
-      .account-container .account-box .register-box label {
-        font-size: 16px;
-        font-weight: normal;
-        font-family: Times New Roman, Serif, serif; }
-      .account-container .account-box .login-box input,
-      .account-container .account-box .register-box input {
-        border-color: white;
-        border-radius: 0;
-        border-style: outset;
-        height: 20px;
-        width: 200px; }
-      .account-container .account-box .login-box button,
-      .account-container .account-box .register-box button {
-        background-color: #ccb1a7;
-        border: 2px solid #ffffff;
-        font-family: Times New Roman, Serif, serif;
-        font-size: 16px;
-        padding: 5px 7px;
-        border-radius: 5px; }
-      .account-container .account-box .login-box button:hover,
-      .account-container .account-box .register-box button:hover {
-        background-color: #A26D5D;
-        border-color: #363131;
-        cursor: pointer; }
-  .account-container .vl {
-    border-left: 3px solid #d4c7c7c2;
-    height: 425px;
-    left: 50%;
-    margin-left: -3px;
-    top: 0; }
-  .account-container .no-account-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 175px; }
-    .account-container .no-account-container h1 {
-      font-family: Times New Roman, Serif, serif;
-      font-weight: bold;
-      font-size: 24px; }
-    .account-container .no-account-container .register-btn {
-      margin-top: 30px;
-      margin-bottom: 30px; }
+   */
+}
+.account-container .account-box {
+  width: 700px;
+  height: 450px;
+  border-radius: 5px;
+  box-shadow: 20px 20px 50px grey;
+  border-color: #A26D5D;
+  border-style: outset;
+  display: flex;
+  align-items: center;
+}
+.account-container .account-box .login-box,
+.account-container .account-box .register-box {
+  padding: 70px;
+}
+.account-container .account-box .login-box h1,
+.account-container .account-box .register-box h1 {
+  font-family: Times New Roman, Serif, serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+.account-container .account-box .login-box label,
+.account-container .account-box .register-box label {
+  font-size: 16px;
+  font-weight: normal;
+  font-family: Times New Roman, Serif, serif;
+}
+.account-container .account-box .login-box input,
+.account-container .account-box .register-box input {
+  border-color: white;
+  border-radius: 0;
+  border-style: outset;
+  height: 20px;
+  width: 200px;
+}
+.account-container .account-box .login-box button,
+.account-container .account-box .register-box button {
+  background-color: #ccb1a7;
+  border: 2px solid #ffffff;
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+.account-container .account-box .login-box button:hover,
+.account-container .account-box .register-box button:hover {
+  background-color: #A26D5D;
+  border-color: #363131;
+  cursor: pointer;
+}
+.account-container .vl {
+  border-left: 3px solid rgba(212, 199, 199, 0.7607843137);
+  height: 425px;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
+.account-container .no-account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 175px;
+}
+.account-container .no-account-container h1 {
+  font-family: Times New Roman, Serif, serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+.account-container .no-account-container .register-btn {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 
 .signIn-btn {
   background-color: #ccb1a7;
@@ -79,6 +92,7 @@
   font-family: Times New Roman, Serif, serif;
   font-size: 16px;
   padding: 10px 10px;
-  border-radius: 5px; }
+  border-radius: 5px;
+}
 
 /*# sourceMappingURL=AccountPage.css.map */

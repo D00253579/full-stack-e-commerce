@@ -68,7 +68,10 @@
     padding-right: 20px;
     padding-top: 90px
   }
-
+  .cart-controls {
+    display:flex;
+    justify-content: flex-end;
+  }
   .checkout-buttons > button {
     background-color: #ccb1a7;
     border: 2px solid $white;
