@@ -7,7 +7,6 @@ import axios from "axios";
 import {SERVER_HOST} from "../config/global_constants";
 import MainPageData from "./MainPageData";
 
-
 export default class MainPage extends Component {
     constructor(props) {
         super(props)

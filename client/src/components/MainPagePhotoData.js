@@ -32,9 +32,9 @@ export default class MainPagePhotoData extends Component{
     }
 render(){
 return(
-    <div className={"tshirts-rows"}>
-
-        {this.props.products.photos.map(photo => <button onClick={this.handleReturn}><img key={photo._id}  id={photo._id} alt={""} /></button>)}
+    <div>
+        {/*Used ChatGPT to troubleshoot because I didn't know how to give each individual photo a className by the photo id and was getting an error due to the photoID starting with an integer*/}
+        {this.props.products.photos.map(photo => <img className={`photo-${photo._id}`} key={photo._id}  id={photo._id} alt={""} onClick={this.handleReturn}/>)}
         {this.state.redirectToTShirtView ? <Redirect to={`/TShirtView/${this.props.products._id}`}/> : null }
            
            </div>
