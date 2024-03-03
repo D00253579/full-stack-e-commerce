@@ -28,11 +28,11 @@ export default class Sorts extends Component {
                 <div className="filter-dropdown-menu">
 
                     <label className="filter-checkboxes">
-                        High > Low
+                        Price High > Low
                         <button onClick={this.sortHigh}>&#x2191;&#x2193;</button>
                     </label>
                     <label className="filter-checkboxes">
-                        Low > High
+                        Price Low > High
                         <button onClick={this.sortLow}>&#x2193;&#x2191;</button>
                     </label>
 

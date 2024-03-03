@@ -282,30 +282,6 @@ body {
   font-weight: bold;
 }
 
-/*
-     Sort image and button
- */
-
-.sort-icon > img {
-  width: 30px;
-  height: 30px;
-}
-
-.sort-button > h1 {
-  font-size: 18px;
-  font-family: Times New Roman, Serif, serif;
-
-}
-
-.sort-button {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
-
-/*
-   End of sort
- */
 
 #profilePhoto {
   width: 100px;
@@ -331,7 +307,7 @@ body {
 .sort-box {
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
+  margin-bottom: 1900px;
 }
 
 .filter-box {

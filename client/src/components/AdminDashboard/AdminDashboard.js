@@ -98,8 +98,6 @@ export default class AdminDashboard extends Component {
                     <div className="side-menu">
                         <AdminMenu/>
                     </div>
-
-
                     <div className={"sort-box"}>
                         <div className={"sort-button"}>
                             <h1>SORT</h1>

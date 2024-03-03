@@ -1,17 +1,19 @@
 .sort-container {
-  margin-top: 30px;
-  display: flex;
+  margin-left: 50px;
+  margin-top: 20px;
   /* Styling for filter dropdown menus */ }
+  .sort-container.open {
+    display: block; }
   .sort-container .sort-buttons {
     margin: 10px;
     display: flex;
     justify-content: center; }
   .sort-container .sort-dropdown.open .sort-dropdown-menu {
-    display: flex; }
+    display: block; }
   .sort-container .sort-dropdown-menu {
+    float: right;
     display: none;
-    top: 0;
-    left: 100%;
+    width: 100%;
     padding: 10px; }
   .sort-container .sort-dropdown-menu label {
     display: flex;
@@ -22,7 +24,6 @@
   .sort-container .sort-dropdown-toggle {
     width: 100%;
     background-color: #ccb1a7;
-    /*  Change the color of the buttons for the filters here caitlin , hover is below this*/
     border: 1px solid #ffffff;
     border-radius: 3px;
     padding: 8px 12px;
@@ -62,19 +63,15 @@
   Filter image and button
  */
 .sort-button {
-  display: flex;
-  padding-left: 20px;
-  align-items: center;
-  flex-direction: column;
-  position: relative; }
-
-.sort-button > h1 {
-  font-size: 18px;
-  font-family: Times New Roman, Serif, serif;
-  margin-left: 200px; }
+  position: relative;
+  display: inline-flex;
+  align-items: center; }
+  .sort-button h1 {
+    font-size: 18px;
+    font-family: Times New Roman, Serif, serif;
+    margin-left: 20px; }
 
 .sort-icon {
-  position: absolute;
   margin-top: 25px;
   margin-right: 10px; }
 
@@ -82,9 +79,7 @@
   cursor: pointer; }
 
 .sort-icon > img {
-  width: 45px;
-  height: 45px;
-  margin-left: 85px;
-  position: absolute; }
+  width: 35px;
+  height: 35px; }
 
 /*# sourceMappingURL=Sort.css.map */

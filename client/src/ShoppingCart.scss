@@ -1,16 +1,4 @@
 @import "Main.scss";
- .shopping-bag-head-container {
-    position: fixed;
-    padding-top: 0;
-  }
-
-  .bag-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 150px;
-    padding-bottom: 100px;
-  }
 
 .shopping-bag-head-container {
   position: fixed;
@@ -25,16 +13,12 @@
   padding-bottom: 100px;
 }
 
-
-
 /* Box shadow from w3 schools*/
 .bag-box {
   width: 700px;
   height: 450px;
   border-radius: 5px;
   box-shadow: 20px 20px 50px grey;
-
-
   border-color: #A26D5D;
   border-style: outset;
   overflow: scroll;
@@ -51,36 +35,13 @@
 .bag-box h2 {
   font-size: 16px;
   font-family: Times New Roman, Serif, serif;
-  //padding-left: 20px;
 }
 
 .edit-bag {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-
-.edit-bag > h2{
-  margin-bottom: 150px;
-}
-
-//.edit-bag > h2 {
-//  padding-left: 300px;
-//  padding-bottom: 120px;
-//}
-
-.bag > h1 {
-  margin: 0;
-  font-size: $title_font_size;
-  font-family: $title_font;
-}
-
-.bag > h2 {
-  font-size: $title_font_size;
-  font-family: $title_font;
-  padding-left: 20px;
-
+  padding-bottom: 80px;
 }
 
 .tshirt-container {
@@ -100,10 +61,8 @@
 .total-container {
   float: right;
   align-items: center;
-  //justify-content: flex-end;
   display: flex;
   flex-direction: column;
-  //padding-left: 500px;
 }
 
 .checkout-buttons {
@@ -139,7 +98,6 @@
   padding-right: 20px;
 }
 
-
 .tshirt-container, .edit-bag, .total-container {
   display: flex;
   align-items: center;
@@ -162,7 +120,6 @@
   display: flex;
   align-items: center;
   margin-top: 30px;
-  //margin-right: 60px;
 }
 
 .edit-quantity input {
@@ -195,10 +152,7 @@
   margin-left: 7.5px;
 }
 
-
-
 .minus-btn {
-
   margin-right: 7.5px;
 }
 
@@ -212,10 +166,6 @@
   @include basic-button-hover;
 }
 
-.test {
-
-}
-
 .tshirt-details > h3 {
   font-family: $title_font;
   font-size: 16px;
@@ -225,6 +175,6 @@
   margin-bottom: 20px;
 }
 
-.stock-container > h3 {
+.in-stock-container > h3 {
   color: #73af8a;
 }
