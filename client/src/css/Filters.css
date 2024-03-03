@@ -57,10 +57,9 @@
   transition: all 0.3s ease;
   text-decoration: none;
   font-family: Times New Roman, Serif, serif; }
-
-.filter-buttons > button:hover {
-  background-color: #A26D5D;
-  border-color: #363131; }
+  .filter-buttons > button:hover {
+    background-color: #A26D5D;
+    border-color: #363131; }
 
 /*
     Checkbox styling

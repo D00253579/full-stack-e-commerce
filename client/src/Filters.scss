@@ -73,11 +73,11 @@
   transition: all 0.3s ease;
   text-decoration: none;
   font-family: $title_font;
-}
 
-.filter-buttons > button:hover {
-  background-color: #A26D5D;
-  border-color: $grey-border;
+  &:hover {
+    background-color: #A26D5D;
+    border-color: $grey-border;
+  }
 }
 
 /*

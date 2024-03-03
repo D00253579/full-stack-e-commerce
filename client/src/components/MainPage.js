@@ -47,7 +47,11 @@ export default class MainPage extends Component {
     }
 
     showFilters = (e) => {
-        this.setState({displayFilters: !this.state.displayFilters})
+        if(!this.state.displayFilters){
+            this.setState({displayFilters: true})
+        }else{
+            this.setState({displayFilters: false})
+        }
     }
 
     showSort = (e) => {
@@ -105,11 +109,11 @@ export default class MainPage extends Component {
                             </div>
                         </div>
                         <MainPageData product={this.state.products}/>
-                        <div className="testing-return">
-                            <Link className="testing-red-button"
-                                  to={"/TestingDirectory`"}>RETURN
-                            </Link>
-                        </div>
+                        {/*<div className="testing-return">*/}
+                        {/*    <Link className="testing-red-button"*/}
+                        {/*          to={"/TestingDirectory`"}>RETURN*/}
+                        {/*    </Link>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
                 <footer>

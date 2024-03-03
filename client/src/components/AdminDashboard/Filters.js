@@ -109,16 +109,12 @@ export default class Filters extends Component {
         this.setState({price: 0.00}) // set price back to 0
         this.setState({current_stock: 0})
         this.props.updateProducts(this.props.defaultProducts) // display default products
-
-
     }
 
     render() {
         return (
 
                 <fieldset>
-
-
                     <div className={`filter-dropdown ${this.state.showDropdowns.gender ? "open" : ""}`}>
                         <button
                             className="filter-dropdown-toggle"

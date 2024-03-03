@@ -64,7 +64,6 @@
 
   }
 
-
 }
 
 /*
@@ -101,7 +100,11 @@
 }
 }
 
-
-.test{
-
+.signIn-btn{
+  background-color: #ccb1a7;
+  border: 2px solid $white;
+  font-family: $title-font;
+  font-size: 16px;
+  padding: 10px 10px;
+  border-radius: 5px;
 }

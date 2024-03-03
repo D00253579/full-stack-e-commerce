@@ -6,41 +6,6 @@ body {
 .admin-container {
   display: flex; }
 
-/* AdminControls */
-/*
-.controls-container {
-  height: 100px;
-  margin: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-
-  /* Button style */
-/*
-  .controls-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: $title_font_size;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: black;
-    background-color: #ccb1a7;
-    border: 2px solid $white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    margin-right: 10px;
-    font-family: $title_font;
-  }
-
-  .controls-button:hover {
-    background-color: #A26D5D;
-    border-color: $grey-border;
-  }
-}
-*/
 /* AdminTable */
 .admin-head-container {
   padding-bottom: 75px; }
@@ -167,7 +132,6 @@ body {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg); }
 
-/* */
 /*
   Add product styling
  */
@@ -263,5 +227,41 @@ body {
   margin-top: 50px;
   right: 0;
   padding: 10px; }
+
+/* AdminControls */
+/*
+.controls-container {
+  height: 100px;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  /* Button style */
+/*
+  .controls-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: $title_font_size;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    background-color: #ccb1a7;
+    border: 2px solid $white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-right: 10px;
+    font-family: $title_font;
+  }
+
+  .controls-button:hover {
+    background-color: #A26D5D;
+    border-color: $grey-border;
+  }
+}
+*/
 
 /*# sourceMappingURL=Admin.css.map */

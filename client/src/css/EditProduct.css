@@ -58,7 +58,14 @@
       border-color: #363131;
       cursor: pointer; }
   .form-controls .submit-button {
-    width: 60%; }
+    padding-top: 5px;
+    width: 50px;
+    height: 45px;
+    background-color: #c5a790;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    color: black; }
     .form-controls .submit-button input:hover {
       cursor: pointer; }
 
@@ -84,6 +91,19 @@
 
 .filter-checkboxes {
   margin-right: 10px; }
+
+.switch-btn {
+  background-color: #c5a790;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+  color: black;
+  padding: 5px 7px; }
+
+.switch-btn:hover {
+  background-color: #A26D5D;
+  border-color: #363131;
+  cursor: pointer; }
 
 /*
     Edit product page
