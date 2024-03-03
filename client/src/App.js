@@ -15,6 +15,7 @@ import "./css/TShirtLayout.css"
 import "./css/CreateProduct.css"
 import "./css/EditProduct.css"
 import "./AdminMenu.scss"
+import "./Sort.scss"
 import TShirtView from "./components/TShirtView";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";

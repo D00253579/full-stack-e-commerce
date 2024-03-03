@@ -164,17 +164,19 @@
   font-family: Times New Roman, Serif, serif;
   margin-left: 200px;
 }
-
+.sort-icon,
 .filter-icon{
   position: absolute;
   margin-top: 25px;
   margin-right: 10px;
 }
 
+.sort-icon:hover,
 .filter-icon:hover {
   cursor: pointer;
 }
 
+.sort-icon > img,
 .filter-icon > img {
   width: 45px;
   height: 45px;
