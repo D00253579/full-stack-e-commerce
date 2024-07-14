@@ -5,64 +5,55 @@
   /*
       Creating a horizontal line
       https://stackoverflow.com/questions/14821087/horizontal-line-and-right-way-to-code-it-in-html-css
-   */
-}
-.menu-container h1 {
-  color: black;
-  font-family: Times New Roman, Serif, serif;
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 85px;
-  margin-left: 50px;
-}
-.menu-container .hl {
-  display: block;
-  height: 3px;
-  border: 0;
-  border-top: 3px solid rgba(212, 199, 199, 0.7607843137);
-  margin-bottom: 20px;
-  padding: 0;
-  width: 100%;
-  position: relative;
-}
-.menu-container .sub-titles {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-}
-.menu-container .sub-titles h2 {
-  font-family: Times New Roman, Serif, serif;
-  font-size: 16px;
-  font-weight: normal;
-  font-size: 18px;
-  font-weight: normal;
-  padding-bottom: 50px;
-}
-.menu-container button {
-  background-color: #ffffff;
-  border: 2px solid #363131;
-  font-family: Times New Roman, Serif, serif;
-  font-size: 16px;
-  padding: 5px 7px;
-  width: 100px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.menu-container button:hover {
-  background-color: #A26D5D;
-  border-color: #363131;
-  cursor: pointer;
-}
-.menu-container .controls-button {
-  text-decoration: none;
-  color: black;
-}
-.menu-container .admin-logout-btn-container {
-  padding-left: 50px;
-}
+   */ }
+  .menu-container h1 {
+    color: black;
+    font-family: Times New Roman, Serif, serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 85px;
+    margin-left: 50px; }
+  .menu-container .hl {
+    display: block;
+    height: 3px;
+    border: 0;
+    border-top: 3px solid #d4c7c7c2;
+    margin-bottom: 20px;
+    padding: 0;
+    width: 100%;
+    position: relative; }
+  .menu-container .sub-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; }
+    .menu-container .sub-titles h2 {
+      font-family: Times New Roman, Serif, serif;
+      font-size: 16px;
+      font-weight: normal;
+      font-size: 18px;
+      font-weight: normal;
+      padding-bottom: 50px; }
+  .menu-container button {
+    background-color: #ffffff;
+    border: 2px solid #363131;
+    font-family: Times New Roman, Serif, serif;
+    font-size: 16px;
+    padding: 5px 7px;
+    width: 100px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .menu-container button:hover {
+    background-color: #A26D5D;
+    border-color: #363131;
+    cursor: pointer; }
+  .menu-container .controls-button {
+    text-decoration: none;
+    color: black; }
+  .menu-container .admin-logout-btn-container {
+    padding-left: 50px; }
 
 /*# sourceMappingURL=AdminMenu.css.map */

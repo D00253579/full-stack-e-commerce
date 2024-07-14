@@ -2,57 +2,47 @@
   background-color: #efe6e6;
   width: 100%;
   border-radius: 2px;
-  border: solid rgba(212, 199, 199, 0.7607843137);
-  display: flex;
-}
+  border: solid #d4c7c7c2;
+  display: flex; }
 
 .footer-container > h2 {
   font-weight: bold;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .help-section > h2,
 .link-section > h2 {
   font-family: Times New Roman, Serif, serif;
-  font-size: 18px;
-}
+  font-size: 18px; }
 
 .link-section > h2 {
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .help-section,
 .link-section > h3 {
   font-family: Times New Roman, Serif, serif;
-  font-size: 12px;
-}
+  font-size: 12px; }
 
 .facebook-image, .instagram-image {
   width: 45px;
   height: 45px;
-  margin-right: 10px;
-}
+  margin-right: 10px; }
 
 .snapchat-image {
   height: 80px;
-  margin-right: 10px;
-}
+  margin-right: 10px; }
 
 .help-section {
   display: flex;
   flex-direction: column;
-  margin-left: 65px;
-}
+  margin-left: 65px; }
 
 .link-section, .social-media-icons {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 
 .link-section {
-  margin-left: 250px;
-}
+  margin-left: 250px; }
 
 /*
     Copyright symbol
@@ -64,12 +54,10 @@
   height: 30px;
   border-radius: 2px;
   border: solid #d4cbcb;
-  display: flex;
-}
+  display: flex; }
 
 .copyright-section > span {
   margin-left: 65px;
-  font-family: Times New Roman, Serif, serif;
-}
+  font-family: Times New Roman, Serif, serif; }
 
 /*# sourceMappingURL=Footer.css.map */

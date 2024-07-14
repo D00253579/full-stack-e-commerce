@@ -1,0 +1,33 @@
+$white: #ffffff;
+$grey-border: #363131;
+$sub-colour: #c5a790;
+
+$title_font_size: 16px;
+$title_font: Times New Roman, Serif, serif;
+
+@mixin important-titles {
+  color: black;
+  font-family: Times New Roman, Serif, serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@mixin normal-text {
+  font-family: Times New Roman, Serif, serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+@mixin basic-button($white) {
+  background-color: $sub-colour;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: white;
+}
+
+@mixin basic-button-hover {
+  background-color: #A26D5D;
+  border-color: $grey-border;
+  cursor: pointer;
+}
+

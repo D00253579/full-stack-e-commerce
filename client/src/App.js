@@ -14,7 +14,7 @@ import "./css/Main.css"
 import "./css/TShirtLayout.css"
 import "./css/CreateProduct.css"
 import "./css/EditProduct.css"
-import "./AdminMenu.scss"
+import "./scss/AdminMenu.scss"
 import TShirtView from "./components/TShirtView";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
