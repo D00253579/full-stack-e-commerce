@@ -5,7 +5,7 @@ import {SERVER_HOST} from "../../config/global_constants";
 import axios from "axios";
 import Footer from "../Footer";
 import MainPage from "../MainPage";
-
+import AdminMenu from "./AdminMenu";
 
 export default class CreateProduct extends Component {
 
@@ -336,7 +336,7 @@ export default class CreateProduct extends Component {
             <div>
 
                 {this.state.redirectToDashboard ? <Redirect to={"/AdminDashboard/AdminDashboard"}/> : null }
-
+                <div className="admin-container">
                 <div className="admin-head-container" id="top-of-form">
                     <NavBar/>
                 </div>
@@ -685,6 +685,7 @@ export default class CreateProduct extends Component {
                             </div>
                         </form>
                     </div>
+                </div>
                 <footer>
                     <Footer/>
                 </footer>

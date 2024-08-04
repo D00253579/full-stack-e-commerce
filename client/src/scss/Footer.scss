@@ -6,6 +6,8 @@
   border-radius: 2px;
   border: solid #d4c7c7c2;
   display: flex;
+  z-index: 2;
+  position: relative;
 }
 
 .footer-container > h2{
