@@ -1,0 +1,42 @@
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .main-content {
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .sort-box,
+  .filter-box {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .sort-button{
+    margin-top: 20px;
+    margin-right: 1000px;
+  }
+
+  .filter-button{
+    padding-bottom:1000px;
+  }
+
+  .sort-button,
+  .filter-button {
+
+    h1 {
+      margin-right: 10px;
+    }
+
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+}
+
