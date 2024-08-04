@@ -1,95 +1,81 @@
 .register-head-container {
   position: fixed;
-  padding-top: 0;
-}
+  padding-top: 0; }
 
 .register-container {
   display: flex;
   justify-content: center;
   padding-top: 120px;
-  padding-bottom: 100px;
-}
-.register-container .register-page-box {
-  width: 700px;
-  height: 450px;
-  border-radius: 5px;
-  box-shadow: 20px 20px 50px grey;
-  border-color: #A26D5D;
-  border-style: outset;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.register-container .register-page-box h1 {
-  display: flex;
-  justify-content: center;
-  color: black;
-  font-family: Times New Roman, Serif, serif;
-  font-size: 24px;
-  font-weight: bold;
-}
-.register-container .register-page-box .register-form {
-  display: flex;
-  flex-direction: row;
-  /*
-     Register Section 1 contents
-   */
-}
-.register-container .register-page-box .register-form .register-section1 {
-  padding-right: 40px;
-}
-.register-container .register-page-box .register-form .register-section1 .submit-btn {
-  background-color: #c5a790;
-  border: 2px solid white;
-  border-radius: 5px;
-  color: white;
-  font-family: Times New Roman, Serif, serif;
-  font-size: 16px;
-  font-weight: normal;
-  font-size: 16px;
-  padding: 5px 7px;
-  border-radius: 5px;
-  color: black;
-}
-.register-container .register-page-box .register-form .register-section1 .submit-btn:hover {
-  background-color: #A26D5D;
-  border-color: #363131;
-  cursor: pointer;
-}
-.register-container .register-page-box .register-form .register-section2 {
-  padding-left: 40px;
-}
+  padding-bottom: 100px; }
+  .register-container .register-page-box {
+    width: 700px;
+    height: 450px;
+    border-radius: 5px;
+    box-shadow: 20px 20px 50px grey;
+    border-color: #A26D5D;
+    border-style: outset;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .register-container .register-page-box h1 {
+      display: flex;
+      justify-content: center;
+      color: black;
+      font-family: Times New Roman, Serif, serif;
+      font-size: 24px;
+      font-weight: bold; }
+    .register-container .register-page-box .register-form {
+      display: flex;
+      flex-direction: row;
+      /*
+         Register Section 1 contents
+       */ }
+      .register-container .register-page-box .register-form .register-section1 {
+        padding-right: 40px; }
+        .register-container .register-page-box .register-form .register-section1 .submit-btn {
+          background-color: #c5a790;
+          border: 2px solid white;
+          border-radius: 5px;
+          color: white;
+          font-family: Times New Roman, Serif, serif;
+          font-size: 16px;
+          font-weight: normal;
+          font-size: 16px;
+          padding: 5px 7px;
+          border-radius: 5px;
+          color: black; }
+          .register-container .register-page-box .register-form .register-section1 .submit-btn:hover {
+            background-color: #A26D5D;
+            border-color: #363131;
+            cursor: pointer; }
+      .register-container .register-page-box .register-form .register-section2 {
+        padding-left: 40px; }
 
 .error-message {
   text-align: left;
   font-size: 14px;
   color: red;
-  padding: 10px;
-}
+  padding: 10px; }
 
 .password-error-container div {
   text-align: left;
   font-size: 15px;
   color: red;
-  padding: 5px;
-}
+  padding: 5px; }
 
 .logout {
-  margin-bottom: 30px;
-}
+  margin-bottom: 30px; }
 
 .register-btn-container {
   position: absolute;
   bottom: 20px;
-  left: 20px;
-}
+  left: 20px; }
 
 .submit-btn-container {
   position: absolute;
   bottom: 25px;
-  right: 20px;
-}
+  right: 20px; }
 
 .select-profile-image {
   display: flex;
@@ -98,42 +84,36 @@
   bottom: 0;
   left: 0;
   margin-bottom: 80px;
-  margin-left: 40px;
-}
-.select-profile-image label {
-  font-size: 16px;
-  font-family: Times New Roman, Serif, serif;
-}
+  margin-left: 40px; }
+  .select-profile-image label {
+    font-size: 16px;
+    font-family: Times New Roman, Serif, serif; }
 
 .vl {
-  border-left: 3px solid rgba(212, 199, 199, 0.7607843137);
+  border-left: 3px solid #d4c7c7c2;
   height: 360px;
   left: 50%;
   margin-left: -3px;
-  top: 0;
-}
+  top: 0; }
 
 .register-section1 > label,
 .register-section2 > label {
   font-size: 16px;
-  font-family: Times New Roman, Serif, serif;
-}
+  font-family: Times New Roman, Serif, serif; }
 
 .register-section1,
 .register-section2 {
   padding: 50px;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
-.register-container input[type=text],
-.register-container input[type=email],
-.register-container input[type=password] {
+.register-container input[type="text"],
+.register-container input[type="email"],
+.register-container input[type="password"] {
   border-color: white;
   border-radius: 0;
   border-style: outset;
   height: 20px;
-  width: 250px;
-}
+  width: 250px; }
 
 .cancel-btn {
   background-color: #c5a790;
@@ -143,12 +123,10 @@
   font-size: 16px;
   padding: 5px 7px;
   border-radius: 5px;
-  color: black;
-}
-.cancel-btn:hover {
-  background-color: #A26D5D;
-  border-color: #363131;
-  cursor: pointer;
-}
+  color: black; }
+  .cancel-btn:hover {
+    background-color: #A26D5D;
+    border-color: #363131;
+    cursor: pointer; }
 
 /*# sourceMappingURL=RegisterPage.css.map */

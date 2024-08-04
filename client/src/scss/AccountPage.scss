@@ -1,0 +1,110 @@
+@import "Main";
+
+
+.account-head-container {
+  position: fixed;
+  padding-top: 0;
+}
+
+.account-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .account-box {
+    width: 700px;
+    height: 450px;
+    border-radius: 5px;
+    box-shadow: 20px 20px 50px grey;
+    border-color: #A26D5D;
+    border-style: outset;
+    display: flex;
+    align-items: center;
+
+  .login-box,
+  .register-box {
+    padding: 70px;
+
+    h1 {
+      font-family: Times New Roman, Serif, serif;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: normal;
+      font-family: Times New Roman, Serif, serif;
+    }
+
+    input {
+      border-color: white;
+      border-radius: 0;
+      border-style: outset;
+      height: 20px;
+      width: 200px;
+    }
+
+    button {
+      background-color: #ccb1a7;
+      border: 2px solid $white;
+      font-family: $title-font;
+      font-size: 16px;
+      padding: 5px 7px;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #A26D5D;
+      border-color: $grey-border;
+      cursor: pointer;
+    }
+
+  }
+
+}
+
+/*
+    A vertical line between the login section and the register/guest
+    https://www.w3schools.com/howto/howto_css_vertical_line.asp
+ */
+
+.vl {
+  border-left: 3px solid #d4c7c7c2;
+  height: 425px;
+  //position: relative;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
+
+
+.no-account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 175px;
+
+  h1 {
+    font-family: Times New Roman, Serif, serif;
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .register-btn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+}
+
+.signIn-btn{
+  background-color: #ccb1a7;
+  border: 2px solid $white;
+  font-family: $title-font;
+  font-size: 16px;
+  padding: 10px 10px;
+  border-radius: 5px;
+}

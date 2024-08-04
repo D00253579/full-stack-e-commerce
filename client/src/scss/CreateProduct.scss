@@ -1,0 +1,119 @@
+@import "Main";
+
+
+.admin-create-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  position: relative;
+  padding-left: 450px;
+
+  h1 {
+    @include important-titles;
+    position: absolute;
+    margin-bottom: 1000px;
+  }
+
+  .create-form {
+    border-radius: 5px;
+    box-shadow: 20px 20px 50px grey;
+    border-color: #A26D5D;
+    border-style: outset;
+    background-color: #efe6e6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    width: 500px;
+  }
+
+  .label {
+    @include normal-text;
+    font-size: 18px;
+  }
+
+  input {
+    display: flex;
+    justify-content: center;
+    border-color: white;
+    border-radius: 0;
+    border-style: outset;
+    height: 15px;
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.form-controls {
+  display: flex;
+  justify-content: center;
+
+  button {
+    @include basic-button($white);
+    padding: 5px 7px;
+    color: black;
+    border-color: white;
+    margin: 5px 60px;
+
+    &:hover {
+      @include basic-button-hover;
+    }
+  }
+  .submit-button {
+    padding-top: 5px;
+    width:50px;
+    height: 45px;
+    @include basic-button(white);
+    color: black;
+
+    input:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.size-selector {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  .size-option input {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+  }
+
+  .size-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+  }
+}
+
+.form-label {
+  font-weight: normal;
+}
+
+.filter-checkboxes {
+  margin-right: 10px;
+}
+
+.switch-btn{
+  @include basic-button(white);
+  color: black;
+  padding: 5px 7px;
+}
+
+.switch-btn:hover{
+  @include basic-button-hover;
+}

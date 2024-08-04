@@ -5,7 +5,7 @@ import Navbar from "../NavBar"
 import AdminUserView from "./AdminUserView";
 import AdminMenu from "./AdminMenu";
 import Footer from "../Footer";
-import UserTable from "../../UserTable.scss"
+import UserTable from "../../scss/UserTable.scss"
 
 export default class ViewUsers extends Component {
 

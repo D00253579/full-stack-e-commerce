@@ -14,10 +14,10 @@ import "./css/Main.css"
 import "./css/TShirtLayout.css"
 import "./css/CreateProduct.css"
 import "./css/EditProduct.css"
-import "./AdminMenu.scss"
-import "./Sort.scss"
-import "./UserTable.scss"
-import "./MainPage.scss"
+import "./css/AdminMenu.css"
+import "./css/Sort.css"
+import "./css/UserTable.css"
+import "./css/MainPage.css"
 import TShirtView from "./components/TShirtView";
 import NavBar from "./components/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";

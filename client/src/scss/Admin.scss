@@ -1,0 +1,321 @@
+@import "Main";
+
+body {
+  background-color: #efe6e6;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.admin-container {
+  display: flex;
+}
+
+/* AdminTable */
+
+.admin-head-container {
+  padding-bottom: 75px;
+}
+
+.admin-body-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.admin-table-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 400px;
+  margin-top: 80px;
+  margin-left: 40px;
+
+  .admin-table-container table {
+    padding: 15px;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: 2px solid $grey-border;
+    border-radius: 5px;
+  }
+}
+.test {
+
+}
+
+.admin-table-container thead {
+  background-color: #A26D5D;
+  color: $white;
+  border-color: $white;
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: bold;
+  font-family: $title_font;
+}
+
+.admin-table-container thead :hover {
+  border-color: $grey-border;
+}
+
+.admin-table thead th,
+.admin-table-container tbody td {
+  padding: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.admin-table-container tbody tr {
+  border-bottom: 1px solid $grey-border;
+  background-color: $white;
+  position: relative;
+}
+
+.admin-table-container tbody tr:hover {
+  background-color: #e5e3e3;
+  transition: background-color 0.6s ease;
+}
+
+.admin-table-container tbody tr:hover td {
+  color: transparent;
+  cursor: pointer;
+}
+
+.admin-table-container tbody tr:hover::after {
+  content: "\1F50D";
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+
+.admin-table-container table {
+  border-color: $grey-border;
+  border-radius: 5px;
+}
+
+.sortLabel:hover {
+  cursor: pointer;
+}
+
+/*
+  Checkbox styling
+
+ */
+
+.filter-checkboxes {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.filter-checkboxes input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+}
+
+.filter-checkboxes:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.filter-checkboxes:checked ~ .checkmark {
+  background-color: #363131;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.filter-checkboxes input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.filter-checkboxes .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #363131;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*
+  Add product styling
+ */
+.apply-button {
+  margin-top: 20px;
+}
+
+.apply-button button {
+  background-color: #007bff;
+  color: $white;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button button:hover {
+  background-color: #0056b3;
+}
+
+
+/*
+  Error container
+ */
+
+.err-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.err-container div {
+  width: 80%;
+
+}
+
+.err {
+  color: red;
+  font-size: 14px;
+}
+
+
+.err-container div {
+  width: 80%;
+
+}
+
+.err {
+  color: red;
+  font-size: 14px;
+}
+
+.address-input input.invalid-input,
+.create-input input.invalid-input,
+.edit-input input.invalid-input {
+  border: 2px solid red;
+}
+
+.size-selector.invalid-input {
+  border: 2px solid red;
+}
+
+
+.testing-link-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  padding: 20px;
+  border: black solid 2px;
+}
+
+.testing-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.red-text {
+  color: red;
+  font-weight: bold;
+}
+
+
+#profilePhoto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+/*
+    Admin side bar menu
+ */
+.side-menu {
+  width: 200px;
+  background-color: #ccb1a7;
+  top: 0;
+  bottom: 0;
+  padding: 20px;
+  z-index: 1;
+}
+
+/*
+   Position sort and filter beside eachother
+ */
+.sort-box {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1900px;
+}
+
+.filter-box {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  right: 0;
+  padding: 10px;
+}
+
+/* AdminControls */
+/*
+.controls-container {
+  height: 100px;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  /* Button style */
+/*
+  .controls-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: $title_font_size;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    background-color: #ccb1a7;
+    border: 2px solid $white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-right: 10px;
+    font-family: $title_font;
+  }
+
+  .controls-button:hover {
+    background-color: #A26D5D;
+    border-color: $grey-border;
+  }
+}
+*/
