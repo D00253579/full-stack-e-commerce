@@ -1,13 +1,11 @@
 body {
-  background-color: #efe6e6;
-  margin: 0;
-  min-height: 100vh; }
+  background-color: #efe6e6; }
 
 .admin-container {
-  display: flex; }
+  display: flex;
+  flex-direction: row; }
 
 /* AdminControls */
-/*
 .controls-container {
   height: 100px;
   margin: 20px;
@@ -15,53 +13,49 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  /* Button style */
-/*
-  .controls-button {
+  /* Button style */ }
+  .controls-container .controls-button {
     display: inline-block;
     padding: 10px 20px;
-    font-size: $title_font_size;
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     color: black;
     background-color: #ccb1a7;
-    border: 2px solid $white;
+    border: 2px solid #ffffff;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
     margin-right: 10px;
-    font-family: $title_font;
-  }
-  .controls-button:hover {
+    font-family: Times New Roman, Serif, serif; }
+  .controls-container .controls-button:hover {
     background-color: #A26D5D;
-    border-color: $grey-border;
-  }
-}
-*/
+    border-color: #363131; }
+
 /* AdminTable */
 .admin-head-container {
   padding-bottom: 75px; }
 
 .admin-body-container {
+  flex: 1;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
+  flex-direction: column; }
 
 .admin-table-container {
   display: flex;
   justify-content: center;
   border-radius: 5px;
+  margin-left: 20px;
   margin-bottom: 400px;
-  margin-top: 80px;
-  margin-left: 40px; }
+  margin-top: 80px; }
   .admin-table-container .admin-table-container table {
-    padding: 30px;
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     border: 2px solid #363131;
-    border-radius: 5px; }
+    border-radius: 5px;
+    flex: 1; }
 
 .admin-table-container thead {
   background-color: #A26D5D;
@@ -77,7 +71,7 @@ body {
 
 .admin-table thead th,
 .admin-table-container tbody td {
-  padding: 20px;
+  padding: 10px;
   font-size: 16px;
   text-align: center; }
 
@@ -233,6 +227,12 @@ body {
 /*
      Sort image and button
  */
+.sort-box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 30px; }
+
 .sort-icon > img {
   width: 30px;
   height: 30px; }
@@ -243,8 +243,7 @@ body {
 
 .sort-button {
   display: flex;
-  flex-direction: column;
-  margin-left: 20px; }
+  flex-direction: column; }
 
 /*
    End of sort
@@ -259,38 +258,12 @@ body {
  */
 .side-menu {
   width: 200px;
-  background-color: #ccb1a7;
-  top: 0;
-  bottom: 0;
-  padding: 20px;
-  z-index: 1; }
+  background-color: #ccb1a7; }
 
 /*
-   Position sort and filter beside eachother
+   Filters container on the right
  */
-.sort-box {
-  display: flex;
-  flex-direction: row;
-  margin-top: 50px; }
-
 .filter-box {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-  right: 0;
-  padding: 10px; }
-
-/*
-    User table
- */
-/*
-.user-table {
-  .user-table table {
-    padding: 30px;
-    width: 100%;
-  }
-}
-*/
+  width: 200px; }
 
 /*# sourceMappingURL=Admin.css.map */

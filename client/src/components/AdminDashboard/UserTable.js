@@ -1,6 +1,5 @@
 import React, {Component} from "react"
 import UserTableRow from "./UserTableRow";
-
 export default class UserTable extends Component
 {
     constructor(props) {
@@ -69,7 +68,7 @@ export default class UserTable extends Component
     render()
     {
         return (
-            <table className="user-table">
+            <table className="admin-table">
                 <thead>
                 <tr>
                     <th>Name <label className="sortLabel" onClick={this.sortName}><span id="nameSort">{!this.state.nameIsAscending ? '\u25B4' : '\u25BE'} </span></label></th>

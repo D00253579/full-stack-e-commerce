@@ -15,7 +15,7 @@ export default class AdminMenu extends Component {
                         <div className="hl"></div>
                         <div className="sub-titles">
                             <h2>PROFILE</h2>
-                            <Link className="controls-button" to={"/AdminDashboard/AdminDashboard"}>
+                            <Link className="controls-button" to={"/AdminDashboard/AdminTable"}>
                                 <h2>PRODUCTS</h2>
                             </Link>
                             <Link className="controls-button" to={"/AdminDashboard/CreateProduct"}>

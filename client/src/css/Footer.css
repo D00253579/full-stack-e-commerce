@@ -3,9 +3,7 @@
   width: 100%;
   border-radius: 2px;
   border: solid #d4c7c7c2;
-  display: flex;
-  z-index: 2;
-  position: relative; }
+  display: flex; }
 
 .footer-container > h2 {
   font-weight: bold;

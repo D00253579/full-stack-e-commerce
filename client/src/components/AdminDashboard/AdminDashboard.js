@@ -11,6 +11,7 @@ import FilterImage from "../../Images/FilterImage.png";
 import SortImage from "../../Images/SortIcon.png";
 import AdminMenu from "./AdminMenu";
 
+
 export default class AdminDashboard extends Component {
 
     constructor(props) {
@@ -94,23 +95,6 @@ export default class AdminDashboard extends Component {
                             <i className={"sort-icon"}>
                                 <img src={SortImage} alt="sort"/>
                             </i>
-                        </div>
-                    </div>
-                    <div className={"filter-box"}>
-                        <div className={"filter-button"}>
-                            <h1>FILTER</h1>
-                            <i className={"filter-icon"}>
-                                <img src={FilterImage} alt="filter" onClick={this.showFilters}/>
-                            </i>
-                            {this.state.displayFilters && (
-                                <div className="filter-container">
-                                    <Filters
-                                        updateProducts={this.updateProducts}
-                                        products={this.state.products}
-                                        defaultProducts={this.state.defaultProducts}
-                                    />
-                                </div>
-                            )}
                         </div>
                     </div>
                     {/*<AdminControls/>*/}

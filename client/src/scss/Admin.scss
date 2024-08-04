@@ -2,17 +2,14 @@
 
 body {
   background-color: #efe6e6;
-  margin: 0;
-  min-height:100vh;
 }
 
 .admin-container {
   display: flex;
-
+  flex-direction: row;
 }
 
 /* AdminControls */
-/*
 .controls-container {
   height: 100px;
   margin: 20px;
@@ -20,8 +17,8 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+
   /* Button style */
-/*
   .controls-button {
     display: inline-block;
     padding: 10px 20px;
@@ -38,12 +35,12 @@ body {
     margin-right: 10px;
     font-family: $title_font;
   }
+
   .controls-button:hover {
     background-color: #A26D5D;
     border-color: $grey-border;
   }
 }
-*/
 
 /* AdminTable */
 
@@ -52,26 +49,26 @@ body {
 }
 
 .admin-body-container {
+  flex: 1;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .admin-table-container {
   display: flex;
   justify-content: center;
   border-radius: 5px;
+  margin-left: 20px;
   margin-bottom: 400px;
-  margin-top: 80px;
-  margin-left: 40px;
+  margin-top:80px;
 
   .admin-table-container table {
-    padding: 30px;
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     border: 2px solid $grey-border;
     border-radius: 5px;
+    flex: 1;
   }
 }
 
@@ -91,7 +88,7 @@ body {
 
 .admin-table thead th,
 .admin-table-container tbody td {
-  padding: 20px;
+  padding: 10px;
   font-size: 16px;
   text-align: center;
 }
@@ -285,7 +282,12 @@ body {
      Sort image and button
  */
 
-
+.sort-box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 30px;
+}
 
 .sort-icon > img {
   width: 30px;
@@ -301,7 +303,6 @@ body {
 .sort-button {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
 }
 
 /*
@@ -319,41 +320,14 @@ body {
  */
 .side-menu {
   width: 200px;
+  //background-color: $sub-colour;
   background-color: #ccb1a7;
-  top: 0;
-  bottom: 0;
-  padding: 20px;
-  z-index: 1;
 }
 
 /*
-   Position sort and filter beside eachother
+   Filters container on the right
  */
-.sort-box {
-  display: flex;
-  flex-direction: row;
-  margin-top: 50px;
-}
 
 .filter-box {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-  right: 0;
-  padding: 10px;
+  width: 200px;
 }
-
-/*
-    User table
- */
-
-/*
-.user-table {
-  .user-table table {
-    padding: 30px;
-    width: 100%;
-  }
-}
-*/
-

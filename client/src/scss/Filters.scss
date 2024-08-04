@@ -3,8 +3,7 @@
 .filter-container {
   width: 300px;
   padding: 20px;
-  position: relative;
-  margin-top: 30px;
+
   .filter-buttons {
     margin: 10px;
     display: flex;
@@ -19,10 +18,9 @@
   .filter-dropdown-menu {
     display: none;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 100%;
     padding: 10px;
-
+    z-index: 1;
   }
 
   .filter-dropdown-menu label {
@@ -156,19 +154,11 @@
   padding-left: 20px;
   align-items: center;
   flex-direction: column;
-  position: relative;
 }
 
 .filter-button > h1 {
   font-size: 18px;
   font-family: Times New Roman, Serif, serif;
-  margin-left: 200px;
-}
-
-.filter-icon{
-  position: absolute;
-  margin-top: 25px;
-  margin-right: 10px;
 }
 
 .filter-icon:hover {
@@ -176,9 +166,13 @@
 }
 
 .filter-icon > img {
-  width: 45px;
-  height: 45px;
-  margin-left: 85px;
+  width: 30px;
+  height: 30px;
+}
+
+.filter-container {
+  width: 150px;
+  border: none;
   position: absolute;
 }
 
@@ -190,8 +184,9 @@
 
 .filter-box {
   display: flex;
-  flex-direction: column;
-  padding-left: 150px;
+  /*flex-direction: column;*/
+  align-items: center;
+ /* margin-left: auto;*/
 }
 
 /*
